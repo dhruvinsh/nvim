@@ -12,7 +12,16 @@ local function plugins(use)
   use ({'wbthomason/packer.nvim', opt=true}) -- Package manager
   use 'tpope/vim-fugitive' -- Git commands in nvim
   use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github
-  use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines
+  use({
+      "b3nj5m1n/kommentary",
+      opt = true,
+      wants = "nvim-ts-context-commentstring",
+      keys = { "gc", "gcc" },
+      config = function()
+        require("config.comments")
+      end,
+      requires = "JoosepAlviste/nvim-ts-context-commentstring",
+  })
   -- use 'ludovicchabant/vim-gutentags' -- Automatic tags management
   -- UI to select things (files, grep results, open buffers...)
   use { 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/popup.nvim' }, { 'nvim-lua/plenary.nvim' } } }
