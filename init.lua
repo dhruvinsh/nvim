@@ -1,6 +1,5 @@
-require("util")
-require("options")
+require("core")
 
 vim.defer_fn(function()
-  require("plugins")
+	require("plugins")
 end, 0)
