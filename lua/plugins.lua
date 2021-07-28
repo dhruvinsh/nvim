@@ -22,9 +22,29 @@ local function plugins(use)
       end,
       requires = "JoosepAlviste/nvim-ts-context-commentstring",
   })
-  -- use 'ludovicchabant/vim-gutentags' -- Automatic tags management
   -- UI to select things (files, grep results, open buffers...)
-  use { 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/popup.nvim' }, { 'nvim-lua/plenary.nvim' } } }
+  use({
+    "nvim-telescope/telescope.nvim",
+    opt = true,
+    config = function()
+      require("config.telescope")
+    end,
+    cmd = { "Telescope" },
+    module = "telescope",
+    keys = { "<leader><space>", "<leader>fz", "<leader>pp" },
+    wants = {
+      "plenary.nvim",
+      "popup.nvim",
+      -- "trouble.nvim",
+      "telescope-symbols.nvim",
+    },
+   requires = {
+      "nvim-lua/popup.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope-symbols.nvim",
+    },
+  })
+  -- Themes and statusline
   use ({'navarasu/onedark.nvim',
 	config=[[ require('onedark').setup() ]],
   }) -- Theme inspired by Atom
@@ -58,6 +78,7 @@ local function plugins(use)
     },
     config = [[require('config.treesitter')]],
   })
+
   use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
   use 'hrsh7th/nvim-compe' -- Autocompletion plugin
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
