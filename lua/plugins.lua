@@ -34,7 +34,10 @@ local function plugins(use)
   requires = {'kyazdani42/nvim-web-devicons', opt = true}
 }) -- Fancier statusline
   -- Add indentation guides even on blank lines
-  use 'lukas-reineke/indent-blankline.nvim'
+  use ({'lukas-reineke/indent-blankline.nvim',
+	  event="BufReadPre",
+	  config = [[ require('config.blankline') ]],
+  })
   -- Add git related info in the signs columns and popups
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   -- Highlight, edit, and navigate code using a fast incremental parsing library
