@@ -47,9 +47,17 @@ local function plugins(use)
       config = [[ require("config.gitsigns") ]],
   })
   -- Highlight, edit, and navigate code using a fast incremental parsing library
-  use 'nvim-treesitter/nvim-treesitter'
-  -- Additional textobjects for treesitter
-  use 'nvim-treesitter/nvim-treesitter-textobjects'
+  use({
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+    opt = true,
+    event = "BufRead",
+    requires = {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+      "RRethy/nvim-treesitter-textsubjects",
+    },
+    config = [[require('config.treesitter')]],
+  })
   use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
   use 'hrsh7th/nvim-compe' -- Autocompletion plugin
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
