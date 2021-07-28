@@ -6,15 +6,10 @@ local config = {
     enable = true,
     threshold = 0, -- the amount in ms that a plugins load time must be over for it to be included in the profile
   },
-  -- display = {
-  --   open_fn = function()
-  --     return require("packer.util").float({ border = "single" })
-  --   end,
-  -- },
 }
 
 local function plugins(use)
-  use 'wbthomason/packer.nvim' -- Package manager
+  use ({'wbthomason/packer.nvim', opt=true}) -- Package manager
   use 'tpope/vim-fugitive' -- Git commands in nvim
   use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github
   use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines
