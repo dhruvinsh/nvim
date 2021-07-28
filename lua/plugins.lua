@@ -25,8 +25,14 @@ local function plugins(use)
   -- use 'ludovicchabant/vim-gutentags' -- Automatic tags management
   -- UI to select things (files, grep results, open buffers...)
   use { 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/popup.nvim' }, { 'nvim-lua/plenary.nvim' } } }
-  use 'joshdick/onedark.vim' -- Theme inspired by Atom
-  use 'itchyny/lightline.vim' -- Fancier statusline
+  use ({'navarasu/onedark.nvim',
+	config=[[ require('onedark').setup() ]],
+  }) -- Theme inspired by Atom
+  use ({'hoob3rt/lualine.nvim',
+  event = "VimEnter",
+  config = [[ require('config.lualine') ]],
+  requires = {'kyazdani42/nvim-web-devicons', opt = true}
+}) -- Fancier statusline
   -- Add indentation guides even on blank lines
   use 'lukas-reineke/indent-blankline.nvim'
   -- Add git related info in the signs columns and popups
