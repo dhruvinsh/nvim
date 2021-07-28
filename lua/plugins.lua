@@ -39,7 +39,13 @@ local function plugins(use)
 	  config = [[ require('config.blankline') ]],
   })
   -- Add git related info in the signs columns and popups
-  use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+  use({
+      "lewis6991/gitsigns.nvim",
+      event = "BufReadPre",
+      wants = "plenary.nvim",
+      requires = { "nvim-lua/plenary.nvim" },
+      config = [[ require("config.gitsigns") ]],
+  })
   -- Highlight, edit, and navigate code using a fast incremental parsing library
   use 'nvim-treesitter/nvim-treesitter'
   -- Additional textobjects for treesitter
