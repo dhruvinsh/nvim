@@ -212,7 +212,7 @@ vim.api.nvim_set_keymap('n', '<leader>lt', ':LspStop<CR>', { noremap = true, sil
 
 -- Neovim management
 vim.api.nvim_set_keymap('n', '<leader>nu', ':PackerUpdate<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>nc', ':e $HOME/.config/nvim/init.lua', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>nc', ':e $HOME/.config/nvim/init.lua<CR>', { noremap = true, silent = true })
 
 vim.cmd [[autocmd ColorScheme * highlight WhichKeyFloat guifg=ABB2BF guibg=282C34]]
 vim.cmd [[autocmd ColorScheme * highlight FloatBorder guifg=ABB2BF guibg=282C34]]
