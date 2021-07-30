@@ -15,4 +15,9 @@ So far I would just open plugin.lua and start putting 10-15 plugin together woul
 
 ## Credits
 
-Thanks all who made this possible.
+Thanks to all who made this possible. Some good example of config (my insipiration and source of copy-paste) are below:
+[folke-dot](https://github.com/folke/dot)
+[default.nvim](https://github.com/mjlbach/defaults.nvim)
+[supersede default.nvim](https://github.com/mjlbach/nix-dotfiles)
+[Glepnir-nvim](https://github.com/glepnir/nvim)
+[LunarVim](https://github.com/ChristianChiarulli/LunarVim)
