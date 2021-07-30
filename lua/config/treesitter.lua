@@ -31,7 +31,7 @@ ts_configs.setup({
     "typescript",
     "vue",
     "yaml",
-    -- "json",
+    "json",
     -- "markdown",
   },
   highlight = { enable = true, use_languagetree = true },

@@ -57,25 +57,18 @@ local function on_attach(client, bufnr)
   end
 end
 
-local lua_cmd = {
-  "/Users/folke/projects/lua-language-server/bin/macOS/lua-language-server",
-  "-E",
-  "-e",
-  "LANG=en",
-  "/Users/folke/projects/lua-language-server/main.lua",
-}
-lua_cmd = { "lua-language-server" }
+local lua_cmd = { "lua-language-server" }
 
 local servers = {
   pyright = {},
-  bashls = {},
-  dockerls = {},
-  tsserver = {},
-  cssls = { cmd = { "css-languageserver", "--stdio" } },
-  rnix = {},
-  jsonls = { cmd = { "vscode-json-languageserver", "--stdio" } },
-  html = { cmd = { "html-languageserver", "--stdio" } },
-  clangd = {},
+  -- bashls = {},
+  -- dockerls = {},
+  -- tsserver = {},
+  -- cssls = { cmd = { "css-languageserver", "--stdio" } },
+  -- rnix = {},
+  -- jsonls = { cmd = { "vscode-json-languageserver", "--stdio" } },
+  -- html = { cmd = { "html-languageserver", "--stdio" } },
+  -- clangd = {},
   -- gopls = {},
   -- intelephense = {},
   ["null-ls"] = {},
@@ -83,7 +76,7 @@ local servers = {
     cmd = lua_cmd,
   },
   efm = require("config.lsp.efm").config,
-  vimls = {},
+  -- vimls = {},
   -- tailwindcss = {},
 }
 
@@ -102,7 +95,7 @@ for server, config in pairs(servers) do
     on_attach = on_attach,
     capabilities = capabilities,
     flags = {
-      debounce_text_changes = 150,
+      debounce_text_changes = 250,
     },
   }, config))
   local cfg = lspconfig[server]
