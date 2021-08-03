@@ -69,8 +69,8 @@ return require("packer").startup(function()
   -- all the plugins that are under beta (from my perspective) will reside here
   -- if no adverse effect found then it will move to plugins
   -- startup time
-  use {
-    'henriquehbr/nvim-startup.lua',
-    config = [[ require('nvim-startup') ]]
-  }
+  -- use {
+  --   'henriquehbr/nvim-startup.lua',
+  --   config = [[ require('nvim-startup') ]]
+  -- }
 end)
