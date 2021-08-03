@@ -26,6 +26,9 @@ vim.api.nvim_exec(
 -- Plugins Installation
 ---------------------------------
 return require("packer").startup(function()
+  -----------
+  -- Tools
+  -----------
   -- packer itself
   use 'wbthomason/packer.nvim'
   -- file manager
@@ -53,6 +56,9 @@ return require("packer").startup(function()
     config = [[ require('config.whichkey') ]]
   }
 
+  ---------------
+  -- Programming
+  ---------------
   -- incremental parser
   use {
     'nvim-treesitter/nvim-treesitter',
