@@ -32,6 +32,16 @@ return require("packer").startup(function()
     config = [[ require('config.whichkey') ]]
   }
 
+  -- incremental parser
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+    config = [[ require('config.treesitter') ]],
+    requires = {
+      'nvim-treesitter/nvim-treesitter-textobjects',
+    }
+  }
+
   -----------
   -- Beta
   -----------
