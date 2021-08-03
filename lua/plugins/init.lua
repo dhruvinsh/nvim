@@ -26,6 +26,17 @@ return require("packer").startup(function()
   -----------
   -- UI
   -----------
+  -- theme(s)
+  use {
+    'navarasu/onedark.nvim',
+    config = [[ require('config.theme') ]]
+  }
+  -- status line
+  use {
+    'hoob3rt/lualine.nvim',
+    requires = {'kyazdani42/nvim-web-devicons', opt = true},
+    config = [[ require('config.statusline') ]]
+  }
   -- which-key
   use {
     'folke/which-key.nvim',
