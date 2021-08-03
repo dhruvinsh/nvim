@@ -25,6 +25,8 @@ setkey("n", "<leader>fr", "<cmd>lua require('telescope.builtin').oldfiles()<cr>"
 setkey("n", "<leader>gf", "<cmd>lua require('telescope.builtin').git_files()<cr>", keyopt2)
 setkey("n", "<leader>sc", "<cmd>lua require('telescope.builtin').commands()<cr>", keyopt2)
 setkey("n", "<leader>sC", "<cmd>lua require('telescope.builtin').colorscheme()<cr>", keyopt2)
+-- some how i keep pressing this to open files, probably from default.nvim
+setkey("n", "<leader>sf", "<cmd>lua require('telescope.builtin').find_files()<cr>", keyopt2)
 setkey("n", "<leader>sg", "<cmd>lua require('telescope.builtin').live_grep()<cr>", keyopt2)
 setkey("n", "<leader>sh", "<cmd>lua require('telescope.builtin').help_tags()<cr>", keyopt2)
 setkey("n", "<leader>sk", "<cmd>lua require('telescope.builtin').keymaps()<cr>", keyopt2)

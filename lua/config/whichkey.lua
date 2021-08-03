@@ -35,6 +35,7 @@ local labels = {
     name = "Search",
     C = "Color Schemes",
     c = "Commands",
+    f = "Find files",
     g = "Grep Live",
     h = "Helps",
     k = "Keymaps",
