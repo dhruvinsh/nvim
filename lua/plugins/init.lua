@@ -11,6 +11,16 @@ if fn.empty(fn.glob(install_path)) > 0 then
   execute 'packadd packer.nvim'
 end
 
+vim.api.nvim_exec(
+  [[
+  augroup Packer
+    autocmd!
+    autocmd FileType lua autocmd BufWritePost $HOME/.config/nvim/* PackerCompile
+  augroup end
+]],
+  false
+)
+
 
 ---------------------------------
 -- Plugins Installation
