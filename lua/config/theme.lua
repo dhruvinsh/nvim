@@ -1,3 +1,4 @@
+vim.o.termguicolors = true
 -- onedark setup
 require("onedark").setup()
 
