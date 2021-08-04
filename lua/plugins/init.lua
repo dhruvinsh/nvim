@@ -50,6 +50,11 @@ return require("packer").startup(function()
     requires = {'kyazdani42/nvim-web-devicons', opt = true},
     config = [[ require('config.statusline') ]]
   }
+  -- indent lines
+  use {
+    'lukas-reineke/indent-blankline.nvim',
+    config = [[ require('config.indentline') ]],
+  }
   -- which-key
   use {
     'folke/which-key.nvim',
