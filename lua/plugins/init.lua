@@ -70,6 +70,29 @@ return require("packer").startup(function()
   }
 
   -----------
+  -- LSP
+  -----------
+  use {
+    'neovim/nvim-lspconfig',
+    config = [[ require('config.lsp') ]],
+    requires = {
+      {
+        'simrat39/symbols-outline.nvim',
+	cmd = { 'SymbolsOutline' },
+      },
+    }
+  }
+  use {
+    'hrsh7th/nvim-compe',
+    config = [[ require('config.lsp.compe') ]],
+  }
+  use {
+    'L3MON4D3/LuaSnip',
+    config = [[ require('config.lsp.snip') ]],
+    requires={'rafamadriz/friendly-snippets'},
+  }
+
+  -----------
   -- Beta
   -----------
   -- all the plugins that are under beta (from my perspective) will reside here

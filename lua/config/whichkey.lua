@@ -31,6 +31,13 @@ local labels = {
     name = "Git",
     g = "Git files",
   },
+  l = {
+    name = "LSP",
+    i = "Info",
+    r = "Restart",
+    s = "Start",
+    t = "Terminate",
+  },
   s = {
     name = "Search",
     C = "Color Schemes",

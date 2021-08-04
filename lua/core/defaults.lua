@@ -4,3 +4,5 @@ local opt = vim.opt
 
 -- set relative number
 opt.relativenumber = true
+-- for better completion experience
+opt.completeopt = "menuone,noselect"
