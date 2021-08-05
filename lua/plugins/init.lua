@@ -25,7 +25,7 @@ vim.api.nvim_exec(
 ---------------------------------
 -- Plugins Installation
 ---------------------------------
-return require("packer").startup(function()
+return require("packer").startup(function(use)
   -----------
   -- Tools
   -----------
@@ -36,6 +36,17 @@ return require("packer").startup(function()
     'nvim-telescope/telescope.nvim',
     requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
   }
+
+  -----------
+  -- Git
+  -----------
+  use {
+    'lewis6991/gitsigns.nvim',
+    event = "BufReadPre",
+    config = [[ require('config.gitsigns') ]],
+    requires = { 'nvim-lua/plenary.nvim' }
+  }
+
   -----------
   -- UI
   -----------

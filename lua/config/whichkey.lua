@@ -30,6 +30,15 @@ local labels = {
   g = {
     name = "Git",
     g = "Git files",
+    h = {
+      name = "+Hunk",
+      R = "Reset buffer",
+      b = "Blame",
+      p = "Preview",
+      r = "Reset",
+      s = "Stage",
+      u = "Undo stage",
+    }
   },
   l = {
     name = "LSP",
@@ -52,3 +61,21 @@ local labels = {
 }
 
 wk.register(labels, opt)
+
+local vopt = {
+  mode = "v",
+  prefix = " ",
+}
+
+local vlabels = {
+  g = {
+    name = "Git",
+    h = {
+      name = "+Hunk",
+      r = "Reset",
+      s = "Stage",
+    },
+  },
+}
+
+wk.register(vlabels, vopt)
