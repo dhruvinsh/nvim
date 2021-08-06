@@ -36,6 +36,10 @@ return require("packer").startup(function(use)
     'nvim-telescope/telescope.nvim',
     requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
   }
+  -- repeat some commands
+  use {
+    "tpope/vim-repeat"
+  }
 
   -----------
   -- Git
@@ -61,10 +65,27 @@ return require("packer").startup(function(use)
     requires = {'kyazdani42/nvim-web-devicons', opt = true},
     config = [[ require('config.statusline') ]]
   }
+  -- dashboards
+  use {
+    'glepnir/dashboard-nvim',
+    config = [[ require('config.dashboard') ]]
+  }
+  -- specs
+  use {
+    'edluffy/specs.nvim',
+    config = [[ require('config.specs') ]]
+  }
   -- indent lines
   use {
     'lukas-reineke/indent-blankline.nvim',
     config = [[ require('config.indentline') ]],
+  }
+  -- todo
+  use {
+      "folke/todo-comments.nvim",
+      cmd = { "TodoTrouble", "TodoTelescope" },
+      event = "BufReadPost",
+      config = [[ require("config.todo") ]]
   }
   -- which-key
   use {
@@ -75,6 +96,16 @@ return require("packer").startup(function(use)
   -----------
   -- Editor
   -----------
+  -- comment plugin
+  use {
+    "terrortylor/nvim-comment",
+    config = [[ require('nvim_comment').setup() ]]
+  }
+  -- motion on lightspeed
+  use {
+    "ggandor/lightspeed.nvim",
+    config = [[ require('config.motion') ]]
+  }
   -- zenmode
   use {
     "folke/zen-mode.nvim",
