@@ -31,6 +31,7 @@ setkey("n", "<leader>bs", "<cmd>lua require('telescope.builtin').buffers()<cr>",
 -- Files keymaps
 setkey("n", "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<cr>", keyopt2)
 setkey("n", "<leader>fr", "<cmd>lua require('telescope.builtin').oldfiles()<cr>", keyopt2)
+setkey("n", "<leader>fz", "<cmd>ZenMode<cr>", keyopt2)
 
 -- Git keymaps
 setkey("n", "<leader>gf", "<cmd>lua require('telescope.builtin').git_files()<cr>", keyopt2)
@@ -38,7 +39,6 @@ setkey("n", "<leader>gf", "<cmd>lua require('telescope.builtin').git_files()<cr>
 -- Search keymaps
 setkey("n", "<leader>sC", "<cmd>lua require('telescope.builtin').colorscheme()<cr>", keyopt2)
 setkey("n", "<leader>sc", "<cmd>lua require('telescope.builtin').commands()<cr>", keyopt2)
-
 -- some how i keep pressing this to open files, probably from default.nvim
 setkey("n", "<leader>sf", "<cmd>lua require('telescope.builtin').find_files()<cr>", keyopt2)
 setkey("n", "<leader>sg", "<cmd>lua require('telescope.builtin').live_grep()<cr>", keyopt2)

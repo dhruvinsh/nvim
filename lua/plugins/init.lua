@@ -72,6 +72,21 @@ return require("packer").startup(function(use)
     config = [[ require('config.whichkey') ]]
   }
 
+  -----------
+  -- Editor
+  -----------
+  -- zenmode
+  use {
+    "folke/zen-mode.nvim",
+    cmd = "ZenMode",
+    config = function()
+      require("zen-mode").setup({
+        plugins = { gitsigns = true, tmux = true },
+      })
+    end,
+    requires = { "folke/twilight.nvim", opt=true }
+  }
+
   ---------------
   -- Programming
   ---------------
