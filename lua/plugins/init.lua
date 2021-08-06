@@ -156,6 +156,9 @@ return require("packer").startup(function(use)
   use {
     'kabouzeid/nvim-lspinstall',
   }
+  use {
+    'ray-x/lsp_signature.nvim',
+  }
 
   -----------
   -- Beta
