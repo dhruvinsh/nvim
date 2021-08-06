@@ -16,39 +16,11 @@ local lspinstall = require("lspinstall")
 -- end
 
 
--- keybindings
-local function add_lsp_buffer_keybindings(bufnr)
-  -- Few keymaping
-  local wk = require "which-key"
-  local keys = {
-    ["K"] = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Show hover" },
-    ["gd"] = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Goto Definition" },
-    ["gD"] = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "Goto declaration" },
-    ["gr"] = { "<cmd>lua vim.lsp.buf.references()<CR>", "Goto references" },
-    ["gi"] = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Goto implementation" },
-    ["gs"] = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "show signature help" },
-    ["gp"] = { "<cmd>lua require'lsp.peek'.Peek('definition')<CR>", "Peek definition" },
-    ["gl"] = {
-      "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ show_header = false, border = 'single' })<CR>",
-      "Show line diagnostics",
-    },
-  }
-  wk.register(keys, { mode = "n", buffer = bufnr })
-
-  -- TODO: something to look at later for conditional keybinding
-  -- Set some keybinds conditional on server capabilities
-  -- if client.resolved_capabilities.document_formatting then
-  --   buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-  -- elseif client.resolved_capabilities.document_range_formatting then
-  --   buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
-  -- end
-
-end
-
 -- enable on_attach
 local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-  add_lsp_buffer_keybindings(bufnr)
+  require("lsp_signature").on_attach(client)
+  require("config.lsp.keymaps").setup(client, bufnr)
 end
 
 -- pre-setup config maker
@@ -78,7 +50,7 @@ end
 local function setup_servers()
   lspinstall.setup()
 
-  local custom_settings = require("config.lsp.settings")
+  local custom_configs = require("config.lsp.configs")
   local servers = lspinstall.installed_servers()
 
   for _, server in pairs(servers) do
@@ -88,8 +60,8 @@ local function setup_servers()
     local config = make_config()
 
     -- some language specific setting override
-    if custom_settings[server] ~= nil then
-      config.settings = custom_settings[server]
+    if custom_configs[server] ~= nil then
+      config = vim.tbl_deep_extend("force", config, custom_configs[server])
     end
 
     lspconfig[server].setup(config)
