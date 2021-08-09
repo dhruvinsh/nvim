@@ -36,6 +36,11 @@ return require("packer").startup(function(use)
     'nvim-telescope/telescope.nvim',
     requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
   }
+  use {
+    'kyazdani42/nvim-tree.lua',
+    config = [[ require('config.nvim_tree') ]],
+    requires = { 'kyazdani42/nvim-web-devicons', opt=true }
+  }
   -- repeat some commands
   use {
     "tpope/vim-repeat"
