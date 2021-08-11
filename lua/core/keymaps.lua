@@ -31,6 +31,7 @@ setkey("n", "<leader>bs", "<cmd>lua require('telescope.builtin').buffers()<cr>",
 -- Files keymaps
 setkey("n", "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<cr>", keyopt2)
 setkey("n", "<leader>fr", "<cmd>lua require('telescope.builtin').oldfiles()<cr>", keyopt2)
+setkey("n", "<leader>ft", "<cmd>NvimTreeToggle<cr>", keyopt2)
 setkey("n", "<leader>fz", "<cmd>ZenMode<cr>", keyopt2)
 
 -- Git keymaps
