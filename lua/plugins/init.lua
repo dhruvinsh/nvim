@@ -101,6 +101,11 @@ return require("packer").startup(function(use)
     'folke/which-key.nvim',
     config = [[ require('config.whichkey') ]]
   }
+  -- colorizer
+  use {
+    "norcalli/nvim-colorizer.lua",
+    config = [[ require('colorizer').setup() ]]
+  }
 
   -----------
   -- Editor
