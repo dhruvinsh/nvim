@@ -50,14 +50,13 @@ local selene = {
   lintStdin = true,
   lintFormats = { "%f:%l:%c: %tarning%m", "%f:%l:%c: %tarning%m" },
 }
+local lua_fmt = {stylua, selene}
 -- python dependencies
-local black = {}
-local isort = {}
-if check_executable("black") then
-  black = { formatCommand = "black --quiet -", formatStdin = true }
-end
-if check_executable("isort") then
-  isort = { formatCommand = "isort --quiet -", formatStdin = true }
+local black = { formatCommand = "black --quiet -", formatStdin = true }
+local isort = { formatCommand = "isort --quiet -", formatStdin = true }
+local python_fmt = {}
+if (check_executable("black") and check_executable("isort")) then
+  python_fmt = {black, isort}
 end
 
 M.efm = {
@@ -66,8 +65,8 @@ M.efm = {
     -- we can use .project to declare directory as root project directory
     rootMarkers = { "package.json", ".git", ".project" },
     languages = {
-      lua = { stylua, selene },
-      python = { black, isort },
+      lua = lua_fmt,
+      python = python_fmt,
     }
   },
 }
