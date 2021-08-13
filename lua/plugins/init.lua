@@ -36,10 +36,14 @@ return require("packer").startup(function(use)
     'nvim-telescope/telescope.nvim',
     requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
   }
+  -- icons
+  use {
+    'kyazdani42/nvim-web-devicons',
+    config = [[ require('config.icons') ]]
+  }
   use {
     'kyazdani42/nvim-tree.lua',
-    config = [[ require('config.nvim_tree') ]],
-    requires = { 'kyazdani42/nvim-web-devicons', opt=true }
+    config = [[ require('config.nvimtree') ]],
   }
   -- repeat some commands
   use {
