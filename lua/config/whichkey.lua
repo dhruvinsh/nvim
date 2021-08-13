@@ -5,7 +5,7 @@ local wk = require("which-key")
 wk.setup({
   spelling = {
     enable = true,
-    suggestions = 20
+    suggestions = 20,
   },
   window = {
     border = "single",
@@ -38,7 +38,7 @@ local labels = {
       r = "Reset",
       s = "Stage",
       u = "Undo stage",
-    }
+    },
   },
   l = {
     name = "LSP",
@@ -56,7 +56,7 @@ local labels = {
     h = "Helps",
     k = "Keymaps",
     s = "String grep",
-    t = "Tags"
+    t = "Tags",
   },
 }
 

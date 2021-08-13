@@ -2,7 +2,6 @@
 local lspconfig = require("lspconfig")
 local lspinstall = require("lspinstall")
 
-
 -- TODO: some cool autocmd to look at
 -- Set autocommands conditional on server_capabilities
 -- if client.resolved_capabilities.document_highlight then
@@ -15,10 +14,9 @@ local lspinstall = require("lspinstall")
 --   ]], false)
 -- end
 
-
 -- enable on_attach
 local on_attach = function(client, bufnr)
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
   require("lsp_signature").on_attach(client)
   require("config.lsp.keymaps").setup(client, bufnr)
 end
@@ -31,10 +29,10 @@ local function make_config()
   capabilities.textDocument.completion.completionItem.snippetSupport = true
   capabilities.textDocument.completion.completionItem.resolveSupport = {
     properties = {
-      'documentation',
-      'detail',
-      'additionalTextEdits',
-    }
+      "documentation",
+      "detail",
+      "additionalTextEdits",
+    },
   }
   return {
     -- enable snippet support
@@ -77,16 +75,15 @@ end
 setup_servers()
 
 -- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
-lspinstall.post_install_hook = function ()
+lspinstall.post_install_hook = function()
   setup_servers() -- reload installed servers
   vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
 end
 
-
 --------------------------
 -- LSP management keymaps
 --------------------------
-vim.api.nvim_set_keymap('n', '<leader>lr', ':LspRestart<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>li', ':LspInfo<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>ls', ':LspStart<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>lt', ':LspStop<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>lr", ":LspRestart<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>li", ":LspInfo<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>ls", ":LspStart<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>lt", ":LspStop<CR>", { noremap = true, silent = true })

@@ -1,168 +1,168 @@
 local colors = {
-    white = "#abb2bf",
-    red = "#d47d85",
-    baby_pink = "#DE8C92",
-    pink = "#ff75a0",
-    vibrant_green = "#7eca9c",
-    blue = "#61afef",
-    sun = "#EBCB8B",
-    dark_purple = "#c882e7",
-    teal = "#519ABA",
-    orange = "#fca2aa",
-    cyan = "#a3b8ef",
+  white = "#abb2bf",
+  red = "#d47d85",
+  baby_pink = "#DE8C92",
+  pink = "#ff75a0",
+  vibrant_green = "#7eca9c",
+  blue = "#61afef",
+  sun = "#EBCB8B",
+  dark_purple = "#c882e7",
+  teal = "#519ABA",
+  orange = "#fca2aa",
+  cyan = "#a3b8ef",
 }
 
-require("nvim-web-devicons").setup {
+require("nvim-web-devicons").setup({
   override = {
     xlsx = {
       icon = " ",
       color = colors.vibrant_green,
-      name = "Xlsx"
+      name = "Xlsx",
     },
     docx = {
       icon = " ",
       color = colors.blue,
-      name = "Docx"
+      name = "Docx",
     },
     [".gitignore"] = {
       icon = " ",
       color = colors.white,
-      name = "GitIgnore"
+      name = "GitIgnore",
     },
     markdown = {
       icon = " ",
       color = colors.teal,
-      name = "Markdown"
+      name = "Markdown",
     },
     md = {
       icon = " ",
       color = colors.teal,
-      name = "Md"
+      name = "Md",
     },
     mdx = {
       icon = " ",
       color = colors.teal,
-      name = "Mdx"
+      name = "Mdx",
     },
     html = {
       icon = " ",
       color = colors.baby_pink,
-      name = "html"
+      name = "html",
     },
     css = {
       icon = " ",
       color = colors.blue,
-      name = "css"
+      name = "css",
     },
     js = {
       icon = " ",
       color = colors.sun,
-      name = "js"
+      name = "js",
     },
     ts = {
       icon = "ﯤ ",
       color = colors.teal,
-      name = "ts"
+      name = "ts",
     },
     kt = {
       icon = "󱈙 ",
       color = colors.orange,
-      name = "kt"
+      name = "kt",
     },
     png = {
       icon = " ",
       color = colors.dark_purple,
-      name = "png"
+      name = "png",
     },
     jpg = {
       icon = " ",
       color = colors.dark_purple,
-      name = "jpg"
+      name = "jpg",
     },
     jpeg = {
       icon = " ",
       color = colors.dark_purple,
-      name = "jpeg"
+      name = "jpeg",
     },
     mp3 = {
       icon = " ",
       color = colors.white,
-      name = "mp3"
+      name = "mp3",
     },
     mp4 = {
       icon = " ",
       color = colors.white,
-      name = "mp4"
+      name = "mp4",
     },
     out = {
       icon = " ",
       color = colors.white,
-      name = "out"
+      name = "out",
     },
     Dockerfile = {
       icon = " ",
       color = colors.cyan,
-      name = "Dockerfile"
+      name = "Dockerfile",
     },
     rb = {
       icon = " ",
       color = colors.pink,
-      name = "rb"
+      name = "rb",
     },
     vue = {
       icon = "﵂",
       color = colors.vibrant_green,
-      name = "vue"
+      name = "vue",
     },
     py = {
       icon = " ",
       color = colors.blue,
-      name = "py"
+      name = "py",
     },
     deb = {
       icon = " ",
       color = colors.cyan,
-      name = "deb"
+      name = "deb",
     },
     lock = {
       icon = " ",
       color = colors.red,
-      name = "lock"
+      name = "lock",
     },
     lua = {
       icon = " ",
       color = colors.blue,
-      name = "lua"
+      name = "lua",
     },
     rpm = {
       icon = " ",
       color = colors.orange,
-      name = "rpm"
+      name = "rpm",
     },
     toml = {
       icon = " ",
       color = colors.blue,
-      name = "toml"
+      name = "toml",
     },
     xz = {
       icon = " ",
       color = colors.sun,
-      name = "xz"
+      name = "xz",
     },
     yaml = {
       icon = " ",
       color = colors.red,
-      name = "Yaml"
+      name = "Yaml",
     },
     yml = {
       icon = " ",
       color = colors.red,
-      name = "Yml"
+      name = "Yml",
     },
     zip = {
       icon = " ",
       color = colors.sun,
-      name = "zip"
+      name = "zip",
     },
-  }
-}
+  },
+})

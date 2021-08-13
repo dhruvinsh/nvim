@@ -9,31 +9,31 @@ local keyopt3 = { noremap = true, expr = true, silent = true }
 -------------------
 -- leader key
 -------------------
-setkey('', '<Space>', '<Nop>', keyopt2)
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+setkey("", "<Space>", "<Nop>", keyopt2)
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 ------------------------
 -- Some custom keymaps
 ------------------------
 -- Moving line bindings (I love this ones)
-setkey('i', '<A-j>', '<Esc>:m .+1<CR>==gi', keyopt1)
-setkey('i', '<A-k>', '<Esc>:m .-2<CR>==gi', keyopt1)
-setkey('n', '<A-j>', ':m .+1<CR>==', keyopt1)
-setkey('n', '<A-k>', ':m .-2<CR>==', keyopt1)
-setkey('v', '<A-j>', ":m '>+1<CR>gv=gv", keyopt1)
-setkey('v', '<A-k>', ":m '<-2<CR>gv=gv", keyopt1)
+setkey("i", "<A-j>", "<Esc>:m .+1<CR>==gi", keyopt1)
+setkey("i", "<A-k>", "<Esc>:m .-2<CR>==gi", keyopt1)
+setkey("n", "<A-j>", ":m .+1<CR>==", keyopt1)
+setkey("n", "<A-k>", ":m .-2<CR>==", keyopt1)
+setkey("v", "<A-j>", ":m '>+1<CR>gv=gv", keyopt1)
+setkey("v", "<A-k>", ":m '<-2<CR>gv=gv", keyopt1)
 --Remap for dealing with word wrap
-setkey('n', 'j', "v:count == 0 ? 'gj' : 'j'", keyopt3)
-setkey('n', 'k', "v:count == 0 ? 'gk' : 'k'", keyopt3)
+setkey("n", "j", "v:count == 0 ? 'gj' : 'j'", keyopt3)
+setkey("n", "k", "v:count == 0 ? 'gk' : 'k'", keyopt3)
 --Remap escape to leave terminal mode
-setkey('t', '<Esc>', [[<c-\><c-n>]], keyopt1)
+setkey("t", "<Esc>", [[<c-\><c-n>]], keyopt1)
 
 -------------------
 -- Buffer keymaps
 -------------------
 setkey("n", "<leader>bb", "<cmd>lua require('telescope.builtin').buffers()<cr>", keyopt2)
-setkey('n', '<leader>bd', ':bdelete<CR>', keyopt2)
+setkey("n", "<leader>bd", ":bdelete<CR>", keyopt2)
 
 -------------------
 -- Files keymaps

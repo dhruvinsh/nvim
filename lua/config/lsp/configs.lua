@@ -10,7 +10,7 @@ local check_executable = function(executable)
     return true
   end
   return false
-  end
+end
 
 -- NOTE: All key values needs to match with what lspinstall provides as server
 -------------------
@@ -21,19 +21,19 @@ M.lua = {
     Lua = {
       runtime = {
         -- LuaJIT in the case of Neovim
-        version = 'LuaJIT',
-        path = vim.split(package.path, ';'),
+        version = "LuaJIT",
+        path = vim.split(package.path, ";"),
       },
       diagnostics = {
         -- Get the language server to recognize the `vim` global
-        globals = {'vim'},
+        globals = { "vim" },
       },
       workspace = {
         -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true)
+        library = vim.api.nvim_get_runtime_file("", true),
       },
       telemetry = {
-        enable = true
+        enable = true,
       },
     },
   },
@@ -50,13 +50,13 @@ local selene = {
   lintStdin = true,
   lintFormats = { "%f:%l:%c: %tarning%m", "%f:%l:%c: %tarning%m" },
 }
-local lua_fmt = {stylua, selene}
+local lua_fmt = { stylua, selene }
 -- python dependencies
 local black = { formatCommand = "black --quiet -", formatStdin = true }
 local isort = { formatCommand = "isort --quiet -", formatStdin = true }
 local python_fmt = {}
-if (check_executable("black") and check_executable("isort")) then
-  python_fmt = {black, isort}
+if check_executable("black") and check_executable("isort") then
+  python_fmt = { black, isort }
 end
 
 M.efm = {
@@ -67,7 +67,7 @@ M.efm = {
     languages = {
       lua = lua_fmt,
       python = python_fmt,
-    }
+    },
   },
 }
 -- efm require filetypes as well,

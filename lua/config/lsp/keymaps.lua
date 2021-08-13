@@ -3,7 +3,7 @@ local M = {}
 -- keybindings
 M.setup = function(client, bufnr)
   -- Few keymaping
-  local wk = require "which-key"
+  local wk = require("which-key")
   local keys = {
     ["K"] = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Show hover" },
     ["gd"] = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Goto Definition" },
@@ -26,7 +26,6 @@ M.setup = function(client, bufnr)
   end
 
   wk.register(keys, { mode = "n", buffer = bufnr })
-
 end
 
 return M

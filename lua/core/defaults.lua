@@ -14,7 +14,7 @@ opt.breakindent = true
 opt.ignorecase = true
 opt.smartcase = true
 --Add map to enter paste mode
-opt.pastetoggle = '<F3>'
+opt.pastetoggle = "<F3>"
 -- inser 2 spaces for a tab
 opt.expandtab = true
 -- spaces inserted for each indentation

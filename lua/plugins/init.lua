@@ -4,11 +4,11 @@
 local execute = vim.api.nvim_command
 local fn = vim.fn
 
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
 if fn.empty(fn.glob(install_path)) > 0 then
-  fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
-  execute 'packadd packer.nvim'
+  fn.system({ "git", "clone", "https://github.com/wbthomason/packer.nvim", install_path })
+  execute("packadd packer.nvim")
 end
 
 vim.api.nvim_exec(
@@ -21,7 +21,6 @@ vim.api.nvim_exec(
   false
 )
 
-
 ---------------------------------
 -- Plugins Installation
 ---------------------------------
@@ -30,105 +29,105 @@ return require("packer").startup(function(use)
   -- Tools
   -----------
   -- packer itself
-  use 'wbthomason/packer.nvim'
+  use("wbthomason/packer.nvim")
   -- file manager
-  use {
-    'nvim-telescope/telescope.nvim',
-    requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
-  }
+  use({
+    "nvim-telescope/telescope.nvim",
+    requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
+  })
   -- icons
-  use {
-    'kyazdani42/nvim-web-devicons',
-    config = [[ require('config.icons') ]]
-  }
-  use {
-    'kyazdani42/nvim-tree.lua',
+  use({
+    "kyazdani42/nvim-web-devicons",
+    config = [[ require('config.icons') ]],
+  })
+  use({
+    "kyazdani42/nvim-tree.lua",
     config = [[ require('config.nvimtree') ]],
-  }
+  })
   -- repeat some commands
-  use {
-    "tpope/vim-repeat"
-  }
+  use({
+    "tpope/vim-repeat",
+  })
 
   -----------
   -- Git
   -----------
-  use {
-    'lewis6991/gitsigns.nvim',
+  use({
+    "lewis6991/gitsigns.nvim",
     event = "BufReadPre",
     config = [[ require('config.gitsigns') ]],
-    requires = { 'nvim-lua/plenary.nvim' }
-  }
+    requires = { "nvim-lua/plenary.nvim" },
+  })
 
   -----------
   -- UI
   -----------
   -- theme(s)
-  use {
-    'navarasu/onedark.nvim',
-    config = [[ require('config.theme') ]]
-  }
+  use({
+    "navarasu/onedark.nvim",
+    config = [[ require('config.theme') ]],
+  })
   -- status line
-  use {
-    'hoob3rt/lualine.nvim',
-    requires = {'kyazdani42/nvim-web-devicons', opt = true},
-    config = [[ require('config.statusline') ]]
-  }
+  use({
+    "hoob3rt/lualine.nvim",
+    requires = { "kyazdani42/nvim-web-devicons", opt = true },
+    config = [[ require('config.statusline') ]],
+  })
   -- dashboards
-  use {
-    'glepnir/dashboard-nvim',
-    config = [[ require('config.dashboard') ]]
-  }
+  use({
+    "glepnir/dashboard-nvim",
+    config = [[ require('config.dashboard') ]],
+  })
   -- specs
-  use {
-    'edluffy/specs.nvim',
-    config = [[ require('config.specs') ]]
-  }
+  use({
+    "edluffy/specs.nvim",
+    config = [[ require('config.specs') ]],
+  })
   -- indent lines
-  use {
-    'lukas-reineke/indent-blankline.nvim',
+  use({
+    "lukas-reineke/indent-blankline.nvim",
     config = [[ require('config.indentline') ]],
-  }
+  })
   -- todo
-  use {
-      "folke/todo-comments.nvim",
-      cmd = { "TodoTrouble", "TodoTelescope" },
-      event = "BufReadPost",
-      config = [[ require("config.todo") ]]
-  }
+  use({
+    "folke/todo-comments.nvim",
+    cmd = { "TodoTrouble", "TodoTelescope" },
+    event = "BufReadPost",
+    config = [[ require("config.todo") ]],
+  })
   -- which-key
-  use {
-    'folke/which-key.nvim',
-    config = [[ require('config.whichkey') ]]
-  }
+  use({
+    "folke/which-key.nvim",
+    config = [[ require('config.whichkey') ]],
+  })
   -- colorizer
-  use {
+  use({
     "norcalli/nvim-colorizer.lua",
-    config = [[ require('colorizer').setup() ]]
-  }
+    config = [[ require('colorizer').setup() ]],
+  })
 
   -----------
   -- Editor
   -----------
   -- comment plugin
-  use {
+  use({
     "terrortylor/nvim-comment",
-    config = [[ require('nvim_comment').setup() ]]
-  }
+    config = [[ require('nvim_comment').setup() ]],
+  })
   -- motion on lightspeed
-  use {
+  use({
     "ggandor/lightspeed.nvim",
-    config = [[ require('config.motion') ]]
-  }
+    config = [[ require('config.motion') ]],
+  })
   -- autopairs
-  use {
+  use({
     "windwp/nvim-autopairs",
     after = "nvim-compe",
     config = [[ require('config.autopairs') ]],
-    requires = { "windwp/nvim-ts-autotag" }
-  }
+    requires = { "windwp/nvim-ts-autotag" },
+  })
   -- zenmode
-  use {
+  use({
     "folke/zen-mode.nvim",
     cmd = "ZenMode",
     config = function()
@@ -136,50 +135,50 @@ return require("packer").startup(function(use)
         plugins = { gitsigns = true, tmux = true },
       })
     end,
-    requires = { "folke/twilight.nvim", opt=true }
-  }
+    requires = { "folke/twilight.nvim", opt = true },
+  })
 
   ---------------
   -- Programming
   ---------------
   -- incremental parser
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
+  use({
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
     config = [[ require('config.treesitter') ]],
     requires = {
-      'nvim-treesitter/nvim-treesitter-textobjects',
-    }
-  }
+      "nvim-treesitter/nvim-treesitter-textobjects",
+    },
+  })
 
   -----------
   -- LSP
   -----------
-  use {
-    'neovim/nvim-lspconfig',
+  use({
+    "neovim/nvim-lspconfig",
     config = [[ require('config.lsp') ]],
     requires = {
       {
-        'simrat39/symbols-outline.nvim',
-	cmd = { 'SymbolsOutline' },
+        "simrat39/symbols-outline.nvim",
+        cmd = { "SymbolsOutline" },
       },
-    }
-  }
-  use {
-    'hrsh7th/nvim-compe',
+    },
+  })
+  use({
+    "hrsh7th/nvim-compe",
     config = [[ require('config.lsp.compe') ]],
-  }
-  use {
-    'L3MON4D3/LuaSnip',
+  })
+  use({
+    "L3MON4D3/LuaSnip",
     config = [[ require('config.lsp.snip') ]],
-    requires={'rafamadriz/friendly-snippets'},
-  }
-  use {
-    'kabouzeid/nvim-lspinstall',
-  }
-  use {
-    'ray-x/lsp_signature.nvim',
-  }
+    requires = { "rafamadriz/friendly-snippets" },
+  })
+  use({
+    "kabouzeid/nvim-lspinstall",
+  })
+  use({
+    "ray-x/lsp_signature.nvim",
+  })
 
   -----------
   -- Beta
