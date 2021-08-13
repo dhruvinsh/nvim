@@ -120,6 +120,13 @@ return require("packer").startup(function(use)
     "ggandor/lightspeed.nvim",
     config = [[ require('config.motion') ]]
   }
+  -- autopairs
+  use {
+    "windwp/nvim-autopairs",
+    after = "nvim-compe",
+    config = [[ require('config.autopairs') ]],
+    requires = { "windwp/nvim-ts-autotag" }
+  }
   -- zenmode
   use {
     "folke/zen-mode.nvim",
