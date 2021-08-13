@@ -179,6 +179,14 @@ return require("packer").startup(function(use)
   use({
     "ray-x/lsp_signature.nvim",
   })
+  use({
+    "kosayoda/nvim-lightbulb",
+    config = [[ require('config.lightbulb') ]]
+  })
+  use({
+    "folke/lsp-trouble.nvim",
+    config = [[ require('config.trouble') ]]
+  })
 
   -----------
   -- Beta

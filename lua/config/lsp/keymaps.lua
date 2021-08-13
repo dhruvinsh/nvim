@@ -5,13 +5,13 @@ M.setup = function(client, bufnr)
   -- Few keymaping
   local wk = require("which-key")
   local keys = {
-    ["K"] = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Show hover" },
+    ["gK"] = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Show hover" },
     ["gd"] = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Goto Definition" },
     ["gD"] = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "Goto declaration" },
     ["gr"] = { "<cmd>lua vim.lsp.buf.references()<CR>", "Goto references" },
     ["gi"] = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Goto implementation" },
     ["gs"] = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "show signature help" },
-    ["gp"] = { "<cmd>lua require'lsp.peek'.Peek('definition')<CR>", "Peek definition" },
+    ["gp"] = { "<cmd>lua require'config.lsp.peek'.Peek('definition')<CR>", "Peek definition" },
     ["gl"] = {
       "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ show_header = false, border = 'single' })<CR>",
       "Show line diagnostics",
