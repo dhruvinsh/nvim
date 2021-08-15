@@ -191,11 +191,11 @@ return require("packer").startup(function(use)
   })
   use({
     "kosayoda/nvim-lightbulb",
-    config = [[ require('config.lightbulb') ]]
+    config = [[ require('config.lightbulb') ]],
   })
   use({
     "folke/lsp-trouble.nvim",
-    config = [[ require('config.trouble') ]]
+    config = [[ require('config.trouble') ]],
   })
 
   -----------
