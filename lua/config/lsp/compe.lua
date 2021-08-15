@@ -13,6 +13,7 @@ compe.setup({
     nvim_lua = false,
     vsnip = false,
     ultisnips = false,
+    emoji = true
   },
 })
 
