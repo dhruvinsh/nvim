@@ -34,6 +34,7 @@ return require("packer").startup(function(use)
   use({
     "nvim-telescope/telescope.nvim",
     requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
+    config = [[ require('config.telescope') ]],
   })
   -- icons
   use({
@@ -47,6 +48,11 @@ return require("packer").startup(function(use)
   -- repeat some commands
   use({
     "tpope/vim-repeat",
+  })
+  -- auto session managment
+  use({
+    "rmagatti/auto-session",
+    requires = { "rmagatti/session-lens" },
   })
 
   -----------
