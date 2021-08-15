@@ -64,6 +64,10 @@ return require("packer").startup(function(use)
     config = [[ require('config.gitsigns') ]],
     requires = { "nvim-lua/plenary.nvim" },
   })
+  use({
+    "TimUntersberger/neogit",
+    requires = { "nvim-lua/plenary.nvim" },
+  })
 
   -----------
   -- UI
