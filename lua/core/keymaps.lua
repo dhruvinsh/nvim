@@ -51,6 +51,7 @@ setkey("n", "<leader>fz", "<cmd>ZenMode<cr>", keyopt2)
 setkey("n", "<leader>ghP", "<cmd>lua require('gitsigns').preview_hunk()<cr>", keyopt2)
 setkey("n", "<leader>ghR", "<cmd>lua require('gitsigns').reset_buffer()<cr>", keyopt2)
 setkey("n", "<leader>gf", "<cmd>lua require('telescope.builtin').git_files()<cr>", keyopt2)
+setkey("n", "<leader>gg", "<cmd>Neogit<cr>", keyopt2)
 setkey("n", "<leader>ghb", "<cmd>lua require('gitsigns').blame_line()<cr>", keyopt2)
 setkey("n", "<leader>ghn", "<cmd>lua require('gitsigns').next_hunk()<cr>", keyopt2)
 setkey("n", "<leader>ghp", "<cmd>lua require('gitsigns').prev_hunk()<cr>", keyopt2)
@@ -64,6 +65,15 @@ setkey("v", "<leader>ghr", "<cmd>lua require('gitsigns').reset_hunk({vim.fn.line
 setkey("v", "<leader>ghs", "<cmd>lua require('gitsigns').stage_hunk({vim.fn.line('.'), vim.fn.line('v')})<cr>", keyopt2)
 
 setkey("x", "ih", ":<C-U>lua require('gitsigns').select_hunk()<cr>", keyopt2)
+
+--------------------------
+-- LSP management keymaps
+--------------------------
+setkey("n", "<leader>li", ":LspInfo<CR>", { noremap = true, silent = true })
+setkey("n", "<leader>lr", ":LspRestart<CR>", { noremap = true, silent = true })
+setkey("n", "<leader>ls", ":LspStart<CR>", { noremap = true, silent = true })
+setkey("n", "<leader>lt", ":LspStop<CR>", { noremap = true, silent = true })
+setkey("n", "<leader>lc", ":LspCapabilities<CR>", { noremap = true, silent = true })
 
 -------------------
 -- Search keymaps

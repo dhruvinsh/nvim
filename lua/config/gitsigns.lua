@@ -26,4 +26,5 @@ require("gitsigns").setup({
       linehl = "GitSignsChangeLn",
     },
   },
+  keymaps = {}
 })
