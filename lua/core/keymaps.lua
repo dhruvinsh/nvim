@@ -34,6 +34,8 @@ setkey("t", "<Esc>", [[<c-\><c-n>]], keyopt1)
 -------------------
 setkey("n", "<leader>bb", "<cmd>lua require('telescope.builtin').buffers()<cr>", keyopt2)
 setkey("n", "<leader>bd", ":bdelete<CR>", keyopt2)
+setkey("n", "<leader>bn", ":bnext<cr>", keyopt2)
+setkey("n", "<leader>bp", ":bprevious<cr>", keyopt2)
 
 -------------------
 -- Files keymaps
