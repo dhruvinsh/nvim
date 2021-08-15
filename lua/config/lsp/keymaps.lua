@@ -21,8 +21,9 @@ M.setup = function(client, bufnr)
   -- Set some conditional keympa based on server capabilities
   if client.resolved_capabilities.document_formatting then
     keys["<space>bf"] = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "Format" }
-  elseif client.resolved_capabilities.document_range_formatting then
-    keys["<space>bf"] = { "<cmd>lua vim.lsp.buf.range_formatting()<CR>", "Format" }
+  end
+  if client.resolved_capabilities.document_range_formatting then
+    keys["<space>bF"] = { "<cmd>lua vim.lsp.buf.range_formatting()<CR>", "Range format" }
   end
 
   wk.register(keys, { mode = "n", buffer = bufnr })

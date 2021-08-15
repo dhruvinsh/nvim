@@ -58,6 +58,18 @@ local python_fmt = {}
 if check_executable("black") and check_executable("isort") then
   python_fmt = { black, isort }
 end
+-- json dependencies
+local json_prettier = {
+  formatCommand = "prettier ${--tab-width:2} --parser json",
+  formatStdin = true
+}
+local json_fmt = {json_prettier}
+-- javascript dependencies
+local js_prettier = {
+  formatCommand = "prettier ${--tab-width:2} --parser typescript",
+  formatStdin = true
+}
+local js_fmt = {js_prettier}
 
 M.efm = {
   init_options = { documentFormatting = true },
@@ -67,6 +79,8 @@ M.efm = {
     languages = {
       lua = lua_fmt,
       python = python_fmt,
+      json = json_fmt,
+      javascript = js_fmt
     },
   },
 }

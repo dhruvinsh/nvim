@@ -12,6 +12,13 @@ vim.api.nvim_command("highlight default link LspCodeLens Comment")
 -- enable on_attach
 local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+
+  -- client specific override
+  if client.name == "typescript" then
+    client.resolved_capabilities.document_formatting = false
+    client.resolved_capabilities.document_range_formatting = false
+  end
+
   require("lsp_signature").on_attach(client)
   require("config.lsp.keymaps").setup(client, bufnr)
 
@@ -39,7 +46,6 @@ local on_attach = function(client, bufnr)
   if client.server_capabilities.colorProvider then
     require("config.lsp.documentcolors").buf_attach(bufnr, { single_column = true })
   end
-
 end
 
 -- pre-setup config maker
