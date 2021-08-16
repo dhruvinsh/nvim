@@ -54,6 +54,11 @@ return require("packer").startup(function(use)
     "rmagatti/auto-session",
     requires = { "rmagatti/session-lens" },
   })
+  use({
+    "npxbr/glow.nvim",
+    run = "GlowInstall",
+    ft = "markdown"
+  })
 
   -----------
   -- Git
