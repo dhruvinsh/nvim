@@ -45,19 +45,25 @@ return require("packer").startup(function(use)
     "kyazdani42/nvim-tree.lua",
     config = [[ require('config.nvimtree') ]],
   })
+  -- tablines
+  use({
+    "akinsho/bufferline.nvim",
+    config = [[ require('config.bufferline') ]],
+    requires = "kyazdani42/nvim-web-devicons",
+  })
+  -- which-key
+  use({
+    "folke/which-key.nvim",
+    config = [[ require('config.whichkey') ]],
+  })
   -- repeat some commands
   use({
     "tpope/vim-repeat",
   })
-  -- auto session managment
-  use({
-    "rmagatti/auto-session",
-    requires = { "rmagatti/session-lens" },
-  })
   use({
     "npxbr/glow.nvim",
     run = "GlowInstall",
-    ft = "markdown"
+    ft = "markdown",
   })
 
   -----------
@@ -110,15 +116,15 @@ return require("packer").startup(function(use)
     event = "BufReadPost",
     config = [[ require("config.todo") ]],
   })
-  -- which-key
-  use({
-    "folke/which-key.nvim",
-    config = [[ require('config.whichkey') ]],
-  })
   -- colorizer
   use({
     "norcalli/nvim-colorizer.lua",
     config = [[ require('colorizer').setup() ]],
+  })
+  -- color the brackets
+  use({
+    "p00f/nvim-ts-rainbow",
+    config = [[ require('config.rainbow') ]],
   })
 
   -----------
