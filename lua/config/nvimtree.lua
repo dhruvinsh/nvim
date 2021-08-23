@@ -1,4 +1,10 @@
-vim.g.nvim_tree_ignore = { ".git", "node_modules", ".cache" }
+vim.g.nvim_tree_ignore = {
+  ".git",
+  "node_modules",
+  ".cache",
+  "__pycache__",
+  ".mypy_cache",
+}
 vim.g.nvim_tree_special_files = {}
 vim.g.nvim_tree_auto_close = 1
 vim.g.nvim_tree_icons = {
