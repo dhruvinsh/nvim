@@ -143,7 +143,7 @@ return require("packer").startup(function(use)
   -- autopairs
   use({
     "windwp/nvim-autopairs",
-    after = "nvim-compe",
+    after = "nvim-cmp",
     config = [[ require('config.autopairs') ]],
     requires = { "windwp/nvim-ts-autotag" },
   })
@@ -186,8 +186,14 @@ return require("packer").startup(function(use)
     },
   })
   use({
-    "hrsh7th/nvim-compe",
-    config = [[ require('config.lsp.compe') ]],
+    "hrsh7th/nvim-cmp",
+    config = [[ require('config.lsp.cmp') ]],
+    requires = {
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-nvim-lua",
+      "saadparwaiz1/cmp_luasnip",
+    },
   })
   use({
     "L3MON4D3/LuaSnip",
