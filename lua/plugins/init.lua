@@ -94,11 +94,6 @@ return require("packer").startup(function(use)
     requires = { "kyazdani42/nvim-web-devicons", opt = true },
     config = [[ require('config.statusline') ]],
   })
-  -- dashboards
-  use({
-    "glepnir/dashboard-nvim",
-    config = [[ require('config.dashboard') ]],
-  })
   -- specs
   use({
     "edluffy/specs.nvim",
