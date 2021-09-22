@@ -73,7 +73,6 @@ setkey("n", "<leader>li", ":LspInfo<CR>", { noremap = true, silent = true })
 setkey("n", "<leader>lr", ":LspRestart<CR>", { noremap = true, silent = true })
 setkey("n", "<leader>ls", ":LspStart<CR>", { noremap = true, silent = true })
 setkey("n", "<leader>lt", ":LspStop<CR>", { noremap = true, silent = true })
-setkey("n", "<leader>lc", ":LspCapabilities<CR>", { noremap = true, silent = true })
 
 -------------------
 -- Search keymaps
