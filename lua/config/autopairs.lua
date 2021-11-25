@@ -1,10 +1,8 @@
 -- Credits: nvim-autopairs
 
 if package.loaded["cmp"] then
-  require("nvim-autopairs.completion.cmp").setup({
-    map_cr = true, --  map <CR> on insert mode
-    map_complete = true, -- it will auto insert `(` after select function or method item
-  })
+  local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+  local cmd = require("cmp")
 end
 
 require("nvim-ts-autotag").setup()
