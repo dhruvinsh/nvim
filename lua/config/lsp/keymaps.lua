@@ -13,7 +13,7 @@ M.setup = function(client, bufnr)
     ["gs"] = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "show signature help" },
     ["gp"] = { "<cmd>lua require'config.lsp.peek'.Peek('definition')<CR>", "Peek definition" },
     ["gl"] = {
-      "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ show_header = false, border = 'single' })<CR>",
+      "<cmd>lua vim.diagnostic.open_float({ show_header = false, border = 'single' })<CR>",
       "Show line diagnostics",
     },
   }

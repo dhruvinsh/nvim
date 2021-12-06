@@ -1,15 +1,20 @@
--- CREDITS: defaults.nvim, folke/dot, LunarVim, lspinstall, Kabouzeid
+local custom_configs = require("config.lsp.configs")
+local lsp_installer = require("nvim-lsp-installer")
 
-local lspconfig = require("lspconfig")
-local lspinstall = require("lspinstall")
+-- first install all the missing server
+for name, _ in pairs(custom_configs) do
+  local server_is_found, server = lsp_installer.get_server(name)
+  if server_is_found then
+    if not server:is_installed() then
+      print("Installing " .. name)
+      server:install()
+    end
+  end
+end
 
--- change some minor LSP visual changes
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = { prefix = "●" } })
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
-
-vim.api.nvim_command("highlight default link LspCodeLens Comment")
-
--- enable on_attach
+-------------------------------------
+--            LSP setup            --
+-------------------------------------
 local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
@@ -75,42 +80,8 @@ local function make_config()
   }
 end
 
--------------
--- LSP setup
--------------
-local function setup_servers()
-  lspinstall.setup()
-
-  local custom_configs = require("config.lsp.configs")
-  local servers = lspinstall.installed_servers()
-
-  for _, server in pairs(servers) do
-    -- NOTE to self: here server is string and in lua,
-    -- a dictionary is access via square brackets else
-    -- it can access via dot method.
-    local config = make_config()
-
-    -- some language specific setting override
-    if custom_configs[server] ~= nil then
-      config = vim.tbl_deep_extend("force", config, custom_configs[server])
-    end
-
-    lspconfig[server].setup(config)
-
-    -- validation
-    local cfg = lspconfig[server]
-    if not (cfg and cfg.cmd and vim.fn.executable(cfg.cmd[1]) == 1) then
-      print(server .. ": cmd not found: " .. vim.inspect(cfg.cmd))
-    end
-  end
-end
-
-setup_servers()
-
--- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
-lspinstall.post_install_hook = function()
-  setup_servers() -- reload installed servers
-  vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
-end
-
-vim.api.nvim_command("command! LspCapabilities lua require'config.lsp.capabilities'()")
+lsp_installer.on_server_ready(function(server)
+  local opts = make_config()
+  opts = vim.tbl_deep_extend("force", opts, custom_configs[server.name])
+  server:setup(opts)
+end)
