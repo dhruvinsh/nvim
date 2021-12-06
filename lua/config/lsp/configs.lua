@@ -16,7 +16,7 @@ end
 -------------------
 -- LUA
 -------------------
-M.lua = {
+M.sumneko_lua = {
   settings = {
     Lua = {
       runtime = {
@@ -75,7 +75,7 @@ M.efm = {
   init_options = { documentFormatting = true },
   settings = {
     -- we can use .project to declare directory as root project directory
-    rootMarkers = { "package.json", ".git", ".project" },
+    rootMarkers = { "package.json", ".git", ".project", "Pipfile" },
     languages = {
       lua = lua_fmt,
       python = python_fmt,
@@ -89,5 +89,7 @@ M.efm.filetypes = {}
 for ft, _ in pairs(M.efm.settings.languages) do
   table.insert(M.efm.filetypes, ft)
 end
+
+M.pyright = {}
 
 return M

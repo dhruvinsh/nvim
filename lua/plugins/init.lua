@@ -191,7 +191,7 @@ return require("packer").startup(function(use)
     requires = { "rafamadriz/friendly-snippets" },
   })
   use({
-    "kabouzeid/nvim-lspinstall",
+    "williamboman/nvim-lsp-installer",
   })
   use({
     "ray-x/lsp_signature.nvim",
