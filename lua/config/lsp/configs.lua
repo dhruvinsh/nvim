@@ -90,6 +90,14 @@ for ft, _ in pairs(M.efm.settings.languages) do
   table.insert(M.efm.filetypes, ft)
 end
 
+-------------------
+-- Pyright
+-------------------
 M.pyright = {}
+
+-------------------
+-- Typescript
+-------------------
+M.tsserver = {}
 
 return M
