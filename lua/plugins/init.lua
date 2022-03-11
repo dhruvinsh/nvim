@@ -92,7 +92,7 @@ return require("packer").startup(function(use)
   use({
     "hoob3rt/lualine.nvim",
     requires = { "kyazdani42/nvim-web-devicons", opt = true },
-    config = [[ require('config.statusline') ]],
+    config = [[ require('config.lualine') ]],
   })
   -- indent lines
   use({
@@ -128,7 +128,7 @@ return require("packer").startup(function(use)
   -- motion on lightspeed
   use({
     "ggandor/lightspeed.nvim",
-    config = [[ require('config.motion') ]],
+    config = [[ require('config.lightspeed') ]],
   })
   -- autopairs
   use({
