@@ -65,6 +65,14 @@ return require("packer").startup(function(use)
     run = "GlowInstall",
     ft = "markdown",
   })
+  -- note taking app
+  use({
+    "nvim-neorg/neorg",
+    ft = "norg",
+    after = "nvim-treesitter",
+    config = [[ require('config.neorg') ]],
+    requires = { "nvim-lua/plenary.nvim" },
+  })
 
   -----------
   -- Git
