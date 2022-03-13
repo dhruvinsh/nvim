@@ -25,6 +25,12 @@ local labels = {
     n = "Next",
     p = "Previous",
   },
+  d = {
+    name = "Doc(s)",
+    f = "Function doc",
+    F = "File doc",
+    c = "Class doc",
+  },
   f = {
     name = "File(s)",
     f = "Find files",
