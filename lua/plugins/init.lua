@@ -73,6 +73,12 @@ return require("packer").startup(function(use)
     config = [[ require('config.neorg') ]],
     requires = { "nvim-lua/plenary.nvim" },
   })
+  use({
+    "danymat/neogen",
+    after = "nvim-treesitter",
+    config = [[ require('config.neogen') ]],
+    requires = { "nvim-treesitter/nvim-treesitter"},
+  })
 
   -----------
   -- Git

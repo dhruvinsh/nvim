@@ -37,6 +37,12 @@ setkey("n", "<leader>bd", ":bdelete<cr>", keyopt2)
 setkey("n", "<leader>bn", ":bnext<cr>", keyopt2)
 setkey("n", "<leader>bp", ":bprevious<cr>", keyopt2)
 
+-----------------------------
+-- Documents keymaps (neogen)
+-----------------------------
+setkey("n", "<leader>df", ":lua require('neogen').generate()<cr>", keyopt2)
+setkey("n", "<leader>dc", ":lua require('neogen').generate({type='func'})<cr>", keyopt2)
+
 -------------------
 -- Files keymaps
 -------------------
