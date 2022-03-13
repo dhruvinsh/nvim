@@ -7,8 +7,8 @@ require("nvim-tree").setup({
       ".cache",
       "__pycache__",
       ".mypy_cache",
-    }
-  }
+    },
+  },
 })
 vim.g.nvim_tree_special_files = {}
 vim.g.nvim_tree_icons = {
