@@ -27,9 +27,10 @@ local labels = {
   },
   d = {
     name = "Doc(s)",
+    c = "Class doc",
     f = "Function doc",
     F = "File doc",
-    c = "Class doc",
+    t = "Type doc",
   },
   f = {
     name = "File(s)",
