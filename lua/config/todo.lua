@@ -1,1 +1,9 @@
-require("todo-comments").setup({ keywords = { TODO = { alt = { "WIP" } } } })
+require("todo-comments").setup({
+  keywords = {
+    TODO = {
+      alt = {
+        "WIP",
+      },
+    },
+  },
+})

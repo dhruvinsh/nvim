@@ -1,2 +1,1 @@
-require'lightspeed'.setup {
-}
+require("lightspeed").setup({})

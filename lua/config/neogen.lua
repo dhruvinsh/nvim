@@ -5,7 +5,7 @@ require("neogen").setup({
     python = {
       template = {
         annotation_convention = "google_docstrings",
-      }
-    }
-  }
+      },
+    },
+  },
 })

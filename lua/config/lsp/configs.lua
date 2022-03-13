@@ -61,15 +61,15 @@ end
 -- json dependencies
 local json_prettier = {
   formatCommand = "prettier ${--tab-width:2} --parser json",
-  formatStdin = true
+  formatStdin = true,
 }
-local json_fmt = {json_prettier}
+local json_fmt = { json_prettier }
 -- javascript dependencies
 local js_prettier = {
   formatCommand = "prettier ${--tab-width:2} --parser typescript",
-  formatStdin = true
+  formatStdin = true,
 }
-local js_fmt = {js_prettier}
+local js_fmt = { js_prettier }
 
 M.efm = {
   init_options = { documentFormatting = true },
@@ -80,7 +80,7 @@ M.efm = {
       lua = lua_fmt,
       python = python_fmt,
       json = json_fmt,
-      javascript = js_fmt
+      javascript = js_fmt,
     },
   },
 }
