@@ -139,4 +139,10 @@ function M.buf_detach(bufnr)
   ATTACHED_BUFFERS[bufnr] = nil
 end
 
+M.setup = function(client, bufnr)
+  if client.server_capabilities.colorProvider then
+    M.buf_attach(bufnr, { single_column = true })
+  end
+end
+
 return M
