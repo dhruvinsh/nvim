@@ -10,4 +10,8 @@ M.check_back_space = function()
   return col == 0 or vim.fn.getline("."):sub(col, col):match("%s") ~= nil
 end
 
+function M.error(msg, name)
+  vim.notify(msg, vim.log.levels.ERROR, { title = name })
+end
+
 return M
