@@ -191,19 +191,21 @@ return require("packer").startup(function(use)
   })
   use({
     "hrsh7th/nvim-cmp",
-    config = [[ require('config.lsp.cmp') ]],
+    config = [[ require('config.cmp') ]],
     requires = {
-      "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-nvim-lua",
+      "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
-      "saadparwaiz1/cmp_luasnip",
+      "hrsh7th/cmp-nvim-lua",
     },
   })
   use({
     "L3MON4D3/LuaSnip",
     config = [[ require('config.lsp.snip') ]],
-    requires = { "rafamadriz/friendly-snippets" },
+    requires = {
+      "rafamadriz/friendly-snippets",
+      "saadparwaiz1/cmp_luasnip",
+    },
   })
   use({
     "williamboman/nvim-lsp-installer",
@@ -218,6 +220,12 @@ return require("packer").startup(function(use)
   use({
     "folke/lsp-trouble.nvim",
     config = [[ require('config.trouble') ]],
+  })
+  use({
+    "jose-elias-alvarez/null-ls.nvim",
+    requires = {
+      "ThePrimeagen/refactoring.nvim",
+    },
   })
 
   -----------
