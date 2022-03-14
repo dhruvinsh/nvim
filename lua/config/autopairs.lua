@@ -2,7 +2,8 @@
 
 if package.loaded["cmp"] then
   local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-  local cmd = require("cmp")
+  local cmp = require("cmp")
+  cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
 end
 
 require("nvim-ts-autotag").setup()
@@ -18,11 +19,6 @@ npairs.setup({
     lua = { "string" }, -- it will not add pair on that treesitter node
     javascript = { "template_string" },
     java = false, -- don't check treesitter on java
-  },
-})
-require("nvim-treesitter.configs").setup({
-  autopairs = {
-    enable = true,
   },
 })
 
