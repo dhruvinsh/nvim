@@ -1,2 +1,2 @@
 [config]
-ignore_pattern: vim
+ignore_pattern = "vim"
