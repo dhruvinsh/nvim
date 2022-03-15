@@ -2,8 +2,8 @@
 
 local opt = vim.opt
 
--- set relative number
-opt.relativenumber = true
+-- set number
+opt.number = true
 -- updatetime
 opt.updatetime = 300
 -- set number column width
