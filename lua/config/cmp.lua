@@ -6,6 +6,8 @@ end
 local cmp = require("cmp")
 local luasnip = require("luasnip")
 
+vim.cmd([[ set completeopt=menuone,noinsert,noselect ]])
+
 cmp.setup({
   snippet = {
     expand = function(args)
