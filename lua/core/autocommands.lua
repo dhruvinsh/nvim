@@ -1,6 +1,13 @@
 -- Add spellchecking
-vim.cmd([[ autocmd FileType gitcommit setlocal spell ]])
-vim.cmd([[ autocmd FileType markdown setlocal spell ]])
+vim.api.nvim_exec(
+  [[
+  augroup spellCheck
+      autocmd!
+      autocmd FileType gitcommit,markdown,norg setlocal spell
+  augroup END 
+]],
+  false
+)
 
 -- Highlight on yank
 vim.api.nvim_exec(
