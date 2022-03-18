@@ -105,8 +105,8 @@ return require("packer").startup(function(use)
   -----------
   -- theme(s)
   use({
-    "navarasu/onedark.nvim",
-    config = [[ require('config.theme') ]],
+    "mjlbach/onedark.nvim",
+    config = [[ require('config.onedark') ]],
   })
   -- status line
   use({
