@@ -59,5 +59,9 @@ cmp.setup({
 cmp.setup.filetype("lua", {
   sources = cmp.config.sources({
     { name = "nvim_lua" },
+    { name = "nvim_lsp" },
+    { name = "luasnip" },
+    { name = "buffer" },
+    { name = "path" },
   })
 })
