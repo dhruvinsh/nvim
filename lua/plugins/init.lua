@@ -110,7 +110,7 @@ return require("packer").startup(function(use)
   })
   -- status line
   use({
-    "hoob3rt/lualine.nvim",
+    "nvim-lualine/lualine.nvim",
     requires = { "kyazdani42/nvim-web-devicons", opt = true },
     config = [[ require('config.lualine') ]],
   })
