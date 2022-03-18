@@ -136,8 +136,8 @@ return require("packer").startup(function(use)
   -----------
   -- comment plugin
   use({
-    "terrortylor/nvim-comment",
-    config = [[ require('nvim_comment').setup() ]],
+    "numToStr/Comment.nvim",
+    config = [[ require('Comment').setup() ]],
   })
   -- motion on lightspeed
   use({
