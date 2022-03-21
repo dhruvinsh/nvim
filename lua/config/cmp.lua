@@ -5,10 +5,17 @@ end
 
 local cmp = require("cmp")
 local luasnip = require("luasnip")
+local lspkind = require("lspkind")
 
 vim.cmd([[ set completeopt=menuone,noinsert,noselect ]])
 
 cmp.setup({
+  formatting = {
+    format = lspkind.cmp_format({
+      mode = "symbol",
+      maxwidth = 50,
+    }),
+  },
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
@@ -38,7 +45,10 @@ cmp.setup({
       else
         fallback()
       end
-    end, { "i", "s" }),
+    end, {
+      "i",
+      "s",
+    }),
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
@@ -47,7 +57,10 @@ cmp.setup({
       else
         fallback()
       end
-    end, { "i", "s" }),
+    end, {
+      "i",
+      "s",
+    }),
   },
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
@@ -64,5 +77,5 @@ cmp.setup.filetype("lua", {
     { name = "luasnip" },
     { name = "buffer" },
     { name = "path" },
-  })
+  }),
 })
