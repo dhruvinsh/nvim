@@ -21,7 +21,6 @@ local on_attach = function(client, bufnr)
   require("config.lsp.keymaps").setup(client, bufnr)
   require("config.lsp.highlighting").setup(client)
   require("config.lsp.code_lens").setup(client)
-  require("config.lsp.documentcolors").setup(client, bufnr)
 
   -- client specific override
   if client.name == "typescript" then
