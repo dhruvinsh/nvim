@@ -160,14 +160,9 @@ return require("packer").startup({
     })
     -- zenmode
     use({
-      "folke/zen-mode.nvim",
-      cmd = "ZenMode",
-      config = function()
-        require("zen-mode").setup({
-          plugins = { gitsigns = true, tmux = true },
-        })
-      end,
-      requires = { "folke/twilight.nvim", opt = true },
+      "Pocco81/TrueZen.nvim",
+      cmd = "TZFocus",
+      config = [[ require("true-zen").setup() ]],
     })
 
     ---------------
