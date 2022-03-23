@@ -50,6 +50,7 @@ return require("packer").startup({
     })
     use({
       "kyazdani42/nvim-tree.lua",
+      cmd = "NvimTree*",
       config = [[ require('config.nvimtree') ]],
     })
     -- tablines
@@ -98,6 +99,7 @@ return require("packer").startup({
     })
     use({
       "TimUntersberger/neogit",
+      cmd = "Neogit",
       requires = { "nvim-lua/plenary.nvim" },
     })
 
@@ -118,6 +120,7 @@ return require("packer").startup({
     -- indent lines
     use({
       "lukas-reineke/indent-blankline.nvim",
+      event = "BufReadPost",
       config = [[ require('config.indentline') ]],
     })
     -- todo
@@ -135,6 +138,7 @@ return require("packer").startup({
     -- color the brackets
     use({
       "p00f/nvim-ts-rainbow",
+      after = "nvim-treesitter",
       config = [[ require('config.rainbow') ]],
     })
 
@@ -144,11 +148,13 @@ return require("packer").startup({
     -- comment plugin
     use({
       "numToStr/Comment.nvim",
+      event = "BufReadPost",
       config = [[ require('Comment').setup() ]],
     })
     -- motion on lightspeed
     use({
       "ggandor/lightspeed.nvim",
+      event = "BufReadPost",
       config = [[ require('config.lightspeed') ]],
     })
     -- autopairs
