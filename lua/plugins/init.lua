@@ -64,10 +64,6 @@ return require("packer").startup({
       "folke/which-key.nvim",
       config = [[ require('config.whichkey') ]],
     })
-    -- repeat some commands
-    use({
-      "tpope/vim-repeat",
-    })
     use({
       "npxbr/glow.nvim",
       run = "GlowInstall",
