@@ -1,18 +1,11 @@
-local colors = {
-  white = "#abb2bf",
-  red = "#d47d85",
-  baby_pink = "#DE8C92",
-  pink = "#ff75a0",
-  vibrant_green = "#7eca9c",
-  blue = "#61afef",
-  sun = "#EBCB8B",
-  dark_purple = "#c882e7",
-  teal = "#519ABA",
-  orange = "#fca2aa",
-  cyan = "#a3b8ef",
-}
+local present, icons = pcall(require, "nvim-web-devicons")
+if not present then
+  return
+end
 
-require("nvim-web-devicons").setup({
+local colors = require("config.colors")
+
+icons.setup({
   override = {
     xlsx = {
       icon = " ",

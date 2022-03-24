@@ -1,4 +1,4 @@
-local colors = require("theme.onedark")
+local colors = require("config.colors")
 local bufferline = require("bufferline")
 
 bufferline.setup({
