@@ -77,6 +77,7 @@ return require("packer").startup({
       config = [[ require('config.neorg') ]],
       requires = { "nvim-lua/plenary.nvim" },
     })
+    -- documents formating added
     use({
       "danymat/neogen",
       after = "nvim-treesitter",
