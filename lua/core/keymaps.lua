@@ -55,6 +55,7 @@ setkey("n", "<leader>dt", ":lua require('neogen').generate({type='type'})<cr>", 
 setkey("n", "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<cr>", keyopt2)
 setkey("n", "<leader>fr", "<cmd>lua require('telescope.builtin').oldfiles()<cr>", keyopt2)
 setkey("n", "<leader>ft", "<cmd>NvimTreeToggle<cr>", keyopt2)
+setkey("n", "<leader>fT", "<cmd>ToggleTerm<cr>", keyopt2)
 setkey("n", "<leader>fz", "<cmd>TZAtaraxis<cr>", keyopt2)
 
 -------------------
