@@ -1,4 +1,4 @@
-local c = require("theme.onedark")
+local colors = require("config.colors")
 
 require("nvim-treesitter.configs").setup({
   rainbow = {
@@ -6,12 +6,12 @@ require("nvim-treesitter.configs").setup({
     extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
     max_file_lines = nil, -- Do not enable for files with more than n lines, int
     colors = {
-      c.nord_blue,
-      c.purple,
-      c.yellow,
-      c.cyan,
-      c.orange,
-      c.red,
+      colors.nord_blue,
+      colors.purple,
+      colors.yellow,
+      colors.cyan,
+      colors.orange,
+      colors.red,
     }, -- table of hex strings
     -- termcolors = {} -- table of colour name strings
   },
