@@ -34,6 +34,7 @@ local labels = {
   },
   f = {
     name = "File(s)",
+    T = "Terminal",
     f = "Find files",
     r = "Recent files",
     t = "Tree",

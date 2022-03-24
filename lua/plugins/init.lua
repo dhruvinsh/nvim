@@ -83,6 +83,12 @@ return require("packer").startup({
       config = [[ require('config.neogen') ]],
       requires = { "nvim-treesitter/nvim-treesitter" },
     })
+    -- terminal app
+    use({
+      "akinsho/toggleterm.nvim",
+      cmd = "ToggleTerm",
+      config = [[ require("toggleterm").setup() ]],
+    })
 
     -----------
     -- Git

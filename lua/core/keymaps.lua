@@ -28,6 +28,10 @@ setkey("n", "j", "v:count == 0 ? 'gj' : 'j'", keyopt3)
 setkey("n", "k", "v:count == 0 ? 'gk' : 'k'", keyopt3)
 --Remap escape to leave terminal mode
 setkey("t", "<Esc>", [[<c-\><c-n>]], keyopt1)
+setkey("t", "<C-w>h", [[<C-\><C-n><C-W>h]], keyopt1)
+setkey("t", "<C-w>j", [[<C-\><C-n><C-W>j]], keyopt1)
+setkey("t", "<C-w>k", [[<C-\><C-n><C-W>k]], keyopt1)
+setkey("t", "<C-w>l", [[<C-\><C-n><C-W>l]], keyopt1)
 
 -------------------
 -- Buffer keymaps
