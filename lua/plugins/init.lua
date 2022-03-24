@@ -32,6 +32,7 @@ local plugins = {
   -- packer itself
   { "wbthomason/packer.nvim" },
   -- file manager
+  {"lewis6991/impatient.nvim"},
   {
     "nvim-telescope/telescope.nvim",
     requires = {
