@@ -1,2 +1,1 @@
-[config]
-ignore_pattern = "vim"
+std="vim"
