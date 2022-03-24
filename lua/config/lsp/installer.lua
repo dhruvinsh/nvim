@@ -1,5 +1,5 @@
 local util = require("util")
-local custom_configs = require("config.lsp.configs")
+local overrides = require("config.lsp.configs")
 
 
 local M = {}
@@ -21,7 +21,7 @@ end
 function M.setup(servers, options)
   local lspi = require("nvim-lsp-installer")
   lspi.on_server_ready(function(server)
-    local opts = vim.tbl_deep_extend("force", options, custom_configs[server.name] or {})
+    local opts = vim.tbl_deep_extend("force", options, overrides[server.name] or {})
     server:setup(opts)
     vim.cmd([[ do User LspAttachBuffers ]])
   end)
