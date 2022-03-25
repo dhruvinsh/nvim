@@ -57,7 +57,6 @@ local plugins = {
   {
     "akinsho/bufferline.nvim",
     config = [[ require('config.bufferline') ]],
-    requires = "kyazdani42/nvim-web-devicons",
   },
   {
     "folke/which-key.nvim",
@@ -140,30 +139,32 @@ local plugins = {
 
   -- Programming
   {
+    "simrat39/symbols-outline.nvim",
+    cmd = { "SymbolsOutline" },
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
     config = [[ require('config.treesitter') ]],
-    requires = {
-      "nvim-treesitter/nvim-treesitter-textobjects",
-    },
+  },
+  {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    after = "nvim-treesitter",
   },
   {
     "windwp/nvim-autopairs",
     after = "nvim-cmp",
     config = [[ require('config.autopairs') ]],
-    requires = { "windwp/nvim-ts-autotag" },
+  },
+  {
+    "windwp/nvim-ts-autotag",
+    after = "nvim-autopairs",
   },
 
   -- LSP
   {
     "neovim/nvim-lspconfig",
     config = [[ require('config.lsp') ]],
-    requires = {
-      {
-        "simrat39/symbols-outline.nvim",
-        cmd = { "SymbolsOutline" },
-      },
-    },
   },
   {
     "hrsh7th/nvim-cmp",
