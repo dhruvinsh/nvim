@@ -44,10 +44,10 @@ setkey("n", "<leader>bp", ":bprevious<cr>", keyopt2)
 -----------------------------
 -- Documents keymaps (neogen)
 -----------------------------
-setkey("n", "<leader>dc", ":lua require('neogen').generate({type='func'})<cr>", keyopt2)
-setkey("n", "<leader>df", ":lua require('neogen').generate()<cr>", keyopt2)
-setkey("n", "<leader>dF", ":lua require('neogen').generate({type='file'})<cr>", keyopt2)
-setkey("n", "<leader>dt", ":lua require('neogen').generate({type='type'})<cr>", keyopt2)
+setkey("n", "<leader>dc", "<cmd>Neogen class<cr>", keyopt2)
+setkey("n", "<leader>df", "<cmd>Neogen func<cr>", keyopt2)
+setkey("n", "<leader>dF", "<cmd>Neogen file<cr>", keyopt2)
+setkey("n", "<leader>dt", "<cmd>Neogen type<cr>", keyopt2)
 
 -------------------
 -- Files keymaps
