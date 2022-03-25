@@ -133,7 +133,7 @@ local plugins = {
   },
   {
     "Pocco81/TrueZen.nvim",
-    cmd = "TZFocus",
+    cmd = "TZAtaraxis",
     config = [[ require("true-zen").setup() ]],
   },
 
