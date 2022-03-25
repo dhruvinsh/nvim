@@ -159,6 +159,7 @@ local plugins = {
   {
     "windwp/nvim-ts-autotag",
     after = "nvim-autopairs",
+    config = [[ require("nvim-ts-autotag").setup() ]],
   },
 
   -- LSP
