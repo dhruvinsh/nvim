@@ -5,7 +5,9 @@ if present then
 end
 
 local core_modules = {
-  "core",
+  "core.defaults",
+  "core.keymaps",
+  "core.autocommands",
   "plugins",
 }
 
