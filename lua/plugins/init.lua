@@ -128,13 +128,6 @@ local plugins = {
     event = "BufReadPost",
     config = [[ require('config.indentline') ]],
   },
-  -- todo
-  {
-    "folke/todo-comments.nvim",
-    cmd = { "TodoTrouble", "TodoTelescope" },
-    event = "BufReadPost",
-    config = [[ require("config.todo") ]],
-  },
   -- colorizer
   {
     "norcalli/nvim-colorizer.lua",
@@ -230,10 +223,6 @@ local plugins = {
   {
     "kosayoda/nvim-lightbulb",
     config = [[ require('config.lightbulb') ]],
-  },
-  {
-    "folke/lsp-trouble.nvim",
-    config = [[ require('config.trouble') ]],
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
