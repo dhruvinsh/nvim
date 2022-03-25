@@ -41,6 +41,7 @@ local plugins = {
   },
   {
     "nvim-telescope/telescope.nvim",
+    cmd = "Telescope",
     config = [[ require('config.telescope') ]],
     requires = {
       {

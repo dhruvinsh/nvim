@@ -36,7 +36,7 @@ setkey("t", "<C-w>l", [[<C-\><C-n><C-W>l]], keyopt1)
 -------------------
 -- Buffer keymaps
 -------------------
-setkey("n", "<leader>bb", "<cmd>lua require('telescope.builtin').buffers()<cr>", keyopt2)
+setkey("n", "<leader>bb", "<cmd>Telscope buffers<cr>", keyopt2)
 setkey("n", "<leader>bd", ":bdelete<cr>", keyopt2)
 setkey("n", "<leader>bn", ":bnext<cr>", keyopt2)
 setkey("n", "<leader>bp", ":bprevious<cr>", keyopt2)
@@ -52,8 +52,8 @@ setkey("n", "<leader>dt", "<cmd>Neogen type<cr>", keyopt2)
 -------------------
 -- Files keymaps
 -------------------
-setkey("n", "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<cr>", keyopt2)
-setkey("n", "<leader>fr", "<cmd>lua require('telescope.builtin').oldfiles()<cr>", keyopt2)
+setkey("n", "<leader>ff", "<cmd>Telscope find_files<cr>", keyopt2)
+setkey("n", "<leader>fr", "<cmd>Telscope oldfiles<cr>", keyopt2)
 setkey("n", "<leader>ft", "<cmd>NvimTreeToggle<cr>", keyopt2)
 setkey("n", "<leader>fT", "<cmd>ToggleTerm<cr>", keyopt2)
 setkey("n", "<leader>fz", "<cmd>TZAtaraxis<cr>", keyopt2)
@@ -63,7 +63,7 @@ setkey("n", "<leader>fz", "<cmd>TZAtaraxis<cr>", keyopt2)
 -------------------
 setkey("n", "<leader>ghP", "<cmd>lua require('gitsigns').preview_hunk()<cr>", keyopt2)
 setkey("n", "<leader>ghR", "<cmd>lua require('gitsigns').reset_buffer()<cr>", keyopt2)
-setkey("n", "<leader>gf", "<cmd>lua require('telescope.builtin').git_files()<cr>", keyopt2)
+setkey("n", "<leader>gf", "<cmd>Telescope git_files<cr>", keyopt2)
 setkey("n", "<leader>gg", "<cmd>Neogit<cr>", keyopt2)
 setkey("n", "<leader>ghb", "<cmd>lua require('gitsigns').blame_line()<cr>", keyopt2)
 setkey("n", "<leader>ghn", "<cmd>lua require('gitsigns').next_hunk()<cr>", keyopt2)
@@ -90,12 +90,12 @@ setkey("n", "<leader>lt", ":LspStop<CR>", { noremap = true, silent = true })
 -------------------
 -- Search keymaps
 -------------------
-setkey("n", "<leader>sC", "<cmd>lua require('telescope.builtin').colorscheme()<cr>", keyopt2)
-setkey("n", "<leader>sc", "<cmd>lua require('telescope.builtin').commands()<cr>", keyopt2)
+setkey("n", "<leader>sC", "<cmd>lua Telescope colorscheme<cr>", keyopt2)
+setkey("n", "<leader>sc", "<cmd>lua Telescope commands<cr>", keyopt2)
 -- some how i keep pressing this to open files, probably from default.nvim
-setkey("n", "<leader>sf", "<cmd>lua require('telescope.builtin').find_files()<cr>", keyopt2)
-setkey("n", "<leader>sg", "<cmd>lua require('telescope.builtin').live_grep()<cr>", keyopt2)
-setkey("n", "<leader>sh", "<cmd>lua require('telescope.builtin').help_tags()<cr>", keyopt2)
-setkey("n", "<leader>sk", "<cmd>lua require('telescope.builtin').keymaps()<cr>", keyopt2)
-setkey("n", "<leader>ss", "<cmd>lua require('telescope.builtin').grep_string()<cr>", keyopt2)
-setkey("n", "<leader>st", "<cmd>lua require('telescope.builtin').tags()<cr>", keyopt2)
+setkey("n", "<leader>sf", "<cmd>lua Telescope find_files<cr>", keyopt2)
+setkey("n", "<leader>sg", "<cmd>lua Telescope live_grep<cr>", keyopt2)
+setkey("n", "<leader>sh", "<cmd>lua Telescope help_tags<cr>", keyopt2)
+setkey("n", "<leader>sk", "<cmd>lua Telescope keymaps<cr>", keyopt2)
+setkey("n", "<leader>ss", "<cmd>lua Telescope grep_string<cr>", keyopt2)
+setkey("n", "<leader>st", "<cmd>lua Telescope tags<cr>", keyopt2)
