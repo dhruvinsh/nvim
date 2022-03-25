@@ -36,7 +36,7 @@ setkey("t", "<C-w>l", [[<C-\><C-n><C-W>l]], keyopt1)
 -------------------
 -- Buffer keymaps
 -------------------
-setkey("n", "<leader>bb", "<cmd>Telscope buffers<cr>", keyopt2)
+setkey("n", "<leader>bb", "<cmd>Telescope buffers<cr>", keyopt2)
 setkey("n", "<leader>bd", ":bdelete<cr>", keyopt2)
 setkey("n", "<leader>bn", ":bnext<cr>", keyopt2)
 setkey("n", "<leader>bp", ":bprevious<cr>", keyopt2)
@@ -52,8 +52,8 @@ setkey("n", "<leader>dt", "<cmd>Neogen type<cr>", keyopt2)
 -------------------
 -- Files keymaps
 -------------------
-setkey("n", "<leader>ff", "<cmd>Telscope find_files<cr>", keyopt2)
-setkey("n", "<leader>fr", "<cmd>Telscope oldfiles<cr>", keyopt2)
+setkey("n", "<leader>ff", "<cmd>Telescope find_files<cr>", keyopt2)
+setkey("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", keyopt2)
 setkey("n", "<leader>ft", "<cmd>NvimTreeToggle<cr>", keyopt2)
 setkey("n", "<leader>fT", "<cmd>ToggleTerm<cr>", keyopt2)
 setkey("n", "<leader>fz", "<cmd>TZAtaraxis<cr>", keyopt2)
