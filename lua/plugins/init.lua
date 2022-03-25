@@ -36,19 +36,16 @@ local plugins = {
     config = [[ require('config.icons') ]],
   },
   {
-    "ahmedkhalf/project.nvim",
-    config = [[ require("config.project") ]],
+    "nvim-telescope/telescope.nvim",
+    config = [[ require('config.telescope') ]],
   },
   {
-    "nvim-telescope/telescope.nvim",
-    cmd = "Telescope",
-    config = [[ require('config.telescope') ]],
-    requires = {
-      {
-        "nvim-telescope/telescope-fzf-native.nvim",
-        run = "make",
-      },
-    },
+    "nvim-telescope/telescope-fzf-native.nvim",
+    run = "make",
+  },
+  {
+    "ahmedkhalf/project.nvim",
+    config = [[ require("config.project") ]],
   },
   {
     "kyazdani42/nvim-tree.lua",
