@@ -88,6 +88,11 @@ setkey("n", "<leader>ls", "<cmd>LspStart<CR>", keyopt2)
 setkey("n", "<leader>lt", "<cmd>LspStop<CR>", keyopt2)
 
 -------------------
+-- Project keymaps
+-------------------
+setkey("n", "<leader>pp", "<cmd>Telescope projects<CR>", keyopt2)
+
+-------------------
 -- Search keymaps
 -------------------
 setkey("n", "<leader>sC", "<cmd>lua Telescope colorscheme<cr>", keyopt2)
