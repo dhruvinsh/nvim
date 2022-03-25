@@ -36,6 +36,10 @@ local plugins = {
     config = [[ require('config.icons') ]],
   },
   {
+    "ahmedkhalf/project.nvim",
+    config = [[ require("config.project") ]],
+  },
+  {
     "nvim-telescope/telescope.nvim",
     config = [[ require('config.telescope') ]],
     requires = {
