@@ -28,4 +28,4 @@ opt.mouse = "a"
 -- fix for indentline
 opt.colorcolumn = "99999"
 -- global statusline
-opt.laststatu = 3
+opt.laststatus = 3
