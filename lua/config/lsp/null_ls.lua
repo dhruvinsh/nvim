@@ -22,7 +22,6 @@ M.setup = function(options)
           return utils.root_has_file({ ".git" })
         end,
       }),
-      nls.builtins.code_actions.refactoring,
     },
     on_attach = options.on_attach,
     root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".nvim.settings.json", ".git", ".projectile", "Pipenv"),
