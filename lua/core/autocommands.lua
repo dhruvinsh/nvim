@@ -3,7 +3,7 @@ vim.api.nvim_exec(
   [[
   augroup spellCheck
       autocmd!
-      autocmd FileType gitcommit,markdown,norg setlocal spell
+      autocmd FileType NeogitCommitMessage,gitcommit,markdown,norg setlocal spell
   augroup END 
 ]],
   false
