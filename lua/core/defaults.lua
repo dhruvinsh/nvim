@@ -27,3 +27,5 @@ opt.termguicolors = true
 opt.mouse = "a"
 -- fix for indentline
 opt.colorcolumn = "99999"
+-- global statusline
+opt.laststatu = 3
