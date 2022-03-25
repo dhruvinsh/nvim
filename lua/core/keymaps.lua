@@ -82,10 +82,10 @@ setkey("x", "ih", ":<C-U>lua require('gitsigns').select_hunk()<cr>", keyopt2)
 --------------------------
 -- LSP management keymaps
 --------------------------
-setkey("n", "<leader>li", "<cmd>LspInfo<CR>", { noremap = true, silent = true })
-setkey("n", "<leader>lr", "<cmd>LspRestart<CR>", { noremap = true, silent = true })
-setkey("n", "<leader>ls", "<cmd>LspStart<CR>", { noremap = true, silent = true })
-setkey("n", "<leader>lt", "<cmd>LspStop<CR>", { noremap = true, silent = true })
+setkey("n", "<leader>li", "<cmd>LspInfo<CR>", keyopt2)
+setkey("n", "<leader>lr", "<cmd>LspRestart<CR>", keyopt2)
+setkey("n", "<leader>ls", "<cmd>LspStart<CR>", keyopt2)
+setkey("n", "<leader>lt", "<cmd>LspStop<CR>", keyopt2)
 
 -------------------
 -- Search keymaps
