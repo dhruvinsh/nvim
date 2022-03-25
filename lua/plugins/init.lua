@@ -26,42 +26,35 @@ vim.api.nvim_exec(
 -- Plugins list
 ---------------
 local plugins = {
-  -----------
   -- Tools
-  -----------
-  -- packer itself
+  { "lewis6991/impatient.nvim" },
   { "wbthomason/packer.nvim" },
-  -- file manager
-  {"lewis6991/impatient.nvim"},
-  {"nathom/filetype.nvim"},
+  { "nathom/filetype.nvim" },
+  { "nvim-lua/plenary.nvim" },
+  {
+    "kyazdani42/nvim-web-devicons",
+    config = [[ require('config.icons') ]],
+  },
   {
     "nvim-telescope/telescope.nvim",
+    config = [[ require('config.telescope') ]],
     requires = {
-      "nvim-lua/plenary.nvim",
       {
         "nvim-telescope/telescope-fzf-native.nvim",
         run = "make",
       },
     },
-    config = [[ require('config.telescope') ]],
-  },
-  -- icons
-  {
-    "kyazdani42/nvim-web-devicons",
-    config = [[ require('config.icons') ]],
   },
   {
     "kyazdani42/nvim-tree.lua",
     cmd = "NvimTree*",
     config = [[ require('config.nvimtree') ]],
   },
-  -- tablines
   {
     "akinsho/bufferline.nvim",
     config = [[ require('config.bufferline') ]],
     requires = "kyazdani42/nvim-web-devicons",
   },
-  -- which-key
   {
     "folke/which-key.nvim",
     config = [[ require('config.whichkey') ]],
@@ -71,55 +64,41 @@ local plugins = {
     run = "GlowInstall",
     ft = "markdown",
   },
-  -- note taking app
   {
     "nvim-neorg/neorg",
     ft = "norg",
-    after = "nvim-treesitter",
     config = [[ require('config.neorg') ]],
-    requires = { "nvim-lua/plenary.nvim" },
   },
-  -- documents formating added
   {
     "danymat/neogen",
     after = "nvim-treesitter",
+    cmd = "Neogen",
     config = [[ require('config.neogen') ]],
-    requires = { "nvim-treesitter/nvim-treesitter" },
   },
-  -- terminal app
   {
     "akinsho/toggleterm.nvim",
     cmd = "ToggleTerm",
     config = [[ require("toggleterm").setup() ]],
   },
 
-  -----------
   -- Git
-  -----------
   {
     "lewis6991/gitsigns.nvim",
-    event = "BufReadPre",
     config = [[ require('config.gitsigns') ]],
-    requires = { "nvim-lua/plenary.nvim" },
+    event = "BufRead",
   },
   {
     "TimUntersberger/neogit",
     cmd = "Neogit",
-    requires = { "nvim-lua/plenary.nvim" },
   },
 
-  -----------
   -- UI
-  -----------
-  -- theme(s)
   {
     "mjlbach/onedark.nvim",
     config = [[ require('config.onedark') ]],
   },
-  -- status line
   {
     "nvim-lualine/lualine.nvim",
-    requires = { "kyazdani42/nvim-web-devicons", opt = true },
     config = [[ require('config.lualine') ]],
   },
   -- indent lines
@@ -128,51 +107,34 @@ local plugins = {
     event = "BufReadPost",
     config = [[ require('config.indentline') ]],
   },
-  -- colorizer
   {
     "norcalli/nvim-colorizer.lua",
     config = [[ require('colorizer').setup() ]],
   },
-  -- color the brackets
   {
     "p00f/nvim-ts-rainbow",
     after = "nvim-treesitter",
     config = [[ require('config.rainbow') ]],
   },
 
-  -----------
   -- Editor
-  -----------
-  -- comment plugin
   {
     "numToStr/Comment.nvim",
     event = "BufReadPost",
     config = [[ require('Comment').setup() ]],
   },
-  -- motion on lightspeed
   {
     "ggandor/lightspeed.nvim",
     event = "BufReadPost",
     config = [[ require('config.lightspeed') ]],
   },
-  -- autopairs
-  {
-    "windwp/nvim-autopairs",
-    after = "nvim-cmp",
-    config = [[ require('config.autopairs') ]],
-    requires = { "windwp/nvim-ts-autotag" },
-  },
-  -- zenmode
   {
     "Pocco81/TrueZen.nvim",
     cmd = "TZFocus",
     config = [[ require("true-zen").setup() ]],
   },
 
-  ---------------
   -- Programming
-  ---------------
-  -- incremental parser
   {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
@@ -181,10 +143,14 @@ local plugins = {
       "nvim-treesitter/nvim-treesitter-textobjects",
     },
   },
+  {
+    "windwp/nvim-autopairs",
+    after = "nvim-cmp",
+    config = [[ require('config.autopairs') ]],
+    requires = { "windwp/nvim-ts-autotag" },
+  },
 
-  -----------
   -- LSP
-  -----------
   {
     "neovim/nvim-lspconfig",
     config = [[ require('config.lsp') ]],
@@ -214,32 +180,13 @@ local plugins = {
       "saadparwaiz1/cmp_luasnip",
     },
   },
-  {
-    "williamboman/nvim-lsp-installer",
-  },
-  {
-    "ray-x/lsp_signature.nvim",
-  },
+  { "williamboman/nvim-lsp-installer" },
+  { "ray-x/lsp_signature.nvim" },
+  { "jose-elias-alvarez/null-ls.nvim" },
   {
     "kosayoda/nvim-lightbulb",
     config = [[ require('config.lightbulb') ]],
   },
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    requires = {
-      "ThePrimeagen/refactoring.nvim",
-    },
-  },
-  -----------
-  -- Beta
-  -----------
-  -- all the plugins that are under beta (from my perspective) will reside here
-  -- if no adverse effect found then it will move to plugins
-  -- startup time
-  -- {
-  --   'henriquehbr/nvim-startup.lua',
-  --   config = [[ require('nvim-startup') ]]
-  -- },
 }
 
 return packer.startup({
