@@ -6,17 +6,30 @@ M.setup = function(options)
     debounce = 150,
     save_after_format = false,
     sources = {
-      nls.builtins.formatting.black,
+      -- javascript
       nls.builtins.formatting.eslint_d,
-      nls.builtins.formatting.fixjson.with({ filetypes = { "jsonc" } }),
-      nls.builtins.formatting.isort,
       nls.builtins.formatting.prettierd,
+
+      -- json
+      nls.builtins.formatting.fixjson.with({ filetypes = { "jsonc" } }),
+
+      -- lua
       nls.builtins.formatting.stylua,
+      nls.builtins.diagnostics.selene,
+
+      -- mardown
       nls.builtins.diagnostics.markdownlint,
+
+      -- python
+      nls.builtins.formatting.black,
+      nls.builtins.formatting.isort,
       nls.builtins.diagnostics.mypy,
       nls.builtins.diagnostics.pylint,
-      nls.builtins.diagnostics.selene,
+
+      -- shell
       nls.builtins.diagnostics.shellcheck,
+
+      -- git
       nls.builtins.code_actions.gitsigns.with({
         condition = function(utils)
           return utils.root_has_file({ ".git" })
