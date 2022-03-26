@@ -95,12 +95,12 @@ setkey("n", "<leader>pp", "<cmd>Telescope projects<CR>", keyopt2)
 -------------------
 -- Search keymaps
 -------------------
-setkey("n", "<leader>sC", "<cmd>lua Telescope colorscheme<cr>", keyopt2)
-setkey("n", "<leader>sc", "<cmd>lua Telescope commands<cr>", keyopt2)
+setkey("n", "<leader>sC", "<cmd>Telescope colorscheme<cr>", keyopt2)
+setkey("n", "<leader>sc", "<cmd>Telescope commands<cr>", keyopt2)
 -- some how i keep pressing this to open files, probably from default.nvim
-setkey("n", "<leader>sf", "<cmd>lua Telescope find_files<cr>", keyopt2)
-setkey("n", "<leader>sg", "<cmd>lua Telescope live_grep<cr>", keyopt2)
-setkey("n", "<leader>sh", "<cmd>lua Telescope help_tags<cr>", keyopt2)
-setkey("n", "<leader>sk", "<cmd>lua Telescope keymaps<cr>", keyopt2)
-setkey("n", "<leader>ss", "<cmd>lua Telescope grep_string<cr>", keyopt2)
-setkey("n", "<leader>st", "<cmd>lua Telescope tags<cr>", keyopt2)
+setkey("n", "<leader>sf", "<cmd>Telescope find_files<cr>", keyopt2)
+setkey("n", "<leader>sg", "<cmd>Telescope live_grep<cr>", keyopt2)
+setkey("n", "<leader>sh", "<cmd>Telescope help_tags<cr>", keyopt2)
+setkey("n", "<leader>sk", "<cmd>Telescope keymaps<cr>", keyopt2)
+setkey("n", "<leader>ss", "<cmd>Telescope grep_string<cr>", keyopt2)
+setkey("n", "<leader>st", "<cmd>Telescope tags<cr>", keyopt2)
