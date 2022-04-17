@@ -5,6 +5,7 @@ if present then
 end
 
 local core_modules = {
+  "core.disable-builtins",
   "core.defaults",
   "core.keymaps",
   "core.autocommands",
