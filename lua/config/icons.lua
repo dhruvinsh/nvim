@@ -143,12 +143,12 @@ icons.setup({
       name = "xz",
     },
     yaml = {
-      icon = " ",
+      icon = " ",
       color = colors.red,
       name = "Yaml",
     },
     yml = {
-      icon = " ",
+      icon = " ",
       color = colors.red,
       name = "Yml",
     },
