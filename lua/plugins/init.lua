@@ -92,6 +92,10 @@ local plugins = {
     "TimUntersberger/neogit",
     cmd = "Neogit",
   },
+  {
+    "sindrets/diffview.nvim",
+    cmd = "Diffview*",
+  },
 
   -- UI
   {
