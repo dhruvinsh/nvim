@@ -79,3 +79,12 @@ cmp.setup.filetype("lua", {
     { name = "path" },
   }),
 })
+
+cmp.setup.filetype("org", {
+  sources = cmp.config.sources({
+    { name = "nvim_lsp" },
+    { name = "buffer" },
+    { name = "path" },
+    { name = "orgmode" },
+  }),
+})
