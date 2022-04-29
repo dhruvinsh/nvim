@@ -71,6 +71,10 @@ local plugins = {
     config = [[ require('config.neorg') ]],
   },
   {
+    "nvim-orgmode/orgmode",
+    config = [[ require('config.orgmode') ]],
+  },
+  {
     "danymat/neogen",
     after = "nvim-treesitter",
     cmd = "Neogen",
