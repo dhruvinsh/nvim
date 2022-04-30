@@ -195,10 +195,6 @@ local plugins = {
   { "williamboman/nvim-lsp-installer" },
   { "ray-x/lsp_signature.nvim" },
   { "jose-elias-alvarez/null-ls.nvim" },
-  {
-    "kosayoda/nvim-lightbulb",
-    config = [[ require('config.lightbulb') ]],
-  },
 }
 
 return packer.startup({
