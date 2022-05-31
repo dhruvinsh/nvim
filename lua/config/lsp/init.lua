@@ -24,8 +24,8 @@ local on_attach = function(client, bufnr)
 
   -- client specific override
   if client.name == "typescript" then
-    client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.document_range_formatting = false
+    client.server_capabilities.document_formatting = false
+    client.server_capabilities.document_range_formatting = false
   end
 end
 
