@@ -159,7 +159,6 @@ local plugins = {
   },
   {
     "windwp/nvim-autopairs",
-    after = "nvim-cmp",
     config = [[ require('config.autopairs') ]],
   },
   {
@@ -170,30 +169,28 @@ local plugins = {
 
   -- LSP
   {
-    "neovim/nvim-lspconfig",
+    'VonHeikemen/lsp-zero.nvim',
     config = [[ require('config.lsp') ]],
-  },
-  {
-    "hrsh7th/nvim-cmp",
-    config = [[ require('config.cmp') ]],
     requires = {
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-nvim-lua",
-      "onsails/lspkind-nvim",
-    },
+      -- LSP Support
+      {'neovim/nvim-lspconfig'},
+      {'williamboman/mason.nvim'},
+      {'williamboman/mason-lspconfig.nvim'},
+  
+      -- Autocompletion
+      {'hrsh7th/nvim-cmp'},
+      {'hrsh7th/cmp-buffer'},
+      {'hrsh7th/cmp-path'},
+      { "hrsh7th/cmp-cmdline" },
+      {'saadparwaiz1/cmp_luasnip'},
+      {'hrsh7th/cmp-nvim-lsp'},
+      {'hrsh7th/cmp-nvim-lua'},
+  
+      -- Snippets
+      {'L3MON4D3/LuaSnip'},
+      {'rafamadriz/friendly-snippets'},
+    }
   },
-  {
-    "L3MON4D3/LuaSnip",
-    config = [[ require('config.luasnip') ]],
-    requires = {
-      "rafamadriz/friendly-snippets",
-      "saadparwaiz1/cmp_luasnip",
-    },
-  },
-  { "williamboman/nvim-lsp-installer" },
-  { "ray-x/lsp_signature.nvim" },
   { "jose-elias-alvarez/null-ls.nvim" },
 }
 
