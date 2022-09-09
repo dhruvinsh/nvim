@@ -2,7 +2,10 @@ local M = {}
 
 M.nvimtree = {
   n = {
-      ["<leader>ft"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
+    ["<leader>ft"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
+
+    -- git keymaps
+    ["<leader>gg"] = { "<cmd>Neogit <CR>", "Neogit"}
   },
   t = {
     ["<Esc>"] = { [[<C-\><C-n>]] },
