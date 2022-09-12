@@ -1,7 +1,7 @@
 local M = {}
 
 -- global disable keymaps
-M.disable = {
+M.disabled = {
   n = {
     ["<leader>b"] = "", -- unmap create buffer
   }
