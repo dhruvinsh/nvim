@@ -4,6 +4,7 @@ local M = {}
 M.disabled = {
   n = {
     ["<leader>b"] = "", -- unmap create buffer
+    ["<leader>x"] = "", -- unmap delete buffer
   }
 }
 
@@ -27,7 +28,25 @@ M.buffer = {
   n = {
     ["<leader>bb"] = { "", "buffers" },
     ["<leader>bc"] = { "<cmd> enew <CR>", "new buffer" },
-    ["<leader>bd"] = { [[ rquire("core.utils").close_buffer() ]], "close buffer" },
+    ["<leader>bd"] = {
+      function ()
+        require("core.utils").close_buffer()
+      end,
+      "close buffer",
+    },
+  },
+}
+
+-- lsp, linting option
+M.lsp = {
+  n = {
+    -- addition formatting keymap
+    ["<leader>bf"] = {
+      function ()
+        vim.lsp.buf.formatting {}
+      end,
+      "lsp formatting",
+    },
   },
 }
 
