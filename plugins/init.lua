@@ -38,6 +38,10 @@ return {
       cmd = require("custom.lazy_load").neogit_cmds,
   },
 
+  ["sindrets/diffview.nvim"] = {
+    cmd = require("custom.lazy_load").diffview_cmds,
+  },
+
   -- code formatting, linting etc
   ["jose-elias-alvarez/null-ls.nvim"] = {
     after = "nvim-lspconfig",
