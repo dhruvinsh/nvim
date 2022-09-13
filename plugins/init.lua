@@ -13,6 +13,11 @@ return {
     end,
   },
 
+  -- some config overrides
+  ["nvim-treesitter/nvim-treesitter"] = {
+    override_options = overrides.treesitter,
+  },
+
   ["williamboman/mason.nvim"] = {
     overrides_options = overrides.mason,
   },
