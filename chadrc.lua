@@ -45,6 +45,12 @@ M.plugins = {
       },
     },
   },
+  ["neovim/nvim-lspconfig"] = {
+    config = function()
+      require "plugins.configs.lspconfig"
+      require "custom.plugins.lspconfig"
+    end,
+  },
 }
 
 M.mappings = require "custom.mappings"
