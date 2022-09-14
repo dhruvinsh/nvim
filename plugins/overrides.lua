@@ -50,6 +50,13 @@ M.mason = {
 }
 
 M.nvimtree = {
+  filters = {
+    custom = {
+      "^.git$",
+      "^.mypy_cache$",
+      "^__pycache__$",
+    },
+  },
   git = {
     enable = true,
   },
