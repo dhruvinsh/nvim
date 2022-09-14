@@ -5,7 +5,7 @@ M.disabled = {
   n = {
     ["<leader>b"] = "", -- unmap create buffer
     ["<leader>x"] = "", -- unmap delete buffer
-  }
+  },
 }
 
 -- nvimtree keymaps
@@ -19,7 +19,7 @@ M.nvimtree = {
 M.neogit = {
   n = {
     -- git keymaps
-    ["<leader>gg"] = { "<cmd>Neogit <CR>", "Neogit"},
+    ["<leader>gg"] = { "<cmd>Neogit <CR>", "Neogit" },
   },
 }
 
@@ -29,7 +29,7 @@ M.buffer = {
     ["<leader>bb"] = { "", "buffers" },
     ["<leader>bc"] = { "<cmd> enew <CR>", "new buffer" },
     ["<leader>bd"] = {
-      function ()
+      function()
         require("core.utils").close_buffer()
       end,
       "close buffer",
@@ -42,8 +42,8 @@ M.lsp = {
   n = {
     -- addition formatting keymap
     ["<leader>bf"] = {
-      function ()
-        vim.lsp.buf.formatting {}
+      function()
+        vim.lsp.buf.formatting({})
       end,
       "lsp formatting",
     },

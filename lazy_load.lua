@@ -1,7 +1,7 @@
 local M = {}
 
 M.neogit_cmds = {
-    "Neogit",
+  "Neogit",
 }
 
 M.diffview_cmds = {
