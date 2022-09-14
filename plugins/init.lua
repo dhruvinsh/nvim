@@ -19,11 +19,11 @@ return {
   },
 
   ["williamboman/mason.nvim"] = {
-    overrides_options = overrides.mason,
+    override_options = overrides.mason,
   },
 
   ["kyazdani42/nvim-tree.lua"] = {
-    overrides_options = overrides.nvimtree,
+    override_options = overrides.nvimtree,
   },
 
   -- installing some new plugins
