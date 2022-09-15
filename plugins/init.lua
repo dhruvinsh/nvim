@@ -1,4 +1,5 @@
 local overrides = require("custom.plugins.overrides")
+local lazyload = require("custom.plugins.lazy_load")
 
 return {
 
@@ -35,11 +36,11 @@ return {
   },
 
   ["TimUntersberger/neogit"] = {
-    cmd = require("custom.lazy_load").neogit_cmds,
+    cmd = lazyload.neogit_cmds,
   },
 
   ["sindrets/diffview.nvim"] = {
-    cmd = require("custom.lazy_load").diffview_cmds,
+    cmd = lazyload.diffview_cmds,
   },
 
   -- code formatting, linting etc
