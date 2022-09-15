@@ -13,4 +13,8 @@ M.diffview_cmds = {
   "DiffviewFileHistory",
 }
 
+M.glow = {
+  "Glow"
+}
+
 return M
