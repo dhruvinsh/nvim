@@ -3,6 +3,9 @@ local lazyload = require("custom.plugins.lazy_load")
 
 return {
 
+  -- enable alpha-nvim
+  ["goolord/alpha-nvim"] = { disable = false },
+
   -- enable which-key
   ["folke/which-key.nvim"] = { disable = false },
 
