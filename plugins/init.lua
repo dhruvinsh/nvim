@@ -42,6 +42,12 @@ return {
     end,
   },
 
+  ["ellisonleao/glow.nvim"] = {
+    cmd = lazyload.glow,
+    ft = "markdown",
+  },
+
+  -- some git tools
   ["TimUntersberger/neogit"] = {
     cmd = lazyload.neogit_cmds,
   },
