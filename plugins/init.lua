@@ -35,6 +35,13 @@ return {
     end,
   },
 
+  ["kylechui/nvim-surround"] = {
+    event = "InsertEnter",
+    config = function()
+      require("nvim-surround").setup()
+    end,
+  },
+
   ["TimUntersberger/neogit"] = {
     cmd = lazyload.neogit_cmds,
   },
