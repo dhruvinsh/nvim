@@ -50,6 +50,10 @@ M.mason = {
 }
 
 M.nvimtree = {
+  view = {
+    -- specially working with python file nvimtree keep resizing
+    adaptive_size = false,
+  },
   filters = {
     custom = {
       "^.git$",
@@ -60,7 +64,6 @@ M.nvimtree = {
   git = {
     enable = true,
   },
-
   renderer = {
     highlight_git = true,
     icons = {
