@@ -42,6 +42,13 @@ return {
     end,
   },
 
+  ["Pocco81/true-zen.nvim"] = {
+    cmd = lazyload.truezen,
+    config = function()
+      require("true-zen").setup()
+    end,
+  },
+
   ["kylechui/nvim-surround"] = {
     event = "InsertEnter",
     config = function()
