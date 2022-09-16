@@ -41,7 +41,7 @@ M.lsp = {
 M.neogit = {
   n = {
     -- git keymaps
-    ["<leader>gg"] = { "<cmd>Neogit <CR>", "Neogit" },
+    ["<leader>gg"] = { "<cmd>Neogit <CR>", "neogit" },
   },
 }
 
@@ -65,11 +65,11 @@ M.terminal = {
 
 M.truezen = {
   n = {
-    ["<leader>fz"] = { "<cmd>TZFocus<CR>", "Zen mode" },
-    ["<leader>za"] = { "<cmd>TZAtaraxis<CR>", "Ataraxis mode" },
-    ["<leader>zf"] = { "<cmd>TZFocus<CR>", "File focus" },
-    ["<leader>zm"] = { "<cmd>TZMinimalist<CR>", "Minimal mode" },
-    ["<leader>zn"] = { "<cmd>TZNarrow<CR>", "Narrow mode" },
+    ["<leader>fz"] = { "<cmd>TZAtaraxis<CR>", "zen" },
+    ["<leader>za"] = { "<cmd>TZAtaraxis<CR>", "ataraxis mode" },
+    ["<leader>zf"] = { "<cmd>TZFocus<CR>", "file focus" },
+    ["<leader>zm"] = { "<cmd>TZMinimalist<CR>", "minimal mode" },
+    ["<leader>zn"] = { "<cmd>TZNarrow<CR>", "narrow mode" },
   },
   v = {
     ["<leader>zn"] = { ":'<,'>TZNarrow<CR>" },
