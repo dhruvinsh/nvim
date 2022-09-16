@@ -30,6 +30,10 @@ return {
     override_options = overrides.nvimtree,
   },
 
+  ["NvChad/ui"] = {
+    override_options = overrides.statusline,
+  },
+
   -- installing some new plugins
   ["max397574/better-escape.nvim"] = {
     event = "InsertEnter",
