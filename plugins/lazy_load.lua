@@ -17,4 +17,11 @@ M.neogit_cmds = {
   "Neogit",
 }
 
+M.truezen = {
+  "TZAtaraxis",
+  "TZMinimalist",
+  "TZNarrow",
+  "TZFocus",
+}
+
 return M

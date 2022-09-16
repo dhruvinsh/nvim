@@ -63,4 +63,17 @@ M.terminal = {
   },
 }
 
+M.truezen = {
+  n = {
+    ["<leader>fz"] = { "<cmd>TZFocus<CR>", "Zen mode" },
+    ["<leader>za"] = { "<cmd>TZAtaraxis<CR>", "Ataraxis mode" },
+    ["<leader>zf"] = { "<cmd>TZFocus<CR>", "File focus" },
+    ["<leader>zm"] = { "<cmd>TZMinimalist<CR>", "Minimal mode" },
+    ["<leader>zn"] = { "<cmd>TZNarrow<CR>", "Narrow mode" },
+  },
+  v = {
+    ["<leader>zn"] = { "<cmd>'<,'>TZNarrow<CR>" },
+  },
+}
+
 return M
