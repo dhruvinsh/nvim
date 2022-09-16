@@ -1,25 +1,12 @@
 local M = {}
 
+--------------------------
 -- global disable keymaps
+--------------------------
 M.disabled = {
   n = {
     ["<leader>b"] = "", -- unmap create buffer
     ["<leader>x"] = "", -- unmap delete buffer
-  },
-}
-
--- nvimtree keymaps
-M.nvimtree = {
-  n = {
-    ["<leader>ft"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
-  },
-}
-
--- git keymaps
-M.neogit = {
-  n = {
-    -- git keymaps
-    ["<leader>gg"] = { "<cmd>Neogit <CR>", "Neogit" },
   },
 }
 
@@ -43,10 +30,25 @@ M.lsp = {
     -- addition formatting keymap
     ["<leader>bf"] = {
       function()
-        vim.lsp.buf.format({async=true})
+        vim.lsp.buf.format({ async = true })
       end,
       "lsp format",
     },
+  },
+}
+
+-- git keymaps
+M.neogit = {
+  n = {
+    -- git keymaps
+    ["<leader>gg"] = { "<cmd>Neogit <CR>", "Neogit" },
+  },
+}
+
+-- nvimtree keymaps
+M.nvimtree = {
+  n = {
+    ["<leader>ft"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
   },
 }
 
