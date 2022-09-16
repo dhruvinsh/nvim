@@ -72,7 +72,7 @@ M.truezen = {
     ["<leader>zn"] = { "<cmd>TZNarrow<CR>", "Narrow mode" },
   },
   v = {
-    ["<leader>zn"] = { "<cmd>'<,'>TZNarrow<CR>" },
+    ["<leader>zn"] = { ":'<,'>TZNarrow<CR>" },
   },
 }
 
