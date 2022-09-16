@@ -1,20 +1,20 @@
 local M = {}
 
-M.neogit_cmds = {
-  "Neogit",
-}
-
 M.diffview_cmds = {
-  "DiffviewOpen",
   "DiffviewClose",
-  "DiffviewToggleFiles",
-  "DiffviewFocusFile",
-  "DiffviewReferesh",
   "DiffviewFileHistory",
+  "DiffviewFocusFile",
+  "DiffviewOpen",
+  "DiffviewReferesh",
+  "DiffviewToggleFiles",
 }
 
 M.glow = {
-  "Glow"
+  "Glow",
+}
+
+M.neogit_cmds = {
+  "Neogit",
 }
 
 return M
