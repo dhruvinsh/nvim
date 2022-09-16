@@ -74,4 +74,34 @@ M.nvimtree = {
   },
 }
 
+M.statusline = {
+  statusline = {
+    -- https://github.com/NvChad/ui/blob/main/lua/nvchad_ui/statusline/init.lua#L8
+    -- overriden_modules need to be a function that returns the one of the
+    -- modified modules. original modules are:
+    --            mode
+    --            fileInfo
+    --            git
+    --            LSP_progress
+    --            LSP_Diagnostics
+    --            cwd
+    --            cursor_position
+    overriden_modules = function()
+      return {
+        cursor_position = function()
+          local st_modules = require("nvchad_ui.statusline.modules")
+          local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+
+          -- lets store the cursor_position modules so that new data can be
+          -- append to it.
+          local cp = st_modules.cursor_position()
+
+          -- need to increament col by 1 since its zero based
+          return cp .. line .. ":" .. (col + 1)
+        end,
+      }
+    end,
+  },
+}
+
 return M
