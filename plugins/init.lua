@@ -34,6 +34,10 @@ return {
     override_options = overrides.statusline,
   },
 
+  ["nvim-telescope/telescope.nvim"] = {
+    override_options = overrides.telescope,
+  },
+
   -- installing some new plugins
   ["max397574/better-escape.nvim"] = {
     event = "InsertEnter",

@@ -1,5 +1,21 @@
 local M = {}
 
+M.telescope = {
+  defaults = {
+    file_ignore_patterns = { "^node_modules$", "^.git" },
+    vimgrep_arguments = {
+      "rg",
+      "--color=never",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--smart-case",
+      "--hidden",
+    },
+  },
+}
+
 M.treesitter = {
   highlight = {
     additional_vim_regex_highlighting = { "org" },
