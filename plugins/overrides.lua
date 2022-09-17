@@ -1,6 +1,9 @@
 local M = {}
 
 M.treesitter = {
+  highlight = {
+    additional_vim_regex_highlighting = { "org" },
+  },
   ensure_installed = {
     "bash",
     "c",
@@ -19,6 +22,7 @@ M.treesitter = {
     "lua",
     "make",
     "markdown",
+    "org",
     "python",
     "toml",
     "tsx",
