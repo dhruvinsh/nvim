@@ -46,6 +46,13 @@ return {
     end,
   },
 
+  ["Pocco81/auto-save.nvim"] = {
+    event = "InsertEnter",
+    config = function()
+      require("auto-save").setup()
+    end,
+  },
+
   ["Pocco81/true-zen.nvim"] = {
     cmd = lazyload.truezen,
     config = function()
