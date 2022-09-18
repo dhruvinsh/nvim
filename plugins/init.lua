@@ -46,6 +46,26 @@ return {
     end,
   },
 
+  -- project and file managment
+  ["ahmedkhalf/project.nvim"] = {
+    module = "telescope",
+    config = function()
+      require("project_nvim").setup({
+        patterns = {
+          ".git",
+          "_darcs",
+          ".hg",
+          ".bzr",
+          ".svn",
+          "Makefile",
+          "package.json",
+          "pyproject.toml",
+          "Pipfile",
+        },
+      })
+    end,
+  },
+
   ["Pocco81/auto-save.nvim"] = {
     event = "InsertEnter",
     config = function()
