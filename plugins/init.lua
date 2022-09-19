@@ -75,6 +75,13 @@ return {
     end,
   },
 
+  ["mrjones2014/tldr.nvim"] = {
+    module = "telescope",
+    config = function()
+      require("tldr").setup()
+    end,
+  },
+
   ["Pocco81/auto-save.nvim"] = {
     event = "InsertEnter",
     config = function()

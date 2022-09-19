@@ -16,7 +16,7 @@ M.telescope = {
   },
   -- https://github.com/NvChad/NvChad/blob/main/lua/plugins/configs/telescope.lua#L61
   -- themes and terms are the extensions that come by defaults with nvchad
-  extensions_list = { "themes", "terms", "projects" },
+  extensions_list = { "projects", "terms", "themes", "tldr" },
 }
 
 M.treesitter = {
