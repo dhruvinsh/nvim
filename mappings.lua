@@ -76,4 +76,10 @@ M.truezen = {
   },
 }
 
+M.windows = {
+  n = {
+    ["<C-w>z"] = { "<Cmd>WindowsMaximize<CR>" },
+  },
+}
+
 return M
