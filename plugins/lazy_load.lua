@@ -24,4 +24,11 @@ M.truezen = {
   "TZFocus",
 }
 
+M.windows = {
+  "WindowsEnableAutowidth",
+  "WindowsDisableAutowidth",
+  "WindowsToggleAutowidth",
+  "WindowsMaximize",
+}
+
 return M

@@ -114,6 +114,20 @@ return {
     end,
   },
 
+  ["anuvyklack/windows.nvim"] = {
+    cmd = lazyload.windows,
+    config = function()
+      vim.o.winwidth = 10
+      vim.o.winminwidth = 10
+      vim.o.equalalways = false
+      require("windows").setup()
+    end,
+    requires = {
+      "anuvyklack/middleclass",
+      "anuvyklack/animation.nvim",
+    },
+  },
+
   ["kylechui/nvim-surround"] = {
     event = "InsertEnter",
     config = function()
