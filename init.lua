@@ -549,5 +549,11 @@ vim.keymap.set("n", "<S-Tab>", "<cmd>bprevious <CR>", { desc = "[P]ext [B]uffer"
 vim.keymap.set("n", "<leader>bp", "<cmd>bprevious <CR>", { desc = "[P]ext [B]uffer" })
 vim.keymap.set("n", "<leader>bd", "<cmd>bdelete <CR>", { desc = "[P]ext [B]uffer" })
 
+-- packer keymaps
+vim.keymap.set("n", "<leader>Ps", "<cmd>PackerSync <CR>", { desc = "[S]ync" })
+vim.keymap.set("n", "<leader>Pu", "<cmd>PackerUpdate <CR>", { desc = "[U]pdate" })
+vim.keymap.set("n", "<leader>Pi", "<cmd>PackerInstall <CR>", { desc = "[I]nstall" })
+vim.keymap.set("n", "<leader>Pc", "<cmd>PackerCompile <CR>", { desc = "[C]ompile" })
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
