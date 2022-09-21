@@ -75,6 +75,7 @@ require('packer').startup({function(use)
     },
   }
 
+  -- lsp setup
   use 'neovim/nvim-lspconfig'                                               -- Collection of configurations for built-in LSP client
   use 'williamboman/mason.nvim'                                             -- Manage external editor tooling i.e LSP servers
   use 'williamboman/mason-lspconfig.nvim'                                   -- Automatically install language servers to stdpath
@@ -88,10 +89,19 @@ require('packer').startup({function(use)
   use 'tpope/vim-sleuth'                                                    -- Detect tabstop and shiftwidth automatically
 
   -- Fuzzy Finder (files, lsp, etc)
-  use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
-
-  -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable "make" == 1 }
+  use { 
+    {
+      'nvim-telescope/telescope.nvim',
+      branch = '0.1.x',
+      requires = { 'nvim-lua/plenary.nvim' },
+    },
+    -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
+    {
+      'nvim-telescope/telescope-fzf-native.nvim',
+      run = 'make',
+      cond = vim.fn.executable "make" == 1 
+    },
+  }
 
   use { 'folke/which-key.nvim' }
 
