@@ -398,7 +398,7 @@ local on_attach = function(_, bufnr)
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, "[W]orkspace [L]ist Folders")
 
-  -- Create a command `:Format` local to the LSP buffer
+  -- Create a command `:Format` local to the LSP buffer and add keymaps
   vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
     if vim.lsp.buf.format then
       vim.lsp.buf.format()
@@ -407,6 +407,7 @@ local on_attach = function(_, bufnr)
     end
   end, { desc = "Format current buffer with LSP" })
 end
+vim.keymap.set("n", "<leader>bf", "<cmd>Format <CR>", { desc = "[F]ormat" })
 
 -- nvim-cmp supports additional completion capabilities
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -533,7 +534,7 @@ vim.keymap.set("n", "<leader>fe", "<cmd>NvimTreeFocus <CR>", { desc = "[F]ocus [
 -- neogit keymaps
 vim.keymap.set("n", "<leader>gg", "<cmd>Neogit <CR>", { desc = "[G]it [S]tatus" })
 
--- buffer keymaps
+-- buffer managment keymaps
 vim.keymap.set("n", "<Tab>", "<cmd>bnext <CR>", { desc = "[N]ext [B]uffer" })
 vim.keymap.set("n", "<leader>bn", "<cmd>bnext <CR>", { desc = "[N]ext [B]uffer" })
 vim.keymap.set("n", "<S-Tab>", "<cmd>bprevious <CR>", { desc = "[P]ext [B]uffer" })
