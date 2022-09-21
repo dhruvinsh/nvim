@@ -73,6 +73,8 @@ require('packer').startup(function(use)
 
   use { 'folke/which-key.nvim' }
 
+  use { 'kyazdani42/nvim-tree.lua', requires = { 'kyazdani42/nvim-web-devicons' } }
+
   if is_bootstrap then
     require('packer').sync()
   end
@@ -460,6 +462,12 @@ require("null-ls").setup({
     nbuiltins.diagnostics.pylint,
   },
 })
+
+-- nvim-tree setup
+require("nvim-tree").setup()
+vim.keymap.set('n', '<leader>ft', "<cmd>NvimTreeToggle <CR>", { desc = '[O]pen [N]vim-tree' })
+vim.keymap.set('n', '<leader>pt', "<cmd>NvimTreeToggle <CR>", { desc = '[O]pen [N]vim-tree' })
+vim.keymap.set('n', '<leader>fe', "<cmd>NvimTreeFocus <CR>", { desc = '[F]ocus [N]vim-tree' })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
