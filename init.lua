@@ -32,6 +32,7 @@ require('packer').startup(function(use)
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable "make" == 1 }
 
+  use { 'folke/which-key.nvim' }
   use { 'jose-elias-alvarez/null-ls.nvim', after="nvim-lspconfig" }
 
   if is_bootstrap then
@@ -165,6 +166,9 @@ require('telescope').setup {
     },
   },
 }
+
+-- which-key
+require("which-key").setup()
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
