@@ -32,6 +32,8 @@ require('packer').startup(function(use)
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable "make" == 1 }
 
+  use { 'jose-elias-alvarez/null-ls.nvim', after="nvim-lspconfig" }
+
   if is_bootstrap then
     require('packer').sync()
   end
@@ -392,6 +394,30 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+
+-- null-ls setup
+local nbuiltins = require("null-ls").builtins
+require("null-ls").setup({
+  debug = true,
+  sources = {
+    -- webdev stuff
+    nbuiltins.formatting.prettier,
+
+    -- Lua
+    nbuiltins.formatting.stylua,
+    nbuiltins.diagnostics.selene,
+
+    -- Shell
+    nbuiltins.formatting.shfmt,
+    nbuiltins.diagnostics.shellcheck,
+
+    -- python
+    nbuiltins.formatting.black,
+    nbuiltins.formatting.isort,
+    nbuiltins.diagnostics.mypy,
+    nbuiltins.diagnostics.pylint,
+  },
+})
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
