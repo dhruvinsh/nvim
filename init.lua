@@ -50,7 +50,14 @@ require('packer').startup({function(use)
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- Add git related info in the signs columns and popups
 
   use 'numToStr/Comment.nvim'                                               -- "gc" to comment visual regions/lines
-  use { 'ggandor/leap.nvim', requires = { 'tpope/vim-repeat' } }
+  -- Movement
+  use {
+    {
+      'ggandor/leap.nvim',
+      requires = { 'tpope/vim-repeat' }
+    },
+    { 'ggandor/flit.nvim', config = [[require('flit').setup { labeled_modes = 'nvm' }]] },
+  }
 
   use 'nvim-treesitter/nvim-treesitter'                                     -- Highlight, edit, and navigate code
   use 'nvim-treesitter/nvim-treesitter-textobjects'                         -- Additional textobjects for treesitter
