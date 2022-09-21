@@ -78,7 +78,14 @@ require('packer').startup({ function(use)
   use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
   use 'williamboman/mason.nvim' -- Manage external editor tooling i.e LSP servers
   use 'williamboman/mason-lspconfig.nvim' -- Automatically install language servers to stdpath
-  use { 'hrsh7th/nvim-cmp', requires = { 'hrsh7th/cmp-nvim-lsp' } } -- Autocompletion
+  use {
+    'hrsh7th/nvim-cmp', -- Autocompletion
+    requires = {
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+    },
+  }
   use { 'L3MON4D3/LuaSnip', requires = { 'saadparwaiz1/cmp_luasnip' } } -- Snippet Engine and Snippet Expansion
   use { 'jose-elias-alvarez/null-ls.nvim' }
 
@@ -115,7 +122,7 @@ require('packer').startup({ function(use)
   }
 
   -- terminal
-  use { 
+  use {
     "akinsho/toggleterm.nvim",
     config = [[ require("toggleterm").setup() ]],
     cmd = "ToggleTerm",
@@ -504,6 +511,8 @@ cmp.setup({
   sources = {
     { name = "nvim_lsp" },
     { name = "luasnip" },
+    { name = "buffer" },
+    { name = "path" },
   },
 })
 
