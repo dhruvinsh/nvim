@@ -40,7 +40,7 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 end
 
 -- stylua: ignore start
-require('packer').startup(function(use)
+require('packer').startup({function(use)
   use 'wbthomason/packer.nvim'                                              -- Package manager
 
   use 'tpope/vim-fugitive'                                                  -- Git commands in nvim
@@ -78,7 +78,28 @@ require('packer').startup(function(use)
   if is_bootstrap then
     require('packer').sync()
   end
-end)
+end,
+config = {
+    display = {
+      open_fn = function ()
+        local result, win, buf = require('packer.util').float {
+        border = {
+            { '╭', 'FloatBorder' },
+            { '─', 'FloatBorder' },
+            { '╮', 'FloatBorder' },
+            { '│', 'FloatBorder' },
+            { '╯', 'FloatBorder' },
+            { '─', 'FloatBorder' },
+            { '╰', 'FloatBorder' },
+            { '│', 'FloatBorder' },
+          },
+        }
+        vim.api.nvim_win_set_option(win, 'winhighlight', 'NormalFloat:Normal')
+        return result, win, buf
+      end,
+    },
+  },
+})
 -- stylua: ignore end
 
 -- When we are bootstrapping a configuration, it doesn't
