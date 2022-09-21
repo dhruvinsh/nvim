@@ -38,123 +38,122 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.cmd([[packadd packer.nvim]])
 end
 
--- stylua: ignore start
-require('packer').startup({ function(use)
-  use 'wbthomason/packer.nvim' -- Package manager
+require("packer").startup({
+  function(use)
+    use("wbthomason/packer.nvim") -- Package manager
 
-  use "lewis6991/impatient.nvim"
+    use("lewis6991/impatient.nvim")
 
-  use {
-    {
-      'TimUntersberger/neogit',
-      cmd = "Neogit",
-    }, -- Git commands in nvim
-    {
-      'lewis6991/gitsigns.nvim',
-      requires = { 'nvim-lua/plenary.nvim' }
-    }, -- Add git related info in the signs columns and popups
-  }
+    use({
+      {
+        "TimUntersberger/neogit",
+        cmd = "Neogit",
+      }, -- Git commands in nvim
+      {
+        "lewis6991/gitsigns.nvim",
+        requires = { "nvim-lua/plenary.nvim" },
+      }, -- Add git related info in the signs columns and popups
+    })
 
-  use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
-  -- Movement
-  use {
-    {
-      'ggandor/leap.nvim',
-      requires = { 'tpope/vim-repeat' }
-    },
-    { 'ggandor/flit.nvim', config = [[require('flit').setup { labeled_modes = 'nvm' }]] },
-  }
-  use { 'chaoren/vim-wordmotion' }
+    use("numToStr/Comment.nvim") -- "gc" to comment visual regions/lines
+    -- Movement
+    use({
+      {
+        "ggandor/leap.nvim",
+        requires = { "tpope/vim-repeat" },
+      },
+      { "ggandor/flit.nvim", config = [[require('flit').setup { labeled_modes = 'nvm' }]] },
+    })
+    use({ "chaoren/vim-wordmotion" })
 
-  -- Highlight, edit, and navigate code
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    requires = {
-      { 'nvim-treesitter/nvim-treesitter-textobjects' }, -- Additional textobjects for treesitter
-    },
-  }
+    -- Highlight, edit, and navigate code
+    use({
+      "nvim-treesitter/nvim-treesitter",
+      requires = {
+        { "nvim-treesitter/nvim-treesitter-textobjects" }, -- Additional textobjects for treesitter
+      },
+    })
 
-  -- lsp setup
-  use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
-  use 'williamboman/mason.nvim' -- Manage external editor tooling i.e LSP servers
-  use 'williamboman/mason-lspconfig.nvim' -- Automatically install language servers to stdpath
-  use {
-    'hrsh7th/nvim-cmp', -- Autocompletion
-    requires = {
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-path',
-    },
-  }
-  use { 'L3MON4D3/LuaSnip', requires = { 'saadparwaiz1/cmp_luasnip' } } -- Snippet Engine and Snippet Expansion
-  use { 'jose-elias-alvarez/null-ls.nvim' }
+    -- lsp setup
+    use("neovim/nvim-lspconfig") -- Collection of configurations for built-in LSP client
+    use("williamboman/mason.nvim") -- Manage external editor tooling i.e LSP servers
+    use("williamboman/mason-lspconfig.nvim") -- Automatically install language servers to stdpath
+    use({
+      "hrsh7th/nvim-cmp", -- Autocompletion
+      requires = {
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-path",
+      },
+    })
+    use({ "L3MON4D3/LuaSnip", requires = { "saadparwaiz1/cmp_luasnip" } }) -- Snippet Engine and Snippet Expansion
+    use({ "jose-elias-alvarez/null-ls.nvim" })
 
-  use 'navarasu/onedark.nvim' -- Theme inspired by Atom
-  use 'nvim-lualine/lualine.nvim' -- Fancier statusline
-  use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
-  use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
+    use("navarasu/onedark.nvim") -- Theme inspired by Atom
+    use("nvim-lualine/lualine.nvim") -- Fancier statusline
+    use("lukas-reineke/indent-blankline.nvim") -- Add indentation guides even on blank lines
+    use("tpope/vim-sleuth") -- Detect tabstop and shiftwidth automatically
 
-  -- Fuzzy Finder (files, lsp, etc)
-  use {
-    {
-      'nvim-telescope/telescope.nvim',
-      branch = '0.1.x',
-      requires = { 'nvim-lua/plenary.nvim' },
-    },
-    -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
-    {
-      'nvim-telescope/telescope-fzf-native.nvim',
-      run = 'make',
-      cond = vim.fn.executable "make" == 1
-    },
-  }
+    -- Fuzzy Finder (files, lsp, etc)
+    use({
+      {
+        "nvim-telescope/telescope.nvim",
+        branch = "0.1.x",
+        requires = { "nvim-lua/plenary.nvim" },
+      },
+      -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
+      {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        run = "make",
+        cond = vim.fn.executable("make") == 1,
+      },
+    })
 
-  use { 'folke/which-key.nvim' }
+    use({ "folke/which-key.nvim" })
 
-  use { 'kyazdani42/nvim-tree.lua', requires = { 'kyazdani42/nvim-web-devicons' } }
+    use({ "kyazdani42/nvim-tree.lua", requires = { "kyazdani42/nvim-web-devicons" } })
 
-  -- buffer managment
-  use {
-    'akinsho/bufferline.nvim',
-    config = [[require("bufferline").setup()]],
-    requires = "kyazdani42/nvim-web-devicons",
-    tag = "v2.*",
-  }
+    -- buffer managment
+    use({
+      "akinsho/bufferline.nvim",
+      config = [[require("bufferline").setup()]],
+      requires = "kyazdani42/nvim-web-devicons",
+      tag = "v2.*",
+    })
 
-  -- terminal
-  use {
-    "akinsho/toggleterm.nvim",
-    config = [[ require("toggleterm").setup() ]],
-    cmd = "ToggleTerm",
-    tag = "*",
-  }
+    -- terminal
+    use({
+      "akinsho/toggleterm.nvim",
+      config = [[ require("toggleterm").setup() ]],
+      cmd = "ToggleTerm",
+      tag = "*",
+    })
 
-  if is_bootstrap then
-    require('packer').sync()
-  end
-end,
+    if is_bootstrap then
+      require("packer").sync()
+    end
+  end,
   config = {
     display = {
       open_fn = function()
-        local result, win, buf = require('packer.util').float {
+        local result, win, buf = require("packer.util").float({
           border = {
-            { '╭', 'FloatBorder' },
-            { '─', 'FloatBorder' },
-            { '╮', 'FloatBorder' },
-            { '│', 'FloatBorder' },
-            { '╯', 'FloatBorder' },
-            { '─', 'FloatBorder' },
-            { '╰', 'FloatBorder' },
-            { '│', 'FloatBorder' },
+            { "╭", "FloatBorder" },
+            { "─", "FloatBorder" },
+            { "╮", "FloatBorder" },
+            { "│", "FloatBorder" },
+            { "╯", "FloatBorder" },
+            { "─", "FloatBorder" },
+            { "╰", "FloatBorder" },
+            { "│", "FloatBorder" },
           },
-        }
-        vim.api.nvim_win_set_option(win, 'winhighlight', 'NormalFloat:Normal')
+        })
+        vim.api.nvim_win_set_option(win, "winhighlight", "NormalFloat:Normal")
         return result, win, buf
       end,
     },
   },
 })
--- stylua: ignore end
 
 -- When we are bootstrapping a configuration, it doesn't
 -- make sense to execute the rest of the init.lua.
@@ -414,7 +413,7 @@ local on_attach = function(_, bufnr)
   -- Create a command `:Format` local to the LSP buffer and add keymaps
   vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
     if vim.lsp.buf.format then
-      vim.lsp.buf.format()
+      vim.lsp.buf.format({ async = true })
     elseif vim.lsp.buf.formatting then
       vim.lsp.buf.formatting()
     end
