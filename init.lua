@@ -45,9 +45,13 @@ require('packer').startup({function(use)
 
   use "lewis6991/impatient.nvim"
 
-  use 'tpope/vim-fugitive'                                                  -- Git commands in nvim
-  use 'tpope/vim-rhubarb'                                                   -- Fugitive-companion to interact with github
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- Add git related info in the signs columns and popups
+  use {
+    {
+      'TimUntersberger/neogit',
+      cmd = "Neogit",
+    }, -- Git commands in nvim
+  }
 
   use 'numToStr/Comment.nvim'                                               -- "gc" to comment visual regions/lines
   -- Movement
@@ -507,6 +511,9 @@ require("nvim-tree").setup()
 vim.keymap.set('n', '<leader>ft', "<cmd>NvimTreeToggle <CR>", { desc = '[O]pen [N]vim-tree' })
 vim.keymap.set('n', '<leader>pt', "<cmd>NvimTreeToggle <CR>", { desc = '[O]pen [N]vim-tree' })
 vim.keymap.set('n', '<leader>fe', "<cmd>NvimTreeFocus <CR>", { desc = '[F]ocus [N]vim-tree' })
+
+-- neogit keymaps
+vim.keymap.set('n', '<leader>gg', "<cmd>Neogit <CR>", { desc = "[G]it [S]tatus"})
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
