@@ -114,6 +114,14 @@ require('packer').startup({ function(use)
     tag = "v2.*",
   }
 
+  -- terminal
+  use { 
+    "akinsho/toggleterm.nvim",
+    config = [[ require("toggleterm").setup() ]],
+    cmd = "ToggleTerm",
+    tag = "*",
+  }
+
   if is_bootstrap then
     require('packer').sync()
   end
