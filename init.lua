@@ -45,12 +45,15 @@ require('packer').startup({function(use)
 
   use "lewis6991/impatient.nvim"
 
-  use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- Add git related info in the signs columns and popups
   use {
     {
       'TimUntersberger/neogit',
       cmd = "Neogit",
     }, -- Git commands in nvim
+    {
+      'lewis6991/gitsigns.nvim',
+      requires = { 'nvim-lua/plenary.nvim' }
+    }, -- Add git related info in the signs columns and popups
   }
 
   use 'numToStr/Comment.nvim'                                               -- "gc" to comment visual regions/lines
@@ -64,8 +67,13 @@ require('packer').startup({function(use)
   }
   use { 'chaoren/vim-wordmotion' }
 
-  use 'nvim-treesitter/nvim-treesitter'                                     -- Highlight, edit, and navigate code
-  use 'nvim-treesitter/nvim-treesitter-textobjects'                         -- Additional textobjects for treesitter
+  -- Highlight, edit, and navigate code
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    requires = {
+      { 'nvim-treesitter/nvim-treesitter-textobjects'}, -- Additional textobjects for treesitter
+    },
+  }
 
   use 'neovim/nvim-lspconfig'                                               -- Collection of configurations for built-in LSP client
   use 'williamboman/mason.nvim'                                             -- Manage external editor tooling i.e LSP servers
@@ -291,6 +299,7 @@ require('nvim-treesitter.configs').setup {
       node_decremental = '<c-backspace>',
     },
   },
+  -- some external plugins config for treesitter
   textobjects = {
     select = {
       enable = true,
