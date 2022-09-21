@@ -58,6 +58,7 @@ require('packer').startup({function(use)
     },
     { 'ggandor/flit.nvim', config = [[require('flit').setup { labeled_modes = 'nvm' }]] },
   }
+  use { 'chaoren/vim-wordmotion' }
 
   use 'nvim-treesitter/nvim-treesitter'                                     -- Highlight, edit, and navigate code
   use 'nvim-treesitter/nvim-treesitter-textobjects'                         -- Additional textobjects for treesitter
