@@ -28,7 +28,7 @@ require('packer').startup(function(use)
   use { 'L3MON4D3/LuaSnip', requires = { 'saadparwaiz1/cmp_luasnip' } }     -- Snippet Engine and Snippet Expansion
   use { 'jose-elias-alvarez/null-ls.nvim' }
 
-  use 'joshdick/onedark.vim'                                                -- Theme inspired by Atom
+  use 'navarasu/onedark.nvim'                                                -- Theme inspired by Atom
   use 'nvim-lualine/lualine.nvim'                                           -- Fancier statusline
   use 'lukas-reineke/indent-blankline.nvim'                                 -- Add indentation guides even on blank lines
   use 'tpope/vim-sleuth'                                                    -- Detect tabstop and shiftwidth automatically
@@ -96,7 +96,7 @@ vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
 vim.o.termguicolors = true
-vim.cmd [[colorscheme onedark]]
+require("onedark").load()
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
