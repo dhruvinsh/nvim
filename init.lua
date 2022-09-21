@@ -524,5 +524,12 @@ vim.keymap.set('n', '<leader>fe', "<cmd>NvimTreeFocus <CR>", { desc = '[F]ocus [
 -- neogit keymaps
 vim.keymap.set('n', '<leader>gg', "<cmd>Neogit <CR>", { desc = "[G]it [S]tatus"})
 
+-- buffer keymaps
+vim.keymap.set('n', "<Tab>", "<cmd>bnext <CR>", { desc = "[N]ext [B]uffer" })
+vim.keymap.set('n', "<leader>bn", "<cmd>bnext <CR>", { desc = "[N]ext [B]uffer" })
+vim.keymap.set('n', "<S-Tab>", "<cmd>bprevious <CR>", { desc = "[P]ext [B]uffer" })
+vim.keymap.set('n', "<leader>bp", "<cmd>bprevious <CR>", { desc = "[P]ext [B]uffer" })
+vim.keymap.set('n', "<leader>bd", "<cmd>bdelete <CR>", { desc = "[P]ext [B]uffer" })
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
