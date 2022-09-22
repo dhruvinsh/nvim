@@ -55,7 +55,12 @@ require("packer").startup({
       }, -- Add git related info in the signs columns and popups
     })
 
-    use("numToStr/Comment.nvim") -- "gc" to comment visual regions/lines
+    -- programming
+    use("numToStr/Comment.nvim")
+    use({
+      "windwp/nvim-autopairs",
+      config = [[ require("nvim-autopairs").setup() ]],
+    })
 
     -- Movement
     use({
@@ -519,6 +524,10 @@ cmp.setup({
     { name = "path" },
   },
 })
+
+-- nvim-autopairs and nvim-cmp <CR> mapping
+local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
 -- null-ls setup
 local nbuiltins = require("null-ls").builtins
