@@ -339,6 +339,7 @@ vim.api.nvim_set_keymap("n", "<leader><leader>", "<Cmd>lua require('telescope').
 vim.keymap.set("n", "<leader>?", require("telescope.builtin").oldfiles, { desc = "[?] Find recently opened files" })
 vim.keymap.set("n", "<leader>bb", require("telescope.builtin").buffers, { desc = "[F]ind existing buffers" })
 vim.keymap.set("n", "<leader>f/", require("telescope.builtin").live_grep, { desc = "[L]ive [G]rep" })
+vim.keymap.set("n", "<leader>fa", "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", { desc = "[A]ll [F]iles" })
 vim.keymap.set("n", "<leader>fd", require("telescope.builtin").diagnostics, { desc = "[F]ind [D]iagnostics" })
 vim.keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, { desc = "[F]ind [F]iles" })
 vim.keymap.set("n", "<leader>fw", require("telescope.builtin").grep_string, { desc = "[F]ind [W]ord" })
