@@ -112,25 +112,23 @@ require("packer").startup({
 
     -- Fuzzy Finder (files, lsp, etc)
     use({
-      {
-        "nvim-telescope/telescope.nvim",
-        branch = "0.1.x",
-        requires = {
-          { "nvim-lua/plenary.nvim" },
-          -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
-          {
-            "nvim-telescope/telescope-fzf-native.nvim",
-            run = "make",
-            cond = vim.fn.executable("make") == 1,
-          },
-          {
-            "nvim-telescope/telescope-frecency.nvim",
-            requires = "tami5/sqlite.lua",
-          },
-          {
-            "nvim-telescope/telescope-smart-history.nvim",
-            config = function() end,
-          },
+      "nvim-telescope/telescope.nvim",
+      branch = "0.1.x",
+      requires = {
+        { "nvim-lua/plenary.nvim" },
+        {
+          -- Fuzzy Finder Algorithm
+          "nvim-telescope/telescope-fzf-native.nvim",
+          run = "make",
+          cond = vim.fn.executable("make") == 1,
+        },
+        {
+          "nvim-telescope/telescope-frecency.nvim",
+          requires = "tami5/sqlite.lua",
+        },
+        {
+          "nvim-telescope/telescope-smart-history.nvim",
+          config = function() end,
         },
       },
     })
