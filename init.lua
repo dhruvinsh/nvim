@@ -592,10 +592,11 @@ vim.keymap.set("n", "<leader>bp", "<cmd>bprevious <CR>", { desc = "[P]ext [B]uff
 vim.keymap.set("n", "<leader>bd", "<cmd>bdelete <CR>", { desc = "[P]ext [B]uffer" })
 
 -- packer keymaps
+vim.keymap.set("n", "<leader>PS", "<cmd>PackerStatus <CR>", { desc = "[S]tatus" })
+vim.keymap.set("n", "<leader>Pc", "<cmd>PackerCompile <CR>", { desc = "[C]ompile" })
+vim.keymap.set("n", "<leader>Pi", "<cmd>PackerInstall <CR>", { desc = "[I]nstall" })
 vim.keymap.set("n", "<leader>Ps", "<cmd>PackerSync <CR>", { desc = "[S]ync" })
 vim.keymap.set("n", "<leader>Pu", "<cmd>PackerUpdate <CR>", { desc = "[U]pdate" })
-vim.keymap.set("n", "<leader>Pi", "<cmd>PackerInstall <CR>", { desc = "[I]nstall" })
-vim.keymap.set("n", "<leader>Pc", "<cmd>PackerCompile <CR>", { desc = "[C]ompile" })
 
 -- project keymaps
 vim.keymap.set("n", "<leader>pp", "<cmd>Telescope projects", { desc = "[P]rojects" })
