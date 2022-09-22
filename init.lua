@@ -157,6 +157,9 @@ require("packer").startup({
       end,
     })
 
+    -- tool
+    use("mrjones2014/tldr.nvim")
+
     if is_bootstrap then
       require("packer").sync()
     end
@@ -314,6 +317,7 @@ require("telescope").setup({
 -- Telescope add some extensions
 pcall(require("telescope").load_extension, "fzf")
 pcall(require("telescope").load_extension, "projects")
+pcall(require("telescope").load_extension, "tldr")
 
 -- See `:help telescope.builtin`
 vim.keymap.set("n", "<leader><space>", require("telescope.builtin").buffers, { desc = "[F]ind existing buffers" })
