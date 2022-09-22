@@ -127,6 +127,11 @@ require("packer").startup({
             "nvim-telescope/telescope-frecency.nvim",
             requires = "tami5/sqlite.lua",
           },
+          {
+            "nvim-telescope/telescope-smart-history.nvim",
+            config = function() end,
+          },
+        },
       },
     })
 
@@ -323,6 +328,7 @@ require("telescope").setup({
 pcall(require("telescope").load_extension, "frecency")
 pcall(require("telescope").load_extension, "fzf")
 pcall(require("telescope").load_extension, "projects")
+pcall(require("telescope").load_extension, "smart_history")
 pcall(require("telescope").load_extension, "tldr")
 
 -- See `:help telescope.builtin`
