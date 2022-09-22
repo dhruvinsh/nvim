@@ -61,6 +61,11 @@ require("packer").startup({
       "windwp/nvim-autopairs",
       config = [[ require("nvim-autopairs").setup() ]],
     })
+    use({
+      "kylechui/nvim-surround",
+      tag = "*",
+      config = [[ require("nvim-surround").setup() ]],
+    })
 
     -- Movement
     use({
