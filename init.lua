@@ -145,6 +145,18 @@ require("packer").startup({
       tag = "*",
     })
 
+    -- project
+    use({
+      "ahmedkhalf/project.nvim",
+      config = function()
+        require("project_nvim").setup({
+          patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", "pyproject.toml", "Pipfile" },
+          ignore_lsp = { "null-ls" },
+          show_hidden = true,
+        })
+      end,
+    })
+
     if is_bootstrap then
       require("packer").sync()
     end
@@ -301,6 +313,7 @@ require("telescope").setup({
 })
 -- Telescope add some extensions
 pcall(require("telescope").load_extension, "fzf")
+pcall(require("telescope").load_extension, "projects")
 
 -- See `:help telescope.builtin`
 vim.keymap.set("n", "<leader><space>", require("telescope.builtin").buffers, { desc = "[F]ind existing buffers" })
@@ -583,6 +596,9 @@ vim.keymap.set("n", "<leader>Ps", "<cmd>PackerSync <CR>", { desc = "[S]ync" })
 vim.keymap.set("n", "<leader>Pu", "<cmd>PackerUpdate <CR>", { desc = "[U]pdate" })
 vim.keymap.set("n", "<leader>Pi", "<cmd>PackerInstall <CR>", { desc = "[I]nstall" })
 vim.keymap.set("n", "<leader>Pc", "<cmd>PackerCompile <CR>", { desc = "[C]ompile" })
+
+-- project keymaps
+vim.keymap.set("n", "<leader>pp", "<cmd>Telescope projects", { desc = "[P]rojects" })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
