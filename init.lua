@@ -619,7 +619,7 @@ vim.keymap.set("n", "<leader>Ps", "<cmd>PackerSync <CR>", { desc = "[S]ync" })
 vim.keymap.set("n", "<leader>Pu", "<cmd>PackerUpdate <CR>", { desc = "[U]pdate" })
 
 -- project keymaps
-vim.keymap.set("n", "<leader>pp", "<cmd>Telescope projects", { desc = "[P]rojects" })
+vim.keymap.set("n", "<leader>pp", "<cmd>Telescope projects <CR>", { desc = "[P]rojects" })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
