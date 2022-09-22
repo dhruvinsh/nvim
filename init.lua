@@ -56,6 +56,7 @@ require("packer").startup({
     })
 
     use("numToStr/Comment.nvim") -- "gc" to comment visual regions/lines
+
     -- Movement
     use({
       {
@@ -65,6 +66,10 @@ require("packer").startup({
       { "ggandor/flit.nvim", config = [[require('flit').setup { labeled_modes = 'nvm' }]] },
     })
     use({ "chaoren/vim-wordmotion" })
+    use({
+      "max397574/better-escape.nvim",
+      config = [[ require("better_escape").setup() ]],
+    })
 
     -- Highlight, edit, and navigate code
     use({
