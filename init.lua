@@ -44,15 +44,16 @@ require("packer").startup({
 
     use("lewis6991/impatient.nvim")
 
+    -- Git
     use({
       {
         "TimUntersberger/neogit",
         cmd = "Neogit",
-      }, -- Git commands in nvim
+      },
       {
         "lewis6991/gitsigns.nvim",
         requires = { "nvim-lua/plenary.nvim" },
-      }, -- Add git related info in the signs columns and popups
+      },
     })
 
     -- programming
