@@ -131,7 +131,6 @@ require("packer").startup({
         },
         {
           "nvim-telescope/telescope-smart-history.nvim",
-          config = function() end,
         },
       },
     })
