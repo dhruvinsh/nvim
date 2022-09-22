@@ -123,6 +123,10 @@ require("packer").startup({
             run = "make",
             cond = vim.fn.executable("make") == 1,
           },
+          {
+            "nvim-telescope/telescope-frecency.nvim",
+            requires = "tami5/sqlite.lua",
+          },
       },
     })
 
@@ -316,13 +320,15 @@ require("telescope").setup({
   },
 })
 -- Telescope add some extensions
+pcall(require("telescope").load_extension, "frecency")
 pcall(require("telescope").load_extension, "fzf")
 pcall(require("telescope").load_extension, "projects")
 pcall(require("telescope").load_extension, "tldr")
 
 -- See `:help telescope.builtin`
-vim.keymap.set("n", "<leader><space>", require("telescope.builtin").buffers, { desc = "[F]ind existing buffers" })
+vim.api.nvim_set_keymap("n", "<leader><leader>", "<Cmd>lua require('telescope').extensions.frecency.frecency()<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>?", require("telescope.builtin").oldfiles, { desc = "[?] Find recently opened files" })
+vim.keymap.set("n", "<leader>bb", require("telescope.builtin").buffers, { desc = "[F]ind existing buffers" })
 vim.keymap.set("n", "<leader>fd", require("telescope.builtin").diagnostics, { desc = "[F]ind [D]iagnostics" })
 vim.keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, { desc = "[F]ind [F]iles" })
 vim.keymap.set("n", "<leader>f/", require("telescope.builtin").live_grep, { desc = "[L]ive [G]rep" })
