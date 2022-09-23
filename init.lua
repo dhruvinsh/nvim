@@ -171,6 +171,32 @@ require("packer").startup({
     -- tool
     use("mrjones2014/tldr.nvim")
 
+    use({
+      "Pocco81/auto-save.nvim",
+      event = "InsertEnter",
+      config = function()
+        require("auto-save").setup({
+          condition = function(buf)
+            local utils = require("auto-save.utils.data")
+
+            -- certain filetype that I don't want auto-save
+            local ignore_ft = { "NeogitCommitMessage", "NvimTree", "TelescopePrompt" }
+            local detect_ft = vim.fn.getbufvar(buf, "&filetype")
+
+            -- conditions where auto-save should work
+            local is_modifiable = vim.fn.getbufvar(buf, "&modifiable")
+            local is_ft_okay = utils.not_in(detect_ft, ignore_ft)
+
+            if is_modifiable and is_ft_okay then
+              return true
+            end
+
+            return false
+          end,
+        })
+      end,
+    })
+
     if is_bootstrap then
       require("packer").sync()
     end
