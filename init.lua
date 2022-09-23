@@ -87,6 +87,11 @@ require("packer").startup({
       "nvim-treesitter/nvim-treesitter",
       requires = {
         { "nvim-treesitter/nvim-treesitter-textobjects" }, -- Additional textobjects for treesitter
+        {
+          "nvim-treesitter/nvim-treesitter-context",
+          -- default setup is good enough
+          config = [[ require("treesitter-context").setup() ]],
+        },
       },
     })
 
