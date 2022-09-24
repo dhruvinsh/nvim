@@ -72,16 +72,17 @@ require("packer").startup({
       requires = "kevinhwang91/promise-async",
       config = function()
         local ufo = require("ufo")
-        vim.keymap.set('n', 'zR', ufo.openAllFolds)
-        vim.keymap.set('n', 'zM', ufo.closeAllFolds)
-        vim.keymap.set('n', 'zr', ufo.openFoldsExceptKinds)
-        vim.keymap.set('n', 'zm', ufo.closeFoldsWith) -- closeAllFolds == closeFoldsWith(0)
-        vim.keymap.set('n', 'K', function()
-    local winid = require('ufo').peekFoldedLinesUnderCursor()
-    if not winid then
-        vim.lsp.buf.hover()
-    end
-end)
+
+        vim.keymap.set("n", "zR", ufo.openAllFolds)
+        vim.keymap.set("n", "zM", ufo.closeAllFolds)
+        vim.keymap.set("n", "zr", ufo.openFoldsExceptKinds)
+        vim.keymap.set("n", "zm", ufo.closeFoldsWith) -- closeAllFolds == closeFoldsWith(0)
+        vim.keymap.set("n", "K", function()
+          local winid = ufo.peekFoldedLinesUnderCursor()
+          if not winid then
+            vim.lsp.buf.hover()
+          end
+        end)
         ufo.setup({
           provider_selector = function(bufnr, filetype, buftype)
             return { "treesitter", "indent" }
