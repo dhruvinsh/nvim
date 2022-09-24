@@ -42,7 +42,7 @@ require("packer").startup({
   function(use)
     use("wbthomason/packer.nvim") -- Package manager
 
-    use("lewis6991/impatient.nvim")
+    use({ "lewis6991/impatient.nvim", })
 
     -- Git
     use({
@@ -257,6 +257,7 @@ require("packer").startup({
   },
 })
 
+require("impatient")
 -- When we are bootstrapping a configuration, it doesn't
 -- make sense to execute the rest of the init.lua.
 --
