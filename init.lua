@@ -144,6 +144,7 @@ require("packer").startup({
     use("navarasu/onedark.nvim") -- Theme inspired by Atom
     use("ellisonleao/gruvbox.nvim")
 
+    -- UI
     use("nvim-lualine/lualine.nvim") -- Fancier statusline
 
     -- Highlights
