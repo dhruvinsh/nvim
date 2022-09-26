@@ -123,7 +123,6 @@ require("packer").startup({
         },
       },
     })
-    use({ "m-demare/hlargs.nvim", config = [[ require("hlargs").setup() ]] })
 
     -- lsp setup
     use("neovim/nvim-lspconfig") -- Collection of configurations for built-in LSP client
