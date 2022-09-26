@@ -145,7 +145,15 @@ require("packer").startup({
     use("ellisonleao/gruvbox.nvim")
 
     use("nvim-lualine/lualine.nvim") -- Fancier statusline
+
+    -- Highlights
     use("lukas-reineke/indent-blankline.nvim") -- Add indentation guides even on blank lines
+    use({
+      "folke/todo-comments.nvim",
+      requires = "nvim-lua/plenary.nvim",
+      config = [[require("todo-comments").setup() ]],
+    })
+
     use("tpope/vim-sleuth") -- Detect tabstop and shiftwidth automatically
 
     -- Fuzzy Finder (files, lsp, etc)
