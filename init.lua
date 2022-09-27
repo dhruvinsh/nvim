@@ -59,6 +59,23 @@ require("packer").startup({
     -- programming
     use("numToStr/Comment.nvim")
     use({
+      "danymat/neogen",
+      config = function()
+        require("neogen").setup({
+          snippet_engine = "luasnip",
+          enabled = true,
+          languages = {
+            python = {
+              template = {
+                annotation_convention = "reST",
+              },
+            },
+          },
+        })
+      end,
+      requires = "nvim-treesitter/nvim-treesitter",
+    })
+    use({
       "windwp/nvim-autopairs",
       config = [[ require("nvim-autopairs").setup() ]],
     })
@@ -659,6 +676,8 @@ cmp.setup({
         cmp.select_next_item()
       elseif luasnip.expand_or_jumpable() then
         luasnip.expand_or_jump()
+      elseif require("neogen").jumpable() then
+        require("neogen").jump_next()
       else
         fallback()
       end
@@ -668,6 +687,8 @@ cmp.setup({
         cmp.select_prev_item()
       elseif luasnip.jumpable(-1) then
         luasnip.jump(-1)
+      elseif require("neogen").jumpable(true) then
+        require("neogen").jump_prev()
       else
         fallback()
       end
@@ -735,6 +756,12 @@ vim.keymap.set("n", "<leader>Pu", "<cmd>PackerUpdate <CR>", { desc = "[U]pdate" 
 
 -- project keymaps
 vim.keymap.set("n", "<leader>pp", "<cmd>Telescope projects <CR>", { desc = "[P]rojects" })
+
+-- neogen keymaps
+vim.keymap.set("n", "<leader>nf", ":lua require('neogen').generate() <CR>", { desc = "[F]unc [D]oc" })
+vim.keymap.set("n", "<leader>nc", ":lua require('neogen').generate({type='class'}) <CR>", { desc = "[F]unc [D]oc" })
+vim.keymap.set("i", "<C-l>", ":lua require('neogen').jump_next<CR>")
+vim.keymap.set("i", "<C-h>", ":lua require('neogen').jump_prev<CR>")
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
