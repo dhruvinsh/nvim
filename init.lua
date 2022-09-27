@@ -188,6 +188,13 @@ require("packer").startup({
 
     -- UI
     use("nvim-lualine/lualine.nvim") -- Fancier statusline
+    use({
+      "goolord/alpha-nvim",
+      requires = { "kyazdani42/nvim-web-devicons" },
+      config = function()
+        require("alpha").setup(require("alpha.themes.dashboard").config)
+      end,
+    })
 
     -- Highlights
     use("lukas-reineke/indent-blankline.nvim") -- Add indentation guides even on blank lines
@@ -197,7 +204,7 @@ require("packer").startup({
       config = [[require("todo-comments").setup() ]],
     })
 
-    use({ "Darazaki/indent-o-matic", event = "BufReadPost", config = [[ require("indent-o-matic").setup() ]] }) -- Detect tabstop and shiftwidth automatically
+    use({ "Darazaki/indent-o-matic", config = [[ require("indent-o-matic").setup({}) ]] }) -- Detect tabstop and shiftwidth automatically
 
     -- Fuzzy Finder (files, lsp, etc)
     use({
