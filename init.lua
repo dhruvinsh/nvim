@@ -186,6 +186,7 @@ require("packer").startup({
     use("navarasu/onedark.nvim") -- Theme inspired by Atom
     use("ellisonleao/gruvbox.nvim")
     use("shaunsingh/nord.nvim")
+    use({ "catppuccin/nvim", as = "catppuccin" })
 
     -- UI
     use("nvim-lualine/lualine.nvim") -- Fancier statusline
@@ -405,7 +406,12 @@ vim.o.termguicolors = true
 -- vim.cmd([[ colorscheme gruvbox ]])
 --
 -- nord
-vim.cmd([[ colorscheme nord]])
+-- vim.cmd([[ colorscheme nord]])
+--
+-- catppuccin
+vim.g.catppuccin_flavour = "frappe"
+require("catppuccin").setup()
+vim.cmd([[colorscheme catppuccin]])
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = "menuone,noselect"
