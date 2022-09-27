@@ -162,6 +162,7 @@ require("packer").startup({
       },
     }) -- Snippet Engine and Snippet Expansion
     use({ "jose-elias-alvarez/null-ls.nvim" })
+    use({ "folke/lua-dev.nvim" })
     use({
       "stevearc/aerial.nvim",
       config = function()
