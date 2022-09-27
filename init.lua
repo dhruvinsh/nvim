@@ -508,6 +508,7 @@ require("nvim-treesitter.configs").setup({
     "go",
     "json",
     "lua",
+    "markdown",
     "python",
     "rust",
     "toml",
