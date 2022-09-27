@@ -836,6 +836,14 @@ vim.keymap.set("n", "<leader>nc", ":lua require('neogen').generate({type='class'
 vim.keymap.set("i", "<C-l>", ":lua require('neogen').jump_next<CR>")
 vim.keymap.set("i", "<C-h>", ":lua require('neogen').jump_prev<CR>")
 
+-- terminal keymaps
+vim.keymap.set("n", "<C-w>h", "<C-\\><C-n><C-W>h")
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+vim.keymap.set("t", "<C-w>h", "<C-\\><C-n><C-W>h")
+vim.keymap.set("t", "<C-w>j", "<C-\\><C-n><C-W>j")
+vim.keymap.set("t", "<C-w>k", "<C-\\><C-n><C-W>k")
+vim.keymap.set("t", "<C-w>l", "<C-\\><C-n><C-W>l")
+
 -- truezen keymaps
 vim.keymap.set("n", "<leader>fz", "<cmd>TZAtaraxis <CR>", { desc = "[Z]en [M]ode" })
 vim.keymap.set("n", "<leader>za", "<cmd>TZAtaraxis <CR>", { desc = "[A]taraxis [M]ode" })
