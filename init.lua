@@ -154,6 +154,7 @@ require("packer").startup({
         "hrsh7th/cmp-nvim-lua",
       },
     })
+    use("onsails/lspkind.nvim")
     use({
       "L3MON4D3/LuaSnip",
       requires = {
@@ -738,9 +739,17 @@ require("lspconfig").sumneko_lua.setup({
 
 -- nvim-cmp setup
 local cmp = require("cmp")
+local lspkind = require("lspkind")
 local luasnip = require("luasnip")
 
 cmp.setup({
+  formatting = {
+    format = lspkind.cmp_format({
+      mode = "symbol",
+      maxwidth = 50,
+      ellipsis_char = "...",
+    }),
+  },
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
