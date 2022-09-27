@@ -267,6 +267,12 @@ require("packer").startup({
     -- tool
     use("mrjones2014/tldr.nvim")
     use({
+      "Pocco81/true-zen.nvim",
+      config = function()
+        require("true-zen").setup()
+      end,
+    })
+    use({
       "Shatur/neovim-session-manager",
       config = function()
         local Path = require("plenary.path")
@@ -829,6 +835,13 @@ vim.keymap.set("n", "<leader>nf", ":lua require('neogen').generate() <CR>", { de
 vim.keymap.set("n", "<leader>nc", ":lua require('neogen').generate({type='class'}) <CR>", { desc = "[F]unc [D]oc" })
 vim.keymap.set("i", "<C-l>", ":lua require('neogen').jump_next<CR>")
 vim.keymap.set("i", "<C-h>", ":lua require('neogen').jump_prev<CR>")
+
+-- truezen keymaps
+vim.keymap.set("n", "<leader>fz", "<cmd>TZAtaraxis <CR>", { desc = "[Z]en [M]ode" })
+vim.keymap.set("n", "<leader>za", "<cmd>TZAtaraxis <CR>", { desc = "[A]taraxis [M]ode" })
+vim.keymap.set("n", "<leader>zf", "<cmd>TZFocus <CR>", { desc = "[F]ile [F]ocus" })
+vim.keymap.set("n", "<leader>zm", "<cmd>TZMinimalist <CR>", { desc = "[M]inimal [M]ode" })
+vim.keymap.set("n", "<leader>zn", "<cmd>TZNarrow <CR>", { desc = "[N]arrow [M]ode" })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
