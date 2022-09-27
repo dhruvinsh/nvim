@@ -162,6 +162,24 @@ require("packer").startup({
       },
     }) -- Snippet Engine and Snippet Expansion
     use({ "jose-elias-alvarez/null-ls.nvim" })
+    use({
+      "stevearc/aerial.nvim",
+      config = function()
+        require("aerial").setup({
+          backends = { "treesitter", "lsp" },
+          on_attach = function(bufnr)
+            -- Toggle the aerial window with <leader>a
+            vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>la", "<cmd>AerialToggle!<CR>", {})
+            -- Jump forwards/backwards with '{' and '}'
+            vim.api.nvim_buf_set_keymap(bufnr, "n", "{", "<cmd>AerialPrev<CR>", {})
+            vim.api.nvim_buf_set_keymap(bufnr, "n", "}", "<cmd>AerialNext<CR>", {})
+            -- Jump up the tree with '[[' or ']]'
+            vim.api.nvim_buf_set_keymap(bufnr, "n", "[[", "<cmd>AerialPrevUp<CR>", {})
+            vim.api.nvim_buf_set_keymap(bufnr, "n", "]]", "<cmd>AerialNextUp<CR>", {})
+          end,
+        })
+      end,
+    })
 
     -- colorscheme
     use("navarasu/onedark.nvim") -- Theme inspired by Atom
@@ -455,6 +473,7 @@ require("telescope").setup({
   },
 })
 -- Telescope add some extensions
+pcall(require("telescope").load_extension, "aerial")
 pcall(require("telescope").load_extension, "frecency")
 pcall(require("telescope").load_extension, "fzf")
 pcall(require("telescope").load_extension, "projects")
