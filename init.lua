@@ -42,91 +42,11 @@ require("packer").startup({
   function(use)
     use("wbthomason/packer.nvim") -- Package manager
 
-    use({ "lewis6991/impatient.nvim" })
+    use({ "lewis6991/impatient.nvim" }) -- go faster
 
-    -- Git
-    use({
-      {
-        "TimUntersberger/neogit",
-        cmd = "Neogit",
-      },
-      {
-        "lewis6991/gitsigns.nvim",
-        requires = { "nvim-lua/plenary.nvim" },
-      },
-    })
-
-    -- programming
-    use("numToStr/Comment.nvim")
-    use({
-      "danymat/neogen",
-      config = function()
-        require("neogen").setup({
-          snippet_engine = "luasnip",
-          enabled = true,
-          languages = {
-            python = {
-              template = {
-                annotation_convention = "reST",
-              },
-            },
-          },
-        })
-      end,
-      requires = "nvim-treesitter/nvim-treesitter",
-    })
-    use({
-      "windwp/nvim-autopairs",
-      config = [[ require("nvim-autopairs").setup() ]],
-    })
-    use({
-      "kylechui/nvim-surround",
-      tag = "*",
-      config = [[ require("nvim-surround").setup() ]],
-    })
-    use({
-      "kevinhwang91/nvim-ufo",
-      requires = "kevinhwang91/promise-async",
-      config = function()
-        local ufo = require("ufo")
-
-        vim.keymap.set("n", "zR", ufo.openAllFolds)
-        vim.keymap.set("n", "zM", ufo.closeAllFolds)
-        vim.keymap.set("n", "zr", ufo.openFoldsExceptKinds)
-        vim.keymap.set("n", "zm", ufo.closeFoldsWith) -- closeAllFolds == closeFoldsWith(0)
-        vim.keymap.set("n", "K", function()
-          local winid = ufo.peekFoldedLinesUnderCursor()
-          if not winid then
-            vim.lsp.buf.hover()
-          end
-        end)
-        ufo.setup({
-          provider_selector = function(bufnr, filetype, buftype)
-            return { "treesitter", "indent" }
-          end,
-        })
-      end,
-      setup = function()
-        vim.o.foldcolumn = "1"
-        vim.o.foldlevel = 99
-        vim.o.foldlevelstart = 99
-        vim.o.foldenable = true
-      end,
-    })
-
-    -- Movement
-    use({
-      {
-        "ggandor/leap.nvim",
-        requires = { "tpope/vim-repeat" },
-      },
-      { "ggandor/flit.nvim", config = [[require('flit').setup { labeled_modes = 'nvm' }]] },
-    })
-    use({ "chaoren/vim-wordmotion" })
-    use({
-      "max397574/better-escape.nvim",
-      config = [[ require("better_escape").setup() ]],
-    })
+    -- some core package
+    use({ "nvim-lua/plenary.nvim" })
+    use({ "kyazdani42/nvim-web-devicons" })
 
     -- Highlight, edit, and navigate code
     use({
@@ -182,39 +102,13 @@ require("packer").startup({
         })
       end,
     })
-
-    -- colorscheme
-    use("navarasu/onedark.nvim") -- Theme inspired by Atom
-    use("ellisonleao/gruvbox.nvim")
-    use("shaunsingh/nord.nvim")
-    use({ "catppuccin/nvim", as = "catppuccin" })
-
-    -- UI
-    use("nvim-lualine/lualine.nvim") -- Fancier statusline
-    use({
-      "goolord/alpha-nvim",
-      requires = { "kyazdani42/nvim-web-devicons" },
-      config = function()
-        require("alpha").setup(require("alpha.themes.dashboard").config)
-      end,
-    })
-
-    -- Highlights
-    use("lukas-reineke/indent-blankline.nvim") -- Add indentation guides even on blank lines
-    use({
-      "folke/todo-comments.nvim",
-      requires = "nvim-lua/plenary.nvim",
-      config = [[require("todo-comments").setup() ]],
-    })
-
-    use({ "Darazaki/indent-o-matic", config = [[ require("indent-o-matic").setup({}) ]] }) -- Detect tabstop and shiftwidth automatically
+    use("RRethy/vim-illuminate")
 
     -- Fuzzy Finder (files, lsp, etc)
     use({
       "nvim-telescope/telescope.nvim",
       branch = "0.1.x",
       requires = {
-        { "nvim-lua/plenary.nvim" },
         {
           -- Fuzzy Finder Algorithm
           "nvim-telescope/telescope-fzf-native.nvim",
@@ -234,15 +128,118 @@ require("packer").startup({
       },
     })
 
+    -- Git
+    use({
+      {
+        "TimUntersberger/neogit",
+        cmd = "Neogit",
+      },
+      { "lewis6991/gitsigns.nvim" },
+    })
+
+    -- programming
+    use("numToStr/Comment.nvim")
+    use({
+      "danymat/neogen",
+      config = function()
+        require("neogen").setup({
+          snippet_engine = "luasnip",
+          enabled = true,
+          languages = {
+            python = {
+              template = {
+                annotation_convention = "reST",
+              },
+            },
+          },
+        })
+      end,
+    })
+    use({
+      "windwp/nvim-autopairs",
+      config = [[ require("nvim-autopairs").setup() ]],
+    })
+    use({
+      "kylechui/nvim-surround",
+      tag = "*",
+      config = [[ require("nvim-surround").setup() ]],
+    })
+    use({
+      "kevinhwang91/nvim-ufo",
+      requires = "kevinhwang91/promise-async",
+      config = function()
+        local ufo = require("ufo")
+
+        vim.keymap.set("n", "zR", ufo.openAllFolds)
+        vim.keymap.set("n", "zM", ufo.closeAllFolds)
+        vim.keymap.set("n", "zr", ufo.openFoldsExceptKinds)
+        vim.keymap.set("n", "zm", ufo.closeFoldsWith) -- closeAllFolds == closeFoldsWith(0)
+        vim.keymap.set("n", "K", function()
+          local winid = ufo.peekFoldedLinesUnderCursor()
+          if not winid then
+            vim.lsp.buf.hover()
+          end
+        end)
+        ufo.setup({
+          provider_selector = function(bufnr, filetype, buftype)
+            return { "treesitter", "indent" }
+          end,
+        })
+      end,
+      setup = function()
+        vim.o.foldcolumn = "1"
+        vim.o.foldlevel = 99
+        vim.o.foldlevelstart = 99
+        vim.o.foldenable = true
+      end,
+    })
+
+    -- Movement
+    use({
+      {
+        "ggandor/leap.nvim",
+        requires = { "tpope/vim-repeat" },
+      },
+      { "ggandor/flit.nvim", config = [[require('flit').setup { labeled_modes = 'nvm' }]] },
+    })
+    use({ "chaoren/vim-wordmotion" })
+    use({
+      "max397574/better-escape.nvim",
+      config = [[ require("better_escape").setup() ]],
+    })
+
+    -- colorscheme
+    use("navarasu/onedark.nvim") -- Theme inspired by Atom
+    use("ellisonleao/gruvbox.nvim")
+    use("shaunsingh/nord.nvim")
+    use({ "catppuccin/nvim", as = "catppuccin" })
+
+    -- UI
+    use("nvim-lualine/lualine.nvim") -- Fancier statusline
+    use({
+      "goolord/alpha-nvim",
+      config = function()
+        require("alpha").setup(require("alpha.themes.dashboard").config)
+      end,
+    })
+
+    -- Highlights
+    use("lukas-reineke/indent-blankline.nvim") -- Add indentation guides even on blank lines
+    use({
+      "folke/todo-comments.nvim",
+      config = [[require("todo-comments").setup() ]],
+    })
+
+    use({ "Darazaki/indent-o-matic", config = [[ require("indent-o-matic").setup({}) ]] }) -- Detect tabstop and shiftwidth automatically
+
     use({ "folke/which-key.nvim" })
 
-    use({ "kyazdani42/nvim-tree.lua", requires = { "kyazdani42/nvim-web-devicons" } })
+    use("kyazdani42/nvim-tree.lua")
 
     -- buffer managment
     use({
       "akinsho/bufferline.nvim",
       config = [[require("bufferline").setup()]],
-      requires = "kyazdani42/nvim-web-devicons",
       tag = "v2.*",
     })
 
@@ -297,7 +294,7 @@ require("packer").startup({
           autosave_ignore_filetypes = { -- All buffers of these file types will be closed before the session is saved.
             "gitcommit",
           },
-          autosave_only_in_session = false, -- Always autosaves session. If true, only autosaves after a session is active.
+          autosave_only_in_session = true, -- Always autosaves session. If true, only autosaves after a session is active.
           max_path_length = 80, -- Shorten the display path if length exceeds this threshold. Use 0 if don't want to shorten the path at all.
         })
       end,
@@ -541,13 +538,11 @@ pcall(require("telescope").load_extension, "smart_history")
 pcall(require("telescope").load_extension, "tldr")
 
 -- See `:help telescope.builtin`
-vim.api.nvim_set_keymap("n", "<leader><leader>", "<Cmd>lua require('telescope').extensions.frecency.frecency()<CR>",
-  { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader><leader>", "<Cmd>lua require('telescope').extensions.frecency.frecency()<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>?", require("telescope.builtin").oldfiles, { desc = "[?] Find recently opened files" })
 vim.keymap.set("n", "<leader>bb", require("telescope.builtin").buffers, { desc = "[F]ind existing buffers" })
 vim.keymap.set("n", "<leader>f/", require("telescope.builtin").live_grep, { desc = "[L]ive [G]rep" })
-vim.keymap.set("n", "<leader>fa", "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>",
-  { desc = "[A]ll [F]iles" })
+vim.keymap.set("n", "<leader>fa", "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", { desc = "[A]ll [F]iles" })
 vim.keymap.set("n", "<leader>fd", require("telescope.builtin").diagnostics, { desc = "[F]ind [D]iagnostics" })
 vim.keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, { desc = "[F]ind [F]iles" })
 vim.keymap.set("n", "<leader>fw", require("telescope.builtin").grep_string, { desc = "[F]ind [W]ord" })
@@ -876,6 +871,9 @@ vim.keymap.set("n", "<leader>za", "<cmd>TZAtaraxis <CR>", { desc = "[A]taraxis [
 vim.keymap.set("n", "<leader>zf", "<cmd>TZFocus <CR>", { desc = "[F]ile [F]ocus" })
 vim.keymap.set("n", "<leader>zm", "<cmd>TZMinimalist <CR>", { desc = "[M]inimal [M]ode" })
 vim.keymap.set("n", "<leader>zn", "<cmd>TZNarrow <CR>", { desc = "[N]arrow [M]ode" })
+
+-- windows keymap
+vim.keymap.set("n", "<leader>w", "<C-w>", { desc = "[W]indows" })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
