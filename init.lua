@@ -184,6 +184,7 @@ require("packer").startup({
     -- colorscheme
     use("navarasu/onedark.nvim") -- Theme inspired by Atom
     use("ellisonleao/gruvbox.nvim")
+    use("shaunsingh/nord.nvim")
 
     -- UI
     use("nvim-lualine/lualine.nvim") -- Fancier statusline
@@ -360,9 +361,15 @@ vim.wo.signcolumn = "yes"
 
 -- Set colorscheme
 vim.o.termguicolors = true
+-- onedark theme
 -- require("onedark").load()
-vim.o.background = "dark"
-vim.cmd([[ colorscheme gruvbox ]])
+--
+-- gruvbox
+-- vim.o.background = "dark"
+-- vim.cmd([[ colorscheme gruvbox ]])
+--
+-- nord
+vim.cmd([[ colorscheme nord]])
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = "menuone,noselect"
