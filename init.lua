@@ -197,7 +197,7 @@ require("packer").startup({
       config = [[require("todo-comments").setup() ]],
     })
 
-    use("tpope/vim-sleuth") -- Detect tabstop and shiftwidth automatically
+    use({ "Darazaki/indent-o-matic", event = "BufReadPost", config = [[ require("indent-o-matic").setup() ]] }) -- Detect tabstop and shiftwidth automatically
 
     -- Fuzzy Finder (files, lsp, etc)
     use({
