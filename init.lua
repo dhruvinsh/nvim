@@ -154,7 +154,13 @@ require("packer").startup({
         "hrsh7th/cmp-nvim-lua",
       },
     })
-    use({ "L3MON4D3/LuaSnip", requires = { "saadparwaiz1/cmp_luasnip" } }) -- Snippet Engine and Snippet Expansion
+    use({
+      "L3MON4D3/LuaSnip",
+      requires = {
+        { "saadparwaiz1/cmp_luasnip" },
+        { "rafamadriz/friendly-snippets" },
+      },
+    }) -- Snippet Engine and Snippet Expansion
     use({ "jose-elias-alvarez/null-ls.nvim" })
 
     -- colorscheme
@@ -702,6 +708,9 @@ cmp.setup({
     { name = "nvim_lua" },
   },
 })
+
+-- luasnipe config
+require("luasnip.loaders.from_vscode").lazy_load()
 
 -- nvim-autopairs and nvim-cmp <CR> mapping
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
