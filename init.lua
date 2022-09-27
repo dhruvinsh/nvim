@@ -225,6 +225,9 @@ require("packer").startup({
         {
           "nvim-telescope/telescope-smart-history.nvim",
         },
+        {
+          "nvim-telescope/telescope-file-browser.nvim",
+        },
       },
     })
 
@@ -507,6 +510,7 @@ require("telescope").setup({
 })
 -- Telescope add some extensions
 pcall(require("telescope").load_extension, "aerial")
+pcall(require("telescope").load_extension, "file_browser")
 pcall(require("telescope").load_extension, "frecency")
 pcall(require("telescope").load_extension, "fzf")
 pcall(require("telescope").load_extension, "projects")
