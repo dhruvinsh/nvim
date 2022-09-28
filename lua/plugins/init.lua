@@ -59,6 +59,7 @@ local plugins = {
   ["Darazaki/indent-o-matic"] = { config = [[require("plugins.config.indent-o-matic") ]] },
   ---- Language specific
   ["folke/lua-dev.nvim"] = {},
+  ["npxbr/glow.nvim"] = { run = "GlowInstall", ft = "markdown" },
   ---- Project management
   ["ahmedkhalf/project.nvim"] = { config = [[require("plugins.config.project") ]] },
 
