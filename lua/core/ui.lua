@@ -1,3 +1,4 @@
+-- TODO: find a better way to deal with colorscheme
 if vim.g.colorscheme == "catppuccin" then
   vim.g.catppuccin_flavour = "frappe"
   require("catppuccin").setup()
