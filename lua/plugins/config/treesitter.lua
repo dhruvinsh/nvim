@@ -2,7 +2,6 @@ local status_ok, tconfig = pcall(require, "nvim-treesitter.configs")
 
 if status_ok then
   tconfig.setup({
-    highlight = { enable = true },
     ensure_installed = {
       "bash",
       "c",
@@ -16,6 +15,7 @@ if status_ok then
       "json",
       "lua",
       "markdown",
+      "org",
       "python",
       "rust",
       "toml",
@@ -24,6 +24,7 @@ if status_ok then
       "vim",
       "yaml",
     },
+    highlight = { enable = true, additional_vim_regex_highlighting = { "org" } },
     indent = { enable = true, disable = { "python", "yaml" } },
     incremental_selection = {
       enable = true,

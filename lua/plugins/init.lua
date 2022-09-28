@@ -60,6 +60,7 @@ local plugins = {
   ---- Language specific
   ["folke/lua-dev.nvim"] = {},
   ["npxbr/glow.nvim"] = { run = "GlowInstall", ft = "markdown" },
+  ["nvim-orgmode/orgmode"] = { config = [[require("plugins.config.orgmode") ]] },
   ---- Project management
   ["ahmedkhalf/project.nvim"] = { config = [[require("plugins.config.project") ]] },
 
