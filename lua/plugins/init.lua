@@ -74,7 +74,7 @@ local plugins = {
   ["navarasu/onedark.nvim"] = {},
   ["shaunsingh/nord.nvim"] = {},
   ---- Dashboard
-  --["goolord/alpha-nvim"] = { config = [[require("plugins.config.alpha") ]] },
+  -- ["goolord/alpha-nvim"] = { config = [[require("plugins.config.alpha") ]] },
   ---- Highlighting
   ["folke/todo-comments.nvim"] = { config = [[require("plugins.config.todo-comments") ]] },
   ---- Indentation
@@ -85,7 +85,7 @@ local plugins = {
   ["nvim-lualine/lualine.nvim"] = { config = [[require("plugins.config.lualine") ]] },
 
   -- Tool
-  ["NvChad/nvim-colorizer.lua"] = { config = [[require("plugins.config.colorizer") ]] }
+  ["NvChad/nvim-colorizer.lua"] = { config = [[require("plugins.config.colorizer") ]] },
   ["Pocco81/auto-save.nvim"] = { config = [[require("plugins.config.auto-save") ]] },
   ["Shatur/neovim-session-manager"] = { config = [[require("plugins.config.session") ]] },
   ["akinsho/toggleterm.nvim"] = { config = [[require("plugins.config.toggleterm") ]] },

@@ -103,7 +103,7 @@ require("lspconfig").sumneko_lua.setup({
       -- Do not send telemetry data containing a randomized but unique identifier
       telemetry = { enable = false },
       completion = {
-        callSnippet = "Replace"
+        callSnippet = "Replace",
       },
     },
   },
@@ -175,4 +175,3 @@ require("luasnip.loaders.from_vscode").lazy_load()
 -- nvim-autopairs and nvim-cmp <CR> mapping
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-
