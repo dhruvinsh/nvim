@@ -1,11 +1,5 @@
-local g = vim.g
 local kmap = vim.keymap.set
 
--- Set <space> as the leader key
--- See `:help mapleader`
---  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
-g.mapleader = " "
-g.maplocalleader = " "
 
 kmap({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
