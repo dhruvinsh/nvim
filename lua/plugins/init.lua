@@ -43,6 +43,7 @@ local plugins = {
   -- Git
   ["TimUntersberger/neogit"] = { config = [[require("plugins.config.neogit") ]] },
   ["lewis6991/gitsigns.nvim"] = { config = [[require("plugins.config.gitsigns") ]] },
+  ["sindrets/diffview.nvim"] = { config = [[require("plugins.config.diffview") ]] },
 
   -- Programming
   ["chaoren/vim-wordmotion"] = {},
