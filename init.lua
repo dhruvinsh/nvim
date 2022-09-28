@@ -5,6 +5,7 @@ if impatient_ok then
 end
 
 require("core.disable_builtin")
+require("core.options")
 
 -- Main config starts here
 -- Install packer
@@ -27,7 +28,6 @@ require("plugins.config.lsp")
 
 require("core.autocmds")
 require("core.mappings")
-require("core.options")
 
 -- FIX: better theme selection required
 -- colorschem setup
