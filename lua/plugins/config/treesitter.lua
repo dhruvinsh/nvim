@@ -2,8 +2,28 @@ local status_ok, tconfig = pcall(require, "nvim-treesitter.configs")
 
 if status_ok then
   tconfig.setup({
-    ensure_installed = { "c", "cpp", "go", "json", "lua", "markdown", "python", "rust", "toml", "typescript" },
     highlight = { enable = true },
+    ensure_installed = {
+      "bash",
+      "c",
+      "cpp",
+      "dockerfile",
+      "gitattributes",
+      "gitignore",
+      "go",
+      "html",
+      "javascript",
+      "json",
+      "lua",
+      "markdown",
+      "python",
+      "rust",
+      "toml",
+      "tsx",
+      "typescript",
+      "vim",
+      "yaml",
+    },
     indent = { enable = true, disable = { "python", "yaml" } },
     incremental_selection = {
       enable = true,
