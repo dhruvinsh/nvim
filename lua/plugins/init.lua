@@ -74,7 +74,7 @@ local plugins = {
   ["navarasu/onedark.nvim"] = {},
   ["shaunsingh/nord.nvim"] = {},
   ---- Dashboard
-  -- ["goolord/alpha-nvim"] = { config = [[require("plugins.config.alpha") ]] },
+  ["goolord/alpha-nvim"] = { config = [[require("plugins.config.alpha") ]] },
   ---- Highlighting
   ["folke/todo-comments.nvim"] = { config = [[require("plugins.config.todo-comments") ]] },
   ---- Indentation
