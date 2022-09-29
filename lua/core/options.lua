@@ -1,5 +1,11 @@
 local g = vim.g
 
+-- Set <space> as the leader key
+-- See `:help mapleader`
+--  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
+g.mapleader = " "
+g.maplocalleader = " "
+
 -- Set clipboard
 vim.o.clipboard = "unnamedplus"
 
@@ -29,8 +35,13 @@ vim.wo.signcolumn = "yes"
 -- Set colorscheme
 vim.o.termguicolors = true
 
--- Set <space> as the leader key
--- See `:help mapleader`
---  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
-g.mapleader = " "
-g.maplocalleader = " "
+-- Global statusline
+vim.opt.laststatus = 3
+
+-- Some UI changes
+vim.opt.title = true
+vim.opt.cursorline = true
+
+-- go to previous/next line with h,l,left arrow and right arrow
+-- when cursor reaches end/beginning of line
+vim.opt.whichwrap:append("<>[]hl")
