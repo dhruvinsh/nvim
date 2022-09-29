@@ -1,4 +1,4 @@
-local status_ok, project = pcall(require, "project")
+local status_ok, project = pcall(require, "project_nvim")
 
 if status_ok then
   project.setup({
