@@ -67,7 +67,13 @@ local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protoco
 require("mason").setup()
 
 -- Enable the following language servers
-local servers = { "clangd", "rust_analyzer", "pyright", "tsserver", "sumneko_lua" }
+local servers = {
+  "clangd",
+  "pyright",
+  "rust_analyzer",
+  "sumneko_lua",
+  "tsserver",
+}
 
 -- Ensure the servers above are installed
 require("mason-lspconfig").setup({
@@ -108,4 +114,3 @@ require("lspconfig").sumneko_lua.setup({
     },
   },
 })
-
