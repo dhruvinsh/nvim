@@ -23,9 +23,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
   vim.cmd("PackerSync")
 end
 
--- FIX: better LSP config needed
-require("plugins.config.lsp")
-
 require("core.autocmds")
 require("core.mappings")
 
