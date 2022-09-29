@@ -109,5 +109,3 @@ require("lspconfig").sumneko_lua.setup({
   },
 })
 
--- luasnipe config
-require("luasnip.loaders.from_vscode").lazy_load()
