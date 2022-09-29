@@ -1,3 +1,9 @@
+local status_ok, lspconfig = pcall(require, "lspconfig")
+
+if not status_ok then
+  return
+end
+
 -- lua dev need to setup befor lsp
 local status_ok, lua_dev = pcall(require, "lua-dev")
 if status_ok then
@@ -72,15 +78,12 @@ require("mason-lspconfig").setup({
 })
 
 for _, lsp in ipairs(servers) do
-  require("lspconfig")[lsp].setup({
+  lspconfig[lsp].setup({
     on_attach = on_attach,
     capabilities = capabilities,
   })
 end
 
--- Example custom configuration for lua
---
--- Make runtime files discoverable to the server
 local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
