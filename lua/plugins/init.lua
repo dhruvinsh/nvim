@@ -13,7 +13,7 @@ local plugins = {
   ["nvim-treesitter/nvim-treesitter-textobjects"] = {},
 
   -- LSP setup
-  ["neovim/nvim-lspconfig"] = {},
+  ["neovim/nvim-lspconfig"] = { config = [[require("plugins.config.lsp") ]] },
   ["williamboman/mason.nvim"] = {},
   ["williamboman/mason-lspconfig.nvim"] = {},
   ---- LSP completion
