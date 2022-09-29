@@ -1,6 +1,5 @@
 local kmap = vim.keymap.set
 
-
 kmap({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
 -- Remap for dealing with word wrap
