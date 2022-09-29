@@ -4,7 +4,6 @@ if impatient_ok then
   impatient.enable_profile()
 end
 
-require("core.disable_builtin")
 require("core.options")
 
 -- Main config starts here
