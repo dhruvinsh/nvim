@@ -17,7 +17,7 @@ local plugins = {
   ["williamboman/mason.nvim"] = {},
   ["williamboman/mason-lspconfig.nvim"] = {},
   ---- LSP completion
-  ["hrsh7th/nvim-cmp"] = {},
+  ["hrsh7th/nvim-cmp"] = { config = [[require("plugins.config.cmp") ]] },
   ["hrsh7th/cmp-buffer"] = {},
   ["hrsh7th/cmp-nvim-lsp"] = {},
   ["hrsh7th/cmp-nvim-lua"] = {},
