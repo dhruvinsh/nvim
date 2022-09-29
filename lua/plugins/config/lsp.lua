@@ -69,6 +69,7 @@ require("mason").setup()
 -- Enable the following language servers
 local servers = {
   "clangd",
+  "jsonls",
   "pyright",
   "rust_analyzer",
   "sumneko_lua",
