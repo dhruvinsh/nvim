@@ -18,6 +18,8 @@ if not neogen_status_ok then
   return
 end
 
+vim.o.completeopt = "menu,menuone,noselect"
+
 cmp.setup({
   formatting = {
     format = lspkind.cmp_format({

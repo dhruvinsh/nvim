@@ -10,9 +10,6 @@ if status_ok then
   lua_dev.setup()
 end
 
--- Set completeopt to have a better completion experience
-vim.o.completeopt = "menuone,noselect"
-
 -- LSP settings.
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
