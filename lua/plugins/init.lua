@@ -48,7 +48,7 @@ local plugins = {
 
   -- Programming
   ["chaoren/vim-wordmotion"] = {},
-  ["danymat/neogen"] = { config = [[require("plugins.config.gitsigns") ]] },
+  ["danymat/neogen"] = { config = [[require("plugins.config.neogen") ]] },
   ["ggandor/flit.nvim"] = { config = [[require("plugins.config.flit") ]] },
   ["ggandor/leap.nvim"] = { config = [[require("plugins.config.leap") ]] },
   ["kevinhwang91/nvim-ufo"] = { config = [[require("plugins.config.ufo") ]] },
