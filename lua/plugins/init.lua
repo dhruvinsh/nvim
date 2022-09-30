@@ -47,19 +47,22 @@ local plugins = {
   ["sindrets/diffview.nvim"] = { config = [[require("plugins.config.diffview") ]] },
 
   -- Programming
+  ---- Movement
   ["chaoren/vim-wordmotion"] = {},
-  ["danymat/neogen"] = { config = [[require("plugins.config.neogen") ]] },
   ["ggandor/flit.nvim"] = { config = [[require("plugins.config.flit") ]] },
   ["ggandor/leap.nvim"] = { config = [[require("plugins.config.leap") ]] },
-  ["kevinhwang91/nvim-ufo"] = { config = [[require("plugins.config.ufo") ]] },
-  ["kylechui/nvim-surround"] = { config = [[require("plugins.config.surround") ]] },
   ["max397574/better-escape.nvim"] = { config = [[require("plugins.config.better-escape") ]] },
-  ["numToStr/Comment.nvim"] = { config = [[require("plugins.config.comment") ]] },
   ["stevearc/aerial.nvim"] = { config = [[require("plugins.config.aerial") ]] },
   ["fedepujol/move.nvim"] = {},
+  ---- Tools: folding, autopairs, indent, surround, repeat
+  ["Darazaki/indent-o-matic"] = { config = [[require("plugins.config.indent-o-matic") ]] },
+  ["kevinhwang91/nvim-ufo"] = { config = [[require("plugins.config.ufo") ]] },
+  ["kylechui/nvim-surround"] = { config = [[require("plugins.config.surround") ]] },
   ["tpope/vim-repeat"] = {},
   ["windwp/nvim-autopairs"] = { config = [[require("plugins.config.autopairs") ]] },
-  ["Darazaki/indent-o-matic"] = { config = [[require("plugins.config.indent-o-matic") ]] },
+  ---- Writing
+  ["danymat/neogen"] = { config = [[require("plugins.config.neogen") ]] },
+  ["numToStr/Comment.nvim"] = { config = [[require("plugins.config.comment") ]] },
   ---- Language specific
   ["folke/lua-dev.nvim"] = {},
   ["ellisonleao/glow.nvim"] = { ft = "markdown" },
