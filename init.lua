@@ -5,6 +5,8 @@ if impatient_ok then
 end
 
 require("core.options")
+require("core.autocmds")
+require("core.mappings")
 
 -- Main config starts here
 -- Install packer
@@ -21,9 +23,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
   require("plugins")
   vim.cmd("PackerSync")
 end
-
-require("core.autocmds")
-require("core.mappings")
 
 -- FIX: better theme selection required
 -- colorschem setup
