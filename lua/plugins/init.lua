@@ -56,6 +56,7 @@ local plugins = {
   ["max397574/better-escape.nvim"] = { config = [[require("plugins.config.better-escape") ]] },
   ["numToStr/Comment.nvim"] = { config = [[require("plugins.config.comment") ]] },
   ["stevearc/aerial.nvim"] = { config = [[require("plugins.config.aerial") ]] },
+  ["fedepujol/move.nvim"] = {},
   ["tpope/vim-repeat"] = {},
   ["windwp/nvim-autopairs"] = { config = [[require("plugins.config.autopairs") ]] },
   ["Darazaki/indent-o-matic"] = { config = [[require("plugins.config.indent-o-matic") ]] },
