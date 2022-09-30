@@ -69,6 +69,7 @@ vim.opt.laststatus = 3
 vim.opt.title = true
 vim.opt.cursorline = true
 
+-- NOTE: this was behaving unexpected way with better-escape.
 -- go to previous/next line with h,l,left arrow and right arrow
 -- when cursor reaches end/beginning of line
-vim.opt.whichwrap:append("<>[]hl")
+-- vim.opt.whichwrap:append("<>[]hl")
