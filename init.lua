@@ -27,5 +27,5 @@ end
 -- FIX: better theme selection required
 -- colorschem setup
 -- valid vlaues: onedark, catppuccin, gruvbox, nord
-vim.g.colorscheme = "catppuccin"
+vim.g.colorscheme = "onedark"
 require("core.ui")
