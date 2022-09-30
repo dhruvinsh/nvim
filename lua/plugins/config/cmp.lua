@@ -3,11 +3,6 @@ if not status_ok then
   return
 end
 
-local lspkind_staus_ok, lspkind = pcall(require, "lspkind")
-if not lspkind_staus_ok then
-  return
-end
-
 local luasnip_staus_ok, luasnip = pcall(require, "luasnip")
 if not luasnip_staus_ok then
   return
@@ -18,15 +13,64 @@ if not neogen_status_ok then
   return
 end
 
+local cmp_buffer_status_ok, cmp_buffer = pcall(require, "cmp_buffer")
+if not cmp_buffer_status_ok then
+  return
+end
+
 vim.o.completeopt = "menu,menuone,noselect"
+
+--   פּ ﯟ   some other good icons
+local kind_icons = {
+  Text = "",
+  Method = "m",
+  Function = "",
+  Constructor = "",
+  Field = "",
+  Variable = "",
+  Class = "",
+  Interface = "",
+  Module = "",
+  Property = "",
+  Unit = "",
+  Value = "",
+  Enum = "",
+  Keyword = "",
+  Snippet = "",
+  Color = "",
+  File = "",
+  Reference = "",
+  Folder = "",
+  EnumMember = "",
+  Constant = "",
+  Struct = "",
+  Event = "",
+  Operator = "",
+  TypeParameter = "",
+}
 
 cmp.setup({
   formatting = {
-    format = lspkind.cmp_format({
-      mode = "symbol",
-      maxwidth = 50,
-      ellipsis_char = "...",
-    }),
+    fields = { "abbr", "kind", "menu" },
+    format = function(entry, vim_item)
+      vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+
+      vim_item.menu = ({
+        nvim_lsp = "[L]",
+        luasnip = "[S]",
+        buffer = "[B]",
+        path = "[P]",
+      })[entry.source.name]
+
+      -- truncating the long line
+      local label = vim_item.abbr
+      local truncated_label = vim.fn.strcharpart(label, 0, 30)
+      if truncated_label ~= label then
+        vim_item.abbr = truncated_label .. "..."
+      end
+
+      return vim_item
+    end,
   },
   snippet = {
     expand = function(args)
@@ -67,12 +111,30 @@ cmp.setup({
     end, { "i", "s" }),
   }),
   sources = {
-    { name = "buffer" },
-    { name = "luasnip" },
+    -- NOTE: The order of the sources determines their order in the completion results.
     { name = "nvim_lsp" },
-    { name = "nvim_lua" },
+    { name = "luasnip" },
+    {
+      name = "buffer",
+      option = {
+        get_bufnrs = function()
+          return vim.api.nvim_list_bufs()
+        end,
+      },
+    },
     { name = "path" },
-    { name = "rg" },
+  },
+  experimental = {
+    ghost_text = false,
+    native_menu = false,
+  },
+  window = {
+    completion = {
+      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+    },
+    documentation = {
+      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+    },
   },
 })
 
