@@ -69,6 +69,7 @@ local plugins = {
   -- UI
   ---- Buffer management
   ["akinsho/bufferline.nvim"] = { config = [[require("plugins.config.bufferline") ]] },
+  ["famiu/bufdelete.nvim"] = {},
   ---- Colorscheme
   ["catppuccin/nvim"] = {},
   ["ellisonleao/gruvbox.nvim"] = {},
