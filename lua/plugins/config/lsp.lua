@@ -1,13 +1,14 @@
+-- lua dev need to setup befor lsp
+-- I don't want to stop execution just because lua_dev is not loaded
+local lua_dev_status_ok, lua_dev = pcall(require, "lua-dev")
+if lua_dev_status_ok then
+  lua_dev.setup({})
+end
+
 local status_ok, lspconfig = pcall(require, "lspconfig")
 
 if not status_ok then
   return
-end
-
--- lua dev need to setup befor lsp
-local status_ok, lua_dev = pcall(require, "lua-dev")
-if status_ok then
-  lua_dev.setup()
 end
 
 -- LSP settings.
@@ -82,36 +83,50 @@ require("mason-lspconfig").setup({
 })
 
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-  })
+  if lsp == "sumneko_lua" then
+    lspconfig[lsp].setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+      setting = {
+        Lua = {
+          completion = {
+            callSnippet = "Replace",
+          },
+        },
+      },
+    })
+  else
+    lspconfig[lsp].setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+    })
+  end
 end
 
-local runtime_path = vim.split(package.path, ";")
-table.insert(runtime_path, "lua/?.lua")
-table.insert(runtime_path, "lua/?/init.lua")
-
-require("lspconfig").sumneko_lua.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
-  settings = {
-    Lua = {
-      runtime = {
-        -- Tell the language server which version of Lua you're using (most likely LuaJIT)
-        version = "LuaJIT",
-        -- Setup your lua path
-        path = runtime_path,
-      },
-      diagnostics = {
-        globals = { "vim" },
-      },
-      workspace = { library = vim.api.nvim_get_runtime_file("", true) },
-      -- Do not send telemetry data containing a randomized but unique identifier
-      telemetry = { enable = false },
-      completion = {
-        callSnippet = "Replace",
-      },
-    },
-  },
-})
+-- local runtime_path = vim.split(package.path, ";")
+-- table.insert(runtime_path, "lua/?.lua")
+-- table.insert(runtime_path, "lua/?/init.lua")
+--
+-- require("lspconfig").sumneko_lua.setup({
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--   settings = {
+--     Lua = {
+--       runtime = {
+--         -- Tell the language server which version of Lua you're using (most likely LuaJIT)
+--         version = "LuaJIT",
+--         -- Setup your lua path
+--         path = runtime_path,
+--       },
+--       diagnostics = {
+--         globals = { "vim" },
+--       },
+--       workspace = { library = vim.api.nvim_get_runtime_file("", true) },
+--       -- Do not send telemetry data containing a randomized but unique identifier
+--       telemetry = { enable = false },
+--       completion = {
+--         callSnippet = "Replace",
+--       },
+--     },
+--   },
+-- })
