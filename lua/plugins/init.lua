@@ -92,9 +92,11 @@ local plugins = {
   ["Pocco81/auto-save.nvim"] = { config = [[require("plugins.config.auto-save") ]] },
   ["Shatur/neovim-session-manager"] = { config = [[require("plugins.config.session") ]] },
   ["akinsho/toggleterm.nvim"] = { config = [[require("plugins.config.toggleterm") ]] },
-  ["folke/which-key.nvim"] = { config = [[require("plugins.config.which-key") ]] },
   ["kyazdani42/nvim-tree.lua"] = { config = [[require("plugins.config.nvim-tree") ]] },
   ["mrjones2014/tldr.nvim"] = { config = [[require("plugins.config.tldr") ]] },
+  ---- keymappings
+  ["folke/which-key.nvim"] = { config = [[require("plugins.config.which-key") ]] },
+  ["mrjones2014/legendary.nvim"] = { config = [[require("plugins.config.legendary") ]] },
 }
 
 -- Load the plugins
