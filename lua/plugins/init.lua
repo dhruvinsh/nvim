@@ -65,6 +65,7 @@ local plugins = {
   ["nvim-orgmode/orgmode"] = { config = [[require("plugins.config.orgmode") ]] },
   ---- Project management
   ["ahmedkhalf/project.nvim"] = { config = [[require("plugins.config.project") ]] },
+  ["gpanders/editorconfig.nvim"] = {},
 
   -- UI
   ---- Buffer management
