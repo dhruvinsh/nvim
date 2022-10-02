@@ -9,5 +9,10 @@ if status_ok then
     standard_widths = { 2, 4, 8 },
     -- Skip multi-line comments and strings (more accurate detection but less performant)
     skip_multiline = true,
+
+    -- force lua to 2 spaces
+    filetype_lua = {
+      standard_widths = { 2 },
+    },
   })
 end
