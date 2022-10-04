@@ -75,9 +75,13 @@ local plugins = {
   ["akinsho/bufferline.nvim"] = { config = [[require("plugins.config.bufferline") ]], commit = "5aa803a" },
   ["famiu/bufdelete.nvim"] = { commit = "46255e4" },
   ---- Colorscheme
+  ["Mofiqul/vscode.nvim"] = { commit = "c512582" },
   ["catppuccin/nvim"] = { commit = "a111e80" },
   ["ellisonleao/gruvbox.nvim"] = { commit = "24f9e79" },
+  ["folke/tokyonight.nvim"] = { commit = "66bfc2e" },
   ["navarasu/onedark.nvim"] = { commit = "6c72a9c" },
+  ["olimorris/onedarkpro.nvim"] = { commit = "9a0cccb" },
+  ["rebelot/kanagawa.nvim"] = { commit = "dda1b8c" },
   ["shaunsingh/nord.nvim"] = { commit = "78f5f00" },
   ---- Dashboard
   ["goolord/alpha-nvim"] = { config = [[require("plugins.config.alpha") ]], commit = "0bb6fc0" },
