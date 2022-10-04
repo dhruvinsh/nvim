@@ -91,6 +91,7 @@ local default_keymaps = function()
     { "<leader>sh", h.lazy_required_fn("telescope.builtin", "help_tags"), description = "[S]earch [H]elp" },
 
     -- Terminal mappings
+    { "<leader>ot", ":ToggleTerm <CR>", description = "[O]pen [T]erminal" },
     { "<ESC>", "<C-\\><C-n>", mode = "t" },
     { "<C-w>h", "<C-\\><C-n><C-W>h", mode = "t" },
     { "<C-w>j", "<C-\\><C-n><C-W>j", mode = "t" },
