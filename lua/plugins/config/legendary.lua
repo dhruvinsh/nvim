@@ -38,6 +38,7 @@ local default_keymaps = function()
     { "<leader>fe", ":NvimTreeFocus <CR>", description = "[F]ocus [N]vim-tree" },
     { "<leader>ft", ":NvimTreeToggle <CR>", description = "[O]pen [N]vim-tree" },
     { "<leader>pt", ":NvimTreeToggle <CR>", description = "[O]pen [N]vim-tree" },
+    { "<F9>", ":NvimTreeToggle <CR>", description = "[O]pen [N]vim-tree" },
 
     -- Packer keymaps
     { "<leader>PS", ":PackerStatus <CR>", description = "[S]tatus" },
