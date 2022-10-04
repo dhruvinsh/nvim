@@ -85,6 +85,7 @@ local plugins = {
   ["folke/tokyonight.nvim"] = { commit = "66bfc2e" },
   ["navarasu/onedark.nvim"] = { commit = "6c72a9c" },
   ["olimorris/onedarkpro.nvim"] = { commit = "9a0cccb" },
+  ["projekt0n/github-nvim-theme"] = { commit = "b3f1519" },
   ["rebelot/kanagawa.nvim"] = { commit = "dda1b8c" },
   ["shaunsingh/nord.nvim"] = { commit = "78f5f00" },
   ---- Dashboard
