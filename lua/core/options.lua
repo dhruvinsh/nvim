@@ -63,13 +63,13 @@ vim.wo.signcolumn = "yes"
 vim.o.termguicolors = true
 
 -- Global statusline
-vim.opt.laststatus = 3
+vim.o.laststatus = 3
 
 -- Some UI changes
-vim.opt.title = true
-vim.opt.cursorline = true
+vim.o.title = true
+vim.o.cursorline = true
 
 -- NOTE: this was behaving unexpected way with better-escape.
 -- go to previous/next line with h,l,left arrow and right arrow
 -- when cursor reaches end/beginning of line
--- vim.opt.whichwrap:append("<>[]hl")
+-- vim.o.whichwrap:append("<>[]hl")
