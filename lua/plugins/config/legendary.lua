@@ -13,11 +13,11 @@ local h = require("legendary.helpers")
 local default_keymaps = function()
   return {
     -- Buffer managment keymaps
-    { "<S-Tab>", ":bp <CR>", description = "[P]ext [B]uffer" },
-    { "<Tab>", ":bn <CR>", description = "[N]ext [B]uffer" },
-    { "<leader>bd", ":Bdelete <CR>", description = "[P]ext [B]uffer" },
-    { "<leader>bn", ":bn <CR>", description = "[N]ext [B]uffer" },
-    { "<leader>bp", ":bp <CR>", description = "[P]ext [B]uffer" },
+    { "<S-Tab>", ":bp <CR>", description = "Pext Buffer" },
+    { "<Tab>", ":bn <CR>", description = "Next Buffer" },
+    { "<leader>bd", ":Bdelete <CR>", description = "Pext Buffer" },
+    { "<leader>bn", ":bn <CR>", description = "Next Buffer" },
+    { "<leader>bp", ":bp <CR>", description = "Pext Buffer" },
 
     -- Diagnostic keymaps
     { "[d", vim.diagnostic.goto_prev },
@@ -26,26 +26,26 @@ local default_keymaps = function()
     { "<leader>q", vim.diagnostic.setloclist },
 
     -- Git keymaps
-    { "<leader>gg", ":Neogit <CR>", description = "[G]it [S]tatus" },
+    { "<leader>gg", ":Neogit <CR>", description = "Git Status" },
 
     -- Neogen keymaps
-    { "<leader>nf", h.lazy_required_fn("neogen", "generate"), description = "[F]unc [D]oc" },
-    { "<leader>nc", h.lazy_required_fn("neogen", "generate", { type = "class" }), description = "[F]unc [D]oc" },
+    { "<leader>nf", h.lazy_required_fn("neogen", "generate"), description = "Func Doc" },
+    { "<leader>nc", h.lazy_required_fn("neogen", "generate", { type = "class" }), description = "Func Doc" },
     { "<C-l>", require("neogen").jump_next, mode = { "i" } },
     { "<C-h>", require("neogen").jump_prev, mode = { "i" } },
 
     -- NvimTree setup
-    { "<leader>fe", ":NvimTreeFocus <CR>", description = "[F]ocus [N]vim-tree" },
-    { "<leader>ft", ":NvimTreeToggle <CR>", description = "[O]pen [N]vim-tree" },
-    { "<leader>pt", ":NvimTreeToggle <CR>", description = "[O]pen [N]vim-tree" },
-    { "<F9>", ":NvimTreeToggle <CR>", description = "[O]pen [N]vim-tree" },
+    { "<leader>fe", ":NvimTreeFocus <CR>", description = "Focus Nvim-tree" },
+    { "<leader>ft", ":NvimTreeToggle <CR>", description = "Open Nvim-tree" },
+    { "<leader>pt", ":NvimTreeToggle <CR>", description = "Open Nvim-tree" },
+    { "<F9>", ":NvimTreeToggle <CR>", description = "Open Nvim-tree" },
 
     -- Packer keymaps
-    { "<leader>PS", ":PackerStatus <CR>", description = "[S]tatus" },
-    { "<leader>Pc", ":PackerCompile <CR>", description = "[C]ompile" },
-    { "<leader>Pi", ":PackerInstall <CR>", description = "[I]nstall" },
-    { "<leader>Ps", ":PackerSync <CR>", description = "[S]ync" },
-    { "<leader>Pu", ":PackerUpdate <CR>", description = "[U]pdate" },
+    { "<leader>PS", ":PackerStatus <CR>", description = "Status" },
+    { "<leader>Pc", ":PackerCompile <CR>", description = "Compile" },
+    { "<leader>Pi", ":PackerInstall <CR>", description = "Install" },
+    { "<leader>Ps", ":PackerSync <CR>", description = "Sync" },
+    { "<leader>Pu", ":PackerUpdate <CR>", description = "Update" },
 
     -- Project keymaps
     {
@@ -53,7 +53,7 @@ local default_keymaps = function()
       function()
         require("telescope").extensions.projects.projects()
       end,
-      description = "[P]rojects",
+      description = "Projects",
     },
 
     -- Telescope keymaps
@@ -62,12 +62,12 @@ local default_keymaps = function()
       function()
         require("telescope").extensions.frecency.frecency()
       end,
-      description = "[R]cent [F]iles",
+      description = "Rcent Files",
     },
     {
       "<leader>?",
       h.lazy_required_fn("telescope.builtin", "oldfiles"),
-      description = "[?] Find recently opened files",
+      description = "? Find recently opened files",
     },
     {
       "<leader>b/",
@@ -77,22 +77,22 @@ local default_keymaps = function()
           require("telescope.themes").get_dropdown({ winblend = 10, previewer = false })
         )
       end,
-      description = "[/] Fuzzily search in current buffer]",
+      description = "/ Fuzzily search in current buffer",
     },
-    { "<leader>bb", h.lazy_required_fn("telescope.builtin", "buffers"), description = "[F]ind existing buffers" },
-    { "<leader>f/", h.lazy_required_fn("telescope.builtin", "live_grep"), description = "[L]ive [G]rep" },
+    { "<leader>bb", h.lazy_required_fn("telescope.builtin", "buffers"), description = "Find existing buffers" },
+    { "<leader>f/", h.lazy_required_fn("telescope.builtin", "live_grep"), description = "Live Grep" },
     {
       "<leader>fa",
       h.lazy_required_fn("telescope.builtin", "find_files", { follow = true, no_ignore = true, hidden = true }),
-      description = "[A]ll [F]iles",
+      description = "All Files",
     },
-    { "<leader>fd", h.lazy_required_fn("telescope.builtin", "diagnostics"), description = "[F]ind [D]iagnostics" },
-    { "<leader>ff", h.lazy_required_fn("telescope.builtin", "find_files"), description = "[F]ind [F]iles" },
-    { "<leader>fw", h.lazy_required_fn("telescope.builtin", "grep_string"), description = "[F]ind [W]ord" },
-    { "<leader>sh", h.lazy_required_fn("telescope.builtin", "help_tags"), description = "[S]earch [H]elp" },
+    { "<leader>fd", h.lazy_required_fn("telescope.builtin", "diagnostics"), description = "Find Diagnostics" },
+    { "<leader>ff", h.lazy_required_fn("telescope.builtin", "find_files"), description = "Find Files" },
+    { "<leader>fw", h.lazy_required_fn("telescope.builtin", "grep_string"), description = "Find Word" },
+    { "<leader>sh", h.lazy_required_fn("telescope.builtin", "help_tags"), description = "Search Help" },
 
     -- Terminal mappings
-    { "<leader>ot", ":ToggleTerm <CR>", description = "[O]pen [T]erminal" },
+    { "<leader>ot", ":ToggleTerm <CR>", description = "Open Terminal" },
     { "<ESC>", "<C-\\><C-n>", mode = "t" },
     { "<C-w>h", "<C-\\><C-n><C-W>h", mode = "t" },
     { "<C-w>j", "<C-\\><C-n><C-W>j", mode = "t" },
@@ -100,11 +100,11 @@ local default_keymaps = function()
     { "<C-w>l", "<C-\\><C-n><C-W>l", mode = "t" },
 
     -- Truezen keymaps
-    { "<leader>fz", ":TZAtaraxis <CR>", description = "[Z]en [M]ode" },
-    { "<leader>za", ":TZAtaraxis <CR>", description = "[A]taraxis [M]ode" },
-    { "<leader>zf", ":TZFocus <CR>", description = "[F]ile [F]ocus" },
-    { "<leader>zm", ":TZMinimalist <CR>", description = "[M]inimal [M]ode" },
-    { "<leader>zn", ":TZNarrow <CR>", description = "[N]arrow [M]ode" },
+    { "<leader>fz", ":TZAtaraxis <CR>", description = "Zen Mode" },
+    { "<leader>za", ":TZAtaraxis <CR>", description = "Ataraxis Mode" },
+    { "<leader>zf", ":TZFocus <CR>", description = "File Focus" },
+    { "<leader>zm", ":TZMinimalist <CR>", description = "Minimal Mode" },
+    { "<leader>zn", ":TZNarrow <CR>", description = "Narrow Mode" },
   }
 end
 
