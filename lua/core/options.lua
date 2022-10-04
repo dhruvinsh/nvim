@@ -69,6 +69,9 @@ vim.o.laststatus = 3
 vim.o.title = true
 vim.o.cursorline = true
 
+-- I like look without any cmdline
+vim.o.cmdheight = 0
+
 -- NOTE: this was behaving unexpected way with better-escape.
 -- go to previous/next line with h,l,left arrow and right arrow
 -- when cursor reaches end/beginning of line
