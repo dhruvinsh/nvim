@@ -1,7 +1,7 @@
 <h1 align="center">Orion 🌠</h1>
 
 <p align="center">
-![GitHub last commit](https://img.shields.io/github/last-commit/dhruvinsh/nvim?color=98c379&style=for-the-badge)
+  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/dhruvinsh/nvim?color=98c379&style=for-the-badge">
 </p>
 
 A configuration that finally works best for me, went over so many stuff, back and forth changes but a configuration that I can stay put.
