@@ -37,7 +37,11 @@ local plugins = {
   ["nvim-telescope/telescope.nvim"] = { config = [[require("plugins.config.telescope") ]], commit = "76ea9a8" },
   ["nvim-telescope/telescope-file-browser.nvim"] = { commit = "b1bc53e" },
   ["nvim-telescope/telescope-frecency.nvim"] = { commit = "9634c35" },
-  ["nvim-telescope/telescope-fzf-native.nvim"] = { commit = "65c0ee3" },
+  ["nvim-telescope/telescope-fzf-native.nvim"] = {
+    commit = "65c0ee3",
+    run = "make",
+    cond = vim.fn.executable("make") == 1,
+  },
   ["nvim-telescope/telescope-smart-history.nvim"] = { commit = "7eb278c" },
 
   -- Git
