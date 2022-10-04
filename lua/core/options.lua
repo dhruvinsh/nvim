@@ -69,12 +69,6 @@ vim.o.laststatus = 3
 vim.o.title = true
 vim.o.cursorline = true
 
--- Set spell check
--- NOTE: with https://github.com/neovim/neovim/pull/19419 treesitter supports spell check
-vim.o.spell = true
-vim.o.spelllang = "en_us"
-vim.o.spelloptions = "noplainbuffer"
-
 -- I like look without any cmdline
 vim.o.cmdheight = 0
 
