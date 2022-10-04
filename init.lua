@@ -24,8 +24,4 @@ if fn.empty(fn.glob(install_path)) > 0 then
   vim.cmd("PackerSync")
 end
 
--- FIX: better theme selection required
--- colorschem setup
--- valid vlaues: onedark, catppuccin, gruvbox, nord
-vim.g.colorscheme = "onedark"
-require("core.ui")
+require("colorscheme")
