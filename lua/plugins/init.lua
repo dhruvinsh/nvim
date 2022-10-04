@@ -1,102 +1,108 @@
 local plugins = {
   -- Some core packages that I need it no matter what kind of setup it is
-  ["wbthomason/packer.nvim"] = { config = [[ require("plugins") ]] },
-  ["lewis6991/impatient.nvim"] = {},
-  ["kyazdani42/nvim-web-devicons"] = {},
-  ["kevinhwang91/promise-async"] = {},
-  ["nvim-lua/plenary.nvim"] = {},
-  ["tami5/sqlite.lua"] = {},
+  ["wbthomason/packer.nvim"] = { config = [[ require("plugins") ]], commit = "6afb674" },
+  ["lewis6991/impatient.nvim"] = { commit = "b842e16" },
+  ["kyazdani42/nvim-web-devicons"] = { commit = "a8cf88c" },
+  ["kevinhwang91/promise-async"] = { commit = "70b0906" },
+  ["nvim-lua/plenary.nvim"] = { commit = "4b7e520" },
+  ["tami5/sqlite.lua"] = { commit = "47685f0" },
 
   -- Code highligting
-  ["nvim-treesitter/nvim-treesitter"] = { config = [[require("plugins.config.treesitter") ]] },
-  ["nvim-treesitter/nvim-treesitter-context"] = { config = [[require("plugins.config.treesitter-context") ]] },
-  ["nvim-treesitter/nvim-treesitter-textobjects"] = {},
+  ["nvim-treesitter/nvim-treesitter"] = { config = [[require("plugins.config.treesitter") ]], commit = "7ccb9a0" },
+  ["nvim-treesitter/nvim-treesitter-context"] = {
+    config = [[require("plugins.config.treesitter-context") ]],
+    commit = "8d0759e",
+  },
+  ["nvim-treesitter/nvim-treesitter-textobjects"] = { commit = "41e8d89" },
 
   -- LSP setup
-  ["neovim/nvim-lspconfig"] = { config = [[require("plugins.config.lsp") ]] },
-  ["williamboman/mason.nvim"] = {},
-  ["williamboman/mason-lspconfig.nvim"] = {},
+  ["neovim/nvim-lspconfig"] = { config = [[require("plugins.config.lsp") ]], commit = "fc2f44d" },
+  ["williamboman/mason.nvim"] = { commit = "a01073d" },
+  ["williamboman/mason-lspconfig.nvim"] = { commit = "38ab1f3" },
   ---- LSP completion
-  ["hrsh7th/nvim-cmp"] = { config = [[require("plugins.config.cmp") ]] },
-  ["hrsh7th/cmp-buffer"] = {},
-  ["hrsh7th/cmp-nvim-lsp"] = {},
-  ["hrsh7th/cmp-path"] = {},
+  ["hrsh7th/nvim-cmp"] = { config = [[require("plugins.config.cmp") ]], commit = "b0dff0e" },
+  ["hrsh7th/cmp-buffer"] = { commit = "3022dbc" },
+  ["hrsh7th/cmp-nvim-lsp"] = { commit = "affe808" },
+  ["hrsh7th/cmp-path"] = { commit = "91ff86c" },
   ---- LSP snippet
-  ["L3MON4D3/LuaSnip"] = {},
-  ["rafamadriz/friendly-snippets"] = {},
-  ["saadparwaiz1/cmp_luasnip"] = {},
+  ["L3MON4D3/LuaSnip"] = { commit = "8f8d493" },
+  ["rafamadriz/friendly-snippets"] = { commit = "9f4ffd1" },
+  ["saadparwaiz1/cmp_luasnip"] = { commit = "a9de941" },
   ---- LSP code formatting
-  ["jose-elias-alvarez/null-ls.nvim"] = { config = [[require("plugins.config.null-ls") ]] },
+  ["jose-elias-alvarez/null-ls.nvim"] = { config = [[require("plugins.config.null-ls") ]], commit = "c0c19f3" },
   ---- LSP code highligting
-  ["RRethy/vim-illuminate"] = { config = [[require("plugins.config.illuminate") ]] },
+  ["RRethy/vim-illuminate"] = { config = [[require("plugins.config.illuminate") ]], commit = "ea170c1" },
 
   -- Fuzzy Finder
-  ["nvim-telescope/telescope.nvim"] = { config = [[require("plugins.config.telescope") ]] },
-  ["nvim-telescope/telescope-file-browser.nvim"] = {},
-  ["nvim-telescope/telescope-frecency.nvim"] = {},
-  ["nvim-telescope/telescope-fzf-native.nvim"] = {},
-  ["nvim-telescope/telescope-smart-history.nvim"] = {},
+  ["nvim-telescope/telescope.nvim"] = { config = [[require("plugins.config.telescope") ]], commit = "76ea9a8" },
+  ["nvim-telescope/telescope-file-browser.nvim"] = { commit = "b1bc53e" },
+  ["nvim-telescope/telescope-frecency.nvim"] = { commit = "9634c35" },
+  ["nvim-telescope/telescope-fzf-native.nvim"] = { commit = "65c0ee3" },
+  ["nvim-telescope/telescope-smart-history.nvim"] = { commit = "7eb278c" },
 
   -- Git
-  ["TimUntersberger/neogit"] = { config = [[require("plugins.config.neogit") ]] },
-  ["lewis6991/gitsigns.nvim"] = { config = [[require("plugins.config.gitsigns") ]] },
-  ["sindrets/diffview.nvim"] = { config = [[require("plugins.config.diffview") ]] },
+  ["TimUntersberger/neogit"] = { config = [[require("plugins.config.neogit") ]], commit = "74c9e29" },
+  ["lewis6991/gitsigns.nvim"] = { config = [[require("plugins.config.gitsigns") ]], commit = "f98c85e" },
+  ["sindrets/diffview.nvim"] = { config = [[require("plugins.config.diffview") ]], commit = "6baa30d" },
 
   -- Programming
   ---- Movement
-  ["chaoren/vim-wordmotion"] = {},
-  ["ggandor/flit.nvim"] = { config = [[require("plugins.config.flit") ]] },
-  ["ggandor/leap.nvim"] = { config = [[require("plugins.config.leap") ]] },
-  ["max397574/better-escape.nvim"] = { config = [[require("plugins.config.better-escape") ]] },
-  ["stevearc/aerial.nvim"] = { config = [[require("plugins.config.aerial") ]] },
-  ["fedepujol/move.nvim"] = {},
+  ["chaoren/vim-wordmotion"] = { commit = "5dd613e" },
+  ["ggandor/flit.nvim"] = { config = [[require("plugins.config.flit") ]], commit = "dd43846" },
+  ["ggandor/leap.nvim"] = { config = [[require("plugins.config.leap") ]], commit = "5a09c30" },
+  ["max397574/better-escape.nvim"] = { config = [[require("plugins.config.better-escape") ]], commit = "d5ee0ce" },
+  ["stevearc/aerial.nvim"] = { config = [[require("plugins.config.aerial") ]], commit = "6f1b28b" },
+  ["fedepujol/move.nvim"] = { commit = "2cd5335" },
   ---- Tools: folding, autopairs, indent, surround, repeat
-  ["Darazaki/indent-o-matic"] = { config = [[require("plugins.config.indent-o-matic") ]] },
-  ["kevinhwang91/nvim-ufo"] = { config = [[require("plugins.config.ufo") ]] },
-  ["kylechui/nvim-surround"] = { config = [[require("plugins.config.surround") ]] },
-  ["tpope/vim-repeat"] = {},
-  ["windwp/nvim-autopairs"] = { config = [[require("plugins.config.autopairs") ]] },
+  ["Darazaki/indent-o-matic"] = { config = [[require("plugins.config.indent-o-matic") ]], commit = "bf37c6e" },
+  ["kevinhwang91/nvim-ufo"] = { config = [[require("plugins.config.ufo") ]], commit = "bf40cd0" },
+  ["kylechui/nvim-surround"] = { config = [[require("plugins.config.surround") ]], commit = "1719167" },
+  ["tpope/vim-repeat"] = { commit = "24afe92" },
+  ["windwp/nvim-autopairs"] = { config = [[require("plugins.config.autopairs") ]], commit = "4fc96c8" },
   ---- Writing
-  ["danymat/neogen"] = { config = [[require("plugins.config.neogen") ]] },
-  ["numToStr/Comment.nvim"] = { config = [[require("plugins.config.comment") ]] },
+  ["danymat/neogen"] = { config = [[require("plugins.config.neogen") ]], commit = "967b280" },
+  ["numToStr/Comment.nvim"] = { config = [[require("plugins.config.comment") ]], commit = "97a188a" },
   ---- Language specific
-  ["folke/lua-dev.nvim"] = {},
-  ["ellisonleao/glow.nvim"] = { ft = "markdown" },
-  ["nvim-orgmode/orgmode"] = { config = [[require("plugins.config.orgmode") ]] },
+  ["folke/lua-dev.nvim"] = { commit = "e651a72" },
+  ["ellisonleao/glow.nvim"] = { ft = "markdown", commit = "b6b9972" },
+  ["nvim-orgmode/orgmode"] = { config = [[require("plugins.config.orgmode") ]], commit = "1adb0cb" },
   ---- Project management
-  ["ahmedkhalf/project.nvim"] = { config = [[require("plugins.config.project") ]] },
-  ["gpanders/editorconfig.nvim"] = {},
+  ["ahmedkhalf/project.nvim"] = { config = [[require("plugins.config.project") ]], commit = "628de7e" },
+  ["gpanders/editorconfig.nvim"] = { commit = "7d10fe6" },
 
   -- UI
   ---- Buffer management
-  ["akinsho/bufferline.nvim"] = { config = [[require("plugins.config.bufferline") ]] },
-  ["famiu/bufdelete.nvim"] = {},
+  ["akinsho/bufferline.nvim"] = { config = [[require("plugins.config.bufferline") ]], commit = "5aa803a" },
+  ["famiu/bufdelete.nvim"] = { commit = "46255e4" },
   ---- Colorscheme
-  ["catppuccin/nvim"] = {},
-  ["ellisonleao/gruvbox.nvim"] = {},
-  ["navarasu/onedark.nvim"] = {},
-  ["shaunsingh/nord.nvim"] = {},
+  ["catppuccin/nvim"] = { commit = "a111e80" },
+  ["ellisonleao/gruvbox.nvim"] = { commit = "24f9e79" },
+  ["navarasu/onedark.nvim"] = { commit = "6c72a9c" },
+  ["shaunsingh/nord.nvim"] = { commit = "78f5f00" },
   ---- Dashboard
-  ["goolord/alpha-nvim"] = { config = [[require("plugins.config.alpha") ]] },
+  ["goolord/alpha-nvim"] = { config = [[require("plugins.config.alpha") ]], commit = "0bb6fc0" },
   ---- Highlighting
-  ["folke/todo-comments.nvim"] = { config = [[require("plugins.config.todo-comments") ]] },
+  ["folke/todo-comments.nvim"] = { config = [[require("plugins.config.todo-comments") ]], commit = "8df75db" },
   ---- Indentation
-  ["lukas-reineke/indent-blankline.nvim"] = { config = [[require("plugins.config.indent-blankline") ]] },
+  ["lukas-reineke/indent-blankline.nvim"] = {
+    config = [[require("plugins.config.indent-blankline") ]],
+    commit = "db7cbcb",
+  },
   ---- Prductivity
-  ["Pocco81/true-zen.nvim"] = { config = [[require("plugins.config.true-zen") ]] },
+  ["Pocco81/true-zen.nvim"] = { config = [[require("plugins.config.true-zen") ]], commit = "98740c7" },
   ---- Statusline
-  ["nvim-lualine/lualine.nvim"] = { config = [[require("plugins.config.lualine") ]] },
+  ["nvim-lualine/lualine.nvim"] = { config = [[require("plugins.config.lualine") ]], commit = "a52f078" },
 
   -- Tool
-  ["NvChad/nvim-colorizer.lua"] = { config = [[require("plugins.config.colorizer") ]] },
-  ["Pocco81/auto-save.nvim"] = { config = [[require("plugins.config.auto-save") ]] },
-  ["Shatur/neovim-session-manager"] = { config = [[require("plugins.config.session") ]] },
-  ["akinsho/toggleterm.nvim"] = { config = [[require("plugins.config.toggleterm") ]] },
-  ["kyazdani42/nvim-tree.lua"] = { config = [[require("plugins.config.nvim-tree") ]] },
-  ["mrjones2014/tldr.nvim"] = { config = [[require("plugins.config.tldr") ]] },
+  ["NvChad/nvim-colorizer.lua"] = { config = [[require("plugins.config.colorizer") ]], commit = "9dd7ecd" },
+  ["Pocco81/auto-save.nvim"] = { config = [[require("plugins.config.auto-save") ]], commit = "2c7a294" },
+  ["Shatur/neovim-session-manager"] = { config = [[require("plugins.config.session") ]], commit = "4005dac" },
+  ["akinsho/toggleterm.nvim"] = { config = [[require("plugins.config.toggleterm") ]], commit = "2a787c4" },
+  ["kyazdani42/nvim-tree.lua"] = { config = [[require("plugins.config.nvim-tree") ]], commit = "7282f7d" },
+  ["mrjones2014/tldr.nvim"] = { config = [[require("plugins.config.tldr") ]], commit = "72af17f" },
   ---- keymappings
-  ["folke/which-key.nvim"] = { config = [[require("plugins.config.which-key") ]] },
-  ["mrjones2014/legendary.nvim"] = { config = [[require("plugins.config.legendary") ]] },
+  ["folke/which-key.nvim"] = { config = [[require("plugins.config.which-key") ]], commit = "6885b66" },
+  ["mrjones2014/legendary.nvim"] = { config = [[require("plugins.config.legendary") ]], commit = "aeb8ac4" },
 }
 
 -- Load the plugins
