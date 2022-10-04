@@ -13,6 +13,7 @@ dashboard.section.header.val = {
   [[\ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\]],
   [[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
 }
+
 dashboard.section.buttons.val = {
   dashboard.button("f", "  Find file", ":Telescope find_files <CR>"),
   dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
@@ -22,10 +23,13 @@ dashboard.section.buttons.val = {
   dashboard.button("s", "  Find Session", "<cmd>SessionManager load_current_dir_session<CR>"),
   dashboard.button("c", "  Config", ":e ~/.config/nvim/init.lua <CR>"),
   dashboard.button("u", "  Update", ":PackerSync<CR>"),
+  dashboard.button("C", "  Compile", ":PackerCompile <CR>"),
   dashboard.button("q", "  Quit", ":qa<CR>"),
 }
+
 local function footer()
-  return ""
+  local version = vim.version()
+  return "  Neovim " .. version.major .. "." .. version.minor .. "." .. version.patch
 end
 
 dashboard.section.footer.val = footer()
