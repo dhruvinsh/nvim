@@ -57,6 +57,7 @@ local plugins = {
   ["max397574/better-escape.nvim"] = { config = [[require("plugins.config.better-escape") ]], commit = "d5ee0ce" },
   ["stevearc/aerial.nvim"] = { config = [[require("plugins.config.aerial") ]], commit = "6f1b28b" },
   ["fedepujol/move.nvim"] = { commit = "2cd5335" },
+  ["andymass/vim-matchup"] = { config = [[ require("plugins.config.matchup") ]], commit = "3fa1b22" },
   ---- Tools: folding, autopairs, indent, surround, repeat
   ["Darazaki/indent-o-matic"] = { config = [[require("plugins.config.indent-o-matic") ]], commit = "bf37c6e" },
   ["kevinhwang91/nvim-ufo"] = { config = [[require("plugins.config.ufo") ]], commit = "bf40cd0" },
