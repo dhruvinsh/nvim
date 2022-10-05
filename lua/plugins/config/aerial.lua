@@ -23,7 +23,7 @@ aerial.setup({
     whitespace = "  ",
   },
   on_attach = function(bufnr)
-    legendary.bind_keymaps(require("plugins.config.legendary").aerial(bufnr))
+    legendary.bind_keymaps(require("plugins.config.mappings").aerial(bufnr))
   end,
 })
 
