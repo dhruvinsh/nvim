@@ -4,13 +4,14 @@ if not status_ok then
   return
 end
 
+local M = {}
 local h = require("legendary.helpers")
 
 -- NOTE: The keymap's mode defaults to normal (n)
 
 --- defaults keymap for my config.
 ---@return array of keymapping.
-local default_keymaps = function()
+M.default_keymaps = function()
   return {
     -- Buffer managment keymaps
     { "<S-Tab>", ":bp <CR>", description = "Pext Buffer" },
@@ -109,5 +110,5 @@ local default_keymaps = function()
 end
 
 legendary.setup({
-  keymaps = default_keymaps(),
+  keymaps = M.default_keymaps(),
 })
