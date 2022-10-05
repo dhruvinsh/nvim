@@ -122,6 +122,19 @@ M.default_keymaps = function()
   }
 end
 
+M.aerial = function(bufnr)
+  return {
+    -- Jump forwards/backwards with '{' and '}'
+    { "{", "<cmd>AerialPrev<cr>", description = "Jump backwards in Aerial", opts = { buffer = bufnr } },
+    { "}", "<cmd>AerialNext<cr>", description = "Jump forwards in Aerial", opts = { buffer = bufnr } },
+    -- Jump up the tree with '[[' or ']]'
+    { "[[", "<cmd>AerialPrevUp<cr>", description = "Jump up and backwards in Aerial", opts = { buffer = bufnr } },
+    { "]]", "<cmd>AerialNextUp<cr>", description = "Jump up and forwards in Aerial", opts = { buffer = bufnr } },
+  }
+end
+
 legendary.setup({
   keymaps = M.default_keymaps(),
 })
+
+return M
