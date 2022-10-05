@@ -29,6 +29,19 @@ M.default_keymaps = function()
     -- Git keymaps
     { "<leader>gg", ":Neogit <CR>", description = "Git Status" },
 
+    -- Move keymaps
+    { "<A-h>", ":MoveHChar(-1)<CR>", description = "Move text left" },
+    { "<A-h>", ":MoveHBlock(-1)<CR>", description = "Move text left", mode = { "v" } },
+
+    { "<A-j>", ":MoveLine(1)<CR>", description = "Move text down" },
+    { "<A-j>", ":MoveBlock(1)<CR>", description = "Move text down", mode = { "v" } },
+
+    { "<A-k>", ":MoveLine(-1)<CR>", description = "Move text up" },
+    { "<A-k>", ":MoveBlock(-1)<CR>", description = "Move text up", mode = { "v" } },
+
+    { "<A-l>", n = ":MoveHChar(1)<CR>", x = ":MoveHBlock(1)<CR>", description = "Move text right" },
+    { "<A-l>", ":MoveHBlock(1)<CR>", description = "Move text right", mode = { "v" } },
+
     -- Neogen keymaps
     { "<leader>nf", h.lazy_required_fn("neogen", "generate"), description = "Func Doc" },
     { "<leader>nc", h.lazy_required_fn("neogen", "generate", { type = "class" }), description = "Func Doc" },
