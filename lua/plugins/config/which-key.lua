@@ -75,3 +75,13 @@ wk.setup({
     filetypes = { "TelescopePrompt" },
   },
 })
+
+local util = require("core.util")
+local mappings = require("plugins.config.mappings")
+
+local maps = util.build_keymap(mappings)
+
+
+for mode_name, map in pairs(maps) do
+  wk.register(map)
+end
