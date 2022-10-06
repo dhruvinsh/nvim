@@ -46,3 +46,6 @@ A configuration that finally works best for me, went over so many stuff, back an
 - Vim-Illuminate
 - Which-Key
 
+Experimental plugins:
+- Noice
+
