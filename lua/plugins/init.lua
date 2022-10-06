@@ -112,7 +112,6 @@ local plugins = {
   ["mrjones2014/tldr.nvim"] = { config = [[require("plugins.config.tldr") ]], commit = "72af17f" },
   ---- keymappings
   ["folke/which-key.nvim"] = { config = [[require("plugins.config.which-key") ]], commit = "6885b66" },
-  ["mrjones2014/legendary.nvim"] = { config = [[require("plugins.config.legendary") ]], commit = "aeb8ac4" },
 }
 
 -- Load the plugins

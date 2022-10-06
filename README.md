@@ -24,7 +24,6 @@ A configuration that finally works best for me, went over so many stuff, back an
 - Indent-o-Matic
 - LSP
 - Leap
-- Legendary
 - Lualine
 - Mason
 - Neogen
