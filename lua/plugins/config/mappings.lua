@@ -1,5 +1,21 @@
 local M = {}
 
+-- Labels for the whichkey
+M.tags = {
+  n = {
+    ["<leader>b"] = { name = "buffer" },
+    ["<leader>c"] = { name = "code" },
+    ["<leader>f"] = { name = "file" },
+    ["<leader>g"] = { name = "git" },
+    ["<leader>n"] = { name = "neogen" },
+    ["<leader>o"] = { name = "open" },
+    ["<leader>P"] = { name = "packer" },
+    ["<leader>p"] = { name = "project" },
+    ["<leader>s"] = { name = "search" },
+    ["<leader>z"] = { name = "zen" },
+  },
+}
+
 -- Buffer managment keymaps
 M.buffer = {
   n = {
