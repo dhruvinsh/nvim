@@ -1,130 +1,160 @@
 local M = {}
-local h = require("legendary.helpers")
 
--- NOTE: The keymap's mode defaults to normal (n)
+-- Labels for the whichkey
+M.tags = {
+  n = {
+    ["<leader>b"] = { name = "buffer" },
+    ["<leader>c"] = { name = "code" },
+    ["<leader>f"] = { name = "file" },
+    ["<leader>g"] = { name = "git" },
+    ["<leader>n"] = { name = "neogen" },
+    ["<leader>o"] = { name = "open" },
+    ["<leader>P"] = { name = "packer" },
+    ["<leader>p"] = { name = "project" },
+    ["<leader>s"] = { name = "search" },
+    ["<leader>z"] = { name = "zen" },
+  },
+}
 
---- defaults keymap for my config.
----@return array of keymapping.
-M.default_keymaps = function()
-  return {
-    -- Buffer managment keymaps
-    { "<S-Tab>", ":bp <CR>", description = "Pext Buffer" },
-    { "<Tab>", ":bn <CR>", description = "Next Buffer" },
-    { "<leader>bd", ":Bdelete <CR>", description = "Pext Buffer" },
-    { "<leader>bn", ":bn <CR>", description = "Next Buffer" },
-    { "<leader>bp", ":bp <CR>", description = "Pext Buffer" },
+-- Buffer managment keymaps
+M.buffer = {
+  n = {
+    ["<S-Tab>"] = { ":bp <CR>", "Pext Buffer" },
+    ["<Tab>"] = { ":bn <CR>", "Next Buffer" },
+    ["<leader>bd"] = { ":Bdelete <CR>", "Pext Buffer" },
+    ["<leader>bn"] = { ":bn <CR>", "Next Buffer" },
+    ["<leader>bp"] = { ":bp <CR>", "Pext Buffer" },
+  },
+}
 
-    -- Diagnostic keymaps
-    { "[d", vim.diagnostic.goto_prev },
-    { "]d", vim.diagnostic.goto_next },
-    { "<leader>e", vim.diagnostic.open_float },
-    { "<leader>q", vim.diagnostic.setloclist },
+-- Git keymaps
+M.git = {
+  n = {
+    ["<leader>gg"] = { ":Neogit <CR>", "Git Status" },
+  },
+}
 
-    -- Git keymaps
-    { "<leader>gg", ":Neogit <CR>", description = "Git Status" },
+-- Move keymaps
+M.move = {
+  n = {
+    ["<A-h>"] = { ":MoveHChar(-1) <CR>", "Move text left" },
+    ["<A-j>"] = { ":MoveLine(1) <CR>", "Move text down" },
+    ["<A-k>"] = { ":MoveLine(-1) <CR>", "Move text up" },
+    ["<A- l>"] = { ":MoveHChar(1) <CR>", "Move text right" },
+  },
+  v = {
+    ["<A-h>"] = { ":MoveHBlock(-1) <CR>", "Move text left" },
+    ["<A-j>"] = { ":MoveBlock(1) <CR>", "Move text down" },
+    ["<A-k>"] = { ":MoveBlock(-1) <CR>", "Move text up" },
+    ["<A- l>"] = { ":MoveHBlock(1) <CR>", "Move text right" },
+  },
+}
 
-    -- Move keymaps
-    { "<A-h>", ":MoveHChar(-1)<CR>", description = "Move text left" },
-    { "<A-h>", ":MoveHBlock(-1)<CR>", description = "Move text left", mode = { "v" } },
+-- Neogen keymaps
+M.neogen = {
+  n = {
+    ["<leader>nf"] = { ":Neogen func <CR>", "Func Doc" },
+    ["<leader>nc"] = { ":Neogen class <CR>", "Func Doc" },
+  },
+  i = {
+    ["<C-l>"] = { require("neogen").jump_next },
+    ["<C-h>"] = { require("neogen").jump_prev },
+  },
+}
 
-    { "<A-j>", ":MoveLine(1)<CR>", description = "Move text down" },
-    { "<A-j>", ":MoveBlock(1)<CR>", description = "Move text down", mode = { "v" } },
+-- NvimTree setup
+M.nvimtree = {
+  n = {
+    ["<leader>fe"] = { ":NvimTreeFocus <CR>", "Focus Nvim-tree" },
+    ["<leader>ft"] = { ":NvimTreeToggle <CR>", "Open Nvim-tree" },
+    ["<leader>pt"] = { ":NvimTreeToggle <CR>", "Open Nvim-tree" },
+    ["<F9>"] = { ":NvimTreeToggle <CR>", "Open Nvim-tree" },
+  },
+}
 
-    { "<A-k>", ":MoveLine(-1)<CR>", description = "Move text up" },
-    { "<A-k>", ":MoveBlock(-1)<CR>", description = "Move text up", mode = { "v" } },
+-- Packer keymaps
+M.packer = {
+  n = {
+    ["<leader>PS"] = { ":PackerStatus <CR>", "Status" },
+    ["<leader>Pc"] = { ":PackerCompile <CR>", "Compile" },
+    ["<leader>Pi"] = { ":PackerInstall <CR>", "Install" },
+    ["<leader>Pu"] = { ":PackerUpdate <CR>", "Update" },
+  },
+}
 
-    { "<A-l>", n = ":MoveHChar(1)<CR>", x = ":MoveHBlock(1)<CR>", description = "Move text right" },
-    { "<A-l>", ":MoveHBlock(1)<CR>", description = "Move text right", mode = { "v" } },
-
-    -- Neogen keymaps
-    { "<leader>nf", h.lazy_required_fn("neogen", "generate"), description = "Func Doc" },
-    { "<leader>nc", h.lazy_required_fn("neogen", "generate", { type = "class" }), description = "Func Doc" },
-    { "<C-l>", require("neogen").jump_next, mode = { "i" } },
-    { "<C-h>", require("neogen").jump_prev, mode = { "i" } },
-
-    -- NvimTree setup
-    { "<leader>fe", ":NvimTreeFocus <CR>", description = "Focus Nvim-tree" },
-    { "<leader>ft", ":NvimTreeToggle <CR>", description = "Open Nvim-tree" },
-    { "<leader>pt", ":NvimTreeToggle <CR>", description = "Open Nvim-tree" },
-    { "<F9>", ":NvimTreeToggle <CR>", description = "Open Nvim-tree" },
-
-    -- Packer keymaps
-    { "<leader>PS", ":PackerStatus <CR>", description = "Status" },
-    { "<leader>Pc", ":PackerCompile <CR>", description = "Compile" },
-    { "<leader>Pi", ":PackerInstall <CR>", description = "Install" },
-    { "<leader>Ps", ":PackerSync <CR>", description = "Sync" },
-    { "<leader>Pu", ":PackerUpdate <CR>", description = "Update" },
-
-    -- Project keymaps
-    {
-      "<leader>pp",
+-- Project keymaps
+M.project = {
+  n = {
+    ["<leader>pp"] = {
       function()
         require("telescope").extensions.projects.projects()
       end,
-      description = "Projects",
+      "Projects",
     },
+  },
+}
 
-    -- Telescope keymaps
-    {
-      "<leader><leader>",
+-- Telescope keymaps
+M.telescope = {
+  n = {
+    ["<leader><leader>"] = {
       function()
         require("telescope").extensions.frecency.frecency()
       end,
-      description = "Rcent Files",
+      "Rcent Files",
     },
-    {
-      "<leader>?",
-      h.lazy_required_fn("telescope.builtin", "oldfiles"),
-      description = "? Find recently opened files",
+
+    ["<leader>?"] = {
+      ":Telescope oldfiles <CR>",
+      "? Find recently opened files",
     },
-    {
-      "<leader>b/",
+
+    ["<leader>b/"] = {
       function()
         -- You can pass additional configuration to telescope to change theme, layout, etc.
         require("telescope.builtin").current_buffer_fuzzy_find(
           require("telescope.themes").get_dropdown({ winblend = 10, previewer = false })
         )
       end,
-      description = "/ Fuzzily search in current buffer",
+      "/ Fuzzily search in current buffer",
     },
-    { "<leader>bb", h.lazy_required_fn("telescope.builtin", "buffers"), description = "Find existing buffers" },
-    { "<leader>f/", h.lazy_required_fn("telescope.builtin", "live_grep"), description = "Live Grep" },
-    {
-      "<leader>fa",
-      h.lazy_required_fn("telescope.builtin", "find_files", { follow = true, no_ignore = true, hidden = true }),
-      description = "All Files",
+    ["<leader>bb"] = { ":Telescope buffers <CR>", "Find existing buffers" },
+    ["<leader>f/"] = { ":Telescope live_grep <CR>", "Live Grep" },
+
+    ["<leader>fa"] = {
+      ":Telescope find_files follow=true, no_ignore=true, hidden=true <CR>",
+      "All Files",
     },
-    { "<leader>fd", h.lazy_required_fn("telescope.builtin", "diagnostics"), description = "Find Diagnostics" },
-    { "<leader>ff", h.lazy_required_fn("telescope.builtin", "find_files"), description = "Find Files" },
-    { "<leader>fw", h.lazy_required_fn("telescope.builtin", "grep_string"), description = "Find Word" },
-    { "<leader>sh", h.lazy_required_fn("telescope.builtin", "help_tags"), description = "Search Help" },
+    ["<leader>fd"] = { ":Telescope diagnostics <CR>", "Find Diagnostics" },
+    ["<leader>ff"] = { ":Telescope find_files <CR>", "Find Files" },
+    ["<leader>fw"] = { ":Telescope grep_string <CR>", "Find Word" },
+    ["<leader>sh"] = { ":Telescope help_tags <CR>", "Search Help" },
+  },
+}
 
-    -- Terminal mappings
-    { "<leader>ot", ":ToggleTerm <CR>", description = "Open Terminal" },
-    { "<ESC>", "<C-\\><C-n>", mode = "t" },
-    { "<C-w>h", "<C-\\><C-n><C-W>h", mode = "t" },
-    { "<C-w>j", "<C-\\><C-n><C-W>j", mode = "t" },
-    { "<C-w>k", "<C-\\><C-n><C-W>k", mode = "t" },
-    { "<C-w>l", "<C-\\><C-n><C-W>l", mode = "t" },
+-- Terminal mappings
+M.terminal = {
+  n = {
+    ["<leader>ot"] = { ":ToggleTerm <CR>", "Open Terminal" },
+  },
+  t = {
+    ["<ESC>"] = { "<C-\\><C-n>" },
+    ["<C-w>h"] = { "<C-\\><C-n><C-W>h" },
+    ["<C-w>j"] = { "<C-\\><C-n><C-W>j" },
+    ["<C-w>k"] = { "<C-\\><C-n><C-W>k" },
+    ["<C-w>l"] = { "<C-\\><C-n><C-W>l" },
+  },
+}
 
-    -- Truezen keymaps
-    { "<leader>fz", ":TZAtaraxis <CR>", description = "Zen Mode" },
-    { "<leader>za", ":TZAtaraxis <CR>", description = "Ataraxis Mode" },
-    { "<leader>zf", ":TZFocus <CR>", description = "File Focus" },
-    { "<leader>zm", ":TZMinimalist <CR>", description = "Minimal Mode" },
-    { "<leader>zn", ":TZNarrow <CR>", description = "Narrow Mode" },
-  }
-end
-
-M.aerial = function(bufnr)
-  return {
-    -- Jump forwards/backwards with '{' and '}'
-    { "{", "<cmd>AerialPrev<cr>", description = "Jump backwards in Aerial", opts = { buffer = bufnr } },
-    { "}", "<cmd>AerialNext<cr>", description = "Jump forwards in Aerial", opts = { buffer = bufnr } },
-    -- Jump up the tree with '[[' or ']]'
-    { "[[", "<cmd>AerialPrevUp<cr>", description = "Jump up and backwards in Aerial", opts = { buffer = bufnr } },
-    { "]]", "<cmd>AerialNextUp<cr>", description = "Jump up and forwards in Aerial", opts = { buffer = bufnr } },
-  }
-end
+-- Truezen keymaps
+M.truzen = {
+  n = {
+    ["<leader>fz"] = { ":TZAtaraxis <CR>", "Zen Mode" },
+    ["<leader>za"] = { ":TZAtaraxis <CR>", "Ataraxis Mode" },
+    ["<leader>zf"] = { ":TZFocus <CR>", "File Focus" },
+    ["<leader>zm"] = { ":TZMinimalist <CR>", "Minimal Mode" },
+    ["<leader>zn"] = { ":TZNarrow <CR>", "Narrow Mode" },
+  },
+}
 
 return M
