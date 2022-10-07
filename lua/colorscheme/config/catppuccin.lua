@@ -5,18 +5,18 @@ end
 
 -- Available options for color pallets:
 -- latte, frappe, macchiato, mocha
-vim.g.catppuccin_flavour = "mocha"
+vim.g.catppuccin_flavour = "macchiato"
 
 catppuccin.setup({
   transparent_background = false,
   term_colors = false,
   compile = {
-    enabled = false,
+    enabled = true,
     path = vim.fn.stdpath("cache") .. "/catppuccin",
   },
   dim_inactive = {
     enabled = false,
-    shade = "dark",
+    shade = "light",
     percentage = 0.15,
   },
   styles = {
@@ -34,12 +34,46 @@ catppuccin.setup({
     operators = {},
   },
   integrations = {
-    treesitter = true,
+    aerial = true,
     cmp = true,
+    fidget = true,
     gitsigns = true,
-    telescope = true,
+    illuminate = true,
+    leap = true,
+    lsp_trouble = true,
+    markdown = true,
+    neogit = true,
     nvimtree = true,
-    -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
+    telescope = true,
+    treesitter = true,
+    treesitter_context = true,
+    ts_rainbow = true,
+    which_key = true,
+
+    -- Special integrations, see https://github.com/catppuccin/nvim#special-integrations
+    dap = {
+      enabled = false,
+      enable_ui = false,
+    },
+    indent_blankline = {
+      enabled = true,
+      colored_indent_levels = false,
+    },
+    native_lsp = {
+      enabled = true,
+      virtual_text = {
+        errors = { "italic" },
+        hints = { "italic" },
+        warnings = { "italic" },
+        information = { "italic" },
+      },
+      underlines = {
+        errors = { "underline" },
+        hints = { "underline" },
+        warnings = { "underline" },
+        information = { "underline" },
+      },
+    },
   },
   color_overrides = {},
   highlight_overrides = {},
