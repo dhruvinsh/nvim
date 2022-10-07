@@ -85,41 +85,18 @@ M.packer = {
 -- Project keymaps
 M.project = {
   n = {
-    ["<leader>pp"] = {
-      function()
-        require("telescope").extensions.projects.projects()
-      end,
-      "Projects",
-    },
+    ["<leader>pp"] = { ":Telescope projects <CR>", "Projects" },
   },
 }
 
 -- Telescope keymaps
 M.telescope = {
   n = {
-    ["<leader><leader>"] = {
-      function()
-        require("telescope").extensions.frecency.frecency()
-      end,
-      "Rcent Files",
-    },
-
-    ["<leader>?"] = {
-      ":Telescope oldfiles <CR>",
-      "? Find recently opened files",
-    },
-
-    ["<leader>b/"] = {
-      function()
-        -- You can pass additional configuration to telescope to change theme, layout, etc.
-        require("telescope.builtin").current_buffer_fuzzy_find(
-          require("telescope.themes").get_dropdown({ winblend = 10, previewer = false })
-        )
-      end,
-      "/ Fuzzily search in current buffer",
-    },
+    ["<leader><leader>"] = { ":Telescope find_files <CR>", "Find Files" },
+    ["<leader>fr"] = { ":Telescope frecency <CR>", "Recent Files" },
+    ["<leader>'"] = { ":Telescope current_buffer_fuzzy_find winblend=10, previewer=false", "Search in buffer" },
     ["<leader>bb"] = { ":Telescope buffers <CR>", "Find existing buffers" },
-    ["<leader>f/"] = { ":Telescope live_grep <CR>", "Live Grep" },
+    ["<leader>/"] = { ":Telescope live_grep <CR>", "Live Grep" },
 
     ["<leader>fa"] = {
       ":Telescope find_files follow=true, no_ignore=true, hidden=true <CR>",
@@ -128,7 +105,7 @@ M.telescope = {
     ["<leader>fd"] = { ":Telescope diagnostics <CR>", "Find Diagnostics" },
     ["<leader>ff"] = { ":Telescope find_files <CR>", "Find Files" },
     ["<leader>fw"] = { ":Telescope grep_string <CR>", "Find Word" },
-    ["<leader>sh"] = { ":Telescope help_tags <CR>", "Search Help" },
+    ["<leader>sh"] = { ":Telescope help_tags <CR>", "Help" },
   },
 }
 
