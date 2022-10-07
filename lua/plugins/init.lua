@@ -116,9 +116,8 @@ local plugins = {
   ---- keymappings
   ["folke/which-key.nvim"] = { config = [[require("plugins.config.which-key") ]], commit = "6885b66" },
 
-
   -- Experimental
-  ---- NOTE: disabling for now 
+  ---- NOTE: disabling for now
   ---- messages, cmdline and popupmenu tweaker, Noice
   -- ["MunifTanjim/nui.nvim"] = { commit = "4715f60" },
   -- ["rcarriga/nvim-notify"] = { commit = "4144654" },
