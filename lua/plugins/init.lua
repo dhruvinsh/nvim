@@ -6,8 +6,6 @@ local plugins = {
   ["kevinhwang91/promise-async"] = { commit = "70b0906" },
   ["nvim-lua/plenary.nvim"] = { commit = "4b7e520" },
   ["tami5/sqlite.lua"] = { commit = "47685f0" },
-  ["MunifTanjim/nui.nvim"] = { commit = "4715f60" },
-  ["rcarriga/nvim-notify"] = { commit = "4144654" },
 
   -- Code highligting
   ["nvim-treesitter/nvim-treesitter"] = { config = [[require("plugins.config.treesitter") ]], commit = "7ccb9a0" },
@@ -78,8 +76,6 @@ local plugins = {
   ["gpanders/editorconfig.nvim"] = { commit = "7d10fe6" },
 
   -- UI
-  ---- messages, cmdline and popupmenu tweaker, Noice
-  ["folke/noice.nvim"] = { event = "VimEnter", config = [[ require("plugins.config.noice") ]], commit = "3a23308" },
   ---- Buffer management
   ["akinsho/bufferline.nvim"] = { config = [[require("plugins.config.bufferline") ]], commit = "5aa803a" },
   ["famiu/bufdelete.nvim"] = { commit = "46255e4" },
@@ -116,6 +112,14 @@ local plugins = {
   ["mrjones2014/tldr.nvim"] = { config = [[require("plugins.config.tldr") ]], commit = "72af17f" },
   ---- keymappings
   ["folke/which-key.nvim"] = { config = [[require("plugins.config.which-key") ]], commit = "6885b66" },
+
+
+  -- Experimental
+  ---- NOTE: disabling for now 
+  ---- messages, cmdline and popupmenu tweaker, Noice
+  -- ["MunifTanjim/nui.nvim"] = { commit = "4715f60" },
+  -- ["rcarriga/nvim-notify"] = { commit = "4144654" },
+  -- ["folke/noice.nvim"] = { event = "VimEnter", config = [[ require("plugins.config.noice") ]], commit = "3a23308" },
 }
 
 -- Load the plugins
