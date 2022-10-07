@@ -51,9 +51,13 @@ local plugins = {
   ["nvim-telescope/telescope-smart-history.nvim"] = { commit = "7eb278c" },
 
   -- Git
-  ["TimUntersberger/neogit"] = { config = [[require("plugins.config.neogit") ]], commit = "74c9e29" },
+  ["TimUntersberger/neogit"] = { config = [[require("plugins.config.neogit") ]], cmd = "Neogit", commit = "74c9e29" },
   ["lewis6991/gitsigns.nvim"] = { config = [[require("plugins.config.gitsigns") ]], commit = "f98c85e" },
-  ["sindrets/diffview.nvim"] = { config = [[require("plugins.config.diffview") ]], commit = "6baa30d" },
+  ["sindrets/diffview.nvim"] = {
+    config = [[require("plugins.config.diffview") ]],
+    cmd = "DiffViewOpen",
+    commit = "6baa30d",
+  },
 
   -- Programming
   ---- Movement
@@ -75,7 +79,7 @@ local plugins = {
   ["numToStr/Comment.nvim"] = { config = [[require("plugins.config.comment") ]], commit = "97a188a" },
   ---- Language specific
   ["folke/lua-dev.nvim"] = { commit = "e651a72" },
-  ["ellisonleao/glow.nvim"] = { ft = "markdown", commit = "b6b9972" },
+  ["ellisonleao/glow.nvim"] = { cmd = "Glow", commit = "b6b9972" },
   ["nvim-orgmode/orgmode"] = { config = [[require("plugins.config.orgmode") ]], commit = "1adb0cb" },
   ---- Project management
   ["ahmedkhalf/project.nvim"] = { config = [[require("plugins.config.project") ]], commit = "628de7e" },
@@ -115,7 +119,11 @@ local plugins = {
   ["Pocco81/auto-save.nvim"] = { config = [[require("plugins.config.auto-save") ]], commit = "2c7a294" },
   ["Shatur/neovim-session-manager"] = { config = [[require("plugins.config.session") ]], commit = "4005dac" },
   ["akinsho/toggleterm.nvim"] = { config = [[require("plugins.config.toggleterm") ]], commit = "2a787c4" },
-  ["kyazdani42/nvim-tree.lua"] = { config = [[require("plugins.config.nvim-tree") ]], commit = "7282f7d" },
+  ["kyazdani42/nvim-tree.lua"] = {
+    config = [[require("plugins.config.nvim-tree") ]],
+    cmd = "NvimTree*",
+    commit = "7282f7d",
+  },
   ["mrjones2014/tldr.nvim"] = { config = [[require("plugins.config.tldr") ]], commit = "72af17f" },
   ---- keymappings
   ["folke/which-key.nvim"] = { config = [[require("plugins.config.which-key") ]], commit = "6885b66" },
