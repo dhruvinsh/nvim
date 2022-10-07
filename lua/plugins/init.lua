@@ -22,6 +22,7 @@ local plugins = {
   ["neovim/nvim-lspconfig"] = { config = [[require("plugins.config.lsp") ]], commit = "fc2f44d" },
   ["williamboman/mason.nvim"] = { commit = "a01073d" },
   ["williamboman/mason-lspconfig.nvim"] = { commit = "38ab1f3" },
+  ["j-hui/fidget.nvim"] = { config = [[ require("plugins.config.fidget") ]], commit = "1097a86" },
   ---- LSP completion
   ["hrsh7th/nvim-cmp"] = { config = [[require("plugins.config.cmp") ]], commit = "b0dff0e" },
   ["hrsh7th/cmp-buffer"] = { commit = "3022dbc" },
