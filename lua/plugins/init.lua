@@ -96,6 +96,7 @@ local plugins = {
   ["goolord/alpha-nvim"] = { config = [[require("plugins.config.alpha") ]], commit = "0bb6fc0" },
   ---- Highlighting
   ["folke/todo-comments.nvim"] = { config = [[require("plugins.config.todo-comments") ]], commit = "8df75db" },
+  ["p00f/nvim-ts-rainbow"] = { config = [[ require("plugins.config.nvim-ts-rainbow") ]], commit = "1ec3f88" },
   ---- Indentation
   ["lukas-reineke/indent-blankline.nvim"] = {
     config = [[require("plugins.config.indent-blankline") ]],
