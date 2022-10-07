@@ -13,7 +13,10 @@ local plugins = {
     config = [[require("plugins.config.treesitter-context") ]],
     commit = "8d0759e",
   },
-  ["nvim-treesitter/nvim-treesitter-textobjects"] = { commit = "41e8d89" },
+  ["nvim-treesitter/nvim-treesitter-textobjects"] = {
+    config = [[ require("plugins.config.treesitter-objects") ]],
+    commit = "41e8d89",
+  },
 
   -- LSP setup
   ["neovim/nvim-lspconfig"] = { config = [[require("plugins.config.lsp") ]], commit = "fc2f44d" },
