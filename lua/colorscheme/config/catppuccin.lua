@@ -3,7 +3,10 @@ if not status_ok then
   return
 end
 
-vim.g.catppuccin_flavour = "frappe"
+-- Available options for color pallets:
+-- latte, frappe, macchiato, mocha
+vim.g.catppuccin_flavour = "mocha"
+
 catppuccin.setup({
   transparent_background = false,
   term_colors = false,
