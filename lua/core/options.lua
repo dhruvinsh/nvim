@@ -72,6 +72,10 @@ vim.o.cursorline = true
 -- I like look without any cmdline
 vim.o.cmdheight = 0
 
+-- mousemovent for bufferline hover option
+-- NOTE: using this would take about 1% to 2% CPU usage
+-- vim.o.mousemoveevent = true
+
 -- NOTE: this was behaving unexpected way with better-escape.
 -- go to previous/next line with h,l,left arrow and right arrow
 -- when cursor reaches end/beginning of line
