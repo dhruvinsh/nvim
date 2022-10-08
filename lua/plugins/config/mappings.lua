@@ -1,5 +1,6 @@
 local M = {}
 
+
 -- Labels for the whichkey
 M.tags = {
   n = {
@@ -13,6 +14,12 @@ M.tags = {
     ["<leader>p"] = { name = "project" },
     ["<leader>s"] = { name = "search" },
     ["<leader>z"] = { name = "zen" },
+  },
+}
+
+M.autosave = {
+  n = {
+    ["<F3>"] = { ":ASToggle <CR>", "autosave toggle" },
   },
 }
 
