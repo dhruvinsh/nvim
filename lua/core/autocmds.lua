@@ -9,6 +9,16 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- [[ Spell Check ]]
+-- close certain filetype with jsut q button
+local close_group = vim.api.nvim_create_augroup("SimpleClose", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function()
+    vim.keymap.set("n", "q", ":close <CR>", { noremap = true, silent = true })
+  end,
+  group = close_group,
+  pattern = { "qf", "help", "man", "lspinfo", "startuptime" },
+})
+
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "gitcommit", "markdown" },
   callback = function()
