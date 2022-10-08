@@ -28,6 +28,7 @@ local plugins = {
   ["hrsh7th/cmp-buffer"] = { commit = "3022dbc" },
   ["hrsh7th/cmp-nvim-lsp"] = { commit = "affe808" },
   ["hrsh7th/cmp-path"] = { commit = "91ff86c" },
+  ["hrsh7th/cmp-nvim-lsp-signature-help"] = { commit = "3dd4009" },
   ---- LSP diagnostics
   ["folke/trouble.nvim"] = { config = [[require("plugins.config.trouble")]], commit = "929315e" },
   ---- LSP snippet
