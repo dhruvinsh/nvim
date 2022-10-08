@@ -2,7 +2,7 @@ local status_ok, autosave = pcall(require, "auto-save")
 
 if status_ok then
   autosave.setup({
-    enabled = false,
+    enabled = true,
     condition = function(buf)
       local utils = require("auto-save.utils.data")
 
