@@ -28,7 +28,6 @@ vim.api.nvim_create_autocmd("User", {
 })
 vim.api.nvim_create_autocmd("BufUnload", {
   callback = function()
-    print("running this..")
     vim.o.showtabline = 2
   end,
   group = toggle_bufferline,
