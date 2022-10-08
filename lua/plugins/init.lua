@@ -22,7 +22,6 @@ local plugins = {
   ["neovim/nvim-lspconfig"] = { config = [[require("plugins.config.lsp") ]], commit = "fc2f44d" },
   ["williamboman/mason.nvim"] = { commit = "a01073d" },
   ["williamboman/mason-lspconfig.nvim"] = { commit = "38ab1f3" },
-  ["j-hui/fidget.nvim"] = { config = [[ require("plugins.config.fidget") ]], commit = "1097a86" },
   ---- LSP completion
   ["hrsh7th/nvim-cmp"] = { config = [[require("plugins.config.cmp") ]], commit = "b0dff0e" },
   ["hrsh7th/cmp-buffer"] = { commit = "3022dbc" },
@@ -39,6 +38,8 @@ local plugins = {
   ["jose-elias-alvarez/null-ls.nvim"] = { config = [[require("plugins.config.null-ls") ]], commit = "c0c19f3" },
   ---- LSP code highligting
   ["RRethy/vim-illuminate"] = { config = [[require("plugins.config.illuminate") ]], commit = "ea170c1" },
+  ---- LSP tool
+  ["j-hui/fidget.nvim"] = { config = [[ require("plugins.config.fidget") ]], commit = "1097a86" },
 
   -- Fuzzy Finder
   ["nvim-telescope/telescope.nvim"] = { config = [[require("plugins.config.telescope") ]], commit = "76ea9a8" },
