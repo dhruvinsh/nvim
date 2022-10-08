@@ -47,7 +47,5 @@ if status_ok then
   pcall(require("telescope").load_extension, "file_browser")
   pcall(require("telescope").load_extension, "frecency")
   pcall(require("telescope").load_extension, "fzf")
-  pcall(require("telescope").load_extension, "projects")
   pcall(require("telescope").load_extension, "smart_history")
-  pcall(require("telescope").load_extension, "tldr")
 end

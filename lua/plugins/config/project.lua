@@ -41,4 +41,7 @@ if status_ok then
     -- telescope
     datapath = vim.fn.stdpath("data"),
   })
+
+  -- loading as telescope extensions
+  pcall(require("telescope").load_extension, "projects")
 end
