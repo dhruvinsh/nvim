@@ -1,4 +1,4 @@
--- [[ Highlight on yank ]]
+-- Highlight on yank
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function()
@@ -8,7 +8,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   pattern = "*",
 })
 
--- [[ Spell Check ]]
 -- close certain filetype with jsut q button
 local close_group = vim.api.nvim_create_augroup("SimpleClose", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
@@ -19,6 +18,7 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = { "qf", "help", "man", "lspinfo", "startuptime" },
 })
 
+-- Spell Check with wrap
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "gitcommit", "markdown" },
   callback = function()
