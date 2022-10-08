@@ -123,6 +123,7 @@ cmp.setup({
       },
     },
     { name = "path" },
+    { name = "nvim_lsp_signature_help" },
   },
   experimental = {
     ghost_text = false,
