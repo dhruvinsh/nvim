@@ -110,7 +110,7 @@ M.project = {
 -- Telescope keymaps
 M.telescope = {
   n = {
-    ["<leader><leader>"] = { ":Telescope find_files <CR>", "Find Files" },
+    ["<leader><leader>"] = { ":Telescope frecency workspace=CWD <CR>", "Find Files (frecency)" },
     ["<leader>fr"] = { ":Telescope frecency <CR>", "Recent Files" },
     ["<leader>'"] = { ":Telescope current_buffer_fuzzy_find winblend=10, previewer=false", "Search in buffer" },
     ["<leader>bb"] = { ":Telescope buffers <CR>", "Find existing buffers" },
