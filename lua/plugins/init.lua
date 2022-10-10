@@ -70,10 +70,11 @@ local plugins = {
   ["stevearc/aerial.nvim"] = { config = [[require("plugins.config.aerial") ]], commit = "6f1b28b" },
   ["fedepujol/move.nvim"] = { commit = "2cd5335" },
   ["andymass/vim-matchup"] = { config = [[ require("plugins.config.matchup") ]], commit = "3fa1b22" },
-  ---- Tools: folding, autopairs, indent, surround, repeat
+  ---- Tools: folding, autopairs, indent, surround, repeat, increment
   ["Darazaki/indent-o-matic"] = { config = [[require("plugins.config.indent-o-matic") ]], commit = "bf37c6e" },
   ["kevinhwang91/nvim-ufo"] = { config = [[require("plugins.config.ufo") ]], commit = "bf40cd0" },
   ["kylechui/nvim-surround"] = { config = [[require("plugins.config.surround") ]], commit = "1719167" },
+  ["monaqa/dial.nvim"] = { commit = "d2d7a57" },
   ["tpope/vim-repeat"] = { commit = "24afe92" },
   ["windwp/nvim-autopairs"] = { config = [[require("plugins.config.autopairs") ]], commit = "4fc96c8" },
   ---- Writing
