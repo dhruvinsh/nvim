@@ -1,4 +1,5 @@
 local M = {}
+local util = require("core.util")
 
 -- NOTE: keymaps apllied via which-key have default options as below
 -- {
@@ -45,6 +46,20 @@ M.buffer = {
   },
 }
 
+-- dial.nvim keymap
+M.dial = {
+  n = {
+    ["<C-a>"] = { util.lazy_required_fn("dial.map", "inc_normal"), "Dial Increament" },
+    ["<C-x>"] = { util.lazy_required_fn("dial.map", "dec_normal"), "Dial Decrement" },
+  },
+  v = {
+    ["<C-a>"] = { util.lazy_required_fn("dial.map", "inc_visual"), "Dial Increament" },
+    ["<C-x>"] = { util.lazy_required_fn("dial.map", "dec_visual"), "Dial Decrement" },
+    ["g<C-a>"] = { util.lazy_required_fn("dial.map", "inc_gvisual"), "Dial Increament" },
+    ["g<C-x>"] = { util.lazy_required_fn("dial.map", "dec_gvisual"), "Dial Decrement" },
+  },
+}
+
 -- Git keymaps
 M.git = {
   n = {
@@ -72,7 +87,7 @@ M.move = {
 M.neogen = {
   n = {
     ["<leader>nf"] = { ":Neogen func <CR>", "Func Doc" },
-    ["<leader>nc"] = { ":Neogen class <CR>", "Func Doc" },
+    ["<leader>nc"] = { ":Neogen class <CR>", "Class Doc" },
   },
   i = {
     ["<C-l>"] = { require("neogen").jump_next },
