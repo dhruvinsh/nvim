@@ -52,7 +52,7 @@ end
 -- for lualine it's any number greater then 2
 local spacing = {
   function()
-    return '%='
+    return "%="
   end,
 }
 
@@ -72,7 +72,7 @@ local lsp_info = {
     end
     return msg
   end,
-  icon = " LSP:",
+  icon = "  LSP:",
   color = { fg = "#56B6C2", gui = "bold" },
 }
 
