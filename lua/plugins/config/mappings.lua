@@ -64,6 +64,8 @@ M.dial = {
 M.git = {
   n = {
     ["<leader>gg"] = { ":Neogit <CR>", "Git Status" },
+    ["<leader>gn"] = { ":Gitsigns next_hunk <CR>", "Next Hunk" },
+    ["<leader>gp"] = { ":Gitsigns prev_hunk <CR>", "Previous Hunk" },
   },
 }
 
