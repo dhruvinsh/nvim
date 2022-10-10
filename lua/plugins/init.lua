@@ -123,6 +123,7 @@ local plugins = {
   ["Pocco81/auto-save.nvim"] = { config = [[require("plugins.config.auto-save") ]], commit = "2c7a294" },
   ["Shatur/neovim-session-manager"] = { config = [[require("plugins.config.session") ]], commit = "4005dac" },
   ["akinsho/toggleterm.nvim"] = { config = [[require("plugins.config.toggleterm") ]], commit = "2a787c4" },
+  ["ibhagwan/smartyank.nvim"] = { config = [[ require("plugins.config.smartyank") ]], commit = "e474bd7" },
   ["kyazdani42/nvim-tree.lua"] = {
     config = [[require("plugins.config.nvim-tree") ]],
     cmd = "NvimTree*",
