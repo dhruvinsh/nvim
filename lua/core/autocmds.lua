@@ -43,3 +43,21 @@ vim.api.nvim_create_autocmd("BufUnload", {
   group = toggle_bufferline,
   pattern = "<buffer>",
 })
+
+-- Toggle nvim-treesitter-context
+local toggle_treesitter_context = vim.api.nvim_create_augroup("ToggleTreesitterContext", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function()
+    local status_ok, tcontext = pcall(require, "treesitter-context")
+    if not status_ok then
+      return
+    end
+    if vim.bo.filetype == "json" then
+      tcontext.disable()
+    else
+      tcontext.enable()
+    end
+  end,
+  group = toggle_treesitter_context,
+  pattern = "*",
+})

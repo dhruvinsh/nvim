@@ -83,6 +83,7 @@ local plugins = {
   ["folke/lua-dev.nvim"] = { commit = "e651a72" },
   ["ellisonleao/glow.nvim"] = { cmd = "Glow", commit = "b6b9972" },
   ["nvim-orgmode/orgmode"] = { config = [[require("plugins.config.orgmode") ]], commit = "1adb0cb" },
+  ["phelipetls/jsonpath.nvim"] = { commit = "bf06f0a" },
   ---- Project management
   ["ahmedkhalf/project.nvim"] = { config = [[require("plugins.config.project") ]], commit = "628de7e" },
   ["gpanders/editorconfig.nvim"] = { commit = "7d10fe6" },
