@@ -4,6 +4,13 @@ local status_ok, nvimtree = pcall(require, "nvim-tree")
 
 if status_ok then
   nvimtree.setup({
+    filters = {
+      custom = {
+        "^.git$",
+        "^.mypy_cache$",
+        "^__pycache__$",
+      },
+    },
     sync_root_with_cwd = true,
     respect_buf_cwd = true,
     update_focused_file = {
