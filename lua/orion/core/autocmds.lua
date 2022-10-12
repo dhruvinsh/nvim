@@ -51,3 +51,13 @@ vim.api.nvim_create_autocmd("FileType", {
   group = toggle_treesitter_context,
   pattern = "*",
 })
+
+-- matchparen highlight fix
+local matchparen_highlight = vim.api.nvim_create_augroup("MatchParenHighlight", { clear = true })
+vim.api.nvim_create_autocmd("ColorScheme", {
+  callback = function()
+    vim.api.nvim_set_hl(0, "MatchParen", { bold = true, standout = true })
+  end,
+  group = matchparen_highlight,
+  pattern = "*",
+})
