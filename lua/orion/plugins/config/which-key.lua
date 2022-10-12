@@ -76,8 +76,8 @@ wk.setup({
   },
 })
 
-local util = require("core.util")
-local mappings = require("plugins.config.mappings")
+local util = require("orion.core.util")
+local mappings = require("orion.plugins.config.mappings")
 
 local maps = util.build_keymap(mappings)
 

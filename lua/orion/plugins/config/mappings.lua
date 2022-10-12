@@ -1,5 +1,5 @@
 local M = {}
-local util = require("core.util")
+local util = require("orion.core.util")
 
 -- NOTE: keymaps apllied via which-key have default options as below
 -- {
