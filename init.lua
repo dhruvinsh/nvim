@@ -4,9 +4,9 @@ if impatient_ok then
   impatient.enable_profile()
 end
 
-require("core.options")
-require("core.autocmds")
-require("core.mappings")
+require("orion.core.options")
+require("orion.core.autocmds")
+require("orion.core.mappings")
 
 -- Main config starts here
 -- Install packer
@@ -19,8 +19,8 @@ if fn.empty(fn.glob(install_path)) > 0 then
 
   -- installing plugins
   vim.cmd([[packadd packer.nvim]])
-  require("plugins")
+  require("orion.plugins")
   vim.cmd("PackerSync")
 end
 
-require("colorscheme")
+require("orion.colorscheme")
