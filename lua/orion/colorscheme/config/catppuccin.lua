@@ -78,3 +78,5 @@ catppuccin.setup({
   color_overrides = {},
   highlight_overrides = {},
 })
+
+catppuccin.compile()
