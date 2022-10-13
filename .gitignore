@@ -1,3 +1,4 @@
+.envrc
 packer_compiled.lua
 sessions
 tags
