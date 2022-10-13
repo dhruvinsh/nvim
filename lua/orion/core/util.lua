@@ -75,26 +75,68 @@ M.lazy_required_fn = function(module_name, fn_name, ...)
   end
 end
 
---- build whichkey compatible keymap from group of keymaps
----@param maps table
-M.build_keymap = function(maps)
-  local KEYMAP = {}
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+--- NOTE: switch to uses native API keymap.set
+--- vim.keymap.set()
+--- set({mode}, {lhs}, {rhs}, {opts}) vim.keymap.set() Add a new mapping. Examples:
+--- -- Can add mapping to Lua functions
+--- vim.keymap.set('n', 'lhs', function() print("real lua function") end)
+---
+--- -- Can use it to map multiple modes
+--- vim.keymap.set({'n', 'v'}, '<leader>lr', vim.lsp.buf.references, { buffer=true })
+---
+--- -- Can add mapping for specific buffer
+--- vim.keymap.set('n', '<leader>w', "<cmd>w<cr>", { silent = true, buffer = 5 })
+--- -- Expr mappings
+--- vim.keymap.set('i', '<Tab>', function()
+---   return vim.fn.pumvisible() == 1 and "<C-n>" or "<Tab>"
+--- end, { expr = true })
+--- -- <Plug> mappings
+--- vim.keymap.set('n', '[%', '<Plug>(MatchitNormalMultiBackward)')
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+local default_opts = {
+  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+  nowait = false, -- use `nowait` when creating keymaps
+  silent = true, -- use `silent` when creating keymaps
+  noremap = true, -- use `noremap` when creating keymaps
+}
 
-  for group, keymaps in pairs(maps) do
-    -- work on actual keymap, unlike aerial keymaps, see mappings.lua
-    if not vim.is_callable(keymaps) then
-      for mode, keymap in pairs(keymaps) do
-        local keys = vim.tbl_keys(KEYMAP)
-        if not vim.tbl_contains(keys, mode) then
-          KEYMAP[mode] = {}
+--- see orion/plugins/config/mapping.lua for the reference
+--- Mapping looks like below:
+--- M.buffer = {
+---   n = {
+---     ["<S-Tab>"] = { ":bp <CR>", "Pext Buffer" },
+---     ["<leader>bp"] = { ":bp <CR>", "Pext Buffer" },
+---   },
+--- }
+---@param group_maps table
+M.build_keymap = function(group_maps)
+  -- from example, group_name: buffer
+  -- from example, groups: table inside M.buffer
+  for group_name, groups in pairs(group_maps) do
+    -- from example, mode: n
+    -- from example, mappings: table assign to "n"
+    for mode, mappings in pairs(groups) do
+      for lhs, data in pairs(mappings) do
+        local rhs = data[1]
+
+        local opts = default_opts
+        -- it is possible that desc is not provided
+        if data[2] ~= nil then
+          opts = vim.tbl_deep_extend("keep", opts, { desc = data[2] })
         end
 
-        KEYMAP[mode] = vim.tbl_deep_extend("keep", KEYMAP[mode], keymap)
+        if data[3] ~= nil then
+          opts = vim.tbl_deep_extend("keep", opts, data[3])
+        end
+
+        -- print(mode .. " " .. lhs .. " " .. vim.inspect(opts))
+        vim.keymap.set(mode, lhs, rhs, opts)
       end
     end
   end
-
-  return KEYMAP
 end
 
 return M

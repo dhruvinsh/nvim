@@ -76,12 +76,18 @@ wk.setup({
   },
 })
 
-local util = require("orion.core.util")
-local mappings = require("orion.plugins.config.mappings")
+-- Labels for the whichkey
+local labels = {
+  ["<leader>b"] = { name = "buffer" },
+  ["<leader>c"] = { name = "code" },
+  ["<leader>f"] = { name = "file" },
+  ["<leader>g"] = { name = "git" },
+  ["<leader>n"] = { name = "neogen" },
+  ["<leader>o"] = { name = "open" },
+  ["<leader>P"] = { name = "packer" },
+  ["<leader>p"] = { name = "project" },
+  ["<leader>s"] = { name = "search" },
+  ["<leader>z"] = { name = "zen" },
+}
 
-local maps = util.build_keymap(mappings)
-
-
-for mode_name, map in pairs(maps) do
-  wk.register(map)
-end
+wk.register(labels)
