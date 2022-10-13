@@ -69,16 +69,19 @@ M.move = {
 }
 
 -- Neogen keymaps
-M.neogen = {
-  n = {
-    ["<leader>nf"] = { ":Neogen func <CR>", "Func Doc" },
-    ["<leader>nc"] = { ":Neogen class <CR>", "Class Doc" },
-  },
-  i = {
-    ["<C-l>"] = { require("neogen").jump_next },
-    ["<C-h>"] = { require("neogen").jump_prev },
-  },
-}
+local status_ok, neogen = pcall(require, "neogen")
+if status_ok then
+  M.neogen = {
+    n = {
+      ["<leader>nf"] = { ":Neogen func <CR>", "Func Doc" },
+      ["<leader>nc"] = { ":Neogen class <CR>", "Class Doc" },
+    },
+    i = {
+      ["<C-l>"] = { require("neogen").jump_next },
+      ["<C-h>"] = { require("neogen").jump_prev },
+    },
+  }
+end
 
 -- NvimTree setup
 M.nvimtree = {
