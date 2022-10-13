@@ -8,22 +8,22 @@ local plugins = {
   ["tami5/sqlite.lua"] = { commit = "47685f0" },
 
   -- Code highligting
-  ["nvim-treesitter/nvim-treesitter"] = { config = [[require("orion.plugins.config.treesitter") ]], commit = "7ccb9a0" },
+  ["nvim-treesitter/nvim-treesitter"] = { config = [[require("orion.plugins.config.treesitter") ]], commit = "82767f3" },
   ["nvim-treesitter/nvim-treesitter-context"] = {
     config = [[require("orion.plugins.config.treesitter-context") ]],
-    commit = "8d0759e",
+    commit = "c46a8a0",
   },
   ["nvim-treesitter/nvim-treesitter-textobjects"] = {
     config = [[ require("orion.plugins.config.treesitter-objects") ]],
-    commit = "41e8d89",
+    commit = "3c394d8",
   },
 
   -- LSP setup
-  ["neovim/nvim-lspconfig"] = { config = [[require("orion.plugins.config.lsp") ]], commit = "fc2f44d" },
-  ["williamboman/mason.nvim"] = { commit = "a01073d" },
-  ["williamboman/mason-lspconfig.nvim"] = { commit = "38ab1f3" },
+  ["neovim/nvim-lspconfig"] = { config = [[require("orion.plugins.config.lsp") ]], commit = "28ec7c4" },
+  ["williamboman/mason.nvim"] = { commit = "2cd60f6" },
+  ["williamboman/mason-lspconfig.nvim"] = { commit = "d2bcb38" },
   ---- LSP completion
-  ["hrsh7th/nvim-cmp"] = { config = [[require("orion.plugins.config.cmp") ]], commit = "b0dff0e" },
+  ["hrsh7th/nvim-cmp"] = { config = [[require("orion.plugins.config.cmp") ]], commit = "714ccb7" },
   ["hrsh7th/cmp-buffer"] = { commit = "3022dbc" },
   ["hrsh7th/cmp-nvim-lsp"] = { commit = "affe808" },
   ["hrsh7th/cmp-path"] = { commit = "91ff86c" },
@@ -31,8 +31,8 @@ local plugins = {
   ---- LSP diagnostics
   ["folke/trouble.nvim"] = { config = [[require("orion.plugins.config.trouble")]], commit = "929315e" },
   ---- LSP snippet
-  ["L3MON4D3/LuaSnip"] = { commit = "8f8d493" },
-  ["rafamadriz/friendly-snippets"] = { commit = "9f4ffd1" },
+  ["L3MON4D3/LuaSnip"] = { commit = "80df282" },
+  ["rafamadriz/friendly-snippets"] = { commit = "fd16b4d" },
   ["saadparwaiz1/cmp_luasnip"] = { commit = "a9de941" },
   ---- LSP code formatting
   ["jose-elias-alvarez/null-ls.nvim"] = { config = [[require("orion.plugins.config.null-ls") ]], commit = "c0c19f3" },
@@ -85,7 +85,7 @@ local plugins = {
   ["danymat/neogen"] = { config = [[require("orion.plugins.config.neogen") ]], commit = "967b280" },
   ["numToStr/Comment.nvim"] = { config = [[require("orion.plugins.config.comment") ]], commit = "97a188a" },
   ---- Language specific
-  ["folke/lua-dev.nvim"] = { commit = "e651a72" },
+  ["folke/lua-dev.nvim"] = { commit = "f3efc5f" },
   ["ellisonleao/glow.nvim"] = { cmd = "Glow", commit = "b6b9972" },
   ["nvim-orgmode/orgmode"] = { config = [[require("orion.plugins.config.orgmode") ]], commit = "1adb0cb" },
   ["phelipetls/jsonpath.nvim"] = { commit = "bf06f0a" },
@@ -99,11 +99,11 @@ local plugins = {
   ["famiu/bufdelete.nvim"] = { commit = "46255e4" },
   ---- Colorscheme
   ["Mofiqul/vscode.nvim"] = { commit = "c512582" },
-  ["catppuccin/nvim"] = { commit = "8deefde" },
+  ["catppuccin/nvim"] = { commit = "4878d6e" },
   ["ellisonleao/gruvbox.nvim"] = { commit = "24f9e79" },
   ["folke/tokyonight.nvim"] = { commit = "66bfc2e" },
   ["navarasu/onedark.nvim"] = { commit = "6c72a9c" },
-  ["olimorris/onedarkpro.nvim"] = { commit = "9a0cccb" },
+  ["olimorris/onedarkpro.nvim"] = { commit = "1b07362" },
   ["projekt0n/github-nvim-theme"] = { commit = "b3f1519" },
   ["rebelot/kanagawa.nvim"] = { commit = "dda1b8c" },
   ["shaunsingh/nord.nvim"] = { commit = "78f5f00" },
