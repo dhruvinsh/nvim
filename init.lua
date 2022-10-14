@@ -18,9 +18,12 @@ if fn.empty(fn.glob(install_path)) > 0 then
   fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
 
   -- installing plugins
-  vim.cmd([[packadd packer.nvim]])
+  vim.api.nvim_cmd({
+    cmd = "packadd",
+    args = { "packer.nvim" },
+  }, {})
   require("orion.plugins")
-  vim.cmd("PackerSync")
+  vim.api.nvim_cmd({ cmd = "PackerSync" }, {})
 end
 
 require("orion.colorscheme")
