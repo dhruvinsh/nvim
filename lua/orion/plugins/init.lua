@@ -120,6 +120,8 @@ local plugins = {
   ["Pocco81/true-zen.nvim"] = { config = [[require("orion.plugins.config.true-zen") ]], commit = "98740c7" },
   ---- Statusline
   ["nvim-lualine/lualine.nvim"] = { config = [[require("orion.plugins.config.lualine") ]], commit = "edca2b0" },
+  ---- quickfix
+  ["kevinhwang91/nvim-bqf"] = { config = [[ require("orion.plugins.config.bqf") ]], ft = "qf", commit = "c33b5c5" },
 
   -- Tool
   ["NvChad/nvim-colorizer.lua"] = { config = [[require("orion.plugins.config.colorizer") ]], commit = "9dd7ecd" },
