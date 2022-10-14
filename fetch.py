@@ -144,14 +144,15 @@ def main():
         if data["count"] < 1:
             continue
 
-        with open(plugin_file, mode="r", encoding="utf-8") as fp:
-            content = fp.read()
+        if len(sys.argv) == 2 and sys.argv[2] in ["--update", "-u"]:
+            with open(plugin_file, mode="r", encoding="utf-8") as fp:
+                content = fp.read()
 
-        with open(plugin_file, mode="w", encoding="utf-8") as fp:
-            modified_content = re.sub(
-                rf"{data['old_commit']}", data["new_commit"], content, flags=re.M
-            )
-            fp.write(modified_content)
+            with open(plugin_file, mode="w", encoding="utf-8") as fp:
+                modified_content = re.sub(
+                    rf"{data['old_commit']}", data["new_commit"], content, flags=re.M
+                )
+                fp.write(modified_content)
 
 
 if __name__ == "__main__":
