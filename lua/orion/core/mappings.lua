@@ -98,7 +98,7 @@ M.telescope = {
   n = {
     ["<leader><leader>"] = { ":Telescope frecency workspace=CWD <CR>", "Find Files (frecency)" },
     ["<leader>fr"] = { ":Telescope frecency <CR>", "Recent Files" },
-    ["<leader>'"] = { ":Telescope current_buffer_fuzzy_find winblend=10, previewer=false", "Search in buffer" },
+    ["<leader>'"] = { ":Telescope current_buffer_fuzzy_find winblend=10, previewer=false <CR>", "Search in buffer" },
     ["<leader>bb"] = { ":Telescope buffers <CR>", "Find existing buffers" },
     ["<leader>/"] = { ":Telescope live_grep <CR>", "Live Grep" },
 
