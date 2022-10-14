@@ -29,20 +29,6 @@ M.buffer = {
   },
 }
 
--- dial.nvim keymap
-M.dial = {
-  n = {
-    ["<C-a>"] = { util.lazy_required_fn("dial.map", "inc_normal"), "Dial Increament" },
-    ["<C-x>"] = { util.lazy_required_fn("dial.map", "dec_normal"), "Dial Decrement" },
-  },
-  v = {
-    ["<C-a>"] = { util.lazy_required_fn("dial.map", "inc_visual"), "Dial Increament" },
-    ["<C-x>"] = { util.lazy_required_fn("dial.map", "dec_visual"), "Dial Decrement" },
-    ["g<C-a>"] = { util.lazy_required_fn("dial.map", "inc_gvisual"), "Dial Increament" },
-    ["g<C-x>"] = { util.lazy_required_fn("dial.map", "dec_gvisual"), "Dial Decrement" },
-  },
-}
-
 -- Git keymaps
 M.git = {
   n = {
