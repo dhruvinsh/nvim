@@ -78,13 +78,14 @@ wk.setup({
 
 -- Labels for the whichkey
 local labels = {
+  ["<leader><Tab>"] = { name = "workspace" },
+  ["<leader>P"] = { name = "packer" },
   ["<leader>b"] = { name = "buffer" },
   ["<leader>c"] = { name = "code" },
   ["<leader>f"] = { name = "file" },
   ["<leader>g"] = { name = "git" },
   ["<leader>n"] = { name = "neogen" },
   ["<leader>o"] = { name = "open" },
-  ["<leader>P"] = { name = "packer" },
   ["<leader>p"] = { name = "project" },
   ["<leader>s"] = { name = "search" },
   ["<leader>z"] = { name = "zen" },
