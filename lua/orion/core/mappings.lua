@@ -62,7 +62,7 @@ M.neogen = {
   },
   i = {
     ["<C-l>"] = { ":lua require('neogen').jump_next <CR>" },
-    ["<C-h>"] = { ":lua require('neogen').jump_prev <CR>"  },
+    ["<C-h>"] = { ":lua require('neogen').jump_prev <CR>" },
   },
 }
 
@@ -138,5 +138,52 @@ M.truzen = {
   },
 }
 
+M.lsp = function(bufnr)
+  local mappings = {
+    -- aerial keymaps
+    ["{"] = { ":AerialPrev <CR>", "AerialPrev", { buffer = bufnr } },
+    ["}"] = { ":AerialNext <CR>", "AerialNext", { buffer = bufnr } },
+    ["[["] = { ":AerialPrevUp <CR>", "AerialPrevUp", { buffer = bufnr } },
+    ["]]"] = { ":AerialNextUp <CR>", "AerialNextUp", { buffer = bufnr } },
+
+    ["<leader>D"] = { vim.lsp.buf.type_definition, "Definition", { buffer = bufnr } },
+    ["<leader>la"] = { vim.lsp.buf.code_action, "Action", { buffer = bufnr } },
+    ["<leader>lr"] = { vim.lsp.buf.rename, "Rename", { buffer = bufnr } },
+    ["<leader>ls"] = { ":Telescope lsp_document_symbols <CR>", "Symbols", { buffer = bufnr } },
+
+    ["<C-k>"] = { vim.lsp.buf.signature_help, "Signature", { buffer = bufnr } },
+    ["K"] = { vim.lsp.buf.hover, "Hover", { buffer = bufnr } },
+    ["gD"] = { vim.lsp.buf.declaration, "Declaration", { buffer = bufnr } },
+    ["gd"] = { vim.lsp.buf.definition, "Definition", { buffer = bufnr } },
+    ["gi"] = { vim.lsp.buf.implementation, "Implementation", { buffer = bufnr } },
+    ["gr"] = { ":Telescope lsp_references <CR>", "Reference", { buffer = bufnr } },
+
+    -- workspace keymaps
+    ["<leader><Tab>a"] = { vim.lsp.buf.add_workspace_folder, "Add folder", { buffer = bufnr } },
+    ["<leader><Tab>r"] = { vim.lsp.buf.remove_workspace_folder, "Remove folder", { buffer = bufnr } },
+    ["<leader><Tab>s"] = { ":Telescope lsp_dynamic_workspace_symbols <CR>", "Symbols", { buffer = bufnr } },
+    ["<leader><Tab>l"] = {
+      function()
+        vim.pretty_print(vim.lsp.buf.list_workspace_folders())
+      end,
+      "List folders",
+      { buffer = bufnr },
+    },
+
+    -- format
+    ["<leader>bf"] = {
+      function()
+        vim.lsp.buf.format({ async = true })
+      end,
+      "Format",
+      { buffer = bufnr },
+    },
+  }
+
+  return { n = mappings }
+end
+
 -- lets register all the keymaps
-util.build_keymap(M)
+util.setup_groups_keymap(M)
+
+return M
