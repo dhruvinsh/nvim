@@ -138,6 +138,16 @@ M.truzen = {
   },
 }
 
+M.lsp_control = {
+  n = {
+    ["<leader>lli"] = { ":LspInfo <CR>", "Info" },
+    ["<leader>lll"] = { ":LspLog <CR>", "Log" },
+    ["<leader>llr"] = { ":LspRestart <CR>", "Restart" },
+    ["<leader>lls"] = { ":LspStart <CR>", "Status" },
+    ["<leader>llx"] = { ":LspStop <CR>", "Stop" },
+  },
+}
+
 M.lsp = function(bufnr)
   local mappings = {
     -- aerial keymaps
@@ -146,8 +156,8 @@ M.lsp = function(bufnr)
     ["[["] = { ":AerialPrevUp <CR>", "AerialPrevUp", { buffer = bufnr } },
     ["]]"] = { ":AerialNextUp <CR>", "AerialNextUp", { buffer = bufnr } },
 
-    ["<leader>D"] = { vim.lsp.buf.type_definition, "Definition", { buffer = bufnr } },
     ["<leader>la"] = { vim.lsp.buf.code_action, "Action", { buffer = bufnr } },
+    ["<leader>ld"] = { vim.lsp.buf.type_definition, "Definition", { buffer = bufnr } },
     ["<leader>lr"] = { vim.lsp.buf.rename, "Rename", { buffer = bufnr } },
     ["<leader>ls"] = { ":Telescope lsp_document_symbols <CR>", "Symbols", { buffer = bufnr } },
 

@@ -84,6 +84,8 @@ local labels = {
   ["<leader>c"] = { name = "code" },
   ["<leader>f"] = { name = "file" },
   ["<leader>g"] = { name = "git" },
+  ["<leader>l"] = { name = "lsp" },
+  ["<leader>ll"] = { name = "lspconfig" },
   ["<leader>n"] = { name = "neogen" },
   ["<leader>o"] = { name = "open" },
   ["<leader>p"] = { name = "project" },
@@ -91,4 +93,5 @@ local labels = {
   ["<leader>z"] = { name = "zen" },
 }
 
-wk.register(labels)
+wk.
+register(labels)
