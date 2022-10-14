@@ -79,9 +79,9 @@ M.nvimtree = {
 -- Packer keymaps
 M.packer = {
   n = {
-    ["<leader>PS"] = { ":PackerStatus <CR>", "Status" },
     ["<leader>Pc"] = { ":PackerCompile <CR>", "Compile" },
     ["<leader>Pi"] = { ":PackerInstall <CR>", "Install" },
+    ["<leader>Ps"] = { ":PackerStatus <CR>", "Status" },
     ["<leader>Pu"] = { ":PackerUpdate <CR>", "Update" },
   },
 }
