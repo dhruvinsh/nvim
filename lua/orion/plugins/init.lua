@@ -78,7 +78,6 @@ local plugins = {
   ["Darazaki/indent-o-matic"] = { config = [[require("orion.plugins.config.indent-o-matic") ]], commit = "68f19ea" },
   ["kevinhwang91/nvim-ufo"] = { config = [[require("orion.plugins.config.ufo") ]], commit = "cf3b26a" },
   ["kylechui/nvim-surround"] = { config = [[require("orion.plugins.config.surround") ]], commit = "faf9ffe" },
-  ["monaqa/dial.nvim"] = { commit = "d2d7a57" },
   ["tpope/vim-repeat"] = { commit = "24afe92" },
   ["windwp/nvim-autopairs"] = { config = [[require("orion.plugins.config.autopairs") ]], commit = "4fc96c8" },
   ---- Writing
