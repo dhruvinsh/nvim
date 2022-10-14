@@ -103,38 +103,59 @@ local default_opts = {
   noremap = true, -- use `noremap` when creating keymaps
 }
 
---- see orion/plugins/config/mapping.lua for the reference
---- Mapping looks like below:
---- M.buffer = {
----   n = {
----     ["<S-Tab>"] = { ":bp <CR>", "Pext Buffer" },
----     ["<leader>bp"] = { ":bp <CR>", "Pext Buffer" },
----   },
---- }
----@param group_maps table
-M.build_keymap = function(group_maps)
-  -- from example, group_name: buffer
-  -- from example, groups: table inside M.buffer
-  for group_name, groups in pairs(group_maps) do
-    -- from example, mode: n
-    -- from example, mappings: table assign to "n"
-    for mode, mappings in pairs(groups) do
-      for lhs, data in pairs(mappings) do
-        local rhs = data[1]
+--- see orion/core/mapping.lua for the reference
+--- groups looks like below:
+--- n = {
+---   ["<S-Tab>"] = { ":bp <CR>", "Pext Buffer" },
+---   ["<leader>bp"] = { ":bp <CR>", "Pext Buffer" },
+--- },
 
-        local opts = default_opts
-        -- it is possible that desc is not provided
-        if data[2] ~= nil then
-          opts = vim.tbl_deep_extend("keep", opts, { desc = data[2] })
-        end
+--- setting up keymaps
+---@param groups table see above groups
+M.setup_keymap = function(groups)
+  -- from example, mode: n
+  -- from example, mappings: table assign to "n"
+  for mode, mappings in pairs(groups) do
+    for lhs, data in pairs(mappings) do
+      local rhs = data[1]
 
-        if data[3] ~= nil then
-          opts = vim.tbl_deep_extend("keep", opts, data[3])
-        end
-
-        -- print(mode .. " " .. lhs .. " " .. vim.inspect(opts))
-        vim.keymap.set(mode, lhs, rhs, opts)
+      local opts = default_opts
+      -- it is possible that desc is not provided
+      if data[2] ~= nil then
+        opts = vim.tbl_deep_extend("keep", opts, { desc = data[2] })
       end
+
+      if data[3] ~= nil then
+        opts = vim.tbl_deep_extend("keep", opts, data[3])
+      end
+
+      -- print(mode .. " " .. lhs .. " " .. vim.inspect(opts))
+      vim.keymap.set(mode, lhs, rhs, opts)
+    end
+  end
+end
+
+---setting up group keymaps, if function is detected it will just skip it
+---in case of functional keymapping use setup_keymap directly.
+---groupc_maps looks like below:
+---M.buffer = {
+---  n = {
+---    ["<S-Tab>"] = { ":bp <CR>", "Pext Buffer" },
+---    ["<leader>bp"] = { ":bp <CR>", "Pext Buffer" },
+---  },
+---}
+---M.windows = {
+---  n = {
+---    ["<leader>ww"] = { "something", "Windows Mapping" },
+---  },
+---}
+---@param group_maps table see above examples
+M.setup_groups_keymap = function(group_maps)
+  -- from example, group_name: buffer, windows etc
+  -- from example, groups: table inside M.buffer, M.windows etc
+  for group_name, groups in pairs(group_maps) do
+    if not M.is_function(groups) then
+      M.setup_keymap(groups)
     end
   end
 end
