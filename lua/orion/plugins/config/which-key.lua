@@ -93,5 +93,4 @@ local labels = {
   ["<leader>z"] = { name = "zen" },
 }
 
-wk.
-register(labels)
+wk.register(labels)
