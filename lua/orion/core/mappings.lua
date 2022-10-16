@@ -38,6 +38,13 @@ M.git = {
   },
 }
 
+M.illuminate = {
+  n = {
+    ["<A-n>"] = { ":lua require('illuminate').next_reference{wrap=true}<cr>" },
+    ["<A-p>"] = { ":lua require('illuminate').next_reference{reverse=true,wrap=true}<cr>" },
+  },
+}
+
 -- Move keymaps
 M.move = {
   n = {
