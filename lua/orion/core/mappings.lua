@@ -40,8 +40,8 @@ M.git = {
 
 M.illuminate = {
   n = {
-    ["<A-n>"] = { ":lua require('illuminate').next_reference{wrap=true}<cr>" },
-    ["<A-p>"] = { ":lua require('illuminate').next_reference{reverse=true,wrap=true}<cr>" },
+    ["<A-n>"] = { ":lua require('illuminate').next_reference{wrap=true, silent=true}<cr>" },
+    ["<A-p>"] = { ":lua require('illuminate').next_reference{reverse=true,wrap=true, silent=true}<cr>" },
   },
 }
 
