@@ -19,11 +19,11 @@ local plugins = {
   },
 
   -- LSP setup
-  ["neovim/nvim-lspconfig"] = { config = [[require("orion.configs.lsp") ]], commit = "28ec7c4" },
+  ["neovim/nvim-lspconfig"] = { config = [[require("orion.lsp") ]], commit = "28ec7c4" },
   ["williamboman/mason.nvim"] = { commit = "2cd60f6" },
   ["williamboman/mason-lspconfig.nvim"] = { commit = "d2bcb38" },
   ---- LSP completion
-  ["hrsh7th/nvim-cmp"] = { config = [[require("orion.configs.cmp") ]], commit = "714ccb7" },
+  ["hrsh7th/nvim-cmp"] = { config = [[require("orion.lsp.cmp") ]], commit = "714ccb7" },
   ["hrsh7th/cmp-buffer"] = { commit = "3022dbc" },
   ["hrsh7th/cmp-nvim-lsp"] = { commit = "affe808" },
   ["hrsh7th/cmp-path"] = { commit = "91ff86c" },
@@ -35,7 +35,7 @@ local plugins = {
   ["rafamadriz/friendly-snippets"] = { commit = "fd16b4d" },
   ["saadparwaiz1/cmp_luasnip"] = { commit = "a9de941" },
   ---- LSP code formatting
-  ["jose-elias-alvarez/null-ls.nvim"] = { config = [[require("orion.configs.null-ls") ]], commit = "3d9e5f6" },
+  ["jose-elias-alvarez/null-ls.nvim"] = { config = [[require("orion.lsp.null-ls") ]], commit = "3d9e5f6" },
   ---- LSP code highligting
   ["RRethy/vim-illuminate"] = { config = [[require("orion.configs.illuminate") ]], commit = "0603e75" },
   ---- LSP tool
