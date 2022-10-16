@@ -156,7 +156,7 @@ M.lsp_control = {
 }
 
 M.lsp = function(bufnr)
-  local mappings = {
+  local normal_mappings = {
     -- aerial keymaps
     ["{"] = { ":AerialPrev <CR>", "AerialPrev", { buffer = bufnr } },
     ["}"] = { ":AerialNext <CR>", "AerialNext", { buffer = bufnr } },
@@ -165,15 +165,20 @@ M.lsp = function(bufnr)
 
     ["<leader>la"] = { vim.lsp.buf.code_action, "Action", { buffer = bufnr } },
     ["<leader>ld"] = { vim.lsp.buf.type_definition, "Definition", { buffer = bufnr } },
+    ["<leader>lj"] = { ":lua vim.diagnostic.goto_next({buffer=0}) <CR>", { buffer = bufnr } },
+    ["<leader>lk"] = { ":lua vim.diagnostic.goto_prev({buffer=0}) <CR>", { buffer = bufnr } },
+    ["<leader>lq"] = { vim.diagnostic.setloclist, "Diagnostics Locations", { buffer = bufnr } },
     ["<leader>lr"] = { vim.lsp.buf.rename, "Rename", { buffer = bufnr } },
     ["<leader>ls"] = { ":Telescope lsp_document_symbols <CR>", "Symbols", { buffer = bufnr } },
 
     ["<C-k>"] = { vim.lsp.buf.signature_help, "Signature", { buffer = bufnr } },
     ["K"] = { vim.lsp.buf.hover, "Hover", { buffer = bufnr } },
     ["gD"] = { vim.lsp.buf.declaration, "Declaration", { buffer = bufnr } },
+    ["gI"] = { vim.lsp.buf.implementation, "Implementation", { buffer = bufnr } },
+    ["gR"] = { ":Telescope lsp_references <CR>", "Reference (Telescope)", { buffer = bufnr } },
     ["gd"] = { vim.lsp.buf.definition, "Definition", { buffer = bufnr } },
-    ["gi"] = { vim.lsp.buf.implementation, "Implementation", { buffer = bufnr } },
-    ["gr"] = { ":Telescope lsp_references <CR>", "Reference", { buffer = bufnr } },
+    ["gl"] = { vim.diagnostic.open_float, "Float", { buffer = bufnr } },
+    ["gr"] = { vim.lsp.buf.references, "Reference", { buffer = bufnr } },
 
     -- workspace keymaps
     ["<leader><Tab>a"] = { vim.lsp.buf.add_workspace_folder, "Add folder", { buffer = bufnr } },
@@ -197,7 +202,7 @@ M.lsp = function(bufnr)
     },
   }
 
-  return { n = mappings }
+  return { n = normal_mappings }
 end
 
 -- lets register all the keymaps
