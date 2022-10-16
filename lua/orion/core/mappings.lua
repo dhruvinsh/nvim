@@ -150,7 +150,7 @@ M.lsp_control = {
     ["<leader>lli"] = { ":LspInfo <CR>", "Info" },
     ["<leader>lll"] = { ":LspLog <CR>", "Log" },
     ["<leader>llr"] = { ":LspRestart <CR>", "Restart" },
-    ["<leader>lls"] = { ":LspStart <CR>", "Status" },
+    ["<leader>lls"] = { ":LspStart <CR>", "Start" },
     ["<leader>llx"] = { ":LspStop <CR>", "Stop" },
   },
 }
@@ -165,8 +165,8 @@ M.lsp = function(bufnr)
 
     ["<leader>la"] = { vim.lsp.buf.code_action, "Action", { buffer = bufnr } },
     ["<leader>ld"] = { vim.lsp.buf.type_definition, "Definition", { buffer = bufnr } },
-    ["<leader>lj"] = { ":lua vim.diagnostic.goto_next({buffer=0}) <CR>", { buffer = bufnr } },
-    ["<leader>lk"] = { ":lua vim.diagnostic.goto_prev({buffer=0}) <CR>", { buffer = bufnr } },
+    ["<leader>lj"] = { ":lua vim.diagnostic.goto_next({buffer=0}) <CR>", "Next Diagnostics", { buffer = bufnr } },
+    ["<leader>lk"] = { ":lua vim.diagnostic.goto_prev({buffer=0}) <CR>", "Prev Diagnostics", { buffer = bufnr } },
     ["<leader>lq"] = { vim.diagnostic.setloclist, "Diagnostics Locations", { buffer = bufnr } },
     ["<leader>lr"] = { vim.lsp.buf.rename, "Rename", { buffer = bufnr } },
     ["<leader>ls"] = { ":Telescope lsp_document_symbols <CR>", "Symbols", { buffer = bufnr } },
