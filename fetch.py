@@ -28,7 +28,7 @@ logger.addHandler(stream)
 
 
 # A plugin file
-plugin_file = Path("lua/orion/plugins/init.lua")
+plugin_file = Path("lua/orion/core/plugins.lua")
 
 with open(plugin_file, mode="r", encoding="utf-8") as fp:
     lines = fp.readlines()
@@ -144,7 +144,7 @@ def main():
         if data["count"] < 1:
             continue
 
-        if len(sys.argv) == 2 and sys.argv[2] in ["--update", "-u"]:
+        if len(sys.argv) == 2 and sys.argv[1] in ["--update", "-u"]:
             with open(plugin_file, mode="r", encoding="utf-8") as fp:
                 content = fp.read()
 
