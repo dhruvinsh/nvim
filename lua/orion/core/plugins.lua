@@ -41,6 +41,7 @@ local plugins = {
   ---- LSP tool
   ["j-hui/fidget.nvim"] = { config = [[ require("orion.configs.fidget") ]], commit = "1097a86" },
   ---- LSP specific to programming
+  ["b0o/SchemaStore.nvim"] = { commit = "17d1627" },
   ["folke/neodev.nvim"] = { commit = "d999f24" },
 
   -- Fuzzy Finder

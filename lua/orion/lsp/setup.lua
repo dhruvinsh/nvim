@@ -22,8 +22,9 @@ local handler = require("orion.lsp.handlers")
 
 -- TODO: better alternative require
 local servers = {
-  "sumneko_lua",
+  "jsonls",
   "pyright",
+  "sumneko_lua",
 }
 
 mason.setup()
