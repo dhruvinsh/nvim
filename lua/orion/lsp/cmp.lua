@@ -13,11 +13,6 @@ if not neogen_status_ok then
   return
 end
 
-local cmp_buffer_status_ok, cmp_buffer = pcall(require, "cmp_buffer")
-if not cmp_buffer_status_ok then
-  return
-end
-
 vim.o.completeopt = "menu,menuone,noselect"
 
 --   פּ ﯟ   some other good icons
@@ -51,7 +46,7 @@ local kind_icons = {
 
 cmp.setup({
   formatting = {
-    fields = { "abbr", "kind", "menu" },
+    fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
       vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
 
@@ -110,10 +105,16 @@ cmp.setup({
       end
     end, { "i", "s" }),
   }),
-  sources = {
-    -- NOTE: The order of the sources determines their order in the completion results.
+  -- NOTE: The order of the sources determines their order in the completion results.
+  -- You can specify multiple source arrays. The sources are grouped in the
+  -- order you specify, and the groups are displayed as a fallback, like chain
+  -- completion.
+  sources = cmp.config.sources({
     { name = "nvim_lsp" },
     { name = "luasnip" },
+    { name = "path" },
+    { name = "nvim_lsp_signature_help" },
+  }, {
     {
       name = "buffer",
       option = {
@@ -122,9 +123,7 @@ cmp.setup({
         end,
       },
     },
-    { name = "path" },
-    { name = "nvim_lsp_signature_help" },
-  },
+  }),
   experimental = {
     ghost_text = false,
     native_menu = false,
