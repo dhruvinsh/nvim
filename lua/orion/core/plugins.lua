@@ -40,6 +40,8 @@ local plugins = {
   ["RRethy/vim-illuminate"] = { config = [[require("orion.configs.illuminate") ]], commit = "0603e75" },
   ---- LSP tool
   ["j-hui/fidget.nvim"] = { config = [[ require("orion.configs.fidget") ]], commit = "1097a86" },
+  ---- LSP specific to programming
+  ["folke/neodev.nvim"] = { commit = "d999f24" },
 
   -- Fuzzy Finder
   ["nvim-telescope/telescope.nvim"] = { config = [[require("orion.configs.telescope") ]], commit = "f174a03" },
@@ -84,7 +86,6 @@ local plugins = {
   ["danymat/neogen"] = { config = [[require("orion.configs.neogen") ]], commit = "967b280" },
   ["numToStr/Comment.nvim"] = { config = [[require("orion.configs.comment") ]], commit = "250bbc5" },
   ---- Language specific
-  ["folke/lua-dev.nvim"] = { commit = "f3efc5f" },
   ["ellisonleao/glow.nvim"] = { cmd = "Glow", commit = "9038d7c" },
   ["nvim-orgmode/orgmode"] = { config = [[require("orion.configs.orgmode") ]], commit = "d2919c7" },
   ["phelipetls/jsonpath.nvim"] = { commit = "bf06f0a" },
