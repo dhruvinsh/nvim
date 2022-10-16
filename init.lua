@@ -22,7 +22,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
     cmd = "packadd",
     args = { "packer.nvim" },
   }, {})
-  require("orion.plugins")
+  require("orion.core.plugins")
   vim.api.nvim_cmd({ cmd = "PackerSync" }, {})
 end
 
