@@ -21,9 +21,9 @@ M.autosave = {
 -- Buffer managment keymaps
 M.buffer = {
   n = {
-    ["<S-Tab>"] = { ":bp <CR>", "Pext Buffer" },
+    ["<S-Tab>"] = { ":bp <CR>", "Next Buffer" },
     ["<Tab>"] = { ":bn <CR>", "Next Buffer" },
-    ["<leader>bd"] = { ":Bdelete <CR>", "Pext Buffer" },
+    ["<leader>bd"] = { ":Bdelete <CR>", "Delete Buffer" },
     ["<leader>bn"] = { ":bn <CR>", "Next Buffer" },
     ["<leader>bp"] = { ":bp <CR>", "Pext Buffer" },
   },
