@@ -1,26 +1,29 @@
 local status_ok, null_ls = pcall(require, "null-ls")
-
-if status_ok then
-  local nb = require("null-ls").builtins
-  null_ls.setup({
-    debug = true,
-    sources = {
-      -- webdev stuff
-      nb.formatting.prettier,
-
-      -- Lua
-      nb.formatting.stylua,
-      nb.diagnostics.selene,
-
-      -- Shell
-      nb.formatting.shfmt,
-      nb.diagnostics.shellcheck,
-
-      -- python
-      nb.formatting.black,
-      nb.formatting.isort,
-      nb.diagnostics.mypy,
-      nb.diagnostics.pylint,
-    },
-  })
+if not status_ok then
+  return
 end
+
+local formatting = null_ls.builtins.formatting
+local diagnostics = null_ls.builtins.diagnostics
+
+null_ls.setup({
+  debug = false,
+  sources = {
+    -- webdev stuff
+    formatting.prettier,
+
+    -- lua
+    formatting.stylua,
+    diagnostics.selene,
+
+    -- python
+    formatting.black,
+    formatting.isort,
+    diagnostics.mypy,
+    diagnostics.pylint,
+
+    -- Shell
+    formatting.shfmt,
+    diagnostics.shellcheck,
+  },
+})
