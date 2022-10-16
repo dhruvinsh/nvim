@@ -1,6 +1,6 @@
 local plugins = {
   -- Some core packages that I need it no matter what kind of setup it is
-  ["wbthomason/packer.nvim"] = { config = [[ require("orion.plugins") ]], commit = "6afb674" },
+  ["wbthomason/packer.nvim"] = { config = [[ require("orion.core.plugins") ]], commit = "6afb674" },
   ["lewis6991/impatient.nvim"] = { commit = "b842e16" },
   ["kyazdani42/nvim-web-devicons"] = { commit = "a8cf88c" },
   ["kevinhwang91/promise-async"] = { commit = "70b0906" },
