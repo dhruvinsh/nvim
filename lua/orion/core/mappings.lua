@@ -33,8 +33,8 @@ M.buffer = {
 M.git = {
   n = {
     ["<leader>gg"] = { ":Neogit <CR>", "Git Status" },
-    ["<leader>gn"] = { ":Gitsigns next_hunk <CR>", "Next Hunk" },
-    ["<leader>gp"] = { ":Gitsigns prev_hunk <CR>", "Previous Hunk" },
+    ["<leader>gn"] = { util.lazy_required_fn("gitsigns", "next_hunk", { navigation_message = false }), "Next Hunk" },
+    ["<leader>gp"] = { util.lazy_required_fn("gitsigns", "prev_hunk", { navigation_message = false }), "Prev Hunk" },
   },
 }
 
