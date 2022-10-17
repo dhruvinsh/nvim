@@ -28,6 +28,7 @@ local plugins = {
   ["hrsh7th/cmp-nvim-lsp"] = { commit = "3cf38d9" },
   ["hrsh7th/cmp-path"] = { commit = "91ff86c" },
   ["hrsh7th/cmp-nvim-lsp-signature-help"] = { commit = "d2768cb" },
+  ["hrsh7th/cmp-cmdline"] = { commit = "c66c379" },
   ---- LSP diagnostics
   ["folke/trouble.nvim"] = { config = [[require("orion.configs.trouble")]], commit = "ed65f84" },
   ---- LSP snippet

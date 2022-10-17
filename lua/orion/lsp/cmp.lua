@@ -138,5 +138,17 @@ cmp.setup({
   },
 })
 
+cmp.setup.cmdline(":", {
+  sources = cmp.config.sources({
+    { name = "cmdline" },
+  }),
+})
+
+cmp.setup.cmdline("/", {
+  sources = cmp.config.sources({
+    { name = "buffer" },
+  }),
+})
+
 -- luasnipe config
 require("luasnip.loaders.from_vscode").lazy_load()
