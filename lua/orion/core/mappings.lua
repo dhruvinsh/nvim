@@ -29,10 +29,10 @@ M.buffer = {
   },
 }
 
--- Git keymaps
-M.git = {
+-- gitsigns keymaps
+M.gitsigns = {
   n = {
-    ["<leader>gg"] = { ":Neogit <CR>", "Git Status" },
+    ["<leader>gb"] = { util.lazy_required_fn("gitsigns", "blame_line"), "Blame" },
     ["<leader>gn"] = { util.lazy_required_fn("gitsigns", "next_hunk", { navigation_message = false }), "Next Hunk" },
     ["<leader>gp"] = { util.lazy_required_fn("gitsigns", "prev_hunk", { navigation_message = false }), "Prev Hunk" },
   },
@@ -70,6 +70,13 @@ M.neogen = {
   i = {
     ["<C-l>"] = { ":lua require('neogen').jump_next <CR>" },
     ["<C-h>"] = { ":lua require('neogen').jump_prev <CR>" },
+  },
+}
+
+-- Neogit keymaps
+M.neogit = {
+  n = {
+    ["<leader>gg"] = { ":Neogit <CR>", "Git Status" },
   },
 }
 
