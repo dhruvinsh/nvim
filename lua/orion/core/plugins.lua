@@ -45,6 +45,13 @@ local plugins = {
   ["b0o/SchemaStore.nvim"] = { commit = "17d1627" },
   ["folke/neodev.nvim"] = { commit = "d999f24" },
 
+  -- DAP - debbugger adapter protocol
+  --- DAP Plugins
+  ["mfussenegger/nvim-dap"] = { commit = "e71da68" },
+  ["rcarriga/nvim-dap-ui"] = { commit = "1cd4764" },
+  --- DAP Language specific
+  ["mfussenegger/nvim-dap-python"] = { commit = "408186a" },
+
   -- Fuzzy Finder
   ["nvim-telescope/telescope.nvim"] = { config = [[require("orion.configs.telescope") ]], commit = "f174a03" },
   ["nvim-telescope/telescope-file-browser.nvim"] = { commit = "2429ecf" },
