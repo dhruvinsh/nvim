@@ -28,8 +28,22 @@ dashboard.section.buttons.val = {
 }
 
 local function footer()
-  local version = vim.version()
-  return "  Neovim " .. version.major .. "." .. version.minor .. "." .. version.patch
+  local total_plugins = #vim.tbl_keys(packer_plugins)
+
+  local text = "              Neovim   "
+    .. total_plugins
+    .. " plugins"
+    .. "   v"
+    .. vim.version().major
+    .. "."
+    .. vim.version().minor
+    .. "."
+    .. vim.version().patch
+
+  local fortune = require("alpha.fortune")
+  local quote = table.concat(fortune(), "\n")
+
+  return text .. "\n" .. quote
 end
 
 dashboard.section.footer.val = footer()
