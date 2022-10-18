@@ -86,6 +86,7 @@ local labels = {
   ["<leader>g"] = { name = "git" },
   ["<leader>l"] = { name = "lsp" },
   ["<leader>ll"] = { name = "lspconfig" },
+  ["<leader>m"] = { name = "minimap" },
   ["<leader>n"] = { name = "neogen" },
   ["<leader>o"] = { name = "open" },
   ["<leader>p"] = { name = "project" },
