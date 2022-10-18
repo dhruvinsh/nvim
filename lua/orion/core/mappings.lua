@@ -68,8 +68,8 @@ M.neogen = {
     ["<leader>nc"] = { ":Neogen class <CR>", "Class Doc" },
   },
   i = {
-    ["<C-l>"] = { ":lua require('neogen').jump_next <CR>" },
-    ["<C-h>"] = { ":lua require('neogen').jump_prev <CR>" },
+    ["<C-l>"] = { util.lazy_required_fn("neogen", "jump_next") },
+    ["<C-h>"] = { util.lazy_required_fn("neogen", "jump_prev") },
   },
 }
 
