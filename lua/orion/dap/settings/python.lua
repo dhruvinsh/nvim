@@ -4,4 +4,4 @@ if not status_ok then
   return
 end
 
-dp.setup()
+dp.setup("python")

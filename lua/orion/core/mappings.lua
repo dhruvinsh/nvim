@@ -52,6 +52,25 @@ M.codewindow = {
   },
 }
 
+M.dap = {
+  n = {
+    ["<leader>dC"] = { util.lazy_required_fn("dap", "run_to_cursor"), "Run to Cursor" },
+    ["<leader>dU"] = { util.lazy_required_fn("dapui", "toggle"), "Toggle UI" },
+    ["<leader>db"] = { util.lazy_required_fn("dap", "step_back"), "Step Back" },
+    ["<leader>dc"] = { util.lazy_required_fn("dap", "continue"), "Continue" },
+    ["<leader>dd"] = { util.lazy_required_fn("dap", "disconnect"), "Disconnect" },
+    ["<leader>dg"] = { util.lazy_required_fn("dap", "session"), "Get Session" },
+    ["<leader>di"] = { util.lazy_required_fn("dap", "step_into"), "Step Into" },
+    ["<leader>do"] = { util.lazy_required_fn("dap", "step_over"), "Step Over" },
+    ["<leader>dp"] = { util.lazy_required_fn("dap", "pause"), "Pause" },
+    ["<leader>dq"] = { util.lazy_required_fn("dap", "close"), "Quit" },
+    ["<leader>dr"] = { util.lazy_required_fn("dap", "repl.toggle"), "Toggle Repl" },
+    ["<leader>ds"] = { util.lazy_required_fn("dap", "continue"), "Start" },
+    ["<leader>dt"] = { util.lazy_required_fn("dap", "toggle_breakpoint"), "Toggle Breakpoint" },
+    ["<leader>du"] = { util.lazy_required_fn("dap", "step_out"), "Step Out" },
+  },
+}
+
 -- gitsigns keymaps
 M.gitsigns = {
   n = {
