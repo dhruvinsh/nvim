@@ -108,7 +108,7 @@ local plugins = {
   ["famiu/bufdelete.nvim"] = { commit = "e88dbe0" },
   ---- Colorscheme
   ["Mofiqul/vscode.nvim"] = { commit = "c512582" },
-  ["catppuccin/nvim"] = { commit = "d5f8176" },
+  ["catppuccin/nvim"] = { commit = "d5f8176", as = "catppuccin" },
   ["ellisonleao/gruvbox.nvim"] = { commit = "24f9e79" },
   ["folke/tokyonight.nvim"] = { commit = "e6307e1" },
   ["navarasu/onedark.nvim"] = { commit = "6c72a9c" },
