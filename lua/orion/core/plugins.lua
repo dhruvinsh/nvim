@@ -47,7 +47,7 @@ local plugins = {
 
   -- DAP - debbugger adapter protocol
   --- DAP Plugins
-  ["mfussenegger/nvim-dap"] = { commit = "e71da68" },
+  ["mfussenegger/nvim-dap"] = { config = [[ require("orion.dap") ]], commit = "e71da68" },
   ["rcarriga/nvim-dap-ui"] = { commit = "1cd4764" },
   --- DAP Language specific
   ["mfussenegger/nvim-dap-python"] = { commit = "408186a" },
