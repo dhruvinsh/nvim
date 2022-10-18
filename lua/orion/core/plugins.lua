@@ -70,11 +70,7 @@ local plugins = {
     commit = "74c9e29",
   },
   ["lewis6991/gitsigns.nvim"] = { config = [[require("orion.configs.gitsigns") ]], commit = "56e01cb" },
-  ["sindrets/diffview.nvim"] = {
-    config = [[require("orion.configs.diffview") ]],
-    cmd = "DiffViewOpen",
-    commit = "a1fbcaa",
-  },
+  ["sindrets/diffview.nvim"] = { config = [[require("orion.configs.diffview") ]], commit = "a1fbcaa" },
 
   -- Programming
   ---- Movement
