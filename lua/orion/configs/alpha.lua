@@ -30,7 +30,7 @@ dashboard.section.buttons.val = {
 local function footer()
   local total_plugins = #vim.tbl_keys(packer_plugins)
 
-  local text = "              Neovim   "
+  local text = "             Neovim   "
     .. total_plugins
     .. " plugins"
     .. "   v"
@@ -47,5 +47,6 @@ local function footer()
 end
 
 dashboard.section.footer.val = footer()
+
 dashboard.opts.opts.noautocmd = true
 alpha.setup(dashboard.opts)
