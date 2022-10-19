@@ -41,6 +41,11 @@ if status_ok then
       borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
       color_devicons = true,
     },
+    extensions = {
+      fzf = {
+        fuzzy = true,
+      },
+    },
   })
 
   -- Telescope add some extensions
