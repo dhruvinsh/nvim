@@ -12,4 +12,8 @@ return {
       return require("packer.util").float({ border = "single" })
     end,
   },
+  profile = {
+    enable = true,
+    threshold = 1,
+  },
 }
