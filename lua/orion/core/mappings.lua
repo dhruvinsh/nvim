@@ -12,11 +12,12 @@ M.core = {
   },
 }
 
-M.autosave = {
-  n = {
-    ["<F3>"] = { ":ASToggle <CR>", "autosave toggle" },
-  },
-}
+-- Auto-save keymaps
+-- M.autosave = {
+--   n = {
+--     ["<F3>"] = { ":ASToggle <CR>", "autosave toggle" },
+--   },
+-- }
 
 -- Buffer managment keymaps
 M.buffer = {
