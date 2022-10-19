@@ -23,7 +23,7 @@ dashboard.section.buttons.val = {
   dashboard.button("s", "  Find Session", "<cmd>SessionManager load_current_dir_session<CR>"),
   dashboard.button("c", "  Config", ":e ~/.config/nvim/init.lua <CR>"),
   dashboard.button("u", "  Update", ":PackerSync<CR>"),
-  dashboard.button("C", "  Compile", ":PackerCompile <CR>"),
+  dashboard.button("C", "  Compile", ":PackerCompile profile=true<CR>"),
   dashboard.button("q", "  Quit", ":qa<CR>"),
 }
 
