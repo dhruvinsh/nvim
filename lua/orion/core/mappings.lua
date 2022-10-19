@@ -33,7 +33,7 @@ M.buffer = {
 -- Codewindow keymaps
 M.codewindow = {
   n = {
-    ["<leader>mm"] = { util.lazy_required_fn("codewindow", "toggle_minimap")(), "Minimap Toggle" },
+    ["<leader>mm"] = { util.lazy_required_fn("codewindow", "toggle_minimap"), "Minimap Toggle" },
     ["<leader>mf"] = { util.lazy_required_fn("codewindow", "toggle_focus"), "Focus Minimap" },
   },
 }
