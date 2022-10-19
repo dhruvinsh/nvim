@@ -17,6 +17,12 @@ local plugins = {
     config = [[ require("orion.configs.treesitter-objects") ]],
     commit = "0750397",
   },
+  ---- Playground for debugging purpose
+  ["nvim-treesitter/playground"] = {
+    config = [[ require("orion.configs.playground") ]],
+    cmd = "TSPlaygroundToggle",
+    commit = "e6a0bfa",
+  },
 
   -- LSP setup
   ["neovim/nvim-lspconfig"] = { config = [[require("orion.lsp") ]], commit = "35a731b" },

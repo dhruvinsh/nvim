@@ -17,6 +17,7 @@ if status_ok then
       "markdown",
       "org",
       "python",
+      "query",
       "rust",
       "toml",
       "tsx",
