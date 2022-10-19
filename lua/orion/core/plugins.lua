@@ -105,15 +105,15 @@ local plugins = {
   ["akinsho/bufferline.nvim"] = { config = [[require("orion.configs.bufferline") ]], commit = "0606cee" },
   ["famiu/bufdelete.nvim"] = { commit = "e88dbe0" },
   ---- Colorscheme
-  ["Mofiqul/vscode.nvim"] = { commit = "c512582" },
-  ["catppuccin/nvim"] = { commit = "d5f8176", as = "catppuccin" },
+  ["Mofiqul/vscode.nvim"] = { commit = "920145b" },
+  ["catppuccin/nvim"] = { as = "catppuccin", commit = "6b6b1dc" },
   ["ellisonleao/gruvbox.nvim"] = { commit = "24f9e79" },
-  ["folke/tokyonight.nvim"] = { commit = "e6307e1" },
+  ["folke/tokyonight.nvim"] = { commit = "5ab508e" },
   ["navarasu/onedark.nvim"] = { commit = "6c72a9c" },
-  ["olimorris/onedarkpro.nvim"] = { commit = "ad9fca6" },
+  ["olimorris/onedarkpro.nvim"] = { commit = "050e23f" },
   ["projekt0n/github-nvim-theme"] = { commit = "a0632f9" },
-  ["rebelot/kanagawa.nvim"] = { commit = "dda1b8c" },
-  ["shaunsingh/nord.nvim"] = { commit = "78f5f00" },
+  ["rebelot/kanagawa.nvim"] = { commit = "a6f8ea1" },
+  ["shaunsingh/nord.nvim"] = { commit = "bf4d094" },
   ---- Dashboard
   ["goolord/alpha-nvim"] = { config = [[require("orion.configs.alpha") ]], commit = "0bb6fc0" },
   ---- Highlighting
