@@ -152,7 +152,7 @@ local plugins = {
   -- ["folke/noice.nvim"] = { event = "VimEnter", config = [[ require("orion.configs.noice") ]], commit = "956bc05" },
 
   ---- Code Map
-  ["gorbit99/codewindow.nvim"] = { config = [[ require("orion.configs.codewindow") ]], commit = "ad9ec24" },
+  ["gorbit99/codewindow.nvim"] = { config = [[ require("orion.configs.codewindow") ]], commit = "b76c2fd" },
 }
 
 -- Load the plugins

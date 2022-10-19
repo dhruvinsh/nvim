@@ -33,22 +33,7 @@ M.buffer = {
 -- Codewindow keymaps
 M.codewindow = {
   n = {
-    ["<leader>mm"] = {
-      -- FIX: once the pull request is merged this code is not require
-      function()
-        local ok, window = pcall(require, "codewindow.window")
-        if not ok then
-          return
-        end
-
-        if window.is_minimap_open() then
-          util.lazy_required_fn("codewindow", "close_minimap")()
-        else
-          util.lazy_required_fn("codewindow", "open_minimap")()
-        end
-      end,
-      "Minimap Toggle",
-    },
+    ["<leader>mm"] = { util.lazy_required_fn("codewindow", "toggle_minimap")(), "Minimap Toggle" },
     ["<leader>mf"] = { util.lazy_required_fn("codewindow", "toggle_focus"), "Focus Minimap" },
   },
 }
