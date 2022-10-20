@@ -163,10 +163,8 @@ M.telescope = {
     ["<leader>bb"] = { ":Telescope buffers <CR>", "Find existing buffers" },
     ["<leader>/"] = { ":Telescope live_grep <CR>", "Live Grep" },
 
-    ["<leader>fa"] = {
-      ":Telescope find_files follow=true, no_ignore=true, hidden=true <CR>",
-      "All Files",
-    },
+    ["<leader>fa"] = { ":Telescope find_files follow=true, no_ignore=true, hidden=true <CR>", "All Files" },
+    ["<leader>fb"] = { ":Telescope file_browser <CR>", "All Files" },
     ["<leader>fd"] = { ":Telescope diagnostics <CR>", "Find Diagnostics" },
     ["<leader>ff"] = { ":Telescope find_files <CR>", "Find Files" },
     ["<leader>fw"] = { ":Telescope grep_string <CR>", "Find Word" },
