@@ -61,7 +61,6 @@ local plugins = {
   -- Fuzzy Finder
   ["nvim-telescope/telescope.nvim"] = { config = [[require("orion.configs.telescope") ]], commit = "f174a03" },
   ["nvim-telescope/telescope-file-browser.nvim"] = { commit = "2429ecf" },
-  ["nvim-telescope/telescope-frecency.nvim"] = { commit = "9634c35" },
   ["nvim-telescope/telescope-fzf-native.nvim"] = { run = "make", commit = "65c0ee3" },
   ["nvim-telescope/telescope-smart-history.nvim"] = { commit = "7eb278c" },
 
