@@ -66,6 +66,18 @@ M.gitsigns = {
   },
 }
 
+-- harpoon keymaps
+M.harpoon = {
+  n = {
+    ["<leader>fm"] = { util.lazy_required_fn("harpoon.mark", "add_file"), "Mark" },
+    ["<leader>pm"] = { util.lazy_required_fn("harpoon.ui", "toggle_quick_menu"), "Marks" },
+    ["<leader>fh"] = { util.lazy_required_fn("harpoon.ui", "nav_file", 1), "Mark File 1" },
+    ["<leader>fj"] = { util.lazy_required_fn("harpoon.ui", "nav_file", 2), "Mark File 2" },
+    ["<leader>fk"] = { util.lazy_required_fn("harpoon.ui", "nav_file", 3), "Mark File 3" },
+    ["<leader>fl"] = { util.lazy_required_fn("harpoon.ui", "nav_file", 4), "Mark File 4" },
+  },
+}
+
 M.illuminate = {
   n = {
     ["<A-n>"] = { ":lua require('illuminate').next_reference{wrap=true, silent=true}<cr>" },
