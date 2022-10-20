@@ -78,6 +78,14 @@ M.harpoon = {
   },
 }
 
+-- Help (Generic keymaps)
+M.help = {
+  n = {
+    ["<leader>hk"] = { ":Telescope keymaps <CR>", "keymaps" },
+    ["<leader>hh"] = { ":Telescope help_tags <CR>", "keymaps" },
+  },
+}
+
 M.illuminate = {
   n = {
     ["<A-n>"] = { ":lua require('illuminate').next_reference{wrap=true, silent=true}<cr>" },
