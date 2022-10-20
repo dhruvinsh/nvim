@@ -109,7 +109,7 @@ local plugins = {
   ["catppuccin/nvim"] = { as = "catppuccin", commit = "6b6b1dc" },
   ["ellisonleao/gruvbox.nvim"] = { commit = "24f9e79" },
   ["folke/tokyonight.nvim"] = { commit = "5ab508e" },
-  ["navarasu/onedark.nvim"] = { commit = "64fc4bc" },
+  ["navarasu/onedark.nvim"] = { commit = "fdfe7bf" },
   ["olimorris/onedarkpro.nvim"] = { commit = "050e23f" },
   ["projekt0n/github-nvim-theme"] = { commit = "a0632f9" },
   ["rebelot/kanagawa.nvim"] = { commit = "a6f8ea1" },
