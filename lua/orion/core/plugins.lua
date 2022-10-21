@@ -105,6 +105,7 @@ local plugins = {
   ["akinsho/bufferline.nvim"] = { config = [[require("orion.configs.bufferline") ]], commit = "e70be62" },
   ["famiu/bufdelete.nvim"] = { commit = "e88dbe0" },
   ---- Colorscheme
+  ["EdenEast/nightfox.nvim"] = { commit = "2ae719a" },
   ["Mofiqul/vscode.nvim"] = { commit = "920145b" },
   ["catppuccin/nvim"] = { as = "catppuccin", commit = "6b6b1dc" },
   ["ellisonleao/gruvbox.nvim"] = { commit = "24f9e79" },
