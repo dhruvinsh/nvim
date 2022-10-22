@@ -13,147 +13,250 @@ import logging
 import os
 import re
 import sys
+from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Optional
+from typing import Any, Generator, Optional
 
 import requests
 
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
 
-stream = logging.StreamHandler()
-stream.setLevel(logging.INFO)
+def setup_logger(name: str = __name__, level: int = logging.INFO) -> logging.Logger:
+    """logging setup.
 
-logger.addHandler(stream)
+    Args:
+        name (str): logger name, default set to __name__
+        level (int): logger level, default set to INFO
 
-
-# A plugin file
-plugin_file = Path("lua/orion/core/plugins.lua")
-
-with open(plugin_file, mode="r", encoding="utf-8") as fp:
-    lines = fp.readlines()
-
-BASE_URL = "https://api.github.com"
-username = os.getenv("GHUB_USERNAME")
-token = os.getenv("GHUB_TOKEN")
-
-if not (username and token):
-    sys.exit(1)
-
-sess = requests.Session()
-sess.auth = (username, token)
-
-
-def get_latest_commit(owner, repo):
+    Returns:
+        logging.Logger object
     """
-    from github fetch first commit for given repo
+    formatter = logging.Formatter("%(asctime)s : %(levelname)8s : %(message)s")
+
+    # pylint: disable=redefined-outer-name
+    logger = logging.getLogger(name)
+    logger.setLevel(level)
+
+    stream = logging.StreamHandler()
+    stream.setLevel(level)
+    stream.setFormatter(formatter)
+
+    logger.addHandler(stream)
+
+    return logger
+
+
+logger = setup_logger()
+
+
+@dataclass
+class Plugin:
+    """Plugin data holder"""
+
+    repo: Any
+    commit: Any
+
+    @property
+    def owner(self) -> Optional[str]:
+        """From the repo find the username name"""
+        if self.repo is None:
+            return None
+        return self.repo.split("/", maxsplit=1)[0]
+
+    @property
+    def plugin(self) -> Optional[str]:
+        """From the repo find the plugin name"""
+        if self.repo is None:
+            return None
+        return self.repo.split("/")[1]
+
+
+class Github:
     """
-    url = f"{BASE_URL}/repos/{owner}/{repo}/commits"
-    req = sess.get(url)
-    json_data = req.json()
-
-    # we just need first 7 alphabets
-    return json_data[0].get("sha")[:7]
-
-
-def get_all_commits_count(owner, repo, sha):
+    Github API
     """
-    from github fetch all commits
-    """
-    latest_commit = get_latest_commit(owner, repo)
-    compare_url = f"{BASE_URL}/repos/{owner}/{repo}/compare/{latest_commit}...{sha}"
-    logger.debug("compare_url is: %s", compare_url)
 
-    commit_req = sess.get(compare_url)
-    commit = commit_req.json()
-    commit_count = commit.get("behind_by", 0)
-    repository = f"{owner}/{repo}"
-    if commit_count > 0:
-        logger.info(
-            "plugin \t %-70s %-3s commits behind \t %s..%s ",
-            repository,
-            commit_count,
-            sha,
-            latest_commit,
+    def __init__(self, username: str, token: str, url: str) -> None:
+        """setup github api.
+
+        Args:
+            username (str): github username
+            token (str): gitub auth token.
+        """
+        self.username = username
+        self.token = token
+        self.url = url
+        self.logger = setup_logger(name=self.__class__.__name__)
+
+        self.sess = requests.Session()
+        self.sess.auth = (self.username, self.token)
+
+    def get_latest_commit(self, plugin: Plugin) -> str:
+        """from github fetch first commit for given repo and ony return short sha.
+        (SHA size 7)
+
+        Args:
+            plugin: a `Plugin` instance
+
+        Returns:
+            SHA size of 7.
+        """
+        url = f"{self.url}/repos/{plugin.repo}/commits"
+        self.logger.debug("Fetching latest commit: %s", url)
+        req = self.sess.get(url)
+        json_data = req.json()
+
+        # we just need first 7 alphabets
+        return json_data[0].get("sha")[:7]
+
+    def get_all_commits_count(self, plugin: Plugin) -> dict[str, Any]:
+        """get the commit counts from specific repo to the latest head.
+
+        Args:
+            owner (str): repository owner.
+            repo (str): repository name.
+            sha (str): point of sha from which head diff required.
+
+        Returns:
+            {"old_commit": str, "new_commit": str, "count": int}
+        """
+        # fetch the lated commit for given repo
+        latest_commit = self.get_latest_commit(plugin)
+
+        compare_url = (
+            f"{self.url}/repos/{plugin.repo}/compare/{latest_commit}...{plugin.commit}"
         )
+        self.logger.debug("Fetch diff commits from: %s", compare_url)
 
-    return {"old_commit": sha, "new_commit": latest_commit, "count": commit_count}
+        # fetch the diff between given commit to latest commit
+        commit_req = self.sess.get(compare_url)
+        commit = commit_req.json()
+
+        commit_count = commit.get("behind_by", 0)
+        if commit_count > 0:
+            logger.info(
+                "plugin: %-50s %-3s commits behind \t %s..%s ",
+                plugin.repo,
+                commit_count,
+                plugin.commit,
+                latest_commit,
+            )
+
+        return {
+            "old_commit": plugin.commit,
+            "new_commit": latest_commit,
+            "count": commit_count,
+        }
 
 
-def fetch_plugins() -> list[dict[str, str]]:
-    """
-    Read the plugin file and and fetch the plugin name and its relevent commit
-    if plugin commit not found then only plugin will be fetched in the data.
-    """
-    data: list[dict[str, Any]] = []
+class PluginParser:
+    """Read the plugin file and parse it to the python object."""
 
-    plugin_regex = re.compile(r"\"(?P<plugin>.*)\"\]")
-    commit_regex = re.compile(r"commit = \"(?P<commit>\w+)")
+    def __init__(self, plugin_file: Path) -> None:
+        self.plugin_file = plugin_file
 
-    for line in lines:
-        plugin: Optional[dict[str, Any]] = None
-        commit: Optional[dict[str, Any]] = None
+        self.repo_regex = re.compile(r"\"(?P<repo>.*)\"\]")
+        self.commit_regex = re.compile(r"commit = \"(?P<commit>\w+)")
 
-        plugin_reg = plugin_regex.search(line)
-        commit_reg = commit_regex.search(line)
+        self.logger = setup_logger(self.__class__.__name__)
 
-        if plugin_reg:
-            plugin_name = plugin_reg.groupdict()
-            if plugin_name is None:
+    @property
+    def lines(self) -> list[str]:
+        """read files and return it"""
+        # pylint: disable=C0103
+        with open(self.plugin_file, mode="r", encoding="utf-8") as fp:
+            lines = fp.readlines()
+
+        return [line.strip() for line in lines if line.strip()]
+
+    def plugin_data(self) -> Generator[str, None, None]:
+        """compile multiline plugins to single line data"""
+        data = []
+        plugin_start = False
+
+        for line in self.lines:
+            if line.startswith('["') and line.endswith("},"):
+                yield line
                 continue
-            owerner, repo = plugin_name.get("plugin").split("/")
-            plugin = {
-                "plugin": plugin_name.get("plugin"),
-                "owner": owerner,
-                "repo": repo,
-            }
 
-        if commit_reg:
-            commit_val = commit_reg.groupdict(line)
-            commit = {"commit": commit_val.get("commit")}
+            if line.startswith('["'):
+                data.append(line)
+                plugin_start = True
+                continue
 
-        if plugin and commit:
-            # if we found plugin and commit both then update the data
-            maps = {}
-            maps.update(plugin)
-            maps.update(commit)
-            data.append(maps)
-        elif plugin:
-            # looks like we found just the plugin
-            data.append(plugin)
-        elif commit:
-            # now we found the COMMIT, for which we already have partial data in the data
-            maps = data.pop(-1)
-            maps.update(commit)
-            data.append(maps)
+            if line.endswith("},"):
+                data.append(line)
+                yield " ".join(data)
 
-    return data
+                data.clear()
+                plugin_start = False
+
+            if plugin_start:
+                data.append(line)
+
+    def parse(self) -> list[Plugin]:
+        """parse the plugin file to dict"""
+        data: list[Plugin] = []
+        for plugin_data in self.plugin_data():
+            self.logger.debug(plugin_data)
+
+            repo = self.repo_regex.search(plugin_data)
+            commit = self.commit_regex.search(plugin_data)
+
+            if not (repo and commit):
+                self.logger.error("No plugin data detected %s and %s", repo, commit)
+                continue
+
+            repo_val = repo.groupdict()
+            commit_val = commit.groupdict()
+
+            plug = Plugin(repo=repo_val.get("repo"), commit=commit_val.get("commit"))
+
+            data.append(plug)
+
+        return data
 
 
-def main():
+def update_file(plugin_file: Path, data: dict[str, Any]):
+    """update the plugin file with latest commit if required"""
+    # pylint: disable=C0103
+    with open(plugin_file, mode="r", encoding="utf-8") as fp:
+        content = fp.read()
+
+    # pylint: disable=C0103
+    with open(plugin_file, mode="w", encoding="utf-8") as fp:
+        modified_content = re.sub(
+            rf"{data['old_commit']}", data["new_commit"], content, flags=re.M
+        )
+        fp.write(modified_content)
+
+
+def main(plugin_file: Path, username: str, token: str, base_url: str):
     """
     check the plugin status
     """
-    plugins = fetch_plugins()
+    plugin_parser = PluginParser(plugin_file)
+    plugins = plugin_parser.parse()
+
+    ghub = Github(username, token, base_url)
+
     for plugin in plugins:
-        owner = plugin["owner"]
-        repo = plugin["repo"]
-        # Took the last commit, Can do it automatically also but keeping it open
-        sha = plugin["commit"]
-        data = get_all_commits_count(owner, repo, sha)
+        data = ghub.get_all_commits_count(plugin)
+
         if data["count"] < 1:
             continue
 
         if len(sys.argv) == 2 and sys.argv[1] in ["--update", "-u"]:
-            with open(plugin_file, mode="r", encoding="utf-8") as fp:
-                content = fp.read()
-
-            with open(plugin_file, mode="w", encoding="utf-8") as fp:
-                modified_content = re.sub(
-                    rf"{data['old_commit']}", data["new_commit"], content, flags=re.M
-                )
-                fp.write(modified_content)
+            update_file(plugin_file, data)
 
 
 if __name__ == "__main__":
-    main()
+
+    BASE_URL = "https://api.github.com"
+    PLUGIN_FILE = Path("lua/orion/core/plugins.lua")
+    USERNAME = os.getenv("GHUB_USERNAME", "")
+    TOKEN = os.getenv("GHUB_TOKEN", "")
+
+    if not (USERNAME and TOKEN):
+        sys.exit(1)
+
+    main(PLUGIN_FILE, USERNAME, TOKEN, BASE_URL)
