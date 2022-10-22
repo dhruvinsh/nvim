@@ -15,6 +15,9 @@ end
 
 vim.o.completeopt = "menu,menuone,noselect"
 
+---------
+-- Visual
+----------
 --   פּ ﯟ   some other good icons
 local kind_icons = {
   Text = "",
@@ -43,6 +46,9 @@ local kind_icons = {
   Operator = "",
   TypeParameter = "",
 }
+
+local border_opts =
+  { border = "single", winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None" }
 
 cmp.setup({
   formatting = {
@@ -105,6 +111,12 @@ cmp.setup({
       end
     end, { "i", "s" }),
   }),
+  duplicates = {
+    nvim_lsp = 1,
+    luasnip = 1,
+    path = 1,
+    buffer = 1,
+  },
   -- NOTE: The order of the sources determines their order in the completion results.
   -- You can specify multiple source arrays. The sources are grouped in the
   -- order you specify, and the groups are displayed as a fallback, like chain
@@ -129,12 +141,8 @@ cmp.setup({
     native_menu = false,
   },
   window = {
-    completion = {
-      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-    },
-    documentation = {
-      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-    },
+    completion = border_opts,
+    documentation = border_opts,
   },
 })
 

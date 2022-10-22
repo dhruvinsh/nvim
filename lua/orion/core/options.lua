@@ -67,6 +67,9 @@ vim.o.cursorline = true
 -- I like look without any cmdline
 vim.o.cmdheight = 0
 
+-- menu limit
+vim.o.pumheight = 10
+
 -- mousemovent for bufferline hover option
 -- NOTE: using this would take about 1% to 2% CPU usage
 -- vim.o.mousemoveevent = true
