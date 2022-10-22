@@ -105,6 +105,7 @@ local plugins = {
   ["akinsho/bufferline.nvim"] = { config = [[require("orion.configs.bufferline") ]], commit = "e70be62" },
   ["famiu/bufdelete.nvim"] = { commit = "e88dbe0" },
   ---- Colorscheme
+  ["EdenEast/nightfox.nvim"] = { commit = "2ae719a" },
   ["Mofiqul/vscode.nvim"] = { commit = "920145b" },
   ["catppuccin/nvim"] = { as = "catppuccin", commit = "6b6b1dc" },
   ["ellisonleao/gruvbox.nvim"] = { commit = "24f9e79" },
@@ -154,7 +155,7 @@ local plugins = {
   -- ["folke/noice.nvim"] = { event = "VimEnter", config = [[ require("orion.configs.noice") ]], commit = "2122caf" },
 
   ---- Code Map
-  ["gorbit99/codewindow.nvim"] = { config = [[ require("orion.configs.codewindow") ]], commit = "b76c2fd" },
+  ["gorbit99/codewindow.nvim"] = { config = [[ require("orion.configs.codewindow") ]], commit = "6a7ee60" },
 }
 
 -- Load the plugins
