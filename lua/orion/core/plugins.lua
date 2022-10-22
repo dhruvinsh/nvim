@@ -65,11 +65,8 @@ local plugins = {
   ["nvim-telescope/telescope-smart-history.nvim"] = { commit = "7eb278c" },
 
   -- Git
-  ["TimUntersberger/neogit"] = {
-    config = [[require("orion.configs.neogit") ]],
-    cmd = "Neogit",
-    commit = "74c9e29",
-  },
+  ["TimUntersberger/neogit"] = { config = [[require("orion.configs.neogit") ]], cmd = "Neogit", commit = "74c9e29" },
+  ["akinsho/git-conflict.nvim"] = { config = [[ require("orion.configs.git-conflict") ]], commit = "0f87781" },
   ["lewis6991/gitsigns.nvim"] = { config = [[require("orion.configs.gitsigns") ]], commit = "56e01cb" },
   ["sindrets/diffview.nvim"] = { config = [[require("orion.configs.diffview") ]], commit = "a1fbcaa" },
 
