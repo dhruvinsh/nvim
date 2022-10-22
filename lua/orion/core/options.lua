@@ -53,6 +53,8 @@ vim.o.smartcase = true
 
 -- Decrease update time
 vim.o.updatetime = 250
+vim.o.timeoutlen = 250
+
 vim.wo.signcolumn = "yes"
 
 -- Set colorscheme
