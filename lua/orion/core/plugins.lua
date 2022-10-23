@@ -8,7 +8,7 @@ local plugins = {
   ["tami5/sqlite.lua"] = { commit = "47685f0" },
 
   -- Code highligting
-  ["nvim-treesitter/nvim-treesitter"] = { config = [[require("orion.configs.treesitter") ]], commit = "b9bcbf8" },
+  ["nvim-treesitter/nvim-treesitter"] = { config = [[require("orion.configs.treesitter") ]], commit = "2d72494" },
   ["nvim-treesitter/nvim-treesitter-context"] = {
     config = [[require("orion.configs.treesitter-context") ]],
     commit = "2466e80",
@@ -25,11 +25,11 @@ local plugins = {
   },
 
   -- LSP setup
-  ["neovim/nvim-lspconfig"] = { config = [[require("orion.lsp") ]], commit = "2dd9e06" },
-  ["williamboman/mason.nvim"] = { commit = "9a2f83f" },
-  ["williamboman/mason-lspconfig.nvim"] = { commit = "90fcb1f" },
+  ["neovim/nvim-lspconfig"] = { config = [[require("orion.lsp") ]], commit = "0b3e5ce" },
+  ["williamboman/mason.nvim"] = { commit = "7ff829a" },
+  ["williamboman/mason-lspconfig.nvim"] = { commit = "908bf46" },
   ---- LSP completion
-  ["hrsh7th/nvim-cmp"] = { commit = "e94d348" },
+  ["hrsh7th/nvim-cmp"] = { commit = "cdb7766" },
   ["hrsh7th/cmp-buffer"] = { commit = "3022dbc" },
   ["hrsh7th/cmp-nvim-lsp"] = { commit = "3cf38d9" },
   ["hrsh7th/cmp-path"] = { commit = "91ff86c" },
@@ -39,22 +39,22 @@ local plugins = {
   ["folke/trouble.nvim"] = { config = [[require("orion.configs.trouble")]], commit = "ed65f84" },
   ---- LSP snippet
   ["L3MON4D3/LuaSnip"] = { commit = "663d544" },
-  ["rafamadriz/friendly-snippets"] = { commit = "fd16b4d" },
+  ["rafamadriz/friendly-snippets"] = { commit = "b838c36" },
   ["saadparwaiz1/cmp_luasnip"] = { commit = "a9de941" },
   ---- LSP code formatting
-  ["jose-elias-alvarez/null-ls.nvim"] = { commit = "643c67a" },
+  ["jose-elias-alvarez/null-ls.nvim"] = { commit = "bc1fc91" },
   ---- LSP code highligting
   ["RRethy/vim-illuminate"] = { config = [[require("orion.configs.illuminate") ]], commit = "0603e75" },
   ---- LSP tool
   ["j-hui/fidget.nvim"] = { config = [[ require("orion.configs.fidget") ]], commit = "1097a86" },
   ---- LSP specific to programming
   ["b0o/SchemaStore.nvim"] = { commit = "fe35502" },
-  ["folke/neodev.nvim"] = { commit = "b74477c" },
+  ["folke/neodev.nvim"] = { commit = "e23d90e" },
 
   -- DAP - debbugger adapter protocol
   --- DAP Plugins
   ["mfussenegger/nvim-dap"] = { config = [[ require("orion.dap") ]], commit = "3d0d731" },
-  ["rcarriga/nvim-dap-ui"] = { commit = "1cd4764" },
+  ["rcarriga/nvim-dap-ui"] = { commit = "0a63115" },
   --- DAP Language specific
   ["mfussenegger/nvim-dap-python"] = { commit = "408186a" },
 
@@ -67,31 +67,31 @@ local plugins = {
   -- Git
   ["TimUntersberger/neogit"] = { config = [[require("orion.configs.neogit") ]], cmd = "Neogit", commit = "74c9e29" },
   ["akinsho/git-conflict.nvim"] = { config = [[ require("orion.configs.git-conflict") ]], commit = "0f87781" },
-  ["lewis6991/gitsigns.nvim"] = { config = [[require("orion.configs.gitsigns") ]], commit = "56e01cb" },
+  ["lewis6991/gitsigns.nvim"] = { config = [[require("orion.configs.gitsigns") ]], commit = "21ab05c" },
   ["sindrets/diffview.nvim"] = { config = [[require("orion.configs.diffview") ]], commit = "a1fbcaa" },
 
   -- Programming
   ---- Movement
   ["chaoren/vim-wordmotion"] = { commit = "5dd613e" },
   ["ggandor/flit.nvim"] = { config = [[require("orion.configs.flit") ]], commit = "be110f9" },
-  ["ggandor/leap.nvim"] = { config = [[require("orion.configs.leap") ]], commit = "a9d3232" },
+  ["ggandor/leap.nvim"] = { config = [[require("orion.configs.leap") ]], commit = "847a1dc" },
   ["max397574/better-escape.nvim"] = { config = [[require("orion.configs.better-escape") ]], commit = "d5ee0ce" },
-  ["stevearc/aerial.nvim"] = { config = [[require("orion.configs.aerial") ]], commit = "d35799b" },
+  ["stevearc/aerial.nvim"] = { config = [[require("orion.configs.aerial") ]], commit = "832024b" },
   ["fedepujol/move.nvim"] = { commit = "2cd5335" },
   ["andymass/vim-matchup"] = { config = [[ require("orion.configs.matchup") ]], commit = "3fa1b22" },
   ["ThePrimeagen/harpoon"] = { config = [[ require("orion.configs.harpoon") ]], commit = "4dfe94e" },
   ---- Tools: folding, autopairs, indent, surround, repeat, increment
   ["Darazaki/indent-o-matic"] = { config = [[require("orion.configs.indent-o-matic") ]], commit = "68f19ea" },
-  ["kevinhwang91/nvim-ufo"] = { config = [[require("orion.configs.ufo") ]], commit = "cf3b26a" },
+  ["kevinhwang91/nvim-ufo"] = { config = [[require("orion.configs.ufo") ]], commit = "2368a19" },
   ["kylechui/nvim-surround"] = { config = [[require("orion.configs.surround") ]], commit = "81f672a" },
   ["tpope/vim-repeat"] = { commit = "24afe92" },
   ["windwp/nvim-autopairs"] = { config = [[require("orion.configs.autopairs") ]], commit = "4fc96c8" },
   ---- Writing
-  ["danymat/neogen"] = { config = [[require("orion.configs.neogen") ]], commit = "e754659" },
+  ["danymat/neogen"] = { config = [[require("orion.configs.neogen") ]], commit = "c9ee823" },
   ["numToStr/Comment.nvim"] = { config = [[require("orion.configs.comment") ]], commit = "ad7ffa8" },
   ---- Language specific
   ["ellisonleao/glow.nvim"] = { cmd = "Glow", commit = "9038d7c" },
-  ["nvim-orgmode/orgmode"] = { config = [[require("orion.configs.orgmode") ]], commit = "7979893" },
+  ["nvim-orgmode/orgmode"] = { config = [[require("orion.configs.orgmode") ]], commit = "2479971" },
   ["phelipetls/jsonpath.nvim"] = { commit = "d52d1c1" },
   ---- Project management
   ["ahmedkhalf/project.nvim"] = { config = [[require("orion.configs.project") ]], commit = "628de7e" },
@@ -102,13 +102,13 @@ local plugins = {
   ["akinsho/bufferline.nvim"] = { config = [[require("orion.configs.bufferline") ]], commit = "e70be62" },
   ["famiu/bufdelete.nvim"] = { commit = "e88dbe0" },
   ---- Colorscheme
-  ["EdenEast/nightfox.nvim"] = { commit = "2ae719a" },
+  ["EdenEast/nightfox.nvim"] = { commit = "28eeaae" },
   ["Mofiqul/vscode.nvim"] = { commit = "920145b" },
-  ["catppuccin/nvim"] = { as = "catppuccin", commit = "6b6b1dc" },
+  ["catppuccin/nvim"] = { as = "catppuccin", commit = "294bdbe" },
   ["ellisonleao/gruvbox.nvim"] = { commit = "24f9e79" },
-  ["folke/tokyonight.nvim"] = { commit = "5ab508e" },
-  ["navarasu/onedark.nvim"] = { commit = "fdfe7bf" },
-  ["olimorris/onedarkpro.nvim"] = { commit = "050e23f" },
+  ["folke/tokyonight.nvim"] = { commit = "9a0843b" },
+  ["navarasu/onedark.nvim"] = { commit = "7aeca47" },
+  ["olimorris/onedarkpro.nvim"] = { commit = "e9478c3" },
   ["projekt0n/github-nvim-theme"] = { commit = "a0632f9" },
   ["rebelot/kanagawa.nvim"] = { commit = "a6f8ea1" },
   ["shaunsingh/nord.nvim"] = { commit = "bf4d094" },
@@ -125,7 +125,7 @@ local plugins = {
   ---- Prductivity
   ["Pocco81/true-zen.nvim"] = { config = [[require("orion.configs.true-zen") ]], commit = "98740c7" },
   ---- Statusline
-  ["nvim-lualine/lualine.nvim"] = { config = [[require("orion.configs.lualine") ]], commit = "abb0312" },
+  ["nvim-lualine/lualine.nvim"] = { config = [[require("orion.configs.lualine") ]], commit = "3325d5d" },
   ---- quickfix
   ["kevinhwang91/nvim-bqf"] = { config = [[ require("orion.configs.bqf") ]], ft = "qf", commit = "c33b5c5" },
 
@@ -138,21 +138,21 @@ local plugins = {
   ["kyazdani42/nvim-tree.lua"] = {
     config = [[require("orion.configs.nvim-tree") ]],
     cmd = "NvimTree*",
-    commit = "2b97063",
+    commit = "0122a71",
   },
   ["mrjones2014/tldr.nvim"] = { config = [[require("orion.configs.tldr") ]], commit = "72af17f" },
   ---- keymappings
-  ["folke/which-key.nvim"] = { config = [[require("orion.configs.which-key") ]], commit = "6885b66" },
+  ["folke/which-key.nvim"] = { config = [[require("orion.configs.which-key") ]], commit = "a03265e" },
 
   -- Experimental
   ---- NOTE: disabling for now
   ---- messages, cmdline and popupmenu tweaker, Noice
   -- ["MunifTanjim/nui.nvim"] = { commit = "35758e9" },
   -- ["rcarriga/nvim-notify"] = { commit = "5e8d494" },
-  -- ["folke/noice.nvim"] = { event = "VimEnter", config = [[ require("orion.configs.noice") ]], commit = "2122caf" },
+  -- ["folke/noice.nvim"] = { event = "VimEnter", config = [[ require("orion.configs.noice") ]], commit = "b2b81e3" },
 
   ---- Code Map
-  ["gorbit99/codewindow.nvim"] = { config = [[ require("orion.configs.codewindow") ]], commit = "6a7ee60" },
+  ["gorbit99/codewindow.nvim"] = { config = [[ require("orion.configs.codewindow") ]], commit = "a89d14a" },
 }
 
 -- Load the plugins
