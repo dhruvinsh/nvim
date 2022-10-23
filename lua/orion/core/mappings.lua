@@ -13,6 +13,13 @@ M.core = {
   },
 }
 
+-- Aerial keymaps
+M.aerial = {
+  n = {
+    ["<leader>oa"] = { ":AerialToggle <CR>", "Aerial" },
+  },
+}
+
 -- Auto-save keymaps
 -- M.autosave = {
 --   n = {
