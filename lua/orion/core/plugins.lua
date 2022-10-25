@@ -80,8 +80,7 @@ local plugins = {
   ["fedepujol/move.nvim"] = { commit = "2cd5335" },
   ["andymass/vim-matchup"] = { config = [[ require("orion.configs.matchup") ]], commit = "3fa1b22" },
   ["ThePrimeagen/harpoon"] = { config = [[ require("orion.configs.harpoon") ]], commit = "4dfe94e" },
-  ---- Tools: folding, autopairs, indent, surround, repeat, increment
-  ["Darazaki/indent-o-matic"] = { config = [[require("orion.configs.indent-o-matic") ]], commit = "68f19ea" },
+  ---- Tools: folding, autopairs, surround, repeat, increment
   ["kevinhwang91/nvim-ufo"] = { config = [[require("orion.configs.ufo") ]], commit = "2368a19" },
   ["kylechui/nvim-surround"] = { config = [[require("orion.configs.surround") ]], commit = "81f672a" },
   ["tpope/vim-repeat"] = { commit = "24afe92" },
