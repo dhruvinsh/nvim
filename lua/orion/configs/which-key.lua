@@ -81,7 +81,6 @@ local labels = {
   ["<leader><Tab>"] = { name = "workspace" },
   ["<leader>P"] = { name = "packer" },
   ["<leader>b"] = { name = "buffer" },
-  ["<leader>c"] = { name = "code" },
   ["<leader>d"] = { name = "debug" },
   ["<leader>f"] = { name = "file" },
   ["<leader>g"] = { name = "git" },
