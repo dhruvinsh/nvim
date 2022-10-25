@@ -16,7 +16,7 @@ M.core = {
 -- Aerial keymaps
 M.aerial = {
   n = {
-    ["<leader>oa"] = { ":AerialToggle <CR>", "Aerial" },
+    ["<leader>oA"] = { ":AerialToggle <CR>", "Aerial" },
   },
 }
 
@@ -167,11 +167,11 @@ M.project = {
 M.telescope = {
   n = {
     ["<leader>'"] = { ":Telescope current_buffer_fuzzy_find winblend=10, previewer=false <CR>", "Search in buffer" },
-    ["<leader>bb"] = { ":Telescope buffers <CR>", "Find existing buffers" },
+    ["<leader>bb"] = { ":Telescope buffers <CR>", "Buffers" },
     ["<leader>/"] = { ":Telescope live_grep <CR>", "Live Grep" },
 
     ["<leader>fa"] = { ":Telescope find_files follow=true, no_ignore=true, hidden=true <CR>", "All Files" },
-    ["<leader>fb"] = { ":Telescope file_browser <CR>", "All Files" },
+    ["<leader>fb"] = { ":Telescope file_browser <CR>", "Folder Browser" },
     ["<leader>fd"] = { ":Telescope diagnostics <CR>", "Find Diagnostics" },
     ["<leader>ff"] = { ":Telescope find_files <CR>", "Find Files" },
     ["<leader>fw"] = { ":Telescope grep_string <CR>", "Find Word" },
