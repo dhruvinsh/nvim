@@ -168,7 +168,7 @@ M.telescope = {
   n = {
     ["<leader>'"] = { ":Telescope current_buffer_fuzzy_find winblend=10, previewer=false <CR>", "Search in buffer" },
     ["<leader>bb"] = { ":Telescope buffers <CR>", "Buffers" },
-    ["<leader>/"] = { ":Telescope live_grep hidden=true<CR>", "Live Grep" },
+    ["<leader>/"] = { ":Telescope live_grep <CR>", "Live Grep" },
 
     ["<leader>fa"] = { ":Telescope find_files follow=true, no_ignore=true, hidden=true <CR>", "All Files" },
     ["<leader>fb"] = { ":Telescope file_browser <CR>", "Folder Browser" },
