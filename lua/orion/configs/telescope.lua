@@ -3,6 +3,8 @@ local status_ok, telescope = pcall(require, "telescope")
 if status_ok then
   telescope.setup({
     defaults = {
+      -- always ignore .git folder when using hidden true
+      file_ignore_patterns = { ".git" },
       vimgrep_argumetns = {
         "rg",
         "--color=never",

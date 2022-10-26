@@ -173,7 +173,7 @@ M.telescope = {
     ["<leader>fa"] = { ":Telescope find_files follow=true, no_ignore=true, hidden=true <CR>", "All Files" },
     ["<leader>fb"] = { ":Telescope file_browser <CR>", "Folder Browser" },
     ["<leader>fd"] = { ":Telescope diagnostics <CR>", "Find Diagnostics" },
-    ["<leader>ff"] = { ":Telescope find_files <CR>", "Find Files" },
+    ["<leader>ff"] = { ":Telescope find_files hidden=true <CR>", "Find Files" },
     ["<leader>fw"] = { ":Telescope grep_string <CR>", "Find Word" },
     ["<leader>sh"] = { ":Telescope help_tags <CR>", "Help" },
   },
