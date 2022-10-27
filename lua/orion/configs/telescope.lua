@@ -5,7 +5,7 @@ if status_ok then
     defaults = {
       -- always ignore .git folder when using hidden true
       file_ignore_patterns = { ".git" },
-      vimgrep_argumetns = {
+      vimgrep_arguments = {
         "rg",
         "--color=never",
         "--column",
