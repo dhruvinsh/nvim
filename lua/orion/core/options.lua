@@ -73,6 +73,9 @@ vim.o.cmdheight = 0
 -- menu limit
 vim.o.pumheight = 10
 
+-- some tabs and writings
+vim.o.expandtab = true
+
 -- mousemovent for bufferline hover option
 -- NOTE: using this would take about 1% to 2% CPU usage
 -- vim.o.mousemoveevent = true
