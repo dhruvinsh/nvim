@@ -14,14 +14,13 @@ A configuration that finally works best for me, went over so many stuff, back an
 - Autopairs
 - Better-Escape
 - Bufferline
-- Colorsches (onedar, onedarkpro, vscode, tokyonight etc..)
+- Colorsches (catppuccin, onedarkpro, vscode, tokyonight etc..)
 - Comment
 - Diffview
 - Editorconfig
 - Flit
 - Gitsigns
 - Indent-Blankline
-- Indent-o-Matic
 - LSP
 - Leap
 - Lualine
