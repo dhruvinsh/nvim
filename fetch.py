@@ -257,6 +257,7 @@ if __name__ == "__main__":
     TOKEN = os.getenv("GHUB_TOKEN", "")
 
     if not (USERNAME and TOKEN):
+        logger.info("Usernme and Password not set, exiting..")
         sys.exit(1)
 
     main(PLUGIN_FILE, USERNAME, TOKEN, BASE_URL)
