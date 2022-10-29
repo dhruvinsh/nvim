@@ -72,7 +72,6 @@ local plugins = {
 
   -- Programming
   ---- Movement
-  ["chaoren/vim-wordmotion"] = { commit = "5dd613e" },
   ["ggandor/flit.nvim"] = { config = [[require("orion.configs.flit") ]], commit = "be110f9" },
   ["ggandor/leap.nvim"] = { config = [[require("orion.configs.leap") ]], commit = "847a1dc" },
   ["max397574/better-escape.nvim"] = { config = [[require("orion.configs.better-escape") ]], commit = "d5ee0ce" },
