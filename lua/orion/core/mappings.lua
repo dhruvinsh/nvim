@@ -4,7 +4,8 @@ local util = require("orion.core.util")
 M.core = {
   n = {
     ["<Space>"] = { "<Nop>" },
-    ["<leader><leader>x"] = { "<cmd>source % <CR>", "Source current File" },
+    ["<leader><leader>x"] = { ":source % <CR>", "Source current File" },
+    ["<leader><leader>r"] = { ":source ~/.config/nvim/init.lua <CR>", "Reload Config" },
     ["j"] = { "v:count == 0 ? 'gj' : 'j'", "", { expr = true } },
     ["k"] = { "v:count == 0 ? 'gk' : 'k'", "", { expr = true } },
   },
@@ -89,8 +90,8 @@ M.harpoon = {
 -- Help (Generic keymaps)
 M.help = {
   n = {
-    ["<leader>hk"] = { ":Telescope keymaps <CR>", "keymaps" },
-    ["<leader>hh"] = { ":Telescope help_tags <CR>", "keymaps" },
+    ["<leader>hk"] = { ":Telescope keymaps <CR>", "Keymaps" },
+    ["<leader>hh"] = { ":Telescope help_tags <CR>", "Help" },
   },
 }
 
