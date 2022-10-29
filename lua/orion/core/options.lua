@@ -31,6 +31,9 @@ vim.tbl_map(function(plugin)
   vim.g["loaded_" .. plugin] = 1
 end, built_ins)
 
+-- Font setup
+vim.o.guifont = "Iosevka:h12"
+
 -- Set highlight on search
 vim.o.hlsearch = false
 
