@@ -109,6 +109,7 @@ local plugins = {
   ["olimorris/onedarkpro.nvim"] = { commit = "62b12ba" },
   ["projekt0n/github-nvim-theme"] = { commit = "a0632f9" },
   ["rebelot/kanagawa.nvim"] = { commit = "70d3139" },
+  ["rose-pine/neovim"] = { as = "rose-pine", commit = "27a822e" },
   ["shaunsingh/nord.nvim"] = { commit = "c8d932b" },
   ---- Dashboard
   ["goolord/alpha-nvim"] = { config = [[require("orion.configs.alpha") ]], commit = "0bb6fc0" },
