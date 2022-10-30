@@ -5,7 +5,6 @@ M.core = {
   n = {
     ["<Space>"] = { "<Nop>" },
     ["<leader><leader>x"] = { ":source % <CR>", "Source current File" },
-    ["<leader><leader>r"] = { ":source ~/.config/nvim/init.lua <CR>", "Reload Config" },
     ["j"] = { "v:count == 0 ? 'gj' : 'j'", "", { expr = true } },
     ["k"] = { "v:count == 0 ? 'gk' : 'k'", "", { expr = true } },
   },
