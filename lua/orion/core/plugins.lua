@@ -149,9 +149,10 @@ local plugins = {
   -- ["MunifTanjim/nui.nvim"] = { commit = "d12a697" },
   -- ["rcarriga/nvim-notify"] = { commit = "354e0eb" },
   -- ["folke/noice.nvim"] = { event = "VimEnter", config = [[ require("orion.configs.noice") ]], commit = "7b62ccf" },
-
   ---- Code Map
   ["gorbit99/codewindow.nvim"] = { config = [[ require("orion.configs.codewindow") ]], commit = "7123d6f" },
+  ---- Movement
+  ["ggandor/leap-spooky.nvim"] = { commit = "3a2e111" },
 }
 
 -- Load the plugins
