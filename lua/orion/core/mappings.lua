@@ -239,18 +239,6 @@ M.lsp = function(bufnr)
     ["gl"] = { vim.diagnostic.open_float, "Float", { buffer = bufnr } },
     ["gr"] = { vim.lsp.buf.references, "Reference", { buffer = bufnr } },
 
-    -- workspace keymaps
-    ["<leader><Tab>a"] = { vim.lsp.buf.add_workspace_folder, "Add folder", { buffer = bufnr } },
-    ["<leader><Tab>r"] = { vim.lsp.buf.remove_workspace_folder, "Remove folder", { buffer = bufnr } },
-    ["<leader><Tab>s"] = { ":Telescope lsp_dynamic_workspace_symbols <CR>", "Symbols", { buffer = bufnr } },
-    ["<leader><Tab>l"] = {
-      function()
-        vim.pretty_print(vim.lsp.buf.list_workspace_folders())
-      end,
-      "List folders",
-      { buffer = bufnr },
-    },
-
     -- format
     ["<leader>bf"] = {
       function()
