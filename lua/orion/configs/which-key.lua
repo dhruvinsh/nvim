@@ -78,7 +78,6 @@ wk.setup({
 
 -- Labels for the whichkey
 local labels = {
-  ["<leader><Tab>"] = { name = "workspace" },
   ["<leader>P"] = { name = "packer" },
   ["<leader>b"] = { name = "buffer" },
   ["<leader>d"] = { name = "debug" },
