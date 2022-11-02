@@ -217,10 +217,10 @@ M.lsp_control = {
 M.lsp = function(bufnr)
   local normal_mappings = {
     -- aerial keymaps
-    ["{"] = { ":AerialPrev <CR>", "AerialPrev", { buffer = bufnr } },
-    ["}"] = { ":AerialNext <CR>", "AerialNext", { buffer = bufnr } },
-    ["[["] = { ":AerialPrevUp <CR>", "AerialPrevUp", { buffer = bufnr } },
-    ["]]"] = { ":AerialNextUp <CR>", "AerialNextUp", { buffer = bufnr } },
+    ["{"] = { util.lazy_required_fn("aerial", "prev"), "AerialPrev", { buffer = bufnr } },
+    ["}"] = { util.lazy_required_fn("aerial", "next"), "AerialNext", { buffer = bufnr } },
+    ["[["] = { util.lazy_required_fn("aerial", "prev_up"), "AerialPrevUp", { buffer = bufnr } },
+    ["]]"] = { util.lazy_required_fn("aerial", "next_up"), "AerialNextUp", { buffer = bufnr } },
 
     ["<leader>la"] = { vim.lsp.buf.code_action, "Action", { buffer = bufnr } },
     ["<leader>ld"] = { vim.lsp.buf.type_definition, "Definition", { buffer = bufnr } },
