@@ -75,7 +75,7 @@ local plugins = {
   ["ggandor/flit.nvim"] = { config = [[require("orion.configs.flit") ]], commit = "be110f9" },
   ["ggandor/leap.nvim"] = { config = [[require("orion.configs.leap") ]], commit = "847a1dc" },
   ["max397574/better-escape.nvim"] = { config = [[require("orion.configs.better-escape") ]], commit = "d5ee0ce" },
-  ["stevearc/aerial.nvim"] = { config = [[require("orion.configs.aerial") ]], commit = "62b6ebb" },
+  ["stevearc/aerial.nvim"] = { config = [[require("orion.configs.aerial") ]], commit = "f15e49c" },
   ["fedepujol/move.nvim"] = { commit = "2cd5335" },
   ["andymass/vim-matchup"] = { config = [[ require("orion.configs.matchup") ]], commit = "09576fd" },
   ["ThePrimeagen/harpoon"] = { config = [[ require("orion.configs.harpoon") ]], commit = "4dfe94e" },
