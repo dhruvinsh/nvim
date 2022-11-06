@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 ########################
 # Author: Dhruivn Shah #
 # Date: 8th Oct 2022   #
