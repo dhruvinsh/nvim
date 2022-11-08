@@ -1,4 +1,4 @@
-local colorscheme = "gruvbox"
+local colorscheme = "tokyonight"
 
 -- Check for colorscheme configuration, if available or not
 pcall(require, "orion.colorscheme.config." .. colorscheme)
