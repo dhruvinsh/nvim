@@ -25,8 +25,11 @@ null_ls.setup({
     diagnostics.mypy,
     diagnostics.pylint,
 
-    -- Shell
+    -- shell
     formatting.shfmt,
     diagnostics.shellcheck,
+
+    -- toml
+    formatting.taplo,
   },
 })
