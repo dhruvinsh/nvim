@@ -107,13 +107,13 @@ M.move = {
     ["<A-h>"] = { ":MoveHChar(-1) <CR>", "Move text left" },
     ["<A-j>"] = { ":MoveLine(1) <CR>", "Move text down" },
     ["<A-k>"] = { ":MoveLine(-1) <CR>", "Move text up" },
-    ["<A- l>"] = { ":MoveHChar(1) <CR>", "Move text right" },
+    ["<A-l>"] = { ":MoveHChar(1) <CR>", "Move text right" },
   },
   v = {
     ["<A-h>"] = { ":MoveHBlock(-1) <CR>", "Move text left" },
     ["<A-j>"] = { ":MoveBlock(1) <CR>", "Move text down" },
     ["<A-k>"] = { ":MoveBlock(-1) <CR>", "Move text up" },
-    ["<A- l>"] = { ":MoveHBlock(1) <CR>", "Move text right" },
+    ["<A-l>"] = { ":MoveHBlock(1) <CR>", "Move text right" },
   },
 }
 
