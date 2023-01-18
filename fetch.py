@@ -108,7 +108,11 @@ class Github:
         json_data = req.json()
 
         # we just need first 7 alphabets
-        return json_data[0].get("sha")[:7]
+        try:
+            return json_data[0].get("sha")[:7]
+        except KeyError:
+            print(f"Failed to process {plugin.repo}")
+            raise
 
     def get_all_commits_count(self, plugin: Plugin) -> dict[str, Any]:
         """get the commit counts from specific repo to the latest head.
