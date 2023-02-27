@@ -8,4 +8,14 @@ return {
       position = "right",
     },
   },
+
+  -- Mason updates
+  {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "pyright",
+      },
+    },
+  },
 }
