@@ -26,10 +26,14 @@ return {
       local nls = require("null-ls")
       opts.sources = vim.list_extend(opts.sources, {
         -- python
-        nls.builtins.formatting.black,
-        nls.builtins.formatting.isort,
         nls.builtins.diagnostics.mypy,
         nls.builtins.diagnostics.ruff,
+        nls.builtins.formatting.black,
+        nls.builtins.formatting.isort,
+
+        -- shell
+        nls.builtins.diagnostics.shellcheck,
+        nls.builtins.formatting.shfmt,
 
         -- all other js based langs
         nls.builtins.formatting.prettier,
