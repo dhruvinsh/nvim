@@ -15,6 +15,7 @@ return {
     opts = {
       ensure_installed = {
         "pyright",
+        "rust-analyzer",
       },
     },
   },
@@ -30,6 +31,9 @@ return {
         nls.builtins.diagnostics.ruff,
         nls.builtins.formatting.black,
         nls.builtins.formatting.isort,
+
+        -- rust
+        nls.builtins.formatting.rustfmt,
 
         -- shell
         nls.builtins.diagnostics.shellcheck,
