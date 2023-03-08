@@ -39,6 +39,9 @@ return {
         nls.builtins.diagnostics.shellcheck,
         nls.builtins.formatting.shfmt,
 
+        -- toml
+        nls.builtins.formatting.taplo,
+
         -- all other js based langs
         nls.builtins.formatting.prettier,
       })
