@@ -13,7 +13,8 @@ return {
     "jose-elias-alvarez/null-ls.nvim",
     opts = function(_, opts)
       local nls = require("null-ls")
-      table.insert(opts.sources, nls.builtins.diagnostics.mypy, nls.builtins.diagnostics.ruff)
+      table.insert(opts.sources, nls.builtins.diagnostics.mypy)
+      table.insert(opts.sources, nls.builtins.diagnostics.ruff)
 
       -- remove flake8 from opts.sources
       opts.sources = vim.tbl_filter(function(source)
