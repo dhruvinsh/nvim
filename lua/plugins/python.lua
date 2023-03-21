@@ -11,6 +11,11 @@ return {
         -- "isort",
         "pyright",
       })
+
+      -- remove flake8 from even downloading
+      opts.ensure_installed = vim.tbl_filter(function(source)
+        return source ~= "flake8"
+      end, opts.ensure_installed)
     end,
   },
 
