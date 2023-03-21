@@ -1,11 +1,10 @@
 return {
   {
     "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "taplo",
-      },
-    },
+    ---@diagnostic disable: missing-parameter
+    opts = function(_, opts)
+      opts.ensure_installed = vim.list_extend(opts.ensure_installed, { "taplo" })
+    end,
   },
 
   {
