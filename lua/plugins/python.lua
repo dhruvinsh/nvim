@@ -10,6 +10,7 @@ return {
         -- "black",
         -- "isort",
         "pyright",
+        "ruff-lsp",
       })
     end,
   },
@@ -20,7 +21,6 @@ return {
       local nls = require("null-ls")
 
       table.insert(opts.sources, nls.builtins.diagnostics.mypy)
-      table.insert(opts.sources, nls.builtins.diagnostics.ruff)
 
       table.insert(opts.sources, nls.builtins.formatting.black)
       table.insert(opts.sources, nls.builtins.formatting.isort)
