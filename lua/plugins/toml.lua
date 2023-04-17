@@ -1,10 +1,12 @@
 return {
   {
-    "williamboman/mason.nvim",
-    ---@diagnostic disable: missing-parameter
-    opts = function(_, opts)
-      opts.ensure_installed = vim.list_extend(opts.ensure_installed, { "taplo" })
-    end,
+    "neovim/nvim-lspconfig",
+    opts = {
+      ---@type lspconfig.options
+      servers = {
+        taplo = {},
+      },
+    },
   },
 
   {

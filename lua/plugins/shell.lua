@@ -1,5 +1,14 @@
 return {
   {
+    "neovim/nvim-lspconfig",
+    opts = {
+      ---@type lspconfig.options
+      servers = {
+        bashls = {},
+      },
+    },
+  },
+  {
     "williamboman/mason.nvim",
     opts = function(_, opts)
       ---@diagnostic disable: missing-parameter
