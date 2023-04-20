@@ -1,0 +1,35 @@
+name: update packages
+on:
+  schedule:
+    - cron: 22 2 * * *
+  workflow_dispatch:
+
+jobs:
+  update-packages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install neovim
+        run: sudo apt install -y git curl wget luajit build-essential libfuse-dev
+
+      - name: Update packages
+        run: |
+          wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage -O $HOME/nvim.appimage
+          chmod +x $HOME/nvim.appimage
+          mkdir -p $HOME/data
+          mkdir -p $HOME/.config/nvim
+          cp -r /home/runner/work/nvim/nvim/* $HOME/.config/nvim/
+          export XDG_DATA_HOME=$HOME/data
+          export XDG_CONFIG_HOME=$HOME/.config
+          $HOME/nvim.appimage --headless +q
+          cp -r $HOME/.config/nvim/lazy-lock.json /home/runner/work/nvim/nvim/lazy-lock.json
+
+      - name: Push changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "[ci] plugin(s): auto-updated"
+          commit_user_name: "github-actions[bot]"
+          commit_user_email: "github-actions[bot]@users.noreply.github.com"
+          commit_author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
