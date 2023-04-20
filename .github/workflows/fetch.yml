@@ -24,11 +24,12 @@ jobs:
           export XDG_DATA_HOME=$HOME/data
           export XDG_CONFIG_HOME=$HOME/.config
           $HOME/nvim.appimage --headless +q
+          cp -r $HOME/.config/nvim/lazy-lock.json /home/runner/work/nvim/nvim/lazy-lock.json
 
       - name: Push changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: "plugin(s)(ci): auto-updated"
+          commit_message: "[ci] plugin(s): auto-updated"
           commit_user_name: "github-actions[bot]"
           commit_user_email: "github-actions[bot]@users.noreply.github.com"
           commit_author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
