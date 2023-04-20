@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        path: /nvim-tryout/config
+        path: '/nvim-tryout/config'
 
       - name: Install neovim
         run: sudo apt install -y neovim git curl wget luajit build-essential
