@@ -17,8 +17,11 @@ jobs:
       - name: Update packages
         run: |
           mkdir -p $HOME/data
+          mkdir -p $HOME/.config/nvim
+          cp -r /home/runner/work/nvim/nvim/* $HOME/.config/nvim/
           export XDG_DATA_HOME=$HOME/data
-          XDG_CONFIG_HOME=/home/runner/work/nvim/nvim nvim --headless -u /home/runner/work/nvim/nvim/init.lua +q
+          export XDG_CONFIG_HOME=$HOME/.config
+          nvim --headless +q
 
       - name: Push changes
         uses: stefanzweifel/git-auto-commit-action@v4
