@@ -12,16 +12,18 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Install neovim
-        run: sudo apt install -y neovim git curl wget luajit build-essential
+        run: sudo apt install -y git curl wget luajit build-essential
 
       - name: Update packages
         run: |
+          wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage -O $HOME/nvim.appimage
+          chmod +x $HOME/nvim.appimage
           mkdir -p $HOME/data
           mkdir -p $HOME/.config/nvim
           cp -r /home/runner/work/nvim/nvim/* $HOME/.config/nvim/
           export XDG_DATA_HOME=$HOME/data
           export XDG_CONFIG_HOME=$HOME/.config
-          nvim --headless +q
+          $HOME/nvim.appimage --headless +q
 
       - name: Push changes
         uses: stefanzweifel/git-auto-commit-action@v4
