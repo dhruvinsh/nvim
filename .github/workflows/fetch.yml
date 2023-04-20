@@ -16,8 +16,8 @@ jobs:
 
       - name: Update packages
         run: |
-          mkdir home/runner/nvim-tryout/data
-          export XDG_DATA_HOME=/home/runner/nvim-tryout/data
+          mkdir -p $HOME/data
+          export XDG_DATA_HOME=$HOME/data
           XDG_CONFIG_HOME=/home/runner/work/nvim/nvim nvim --headless -u /home/runner/work/nvim/nvim/init.lua +q
 
       - name: Push changes
