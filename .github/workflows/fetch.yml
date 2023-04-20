@@ -10,12 +10,16 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        path: /nvim-tryout/config
 
       - name: Install neovim
         run: sudo apt install -y neovim git curl wget luajit build-essential
 
       - name: Update packages
-        run: nvim --headless -u init.lua +q
+        run: |
+          mkdir /nvim-tryout/config
+          mkdir /nvim-tryout/data
+          XDG_CONFIG_HOME=/nvim-tryout/config XDG_DATA_HOME=/nvim-tryout/data nvim --headless -u /nvim-tryout/config/init.lua +q
 
       - name: Push changes
         uses: stefanzweifel/git-auto-commit-action@v4
