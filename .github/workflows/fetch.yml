@@ -11,20 +11,23 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Install neovim
+      - name: Installing libraries
         run: sudo apt install -y git curl wget luajit build-essential libfuse-dev
 
-      - name: Update packages
+      - name: Get neovim
         run: |
           wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage -O $HOME/nvim.appimage
           chmod +x $HOME/nvim.appimage
-          mkdir -p $HOME/data
-          mkdir -p $HOME/.config/nvim
-          cp -r /home/runner/work/nvim/nvim/* $HOME/.config/nvim/
+
+      - name: Update packages
+        run: |
           export XDG_DATA_HOME=$HOME/data
           export XDG_CONFIG_HOME=$HOME/.config
+          mkdir -p $XDG_DATA_HOME
+          mkdir -p $XDG_CONFIG_HOME/nvim
+          cp -r /home/runner/work/nvim/nvim/* $XDG_CONFIG_HOME/nvim/
           $HOME/nvim.appimage --headless +q
-          cp -r $HOME/.config/nvim/lazy-lock.json /home/runner/work/nvim/nvim/lazy-lock.json
+          cp -r $XDG_CONFIG_HOME/nvim/lazy-lock.json /home/runner/work/nvim/nvim/lazy-lock.json
 
       - name: Push changes
         uses: stefanzweifel/git-auto-commit-action@v4
