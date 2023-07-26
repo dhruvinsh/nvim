@@ -6,23 +6,23 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
--- HACK: linux vs windows
+-- HACK: linux/darwin vs windows
 local specifications = {
   -- add LazyVim and import its plugins
   { "LazyVim/LazyVim", import = "lazyvim.plugins" },
   -- import any extras modules here
   { import = "lazyvim.plugins.extras.dap.core" },
   { import = "lazyvim.plugins.extras.formatting.prettier" },
-  { import = "lazyvim.plugins.extras.lang.clangd" },
+  -- { import = "lazyvim.plugins.extras.lang.clangd" },
   -- { import = "lazyvim.plugins.extras.lang.go" },
   { import = "lazyvim.plugins.extras.lang.json" },
   -- { import = "lazyvim.plugins.extras.lang.rust" },
-  { import = "lazyvim.plugins.extras.lang.tailwind" },
+  -- { import = "lazyvim.plugins.extras.lang.tailwind" },
   { import = "lazyvim.plugins.extras.lang.typescript" },
   { import = "lazyvim.plugins.extras.linting.eslint" },
   -- { import = "lazyvim.plugins.extras.ui.edgy" },
   { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
-  { import = "lazyvim.plugins.extras.util.project" },
+  -- { import = "lazyvim.plugins.extras.util.project" },
   { import = "lazyvim.plugins.extras.vscode" },
   -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
   -- import/override with your plugins
@@ -34,8 +34,6 @@ if vim.loop.os_uname().sysname == "Windows_NT" then
   -- minimal plugins
   specifications = {
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-    { import = "lazyvim.plugins.extras.ui.edgy" },
-    { import = "lazyvim.plugins.extras.util.project" },
     { import = "lazyvim.plugins.extras.vscode" },
   }
 end
