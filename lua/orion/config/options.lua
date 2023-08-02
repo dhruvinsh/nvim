@@ -54,3 +54,8 @@ end
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
+
+-- make neovim aware about node installed via volta
+if vim.fn.executable("volta") then
+  vim.g.node_host_prog = vim.fn.trim(vim.fn.system("volta which neovim-node-host", true))
+end
