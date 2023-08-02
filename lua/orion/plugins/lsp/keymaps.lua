@@ -1,14 +1,3 @@
-local normal_mappings = {
-  -- format
-  ["<leader>bf"] = {
-    function()
-      vim.lsp.buf.format({ async = true })
-    end,
-    "Format",
-    { buffer = bufnr },
-  },
-}
-
 local M = {}
 
 -- diagnostic helper function
