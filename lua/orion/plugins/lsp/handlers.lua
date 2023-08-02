@@ -20,6 +20,12 @@ end
 ---@param client table
 ---@param buffer integer
 M.on_attach = function(client, buffer)
+  -- ruff-lsp
+  if client.name == "ruff_lsp" then
+    -- Disable hover in favor of Pyright
+    client.server_capabilities.hoverProvider = false
+  end
+
   -- nvim-navic setup
   if util.has("nvim-navic") then
     if client.server_capabilities.documentSymbolProvider then

@@ -21,6 +21,7 @@ return {
       autoformat = true,
       capabilities = {}, -- some global capabilities
       servers = {
+        bashls = {},
         jsonls = {},
         lua_ls = {
           settings = {
@@ -35,6 +36,7 @@ return {
           },
         },
         pyright = {},
+        ruff_lsp = {},
       },
     },
     config = function(_, opts)
@@ -55,7 +57,7 @@ return {
       -- setup formatting
       require("orion.plugins.lsp.format").setup(opts)
 
-      -- automatic lsp server installation via mason
+      -- automatic lsp server installation via mason and setup
       local ensure_installed = {} ---@type string[]
       local _, mlsp = pcall(require, "mason-lspconfig")
       for server, _ in pairs(opts.servers) do
@@ -75,8 +77,12 @@ return {
       return {
         root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", "Makefile", ".git"),
         sources = {
-          nls.builtins.formatting.stylua,
+          nls.builtins.diagnostics.mypy,
+          nls.builtins.diagnostics.shellcheck,
+          nls.builtins.formatting.black,
+          nls.builtins.formatting.isort,
           nls.builtins.formatting.shfmt,
+          nls.builtins.formatting.stylua,
         },
       }
     end,
@@ -90,8 +96,9 @@ return {
     build = ":MasonUpdate",
     opts = {
       ensure_installed = {
-        "stylua",
+        "shellcheck",
         "shfmt",
+        "stylua",
       },
     },
     ---@param opts MasonSettings | {ensure_installed: string[]}
