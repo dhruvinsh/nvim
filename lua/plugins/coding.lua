@@ -28,4 +28,14 @@ return {
     event = "VeryLazy",
     config = true,
   },
+
+  -- Git tool that supposed to be banned
+  {
+    "tpope/vim-fugitive",
+    event = { "BufReadPost", "BufNewFile" },
+    cmd = { "Git" },
+    keys = {
+      { "<leader>gg", "<cmd>Git<cr>", mode = "n", desc = "Git Status" },
+    },
+  },
 }
