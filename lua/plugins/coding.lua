@@ -25,8 +25,14 @@ return {
   -- automatic pair insersion
   {
     "windwp/nvim-autopairs",
-    event = "VeryLazy",
     config = true,
+    event = { "BufReadPost", "BufNewFile", "InsertEnter" },
+    dependencies = {
+      {
+        "windwp/nvim-ts-autotag",
+        config = true,
+      },
+    },
   },
 
   -- Git tool that supposed to be banned
