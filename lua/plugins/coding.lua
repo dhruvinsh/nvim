@@ -17,7 +17,7 @@ return {
     version = "*",
     event = { "BufReadPost", "BufNewFile", "InsertEnter" },
     dependencies = {
-      { "tpope/vim-repeat", lazy = true },
+      { "tpope/vim-repeat", event = "VeryLazy" },
     },
     config = true,
   },
