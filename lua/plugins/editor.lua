@@ -70,4 +70,10 @@ return {
       end,
     },
   },
+
+  -- Some plugins that I want to disable
+  {
+    "folke/flash.nvim",
+    enabled = false,
+  },
 }

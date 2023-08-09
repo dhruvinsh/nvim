@@ -12,6 +12,7 @@ local specifications = {
   { "LazyVim/LazyVim", import = "lazyvim.plugins" },
   -- import any extras modules here
   { import = "lazyvim.plugins.extras.dap.core" },
+  { import = "lazyvim.plugins.extras.editor.leap" },
   { import = "lazyvim.plugins.extras.formatting.prettier" },
   { import = "lazyvim.plugins.extras.lang.json" },
   { import = "lazyvim.plugins.extras.lang.typescript" },
@@ -28,6 +29,7 @@ if vim.loop.os_uname().sysname == "Windows_NT" then
   -- minimal plugins
   specifications = {
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+    { import = "lazyvim.plugins.extras.editor.leap" },
     { import = "lazyvim.plugins.extras.vscode" },
   }
 end
