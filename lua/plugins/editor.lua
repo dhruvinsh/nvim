@@ -13,13 +13,9 @@ return {
     opts = {
       filesystem = {
         filtered_items = {
-          always_show = {
-            ".clang-format",
-            ".editorconfig",
-            ".envrc",
-            ".github",
-            ".gitignore",
-            ".vscode",
+          hide_dotfiles = false,
+          hide_by_name = {
+            ".git",
           },
         },
       },
