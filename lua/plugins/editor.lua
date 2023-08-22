@@ -1,5 +1,12 @@
 return {
   {
+    "m4xshen/hardtime.nvim",
+    event = "BufReadPost",
+    dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+    opts = {},
+  },
+
+  {
     "echasnovski/mini.align",
     version = false,
     event = { "BufReadPre", "BufNewFile" },
