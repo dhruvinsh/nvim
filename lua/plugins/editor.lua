@@ -6,6 +6,7 @@ return {
     opts = {
       disabled_filetypes = {
         "NvimTree",
+        "fugitive",
         "lazy",
         "mason",
         "neo-tree",
