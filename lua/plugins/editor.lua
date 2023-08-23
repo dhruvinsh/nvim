@@ -3,7 +3,24 @@ return {
     "m4xshen/hardtime.nvim",
     event = "BufReadPost",
     dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-    opts = {},
+    opts = {
+      disabled_filetypes = {
+        "NvimTree",
+        "lazy",
+        "mason",
+        "neo-tree",
+        "netrw",
+        "oil",
+        "qf",
+      },
+    },
+    keys = {
+      {
+        "<leader>uh",
+        "<cmd>Hardtime toggle<cr>",
+        desc = "Hardtime toggle",
+      },
+    },
   },
 
   {
