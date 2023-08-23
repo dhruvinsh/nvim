@@ -5,12 +5,14 @@ return {
     dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
     opts = {
       disabled_filetypes = {
+        "NeogitStatus",
         "NvimTree",
         "fugitive",
         "lazy",
         "mason",
         "neo-tree",
         "netrw",
+        "noice",
         "oil",
         "qf",
       },
