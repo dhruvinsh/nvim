@@ -36,12 +36,25 @@ return {
   },
 
   -- Git tool that supposed to be banned
+  -- {
+  --   "tpope/vim-fugitive",
+  --   event = { "BufReadPost", "BufNewFile" },
+  --   cmd = { "Git" },
+  --   keys = {
+  --     { "<leader>gg", "<cmd>Git<cr>", mode = "n", desc = "Git Status" },
+  --   },
+  -- },
   {
-    "tpope/vim-fugitive",
-    event = { "BufReadPost", "BufNewFile" },
-    cmd = { "Git" },
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+      "sindrets/diffview.nvim",
+    },
+    config = true,
+    cmd = { "Neogit" },
     keys = {
-      { "<leader>gg", "<cmd>Git<cr>", mode = "n", desc = "Git Status" },
+      { "<leader>gg", "<cmd>Neogit<cr>", mode = "n", desc = "Git Status" },
     },
   },
 
