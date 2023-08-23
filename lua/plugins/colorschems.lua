@@ -3,7 +3,7 @@ return {
   {
     "rose-pine/neovim",
     name = "rose-pine",
-    priority = 1000,
+    lazy = true,
     opts = {
       disable_italics = true,
       highlight_groups = {
