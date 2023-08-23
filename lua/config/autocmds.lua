@@ -26,3 +26,14 @@ vim.api.nvim_create_autocmd({ "BufRead" }, {
     })
   end,
 })
+
+-- clear exisitng wrap_spell and make new one
+vim.api.nvim_create_augroup("lazyvim_wrap_spell", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup("wrap_spell"),
+  pattern = { "gitcommit", "markdown", "NeogitCommitMessage" },
+  callback = function()
+    vim.opt_local.wrap = true
+    vim.opt_local.spell = true
+  end,
+})
