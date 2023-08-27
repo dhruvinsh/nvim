@@ -25,7 +25,7 @@ vim.api.nvim_create_autocmd({ "BufRead" }, {
 })
 
 -- clear exisitng wrap_spell and make new one
-vim.api.nvim_create_augroup("lazyvim_wrap_spell", { clear = true })
+vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup("wrap_spell"),
   pattern = { "gitcommit", "markdown", "NeogitCommitMessage" },
