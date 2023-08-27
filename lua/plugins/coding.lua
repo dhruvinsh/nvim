@@ -77,4 +77,25 @@ return {
     },
     config = true,
   },
+
+  -- nvim-cmp disable luasnip for comment and string context
+  {
+    "hrsh7th/nvim-cmp",
+    ---@param opts cmp.ConfigSchema
+    opts = function(_, opts)
+      for _, source in ipairs(opts.sources) do
+        if source.name == "luasnip" then
+          source.option = { use_show_condition = true }
+          source.entry_filter = function()
+            local ctx = require("cmp.config.context")
+            local string_ctx = ctx.in_treesitter_capture("string") or ctx.in_syntax_group("String")
+            local comment_ctx = ctx.in_treesitter_capture("comment") or ctx.in_syntax_group("Comment")
+
+            --   Returning `true` will keep the entry, while returning `false` will remove it.
+            return not (string_ctx or comment_ctx)
+          end
+        end
+      end
+    end,
+  },
 }
