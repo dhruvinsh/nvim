@@ -19,6 +19,7 @@ local specifications = {
   { import = "lazyvim.plugins.extras.linting.eslint" },
   { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
   { import = "lazyvim.plugins.extras.vscode" },
+  { import = "lazyvim.plugins.extras.util.project" },
   -- import/override with your plugins
   { import = "plugins" },
   { import = "plugins.lang" },
