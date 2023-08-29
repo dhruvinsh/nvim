@@ -62,7 +62,6 @@ return {
   {
     "akinsho/toggleterm.nvim",
     version = "*",
-    cmd = "ToggleTerm",
     keys = {
       {
         "<leader>ft",
@@ -75,7 +74,9 @@ return {
         desc = "Terminal (cwd)",
       },
     },
-    config = true,
+    opts = {
+      open_mapping = [[<c-\>]],
+    },
   },
 
   -- nvim-cmp disable luasnip for comment and string context
