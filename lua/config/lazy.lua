@@ -22,7 +22,6 @@ local specifications = {
   { import = "lazyvim.plugins.extras.util.project" },
   -- import/override with your plugins
   { import = "plugins" },
-  { import = "plugins.lang" },
 }
 
 if vim.loop.os_uname().sysname == "Windows_NT" then
