@@ -3,7 +3,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
       if type(opts.ensure_installed) == "table" then
-        vim.list_extend(opts.ensure_installed, { "ninja", "python", "rst", "toml" })
+        vim.list_extend(opts.ensure_installed, { "ninja", "python", "rst", "toml", "kdl", "devicetree" })
       end
     end,
   },
@@ -13,8 +13,10 @@ return {
     opts = {
       ---@type lspconfig.options
       servers = {
-        pyright = {},
-        ruff_lsp = {},
+        taplo = {}, -- toml
+        bashls = {}, -- bash, sh
+        pyright = {}, -- python
+        ruff_lsp = {}, -- python
       },
     },
     setup = {
@@ -30,10 +32,32 @@ return {
   },
 
   {
+    "williamboman/mason.nvim",
+    opts = function(_, opts)
+      ---@diagnostic disable: missing-parameter
+      opts.ensure_installed = vim.list_extend(opts.ensure_installed, {
+        -- bash
+        "shellcheck",
+        "shfmt",
+
+        -- toml
+        "taplo",
+      })
+    end,
+  },
+
+  {
     "jose-elias-alvarez/null-ls.nvim",
     opts = function(_, opts)
       local nls = require("null-ls")
+      -- toml
+      table.insert(opts.sources, nls.builtins.formatting.taplo)
 
+      -- bash
+      table.insert(opts.sources, nls.builtins.diagnostics.shellcheck)
+      table.insert(opts.sources, nls.builtins.formatting.shfmt)
+
+      -- python
       table.insert(opts.sources, nls.builtins.diagnostics.mypy)
 
       table.insert(opts.sources, nls.builtins.formatting.black)
