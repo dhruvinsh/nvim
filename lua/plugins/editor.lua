@@ -1,32 +1,5 @@
 return {
   {
-    "m4xshen/hardtime.nvim",
-    event = "BufReadPost",
-    dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-    opts = {
-      disabled_filetypes = {
-        "NeogitStatus",
-        "NvimTree",
-        "fugitive",
-        "lazy",
-        "mason",
-        "neo-tree",
-        "netrw",
-        "noice",
-        "oil",
-        "qf",
-      },
-    },
-    keys = {
-      {
-        "<leader>uh",
-        "<cmd>Hardtime toggle<cr>",
-        desc = "Hardtime toggle",
-      },
-    },
-  },
-
-  {
     "echasnovski/mini.align",
     version = false,
     event = { "BufReadPre", "BufNewFile" },
