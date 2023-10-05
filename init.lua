@@ -1,3 +1,5 @@
 -- It all begins here
 
-require("config.lazy")
+require("orion.config.options")
+require("orion.config.keymaps")
+require("orion.config.lazy")
