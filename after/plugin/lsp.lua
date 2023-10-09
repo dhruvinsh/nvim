@@ -1,4 +1,4 @@
-local util = require("utils")
+local utils = require("utils")
 
 require("neodev").setup()
 
@@ -26,7 +26,6 @@ local linter_and_formatter = {
 
   -- shell
   "shfmt",
-  "shellcheck",
 
   -- lua
   "stylua",
@@ -40,8 +39,8 @@ local linter_and_formatter = {
 }
 
 -- NOTE: ARM selene is not avaiabel with mason, but brew supports it
-if not util.is_mac then
-  table.insert(linter_and_formatter, "selene")
+if not utils.is_mac then
+  utils.insert(linter_and_formatter, { "selene", "shellcheck" })
 end
 
 -- install all the the valid linter and formatter
@@ -194,6 +193,7 @@ require("conform").setup({
 vim.opt.formatexpr = "v:lua.require('conform').formatexpr()"
 
 vim.api.nvim_create_autocmd("BufWritePre", {
+  group = utils.augroup("conform"),
   pattern = "*",
   callback = function(args)
     require("conform").format({ bufnr = args.buf })
@@ -212,6 +212,7 @@ lint.linters_by_ft = {
 }
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  group = utils.augroup("nvim_lint"),
   callback = function()
     require("lint").try_lint()
   end,
