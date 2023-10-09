@@ -1,7 +1,34 @@
 ---@diagnostic disable-next-line
 require("nvim-treesitter.configs").setup({
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
-  ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "python" },
+  ensure_installed = {
+    "bash",
+    "c",
+    "devicetree",
+    "diff",
+    "html",
+    "javascript",
+    "jsdoc",
+    "json",
+    "jsonc",
+    "kdl",
+    "lua",
+    "luadoc",
+    "luap",
+    "markdown",
+    "markdown_inline",
+    "ninja",
+    "python",
+    "query",
+    "regex",
+    "rst",
+    "toml",
+    "tsx",
+    "typescript",
+    "vim",
+    "vimdoc",
+    "yaml",
+  },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
