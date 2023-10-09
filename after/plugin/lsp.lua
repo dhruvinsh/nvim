@@ -5,14 +5,16 @@ require("neodev").setup()
 local mason_lspconfig = require("mason-lspconfig")
 
 local servers = {
-  pyright = {},
-  ruff_lsp = {},
+  bashls = {}, -- bash, sh
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
       telemetry = { enable = false },
     },
   },
+  pyright = {}, -- python
+  ruff_lsp = {}, -- python
+  taplo = {}, -- toml
 }
 
 local linter_and_formatter = {
@@ -21,6 +23,10 @@ local linter_and_formatter = {
   "isort",
   "mypy",
   "ruff",
+
+  -- shell
+  "shfmt",
+  "shellcheck",
 
   -- lua
   "stylua",
@@ -47,7 +53,7 @@ for _, tool in ipairs(linter_and_formatter) do
   end
 end
 
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
   ---@param keys string
   ---@param func function | string
   ---@param desc? string
@@ -97,6 +103,12 @@ local on_attach = function(_, bufnr)
   vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
     vim.lsp.buf.format()
   end, { desc = "Format current buffer with LSP" })
+
+  -- server specific changes
+  if client.name == "ruff_lsp" then
+    client.server_capabilities.hoverProvider = false
+    vim.print(client)
+  end
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -172,6 +184,7 @@ cmp.setup({
 ----------------------------------------------------
 require("conform").setup({
   formatters_by_ft = {
+    bash = { "shellcheck" },
     lua = { "stylua" },
     markdown = { "cbfmt", "prettierd" },
     python = { "isort", "black" },
@@ -192,6 +205,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 ----------------------------------------------------
 local lint = require("lint")
 lint.linters_by_ft = {
+  bash = { "shellcheck" },
   lua = { "selene" },
   markdown = { "vale" },
   python = { "ruff", "mypy" },
@@ -202,3 +216,24 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
     require("lint").try_lint()
   end,
 })
+
+-- TODO: implement this..
+-- {
+--   "hrsh7th/nvim-cmp",
+--   ---@param opts cmp.ConfigSchema
+--   opts = function(_, opts)
+--     for _, source in ipairs(opts.sources) do
+--       if source.name == "luasnip" then
+--         source.option = { use_show_condition = true }
+--         source.entry_filter = function()
+--           local ctx = require("cmp.config.context")
+--           local string_ctx = ctx.in_treesitter_capture("string") or ctx.in_syntax_group("String")
+--           local comment_ctx = ctx.in_treesitter_capture("comment") or ctx.in_syntax_group("Comment")
+--
+--           --   Returning `true` will keep the entry, while returning `false` will remove it.
+--           return not (string_ctx or comment_ctx)
+--         end
+--       end
+--     end
+--   end,
+-- },
