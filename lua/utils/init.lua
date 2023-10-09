@@ -1,5 +1,9 @@
 local M = {}
 
+M.augroup = function(name)
+  return vim.api.nvim_create_augroup("orion_" .. name, { clear = true })
+end
+
 M.os_name = vim.loop.os_uname().sysname
 
 ---@return boolean
@@ -15,6 +19,12 @@ M.is_big_buffer = function(bufnr)
     return true
   else
     return false
+  end
+end
+
+M.insert = function(tbl, ...)
+  for _, value in ipairs({ ... }) do
+    table.insert(tbl, value)
   end
 end
 
