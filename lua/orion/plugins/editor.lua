@@ -1,4 +1,6 @@
 return {
+  { "echasnovski/mini.bufremove", version = false },
+
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
