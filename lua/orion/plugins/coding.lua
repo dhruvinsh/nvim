@@ -5,30 +5,19 @@ return {
 
   -- git plugins
   "tpope/vim-fugitive",
-  {
-    "lewis6991/gitsigns.nvim",
-    opts = {},
-  },
+  { "lewis6991/gitsigns.nvim", opts = {} },
 
-  {
-    "numToStr/Comment.nvim",
-    config = true,
-  },
+  { "numToStr/Comment.nvim", config = true },
+  { "windwp/nvim-autopairs", opts = {} },
 
-  {
-    "windwp/nvim-autopairs",
-    event = "InsertEnter",
-    opts = {},
-  },
-
+  -- tools
   {
     "akinsho/toggleterm.nvim",
-    version = "*",
+    version = false,
     opts = {
       open_mapping = [[<c-\>]],
     },
   },
-
   {
     "ellisonleao/glow.nvim",
     config = true,
