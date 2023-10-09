@@ -1,3 +1,5 @@
+local util = require("utils")
+
 require("neodev").setup()
 
 local mason_lspconfig = require("mason-lspconfig")
@@ -21,7 +23,6 @@ local linter_and_formatter = {
   "ruff",
 
   -- lua
-  "selene",
   "stylua",
 
   -- markdown
@@ -31,6 +32,20 @@ local linter_and_formatter = {
   -- js, html, markdown and lot of others
   "prettierd",
 }
+
+-- NOTE: ARM selene is not avaiabel with mason, but brew supports it
+if not util.is_mac then
+  table.insert(linter_and_formatter, "selene")
+end
+
+-- install all the the valid linter and formatter
+local mr = require("mason-registry")
+for _, tool in ipairs(linter_and_formatter) do
+  local p = mr.get_package(tool)
+  if not p:is_installed() then
+    p:install()
+  end
+end
 
 local on_attach = function(_, bufnr)
   ---@param keys string
@@ -86,15 +101,6 @@ end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-
--- install all the the valid linter and formatter
-local mr = require("mason-registry")
-for _, tool in ipairs(linter_and_formatter) do
-  local p = mr.get_package(tool)
-  if not p:is_installed() then
-    p:install()
-  end
-end
 
 -- install all the valid lsp servers
 mason_lspconfig.setup({
@@ -184,7 +190,8 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 ----------------------------------------------------
 -- Linter
 ----------------------------------------------------
-require("lint").linters_by_ft = {
+local lint = require("lint")
+lint.linters_by_ft = {
   lua = { "selene" },
   markdown = { "vale" },
   python = { "ruff", "mypy" },

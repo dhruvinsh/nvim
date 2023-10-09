@@ -1,5 +1,12 @@
 local M = {}
 
+M.os_name = vim.loop.os_uname().sysname
+
+---@return boolean
+M.is_mac = function()
+  return M.os_name == "Darwin" and true or false
+end
+
 ---@param bufnr number
 M.is_big_buffer = function(bufnr)
   local max_filesize = 100 * 1024 -- 100 KB
