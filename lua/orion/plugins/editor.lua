@@ -1,5 +1,7 @@
 return {
   { "echasnovski/mini.bufremove", version = false },
+  { "folke/flash.nvim", opts = {} },
+  { "cshuaimin/ssr.nvim" },
 
   {
     "nvim-telescope/telescope.nvim",
