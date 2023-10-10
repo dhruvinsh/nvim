@@ -19,7 +19,8 @@ M.is_big_buffer = function(bufnr)
   end
 end
 
-M.insert = function(tbl, ...)
+---@return nil
+M.tbl_append = function(tbl, ...)
   for _, value in ipairs({ ... }) do
     table.insert(tbl, value)
   end
