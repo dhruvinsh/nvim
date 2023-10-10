@@ -46,4 +46,6 @@ return {
   },
 
   "Wansmer/treesj",
+  "folke/persistence.nvim",
+  "ahmedkhalf/project.nvim",
 }
