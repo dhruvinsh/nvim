@@ -47,4 +47,6 @@ return {
   { "folke/todo-comments.nvim", config = true },
 
   { "stevearc/dressing.nvim", opts = {} },
+
+  "rcarriga/nvim-notify",
 }
