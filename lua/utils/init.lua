@@ -6,10 +6,7 @@ end
 
 M.os_name = vim.loop.os_uname().sysname
 
----@return boolean
-M.is_mac = function()
-  return M.os_name == "Darwin" and true or false
-end
+M.is_mac = M.os_name == "Darwin"
 
 ---@param bufnr number
 M.is_big_buffer = function(bufnr)
