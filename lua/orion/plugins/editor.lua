@@ -31,20 +31,7 @@ return {
     config = true,
   },
 
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    opts = {
-      filesystem = {
-        filtered_items = {
-          hide_dotfiles = false,
-          hide_by_name = {
-            ".git",
-          },
-        },
-      },
-    },
-  },
-
+  "nvim-neo-tree/neo-tree.nvim",
   "Wansmer/treesj",
   "folke/persistence.nvim",
   "ahmedkhalf/project.nvim",
