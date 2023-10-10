@@ -22,4 +22,4 @@ vim.keymap.set("n", "<leader>bc", function()
       vim.cmd("bd " .. tostring(bufnr))
     end
   end
-end, { silent = true, desc = "Close unused buffers" })
+end, { silent = true, desc = "Clear Buffers" })
