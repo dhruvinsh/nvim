@@ -40,7 +40,7 @@ local linter_and_formatter = {
 
 -- NOTE: ARM selene is not avaiabel with mason, but brew supports it
 if not utils.is_mac then
-  utils.insert(linter_and_formatter, { "selene", "shellcheck" })
+  utils.tbl_append(linter_and_formatter, "selene", "shellcheck")
 end
 
 -- install all the the valid linter and formatter
