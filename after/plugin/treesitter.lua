@@ -71,3 +71,11 @@ require("nvim-treesitter.configs").setup({
     enable = true,
   },
 })
+
+if vim.fn.has("nvim-0.10") == 1 then
+  -- lets make sure treesitter is installed and then foldmethod get set
+  vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+  vim.opt.foldlevel = 99
+  vim.opt.foldmethod = "expr"
+  vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
+end
