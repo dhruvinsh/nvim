@@ -125,7 +125,6 @@ local on_attach = function(client, bufnr)
   -- server specific changes
   if client.name == "ruff_lsp" then
     client.server_capabilities.hoverProvider = false
-    vim.print(client)
   end
 end
 
