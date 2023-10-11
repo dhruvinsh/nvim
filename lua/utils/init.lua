@@ -1,5 +1,7 @@
 local M = {}
 
+M.root_patterns = { ".git", "Makefile", "pyproject.toml", ".projectile", ".neoconf.json", ".editorconfig" }
+
 M.augroup = function(name)
   return vim.api.nvim_create_augroup("orion_" .. name, { clear = true })
 end
