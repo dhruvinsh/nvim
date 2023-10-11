@@ -1,11 +1,18 @@
 local utils = require("utils")
 
 require("neodev").setup()
+require("neoconf").setup()
 
 local mason_lspconfig = require("mason-lspconfig")
 
 local servers = {
   bashls = {}, -- bash, sh
+  jsonls = {
+    json = {
+      schemas = require("schemastore").json.schemas(),
+      validate = { enable = true },
+    },
+  },
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
@@ -15,6 +22,18 @@ local servers = {
   pyright = {}, -- python
   ruff_lsp = {}, -- python
   taplo = {}, -- toml
+  yamlls = {
+    yaml = {
+      schemaStore = {
+        -- You must disable built-in schemaStore support if you want to use
+        -- this plugin and its advanced options like `ignore`.
+        enable = false,
+        -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
+        url = "",
+      },
+      schemas = require("schemastore").yaml.schemas(),
+    },
+  },
 }
 
 local linter_and_formatter = {
