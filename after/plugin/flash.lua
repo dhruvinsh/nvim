@@ -15,6 +15,6 @@ vim.keymap.set({ "o", "x" }, "R", function()
 end, { desc = "Treesitter Search" })
 
 -- in commnad mode toggle the Flash, helpful in case of normal search required.
-vim.keymap.set({ "c" }, "<c-s>", function()
+vim.keymap.set("c", "<C-Space>", function()
   require("flash").toggle()
 end, { desc = "Toggle Flash Search" })
