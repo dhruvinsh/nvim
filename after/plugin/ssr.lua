@@ -13,6 +13,6 @@ require("ssr").setup({
   },
 })
 
-vim.keymap.set({ "n", "x" }, "<leader>sr", function()
+vim.keymap.set({ "n", "x" }, "<leader>sR", function()
   require("ssr").open()
 end)
