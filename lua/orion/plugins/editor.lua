@@ -16,6 +16,7 @@ return {
     build = ":TSUpdate",
     dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
   },
+  "nvim-treesitter/nvim-treesitter-context",
 
   "mbbill/undotree",
   "andymass/vim-matchup",
