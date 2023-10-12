@@ -5,7 +5,7 @@ end
 -- editor
 vim.opt.autoindent = true
 vim.opt.clipboard = "unnamedplus"
-vim.opt.completeopt = "menu,menuone,noselect"
+vim.opt.completeopt = "menuone,noselect"
 vim.opt.confirm = true
 vim.opt.expandtab = true
 vim.opt.formatoptions = "jcroqlnt" -- see :help fo-table
@@ -15,7 +15,7 @@ vim.opt.relativenumber = true
 vim.opt.smartcase = true
 vim.opt.spelllang = { "en" }
 vim.opt.swapfile = false
-vim.opt.timeoutlen = 200
+vim.opt.timeoutlen = 300
 vim.opt.undofile = true
 vim.opt.undolevels = 10000
 vim.opt.updatetime = 250
@@ -30,6 +30,7 @@ vim.opt.pumheight = 10
 vim.opt.numberwidth = 2
 vim.opt.scrolloff = 4
 vim.opt.showmode = false
+vim.opt.signcolumn = "yes"
 vim.opt.smoothscroll = true
 vim.opt.splitbelow = true
 vim.opt.splitkeep = "screen"
