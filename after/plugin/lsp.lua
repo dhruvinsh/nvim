@@ -143,21 +143,3 @@ mason_lspconfig.setup_handlers({
     })
   end,
 })
-
-----------------------------------------------------
--- Linter
-----------------------------------------------------
-local lint = require("lint")
-lint.linters_by_ft = {
-  bash = { "shellcheck" },
-  lua = { "selene" },
-  markdown = { "vale" },
-  python = { "ruff", "mypy" },
-}
-
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-  group = utils.augroup("nvim_lint"),
-  callback = function()
-    require("lint").try_lint()
-  end,
-})
