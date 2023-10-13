@@ -118,10 +118,6 @@ local on_attach = function(client, bufnr)
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, "Workspace List Folders")
 
-  vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
-    vim.lsp.buf.format()
-  end, { desc = "Format current buffer with LSP" })
-
   -- server specific changes
   if client.name == "ruff_lsp" then
     client.server_capabilities.hoverProvider = false
@@ -145,28 +141,6 @@ mason_lspconfig.setup_handlers({
       settings = servers[server_name],
       filetypes = (servers[server_name] or {}).filetypes,
     })
-  end,
-})
-
-----------------------------------------------------
--- Formatter
-----------------------------------------------------
-require("conform").setup({
-  formatters_by_ft = {
-    bash = { "shellcheck" },
-    lua = { "stylua" },
-    markdown = { "cbfmt", "prettierd" },
-    python = { "isort", "black" },
-  },
-})
-
-vim.opt.formatexpr = "v:lua.require('conform').formatexpr()"
-
-vim.api.nvim_create_autocmd("BufWritePre", {
-  group = utils.augroup("conform"),
-  pattern = "*",
-  callback = function(args)
-    require("conform").format({ bufnr = args.buf })
   end,
 })
 
