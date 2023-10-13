@@ -16,9 +16,11 @@ local servers = {
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
+      completion = { callSnippet = "Replace" },
       telemetry = { enable = false },
     },
   },
+  marksman = {}, -- markdown
   pyright = {}, -- python
   ruff_lsp = {}, -- python
   taplo = {}, -- toml
