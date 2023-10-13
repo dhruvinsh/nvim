@@ -36,41 +36,6 @@ local servers = {
   },
 }
 
-local linter_and_formatter = {
-  -- python
-  "black",
-  "isort",
-  "mypy",
-  "ruff",
-
-  -- shell
-  "shfmt",
-
-  -- lua
-  "stylua",
-
-  -- markdown
-  "cbfmt",
-  "vale",
-
-  -- js, html, markdown and lot of others
-  "prettierd",
-}
-
--- NOTE: ARM selene is not avaiabel with mason, but brew supports it
-if not utils.is_mac then
-  utils.tbl_append(linter_and_formatter, "selene", "shellcheck")
-end
-
--- install all the the valid linter and formatter
-local mr = require("mason-registry")
-for _, tool in ipairs(linter_and_formatter) do
-  local p = mr.get_package(tool)
-  if not p:is_installed() then
-    p:install()
-  end
-end
-
 local on_attach = function(client, bufnr)
   ---@param keys string
   ---@param func function | string
