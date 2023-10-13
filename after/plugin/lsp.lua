@@ -85,7 +85,9 @@ local on_attach = function(client, bufnr)
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, "Workspace List Folders")
 
-  -- server specific changes
+  ----------------------------
+  -- Server specific override
+  ----------------------------
   if client.name == "ruff_lsp" then
     client.server_capabilities.hoverProvider = false
   end
