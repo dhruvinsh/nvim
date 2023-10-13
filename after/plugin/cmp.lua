@@ -1,9 +1,14 @@
 local cmp = require("cmp")
 local luasnip = require("luasnip")
+local ui = require("utils.ui")
 
 require("luasnip.loaders.from_vscode").lazy_load()
 luasnip.config.setup({})
 
+-- nvim-cmp/lua/cmp/config/default.lua
+local default = require("cmp.config.default")()
+
+---@diagnostic disable
 cmp.setup({
   snippet = {
     expand = function(args)
@@ -46,8 +51,23 @@ cmp.setup({
   }, {
     { name = "buffer" },
   }),
+  formatting = {
+    format = function(_, item)
+      if ui.kinds[item.kind] then
+        item.kind = ui.kinds[item.kind] .. item.kind
+      end
+      return item
+    end,
+  },
+  experimental = {
+    ghost_text = {
+      hl_group = "CmpGhostText",
+    },
+  },
+  sorting = default.sorting,
 })
 
+-- fugitive autocompletion
 cmp.setup.filetype("gitcommit", {
   sources = cmp.config.sources({
     { name = "git" },
@@ -76,3 +96,6 @@ cmp.setup.filetype("gitcommit", {
 --     end
 --   end,
 -- },
+
+-- some highlighting for ghost text
+vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
