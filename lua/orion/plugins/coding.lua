@@ -18,6 +18,15 @@ return {
       open_mapping = [[<c-\>]],
     },
   },
+
+  {
+    "iamcco/markdown-preview.nvim",
+    ft = { "markdown" },
+    cmd = { "MarkdownPreview", "MarkdownPreviewStop" },
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+  },
   {
     "ellisonleao/glow.nvim",
     config = true,
