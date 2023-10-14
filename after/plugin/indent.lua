@@ -27,9 +27,22 @@ require("mini.indentscope").setup({
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  group = utils.augroup("mini_indent"),
+  group = utils.augroup("mini_indent_disable"),
   pattern = no_indent_filetypes,
   callback = function()
     vim.b.miniindentscope_disable = true
+  end,
+})
+
+-- disable based on big file
+vim.api.nvim_create_autocmd("BufReadPre", {
+  group = utils.augroup("big_file_disable_indent"),
+  pattern = "*",
+  callback = function(ev)
+    if utils.is_big_buffer(ev.buf) then
+      vim.notify("Big File: disabling indent", vim.log.levels.WARN)
+      vim.b.miniindentscope_disable = true
+      vim.cmd("IBLDisable")
+    end
   end,
 })
