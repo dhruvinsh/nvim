@@ -74,25 +74,27 @@ vim.api.nvim_create_user_command("Format", function(args)
   require("conform").format({ async = true, lsp_fallback = true, range = range, timeout_ms = 1000 })
 end, { range = true })
 
--- :FormatDisable (global) or :FormatDisable! (current buffer)
+-- NOTE: Format<*> command, if bang then global else local
+
+-- :FormatDisable (Local) or :FormatDisable! (Global)
 vim.api.nvim_create_user_command("FormatDisable", function(args)
   if args.bang then
-    vim.notify("Local formatter disable")
-    vim.b.disable_autoformat = true
-  else
     vim.notify("Global formatter disable")
     vim.g.disable_autoformat = true
+  else
+    vim.notify("Local formatter disable")
+    vim.b.disable_autoformat = true
   end
 end, { desc = "Disable autoformt on save", bang = true })
 
--- :FormatEnable (global or current buffer)
+-- :FormatEnable (Enable both, local and global)
 vim.api.nvim_create_user_command("FormatEnable", function()
   vim.b.disable_autoformat = false
   vim.g.disable_autoformat = false
   vim.notify("Formatter enable")
 end, { desc = "Enable autoformat on save" })
 
--- :FormatToggle (global) or :FormatToggle! (current buffer)
+-- :FormatToggle (Local) or :FormatToggle! (Global)
 vim.api.nvim_create_user_command("FormatToggle", function(args)
   if vim.b.disable_autoformat or vim.g.disable_autoformat then
     vim.cmd.FormatEnable()
@@ -113,9 +115,9 @@ vim.keymap.set({ "n", "v" }, "<leader>cF", function()
   require("conform").format({ formatters = { "injected" } })
 end, { desc = "Format Injected" })
 
-vim.keymap.set("n", "<leader>bf", function()
-  vim.cmd("FormatToggle!")
-end, { desc = "Fomat Toggle (Local)" })
 vim.keymap.set("n", "<leader>tf", function()
   vim.cmd("FormatToggle")
+end, { desc = "Fomat Toggle (Local)" })
+vim.keymap.set("n", "<leader>tF", function()
+  vim.cmd("FormatToggle!")
 end, { desc = "Format Toggle (Global)" })
