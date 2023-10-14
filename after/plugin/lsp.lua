@@ -61,7 +61,7 @@ local on_attach = function(client, bufnr)
   nmap("<leader>cd", vim.diagnostic.open_float, "Diagnostic message")
 
   -- code things
-  nmap("gd", vim.lsp.buf.definition, "Goto Definition")
+  nmap("gd", require("telescope.builtin").lsp_definitions, "Goto Definition")
   nmap("gr", require("telescope.builtin").lsp_references, "Goto References")
   nmap("gI", require("telescope.builtin").lsp_implementations, "Goto Implementation")
   nmap("gy", function()
