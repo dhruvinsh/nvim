@@ -16,8 +16,12 @@ end
 ---@return boolean
 M.is_big_buffer = function(bufnr)
   -- here fs_stat needs file path to identify file size.
-  local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(bufnr))
-  if ok and stats and stats.size > M.max_filesize then
+  local ok, size = pcall(vim.fn.getfsize, vim.api.nvim_buf_get_name(bufnr))
+  if vim.tbl_contains({ 0, -1, -2 }, size) then
+    vim.notify("Not able to determine file size", vim.log.levels.ERROR)
+    return false
+  end
+  if ok and size > M.max_filesize then
     return true
   end
   return false
