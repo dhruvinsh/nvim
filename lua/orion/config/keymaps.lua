@@ -3,6 +3,14 @@ vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
 vim.keymap.set("n", "<leader>l", ":Lazy <cr>", { desc = "Lazy" })
 
+-- search
+vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
+
+-- buffer
+vim.keymap.set("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+vim.keymap.set("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+vim.keymap.set("n", "<leader>fn", "<cmd>enew <cr>", { desc = "New File" })
+
 -- movement
 vim.keymap.set("i", "<C-a>", "<Home>")
 vim.keymap.set("i", "<C-e>", "<End>")
@@ -13,6 +21,18 @@ vim.keymap.set("n", "<C-l>", "<C-w>l")
 vim.keymap.set("n", "<leader>wd", "<C-w>q", { desc = "Delete" })
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+-- terminal
+vim.keymap.set("t", "<esc>", [[<C-\><C-n>]])
+vim.keymap.set("t", "jk", [[<C-\><C-n>]])
+vim.keymap.set("t", "<C-w>h", "<cmd>wincmd h<cr>")
+vim.keymap.set("t", "<C-w>j", "<cmd>wincmd j<cr>")
+vim.keymap.set("t", "<C-w>k", "<cmd>wincmd k<cr>")
+vim.keymap.set("t", "<C-w>l", "<cmd>wincmd l<cr>")
+vim.keymap.set("t", "<C-w>", [[<C-\><C-n><C-w>]])
+
+-- indent
+vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("v", ">", ">gv")
 
 -- editor
 vim.keymap.set({ "n", "i" }, "<C-s>", "<cmd>w<cr>")
