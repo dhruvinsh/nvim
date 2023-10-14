@@ -35,7 +35,7 @@ vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
 -- editor
-vim.keymap.set({ "n", "i" }, "<C-s>", "<cmd>w<cr>")
+vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr>")
 
 vim.keymap.set("n", "<leader>bc", function()
   local curbufnr = vim.api.nvim_get_current_buf()
