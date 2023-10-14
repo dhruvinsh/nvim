@@ -1,3 +1,5 @@
+local utils = require("utils")
+
 vim.keymap.set({ "n", "x", "o" }, "s", function()
   require("flash").jump()
 end, { desc = "Flash" })
@@ -18,3 +20,15 @@ end, { desc = "Treesitter Search" })
 vim.keymap.set("c", "<C-Space>", function()
   require("flash").toggle()
 end, { desc = "Toggle Flash Search" })
+
+-- disable based on big file
+vim.api.nvim_create_autocmd("BufReadPre", {
+  group = utils.augroup("big_file_disable_flash"),
+  pattern = "*",
+  callback = function(ev)
+    if utils.is_big_buffer(ev.buf) then
+      vim.notify("Big File: disabling flash", vim.log.levels.WARN)
+      require("flash.plugins.search").enabled = false
+    end
+  end,
+})
