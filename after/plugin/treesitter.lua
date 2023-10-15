@@ -63,7 +63,7 @@ require("nvim-treesitter.configs").setup({
 })
 
 vim.api.nvim_create_autocmd("BufReadPre", {
-  group = utils.augroup("disable_folding"),
+  group = utils.augroup("big_file_disable_folding"),
   callback = function(ev)
     -- work only with nvim-0.10
     if vim.fn.has("nvim-0.10") ~= 1 then
