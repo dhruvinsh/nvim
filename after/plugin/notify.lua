@@ -1,3 +1,4 @@
+---@diagnostic disable-next-line:missing-fields
 require("notify").setup({
   render = "compact",
 })
