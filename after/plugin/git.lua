@@ -1,5 +1,23 @@
+local utils = require("utils")
 -- fugitive
 vim.keymap.set("n", "<leader>gg", vim.cmd.Git, { desc = "Git Status" })
+
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  group = utils.augroup("fugitive_keymap"),
+  pattern = "*",
+  callback = function(ev)
+    if vim.bo.ft ~= "fugitive" then
+      return
+    end
+
+    vim.keymap.set("n", "<leader>gP", function()
+      vim.cmd.Git("push")
+    end, { buffer = ev.buf, desc = "Push" })
+    vim.keymap.set("n", "<leader>gp", function()
+      vim.cmd.Git({ "pull" })
+    end, { buffer = ev.buf, desc = "Pull" })
+  end,
+})
 
 -- gitsigns
 local gs = require("gitsigns")
