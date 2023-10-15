@@ -67,15 +67,6 @@ cmp.setup({
   sorting = default.sorting,
 })
 
--- fugitive autocompletion
-cmp.setup.filetype("gitcommit", {
-  sources = cmp.config.sources({
-    { name = "git" },
-  }, {
-    { name = "buffer" },
-  }),
-})
-
 -- TODO: implement this..
 -- {
 --   "hrsh7th/nvim-cmp",
