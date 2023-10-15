@@ -25,4 +25,5 @@ return {
   { "stevearc/dressing.nvim", opts = {} },
 
   "rcarriga/nvim-notify",
+  "nvimdev/dashboard-nvim",
 }
