@@ -12,13 +12,7 @@ return {
 
   -- tools
   "folke/trouble.nvim",
-  {
-    "akinsho/toggleterm.nvim",
-    version = false,
-    opts = {
-      open_mapping = [[<c-\>]],
-    },
-  },
+  "akinsho/toggleterm.nvim",
 
   {
     "iamcco/markdown-preview.nvim",
