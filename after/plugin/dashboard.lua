@@ -54,7 +54,7 @@ db.setup({
         key = "p",
       },
       {
-        icon = " ",
+        icon = "󰳿 ",
         icon_hl = "@variable",
         desc = "Session",
         group = "@string.escape",
