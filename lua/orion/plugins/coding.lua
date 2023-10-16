@@ -11,6 +11,7 @@ return {
   { "windwp/nvim-autopairs", opts = {} },
 
   -- tools
+  "folke/trouble.nvim",
   {
     "akinsho/toggleterm.nvim",
     version = false,
