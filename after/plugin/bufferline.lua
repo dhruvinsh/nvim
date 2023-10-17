@@ -1,4 +1,5 @@
 local ui = require("utils.ui")
+local utils = require("utils")
 
 ---@diagnostic disable:missing-fields
 require("bufferline").setup({
@@ -34,3 +35,14 @@ vim.keymap.set("n", "<leader>bP", "<Cmd>BufferLineGroupClose ungrouped<CR>", { d
 vim.keymap.set("n", "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", { desc = "Toggle pin" })
 vim.keymap.set("n", "[b", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
 vim.keymap.set("n", "]b", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
+
+-- HACK: When I resotre the session with persistence.nvim all the buffer doesn't appear
+vim.api.nvim_create_autocmd("BufAdd", {
+  group = utils.augroup("rstore_bufferline"),
+  callback = function()
+    vim.schedule(function()
+      -- NOTE: this is a global function part of bufferline.nvim, _G.nvim_bufferline, ignore the diag error
+      pcall(nvim_bufferline)
+    end)
+  end,
+})
