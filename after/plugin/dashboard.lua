@@ -1,4 +1,5 @@
 local db = require("dashboard")
+local utils = require("utils")
 
 local config_path = vim.fn.stdpath("config")
 
@@ -88,3 +89,15 @@ db.setup({
     },
   },
 })
+
+-- Lazy causes dashboard not to load.
+if vim.o.filetype == "lazy" then
+  vim.cmd.close()
+  vim.api.nvim_create_autocmd("User", {
+    pattern = "DashboardLoaded",
+    group = utils.augroup("dashboard_fix"),
+    callback = function()
+      require("lazy").show()
+    end,
+  })
+end
