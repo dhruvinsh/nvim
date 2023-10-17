@@ -22,6 +22,7 @@ vim.opt.updatetime = 250
 -- ui
 vim.opt.breakindent = true
 vim.opt.cmdheight = 1
+vim.opt.conceallevel = 3
 vim.opt.cursorline = true
 vim.opt.laststatus = 3
 vim.opt.mouse = "a"
