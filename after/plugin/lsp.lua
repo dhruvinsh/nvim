@@ -1,5 +1,3 @@
-local utils = require("utils")
-
 require("neodev").setup()
 require("neoconf").setup()
 
