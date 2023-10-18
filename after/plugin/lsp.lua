@@ -24,7 +24,6 @@ local servers = {
   },
   marksman = {}, -- markdown
   pyright = {}, -- python
-  ruff_lsp = {}, -- python
   taplo = {}, -- toml
   yamlls = {
     settings = {
