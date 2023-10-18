@@ -2,7 +2,7 @@ local M = {}
 
 M.max_filesize = 512 * 1024 -- big file size threshold 0.5 MB
 M.os_name = vim.loop.os_uname().sysname
-M.root_patterns = { ".git", "Makefile", "pyproject.toml", ".projectile", ".neoconf.json", ".editorconfig" }
+M.root_patterns = { ".editorconfig", ".git", ".neoconf.json", ".projectile", "Makefile", "pyproject.toml" }
 
 M.is_mac = M.os_name == "Darwin"
 
