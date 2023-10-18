@@ -13,7 +13,7 @@ local formatters = {
   "prettierd",
 }
 
-require("after.plugin.helper").mason_pkg_installer(formatters)
+require("utils.helper").mason_pkg_installer(formatters)
 
 require("conform").setup({
   format_on_save = function(bufnr)
