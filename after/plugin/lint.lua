@@ -4,20 +4,14 @@
 local utils = require("utils")
 
 local linters = {}
+
 -- NOTE: on ARM mac, some formatter doesn't work if installed via mason
 -- chezmoi takes care of their installation.
 if not utils.is_mac then
   utils.tbl_append(linters, "selene", "shellcheck")
 end
 
--- install all the the valid linter and formatter
-local mr = require("mason-registry")
-for _, tool in ipairs(linters) do
-  local p = mr.get_package(tool)
-  if not p:is_installed() then
-    p:install()
-  end
-end
+require("after.plugin.helper").mason_pkg_installer(linters)
 
 require("lint").linters_by_ft = {
   bash = { "shellcheck" },
