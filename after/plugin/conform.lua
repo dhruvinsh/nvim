@@ -3,10 +3,6 @@
 ----------------------------------------------------
 
 local formatters = {
-  -- python
-  "black",
-  "blackd-client",
-  "isort",
   -- shell
   "shfmt",
   -- lua
@@ -44,7 +40,7 @@ require("conform").setup({
     bash = { "shfmt" },
     lua = { "stylua" },
     markdown = { "cbfmt", "prettierd" },
-    python = { "isort", { "blackd", "black" } },
+    python = { "isort", { "black" } },
   },
   formatters = {
     injected = { options = { ignore_errors = true } },

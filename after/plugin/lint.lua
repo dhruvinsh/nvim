@@ -3,11 +3,7 @@
 ----------------------------------------------------
 local utils = require("utils")
 
-local linters = {
-  -- python
-  "mypy",
-  "ruff",
-}
+local linters = {}
 -- NOTE: on ARM mac, some formatter doesn't work if installed via mason
 -- chezmoi takes care of their installation.
 if not utils.is_mac then
