@@ -6,7 +6,7 @@ local root_patterns = vim.deepcopy(utils.root_patterns)
 utils.tbl_append(root_patterns, "=src", ".hg")
 
 project.setup({
-  patterns = { "=src", ".hg" },
+  patterns = root_patterns,
   silent_chdir = false,
 })
 
