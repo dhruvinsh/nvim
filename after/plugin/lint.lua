@@ -11,7 +11,7 @@ if not utils.is_mac then
   utils.tbl_append(linters, "selene", "shellcheck")
 end
 
-require("after.plugin.helper").mason_pkg_installer(linters)
+require("utils.helper").mason_pkg_installer(linters)
 
 require("lint").linters_by_ft = {
   bash = { "shellcheck" },
