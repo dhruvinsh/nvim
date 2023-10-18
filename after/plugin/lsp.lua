@@ -6,16 +6,20 @@ local mason_lspconfig = require("mason-lspconfig")
 local servers = {
   bashls = {}, -- bash, sh
   jsonls = {
-    json = {
-      schemas = require("schemastore").json.schemas(),
-      validate = { enable = true },
+    settings = {
+      json = {
+        schemas = require("schemastore").json.schemas(),
+        validate = { enable = true },
+      },
     },
   },
   lua_ls = {
-    Lua = {
-      workspace = { checkThirdParty = false },
-      completion = { callSnippet = "Replace" },
-      telemetry = { enable = false },
+    settings = {
+      Lua = {
+        workspace = { checkThirdParty = false },
+        completion = { callSnippet = "Replace" },
+        telemetry = { enable = false },
+      },
     },
   },
   marksman = {}, -- markdown
@@ -23,15 +27,17 @@ local servers = {
   ruff_lsp = {}, -- python
   taplo = {}, -- toml
   yamlls = {
-    yaml = {
-      schemaStore = {
-        -- You must disable built-in schemaStore support if you want to use
-        -- this plugin and its advanced options like `ignore`.
-        enable = false,
-        -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
-        url = "",
+    settings = {
+      yaml = {
+        schemaStore = {
+          -- You must disable built-in schemaStore support if you want to use
+          -- this plugin and its advanced options like `ignore`.
+          enable = false,
+          -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
+          url = "",
+        },
+        schemas = require("schemastore").yaml.schemas(),
       },
-      schemas = require("schemastore").yaml.schemas(),
     },
   },
 }
@@ -97,16 +103,14 @@ capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 -- install all the valid lsp servers
 mason_lspconfig.setup({
   ensure_installed = vim.tbl_keys(servers),
-  -- ensure_installed = vim.tbl_extend("keep", vim.tbl_keys(servers), lint_and_formatter),
-})
-
-mason_lspconfig.setup_handlers({
-  function(server_name)
-    require("lspconfig")[server_name].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = servers[server_name],
-      filetypes = (servers[server_name] or {}).filetypes,
-    })
-  end,
+  handlers = {
+    function(server_name)
+      require("lspconfig")[server_name].setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+        settings = (servers[server_name] or {}).settings,
+        filetypes = (servers[server_name] or {}).filetypes,
+      })
+    end,
+  },
 })
