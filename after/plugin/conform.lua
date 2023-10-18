@@ -1,7 +1,6 @@
 ----------------------------------------------------
 -- Formatter
 ----------------------------------------------------
-
 local formatters = {
   -- shell
   "shfmt",
@@ -14,14 +13,7 @@ local formatters = {
   "prettierd",
 }
 
--- install all the the valid formatters with mason
-local mr = require("mason-registry")
-for _, tool in ipairs(formatters) do
-  local p = mr.get_package(tool)
-  if not p:is_installed() then
-    p:install()
-  end
-end
+require("after.plugin.helper").mason_pkg_installer(formatters)
 
 require("conform").setup({
   format_on_save = function(bufnr)
