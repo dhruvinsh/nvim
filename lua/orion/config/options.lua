@@ -30,9 +30,11 @@ vim.opt.cursorline = true
 vim.opt.laststatus = 3
 vim.opt.mouse = "a"
 vim.opt.pumblend = 10
-vim.opt.pumheight = 10
+vim.opt.fillchars = { eob = " " }
 vim.opt.numberwidth = 2
+vim.opt.pumheight = 10
 vim.opt.scrolloff = 4
+vim.opt.shortmess:append({ C = true, I = true, W = true, c = true })
 vim.opt.showmode = false
 vim.opt.signcolumn = "yes"
 vim.opt.smoothscroll = true
@@ -40,4 +42,3 @@ vim.opt.splitbelow = true
 vim.opt.splitkeep = "screen"
 vim.opt.splitright = true
 vim.opt.termguicolors = true
-vim.opt.fillchars = { eob = " " }
