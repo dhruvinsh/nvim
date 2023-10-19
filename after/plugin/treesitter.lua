@@ -108,26 +108,23 @@ require("nvim-treesitter.configs").setup({
   },
 })
 
-vim.api.nvim_create_autocmd("BufReadPre", {
-  group = utils.augroup("big_file_disable", false),
-  callback = function(ev)
-    -- work only with nvim-0.10
-    if vim.fn.has("nvim-0.10") ~= 1 then
-      return
-    end
-
-    if utils.is_big_buffer(ev.buf) then
-      vim.notify("Big File: disabling folding", vim.log.levels.WARN)
-      -- fallback to default values
-      vim.opt.foldmethod = "manual"
-      vim.opt.foldexpr = "0"
-      vim.opt.foldlevel = 0
-      vim.opt.foldtext = "foldtext()"
-    else
-      vim.opt.foldmethod = "expr"
-      vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-      vim.opt.foldlevel = 99
-      vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
-    end
-  end,
-})
+-- folding only with nvim-0.10
+if vim.fn.has("nvim-0.10") == 1 then
+  vim.api.nvim_create_autocmd("BufReadPre", {
+    group = utils.augroup("big_file_disable", false),
+    callback = function(ev)
+      if utils.is_big_buffer(ev.buf) then
+        -- fallback to default values
+        vim.opt.foldmethod = "manual"
+        vim.opt.foldexpr = "0"
+        vim.opt.foldlevel = 0
+        vim.opt.foldtext = "foldtext()"
+      else
+        vim.opt.foldmethod = "expr"
+        vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+        vim.opt.foldlevel = 99
+        vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
+      end
+    end,
+  })
+end
