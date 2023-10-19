@@ -36,7 +36,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- disable based on big file
 vim.api.nvim_create_autocmd("BufReadPre", {
-  group = utils.augroup("big_file_disable_indent"),
+  group = utils.augroup("big_file_disable", false),
   pattern = "*",
   callback = function(ev)
     if utils.is_big_buffer(ev.buf) then
