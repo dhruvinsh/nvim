@@ -7,9 +7,13 @@ M.root_patterns = { ".editorconfig", ".git", ".neoconf.json", ".projectile", "Ma
 M.is_mac = M.os_name == "Darwin"
 
 ---@param name string
+---@param clear? boolean default set to true
 ---@return integer
-M.augroup = function(name)
-  return vim.api.nvim_create_augroup("orion_" .. name, { clear = true })
+M.augroup = function(name, clear)
+  if clear == nil then
+    clear = true
+  end
+  return vim.api.nvim_create_augroup("orion_" .. name, { clear = clear })
 end
 
 ---@param bufnr number
