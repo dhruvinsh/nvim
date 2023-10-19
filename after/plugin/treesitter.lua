@@ -49,7 +49,9 @@ require("nvim-treesitter.configs").setup({
       if vim.tbl_contains(allowed_lang, lang) then
         return false
       end
-      return utils.is_big_buffer(bufnr)
+      if utils.is_big_buffer(bufnr) then
+        vim.notify("Big File: disabling treesitter", vim.log.levels.WARN)
+      end
     end,
 
     additional_vim_regex_highlighting = false,
@@ -107,7 +109,7 @@ require("nvim-treesitter.configs").setup({
 })
 
 vim.api.nvim_create_autocmd("BufReadPre", {
-  group = utils.augroup("big_file_disable_folding"),
+  group = utils.augroup("big_file_disable", false),
   callback = function(ev)
     -- work only with nvim-0.10
     if vim.fn.has("nvim-0.10") ~= 1 then
@@ -115,6 +117,7 @@ vim.api.nvim_create_autocmd("BufReadPre", {
     end
 
     if utils.is_big_buffer(ev.buf) then
+      vim.notify("Big File: disabling folding", vim.log.levels.WARN)
       -- fallback to default values
       vim.opt.foldmethod = "manual"
       vim.opt.foldexpr = "0"

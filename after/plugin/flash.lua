@@ -23,7 +23,7 @@ end, { desc = "Toggle Flash Search" })
 
 -- disable based on big file
 vim.api.nvim_create_autocmd("BufReadPre", {
-  group = utils.augroup("big_file_disable_flash"),
+  group = utils.augroup("big_file_disable", false),
   pattern = "*",
   callback = function(ev)
     if utils.is_big_buffer(ev.buf) then
