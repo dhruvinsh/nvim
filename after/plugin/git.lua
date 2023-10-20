@@ -22,6 +22,14 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 -- gitsigns
 local gs = require("gitsigns")
 gs.setup({
+  signs = {
+    add = { text = "▎" },
+    change = { text = "▎" },
+    delete = { text = "" },
+    topdelete = { text = "" },
+    changedelete = { text = "▎" },
+    untracked = { text = "▎" },
+  },
   on_attach = function(bufnr)
     local function map(mode, l, r, opts)
       opts = opts or {}
