@@ -2,6 +2,8 @@ local tc = require("treesitter-context")
 local utils = require("utils")
 
 tc.setup({
+  max_lines = 3,
+  min_window_height = 40,
   ---@param bufnr integer
   on_attach = function(bufnr)
     -- on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
