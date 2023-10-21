@@ -2,6 +2,27 @@ require("neodev").setup()
 require("neoconf").setup()
 
 local mason_lspconfig = require("mason-lspconfig")
+----------------------------
+--- Nicer UI for the LSP ---
+----------------------------
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" })
+vim.diagnostic.config({
+  severity_sort = true,
+  underline = true,
+  update_in_insert = false,
+  virtual_text = {
+    spacing = 4,
+    prefix = function(diagnostic)
+      local icons = require("utils.ui").diagnostics
+      for d, icon in pairs(icons) do
+        if diagnostic.severity == vim.diagnostic.severity[d:upper()] then
+          return icon
+        end
+      end
+    end,
+  },
+})
 
 local servers = {
   bashls = {}, -- bash, sh
