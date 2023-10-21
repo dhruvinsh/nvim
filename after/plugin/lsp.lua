@@ -1,7 +1,6 @@
 require("neodev").setup()
 require("neoconf").setup()
 
-local mason_lspconfig = require("mason-lspconfig")
 ----------------------------
 --- Nicer UI for the LSP ---
 ----------------------------
@@ -128,6 +127,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 -- install all the valid lsp servers
+local mason_lspconfig = require("mason-lspconfig")
 mason_lspconfig.setup({
   ensure_installed = vim.tbl_keys(servers),
   handlers = {
