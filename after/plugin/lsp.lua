@@ -89,6 +89,13 @@ local on_attach = function(client, bufnr)
   end, "Workspace List Folders")
 
   ----------------------------
+  -- Server specific feature
+  ----------------------------
+  if client.supports_method("textDocument/inlayHint") then
+    vim.lsp.inlay_hint(bufnr, true)
+  end
+
+  ----------------------------
   -- Server specific override
   ----------------------------
   if client.name == "ruff_lsp" then
