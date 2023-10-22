@@ -1,3 +1,2 @@
--- It all begins here
+require("orion")
 
-require("config.lazy")
