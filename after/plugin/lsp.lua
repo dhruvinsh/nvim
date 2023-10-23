@@ -100,7 +100,6 @@ local on_attach = function(client, bufnr)
   nmap("gk", vim.lsp.buf.signature_help, "Hover")
   nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation", "i")
 
-  nmap("gD", vim.lsp.buf.declaration, "Goto Declaration")
   nmap("<leader>wa", vim.lsp.buf.add_workspace_folder, "Workspace Add Folder")
   nmap("<leader>wr", vim.lsp.buf.remove_workspace_folder, "Workspace Remove Folder")
   nmap("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "Workspace Symbols")
@@ -111,6 +110,9 @@ local on_attach = function(client, bufnr)
   ----------------------------
   -- Server specific feature
   ----------------------------
+  if client.supports_method("textDocument/declaration") then
+    nmap("gD", vim.lsp.buf.declaration, "Goto Declaration")
+  end
   if client.supports_method("textDocument/inlayHint") then
     vim.lsp.inlay_hint(bufnr, true)
   end
