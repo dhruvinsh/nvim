@@ -1,8 +1,18 @@
-local telescope = require("telescope")
+local actions = require("telescope.actions")
 local builtin = require("telescope.builtin")
+local telescope = require("telescope")
+local utils = require("utils")
 
 telescope.setup({
   defaults = {
+    mappings = {
+      i = {
+        ["<esc>"] = actions.close,
+      },
+    },
+    preview = {
+      filesize_limit = utils.max_filesize,
+    },
     vimgrep_arguments = {
       "rg",
       "--color=never",
