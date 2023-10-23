@@ -1,7 +1,7 @@
 vim.g.mapleader = " "
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
-vim.keymap.set("n", "<leader>l", ":Lazy <cr>", { desc = "Lazy" })
+vim.keymap.set("n", "<leader>lL", ":Lazy <cr>", { desc = "Lazy" })
 
 -- search
 vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
