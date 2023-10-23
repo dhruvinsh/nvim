@@ -21,7 +21,7 @@ require("bufferline").setup({
     offsets = {
       {
         filetype = "neo-tree",
-        text = "Neo-tree",
+        text = " NeoTree",
         highlight = "Directory",
         text_align = "left",
       },
