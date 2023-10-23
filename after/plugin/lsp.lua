@@ -143,3 +143,11 @@ mason_lspconfig.setup({
     end,
   },
 })
+
+----------------------------
+-- Some keymaps
+----------------------------
+vim.keymap.set("n", "<leader>lc", "<cmd>ConformInfo<cr>", { desc = "Conform" })
+vim.keymap.set("n", "<leader>ll", "<cmd>LspInfo<cr>", { desc = "Lsp" })
+vim.keymap.set("n", "<leader>lm", "<cmd>Mason<cr>", { desc = "Mason" })
+vim.keymap.set("n", "<leader>ln", "<cmd>Neoconf show<cr>", { desc = "Neoconf" })
