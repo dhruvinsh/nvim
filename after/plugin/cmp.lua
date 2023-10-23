@@ -3,13 +3,19 @@ local luasnip = require("luasnip")
 local ui = require("utils.ui")
 
 require("luasnip.loaders.from_vscode").lazy_load()
-luasnip.config.setup({})
+luasnip.config.setup({
+  history = true,
+  delete_check_events = "TextChanged",
+})
 
 -- nvim-cmp/lua/cmp/config/default.lua
 local default = require("cmp.config.default")()
 
 ---@diagnostic disable
 cmp.setup({
+  completion = {
+    completeopt = "menu,menuone,noinsert",
+  },
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
