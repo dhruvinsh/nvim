@@ -4,6 +4,7 @@ return {
     name = "rose-pine",
     priority = 1000,
   },
+  "navarasu/onedark.nvim",
 
   { "nvim-lualine/lualine.nvim", config = true },
 
