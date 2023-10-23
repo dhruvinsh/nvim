@@ -57,4 +57,5 @@ return {
   "b0o/SchemaStore.nvim",
   "mfussenegger/nvim-lint",
   "stevearc/conform.nvim",
+  "RRethy/vim-illuminate",
 }
