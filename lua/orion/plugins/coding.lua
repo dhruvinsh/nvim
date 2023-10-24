@@ -58,4 +58,5 @@ return {
   "mfussenegger/nvim-lint",
   "stevearc/conform.nvim",
   "RRethy/vim-illuminate",
+  "folke/zen-mode.nvim",
 }
