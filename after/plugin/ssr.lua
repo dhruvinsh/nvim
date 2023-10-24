@@ -15,4 +15,4 @@ require("ssr").setup({
 
 vim.keymap.set({ "n", "x" }, "<leader>sR", function()
   require("ssr").open()
-end)
+end, { desc = "SSR" })
