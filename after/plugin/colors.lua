@@ -1,6 +1,5 @@
-local colors = {
+local color_schemes = {
   ["rose-pine"] = function()
-    vim.notify("Setting up rose-pine")
     require("rose-pine").setup({
       disable_italics = true,
       highlight_groups = {
@@ -9,22 +8,27 @@ local colors = {
     })
   end,
   ["onedark"] = function()
-    vim.notify("Setting up onedark")
     require("onedark").setup({
       style = "warmer",
     })
   end,
 }
 
-local function SetColorscheme(scheme)
-  local scheme_fn = colors[scheme]
-  if scheme == nil or scheme_fn == nil then
+---A global function that allow to set color scheme
+---@param scheme? string or it uses vim.g.orion_color_scheme
+function SetColorscheme(scheme)
+  local color_scheme = scheme or vim.g.orion_color_scheme
+  local scheme_fn = color_schemes[color_scheme]
+
+  if scheme_fn == nil then
     vim.notify("no valid scheme found, setting up habamax", vim.log.levels.ERROR)
-    scheme = "habamax"
+    color_scheme = "habamax"
   else
+    vim.notify("Setting up " .. color_scheme)
     scheme_fn()
   end
-  vim.cmd.colorscheme(scheme)
+
+  vim.cmd.colorscheme(color_scheme)
 end
 
-SetColorscheme(vim.g.orion_color_scheme)
+SetColorscheme()
