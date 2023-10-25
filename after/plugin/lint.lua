@@ -3,7 +3,7 @@
 ----------------------------------------------------
 local utils = require("utils")
 
-local linters = {}
+local linters = { "markdownlint" }
 
 -- NOTE: on ARM mac, some formatter doesn't work if installed via mason
 -- chezmoi takes care of their installation.
@@ -16,6 +16,7 @@ require("utils.helper").mason_pkg_installer(linters)
 require("lint").linters_by_ft = {
   bash = { "shellcheck" },
   lua = { "selene" },
+  markdown = { "markdownlint" },
   python = { "ruff", "mypy" },
 }
 
