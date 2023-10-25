@@ -5,6 +5,7 @@ return {
     priority = 1000,
   },
   "navarasu/onedark.nvim",
+  { "catppuccin/nvim", name = "catppuccin" },
 
   { "nvim-lualine/lualine.nvim", config = true },
 
