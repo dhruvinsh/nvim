@@ -36,8 +36,7 @@ return {
       { "williamboman/mason.nvim", config = true },
       "williamboman/mason-lspconfig.nvim",
       "folke/neodev.nvim",
-      -- till the rewrite is done keep it to legacy
-      { "j-hui/fidget.nvim", tag = "legacy", opts = {} },
+      { "j-hui/fidget.nvim", tag = "legacy" }, -- till the rewrite is done keep it to legacy
     },
   },
   {
