@@ -1,5 +1,10 @@
 require("neodev").setup()
 require("neoconf").setup()
+require("fidget").setup({
+  window = {
+    blend = 0,
+  },
+})
 
 ----------------------------
 --- Nicer UI for the LSP ---
