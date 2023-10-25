@@ -42,7 +42,12 @@ end
 vim.keymap.set("n", "<leader>/", builtin.live_grep, { desc = "Live Grep" })
 vim.keymap.set("n", "<leader><space>", builtin.find_files, { desc = "Find Files" })
 vim.keymap.set("n", "<leader>bs", buffer_search, { desc = "Search" })
-vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find Buffers" })
+vim.keymap.set(
+  "n",
+  "<leader>fb",
+  "<cmd>Telescope buffers sort_lastused=true sort_mru=true<cr>",
+  { desc = "Find Buffers" }
+)
 vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find Files" })
 vim.keymap.set("n", "<leader>fg", builtin.git_files, { desc = "Git Files" })
 vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "Recent Files" })
