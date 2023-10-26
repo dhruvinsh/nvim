@@ -26,6 +26,7 @@ require("nvim-treesitter.configs").setup({
     "query",
     "regex",
     "rst",
+    "sshconfig",
     "toml",
     "tsx",
     "typescript",
