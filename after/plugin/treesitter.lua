@@ -9,6 +9,8 @@ require("nvim-treesitter.configs").setup({
     "devicetree",
     "diff",
     "dockerfile",
+    "git_config",
+    "git_rebase",
     "html",
     "javascript",
     "jsdoc",
