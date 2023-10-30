@@ -3,6 +3,7 @@ return {
   { "folke/flash.nvim", opts = {} },
   "cshuaimin/ssr.nvim",
   "nvim-pack/nvim-spectre",
+  { "kevinhwang91/nvim-bqf", ft = "qf" },
 
   {
     "nvim-telescope/telescope.nvim",
