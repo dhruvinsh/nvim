@@ -48,4 +48,12 @@ M.diagnostics = {
   Info = " ",
 }
 
+M.dap = {
+  Stopped = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
+  Breakpoint = { " ", "DiagnosticInfo" },
+  BreakpointCondition = { " ", "DiagnosticInfo" },
+  BreakpointRejected = { " ", "DiagnosticError" },
+  LogPoint = { ".>", "DiagnosticInfo" },
+}
+
 return M

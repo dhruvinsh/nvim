@@ -52,6 +52,17 @@ return {
       "rafamadriz/friendly-snippets",
     },
   },
+
+  -- DAP Configuration
+  {
+    "mfussenegger/nvim-dap",
+    dependencies = {
+      "rcarriga/nvim-dap-ui",
+      { "theHamsta/nvim-dap-virtual-text", opts = {} },
+      "mfussenegger/nvim-dap-python",
+    },
+  },
+
   "folke/neoconf.nvim",
   "b0o/SchemaStore.nvim",
   "mfussenegger/nvim-lint",
