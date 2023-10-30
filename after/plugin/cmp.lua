@@ -8,8 +8,8 @@ luasnip.config.setup({
   delete_check_events = "TextChanged",
 })
 
--- nvim-cmp/lua/cmp/config/default.lua
-local default = require("cmp.config.default")()
+-- nvim-cmp/lua/cmp/config/
+local compare = require("cmp.config.compare")
 
 ---@diagnostic disable
 cmp.setup({
@@ -21,12 +21,15 @@ cmp.setup({
       luasnip.lsp_expand(args.body)
     end,
   },
+  preselect = cmp.PreselectMode.None,
   mapping = cmp.mapping.preset.insert({
     ["<C-n>"] = cmp.mapping.select_next_item(),
     ["<C-p>"] = cmp.mapping.select_prev_item(),
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
     ["<C-u>"] = cmp.mapping.scroll_docs(4),
     ["<C-Space>"] = cmp.mapping.complete({}),
+    ["/"] = cmp.mapping.close(),
+    ["<C-e>"] = cmp.mapping.close(),
     ["<CR>"] = cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
@@ -58,10 +61,26 @@ cmp.setup({
     { name = "buffer" },
   }),
   formatting = {
+    fields = { "kind", "abbr", "menu" },
     format = function(_, item)
+      local MAX_ABBR_WIDTH, MAX_MENU_WIDTH = 25, 30
+      local ELLIPSIS = "…"
+
+      -- Kind: add the icon
       if ui.kinds[item.kind] then
         item.kind = ui.kinds[item.kind] .. item.kind
       end
+
+      -- Abbr: Truncate the label.
+      if vim.api.nvim_strwidth(item.abbr) > MAX_ABBR_WIDTH then
+        item.abbr = vim.fn.strcharpart(item.abbr, 0, MAX_ABBR_WIDTH) .. ELLIPSIS
+      end
+
+      -- Menu: Truncate the description part.
+      if vim.api.nvim_strwidth(item.menu or "") > MAX_MENU_WIDTH then
+        item.menu = vim.fn.strcharpart(item.menu, 0, MAX_MENU_WIDTH) .. ELLIPSIS
+      end
+
       return item
     end,
   },
@@ -70,7 +89,29 @@ cmp.setup({
       hl_group = "CmpGhostText",
     },
   },
-  sorting = default.sorting,
+  sorting = {
+    comparators = {
+      compare.offset,
+      compare.exact,
+      compare.score,
+      compare.recently_used,
+      compare.sort_text,
+      compare.length,
+    },
+  },
+  window = {
+    completion = {
+      border = "rounded",
+      winhighlight = "Normal:Normal,FloatBorder:Normal,CursorLine:Visual,Search:None",
+      scrollbar = true,
+    },
+    documentation = {
+      border = "rounded",
+      winhighlight = "Normal:Normal,FloatBorder:Normal,CursorLine:Visual,Search:None",
+      max_height = math.floor(vim.o.lines * 0.5),
+      max_width = math.floor(vim.o.columns * 0.4),
+    },
+  },
 })
 
 -- TODO: implement this..
@@ -96,3 +137,6 @@ cmp.setup({
 
 -- some highlighting for ghost text
 vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
+
+-- Inside a snippet, use backspace to remove the placeholder.
+vim.keymap.set("s", "<BS>", "<C-O>s")
