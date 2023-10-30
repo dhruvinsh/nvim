@@ -1,1 +1,2 @@
-std="vim"
+std = "vim"
+multiple_statment = "allow"
