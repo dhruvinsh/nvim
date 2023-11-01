@@ -38,7 +38,8 @@ return {
     },
   },
   {
-    "hrsh7th/nvim-cmp",
+    -- "hrsh7th/nvim-cmp",  - switching to fork package for better support
+    "dhruvinsh/nvim-cmp",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
