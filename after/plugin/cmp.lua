@@ -17,9 +17,7 @@ cmp.setup({
     completeopt = "menu,menuone,noinsert",
   },
   snippet = {
-    expand = function(args)
-      luasnip.lsp_expand(args.body)
-    end,
+    expand = function(args) luasnip.lsp_expand(args.body) end,
   },
   preselect = cmp.PreselectMode.None,
   mapping = cmp.mapping.preset.insert({
@@ -29,7 +27,7 @@ cmp.setup({
     ["<C-u>"] = cmp.mapping.scroll_docs(4),
     ["<C-Space>"] = cmp.mapping.complete({}),
     ["/"] = cmp.mapping.close(),
-    ["<C-e>"] = cmp.mapping.close(),
+    ["<C-e>"] = cmp.mapping.abort(),
     ["<CR>"] = cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
@@ -68,9 +66,7 @@ cmp.setup({
       local ELLIPSIS = "…"
 
       -- Kind: add the icon
-      if ui.kinds[item.kind] then
-        item.kind = ui.kinds[item.kind] .. item.kind
-      end
+      if ui.kinds[item.kind] then item.kind = ui.kinds[item.kind] .. item.kind end
 
       -- Abbr: Truncate the label.
       if vim.api.nvim_strwidth(item.abbr) > MAX_ABBR_WIDTH then
@@ -101,17 +97,11 @@ cmp.setup({
     },
   },
   window = {
-    completion = {
-      border = "rounded",
-      winhighlight = "Normal:Normal,FloatBorder:Normal,CursorLine:Visual,Search:None",
-      scrollbar = true,
-    },
-    documentation = {
-      border = "rounded",
-      winhighlight = "Normal:Normal,FloatBorder:Normal,CursorLine:Visual,Search:None",
+    completion = cmp.config.window.bordered({ scrollbar = true }),
+    documentation = cmp.config.window.bordered({
       max_height = math.floor(vim.o.lines * 0.5),
       max_width = math.floor(vim.o.columns * 0.4),
-    },
+    }),
   },
 })
 
