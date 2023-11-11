@@ -37,7 +37,7 @@ return {
     config = true,
   },
 
-  "nvim-neo-tree/neo-tree.nvim",
+  "echasnovski/mini.files",
   "Wansmer/treesj",
   "folke/persistence.nvim",
   "ahmedkhalf/project.nvim",
