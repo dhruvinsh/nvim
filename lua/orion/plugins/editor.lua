@@ -38,6 +38,7 @@ return {
   },
 
   "echasnovski/mini.files",
+  "stevearc/oil.nvim",
   "Wansmer/treesj",
   "folke/persistence.nvim",
   "ahmedkhalf/project.nvim",
