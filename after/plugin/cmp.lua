@@ -91,8 +91,11 @@ cmp.setup({
       compare.exact,
       compare.score,
       compare.recently_used,
-      compare.sort_text,
+      compare.locality,
+      compare.kind,
+      -- compare.sort_text,
       compare.length,
+      compare.order,
     },
   },
   window = {
