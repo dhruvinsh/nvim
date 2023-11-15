@@ -14,7 +14,7 @@ return {
   { "lukas-reineke/indent-blankline.nvim", main = "ibl" },
   "echasnovski/mini.indentscope",
 
-  { "folke/which-key.nvim", config = true },
+  "folke/which-key.nvim",
 
   { "folke/todo-comments.nvim", config = true },
 
