@@ -1,3 +1,9 @@
+require("which-key").setup({
+  icons = {
+    separator = " ",
+  },
+})
+
 require("which-key").register({
   ["<leader>b"] = { name = "[B]uffers", _ = "which_key_ignore" },
   ["<leader>c"] = { name = "[C]ode", _ = "which_key_ignore" },
