@@ -16,9 +16,7 @@ vim.diagnostic.config({
     prefix = function(diagnostic)
       local icons = require("utils.ui").diagnostics
       for d, icon in pairs(icons) do
-        if diagnostic.severity == vim.diagnostic.severity[d:upper()] then
-          return icon
-        end
+        if diagnostic.severity == vim.diagnostic.severity[d:upper()] then return icon end
       end
     end,
   },
@@ -68,9 +66,7 @@ local on_attach = function(client, bufnr)
   ---@param desc? string
   ---@param mode? string
   local nmap = function(keys, func, desc, mode)
-    if desc then
-      desc = "LSP: " .. desc
-    end
+    if desc then desc = "LSP: " .. desc end
 
     if mode then
       vim.keymap.set(mode, keys, func, { buffer = bufnr, desc = desc })
@@ -88,9 +84,7 @@ local on_attach = function(client, bufnr)
   nmap("gd", require("telescope.builtin").lsp_definitions, "Goto Definition")
   nmap("gr", require("telescope.builtin").lsp_references, "Goto References")
   nmap("gI", require("telescope.builtin").lsp_implementations, "Goto Implementation")
-  nmap("gy", function()
-    require("telescope.builtin").lsp_type_definitions({ reuse_win = true })
-  end, "Type Definition")
+  nmap("gy", function() require("telescope.builtin").lsp_type_definitions({ reuse_win = true }) end, "Type Definition")
   nmap("<leader>cr", vim.lsp.buf.rename, "Rename")
   nmap("<leader>ca", vim.lsp.buf.code_action, "Code Action")
   nmap("<leader>cl", ":LspInfo <cr>", "Info")
@@ -104,26 +98,18 @@ local on_attach = function(client, bufnr)
   nmap("<leader>wa", vim.lsp.buf.add_workspace_folder, "Workspace Add Folder")
   nmap("<leader>wr", vim.lsp.buf.remove_workspace_folder, "Workspace Remove Folder")
   nmap("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "Workspace Symbols")
-  nmap("<leader>wl", function()
-    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  end, "Workspace List Folders")
+  nmap("<leader>wl", function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, "Workspace List Folders")
 
   ----------------------------
   -- Server specific feature
   ----------------------------
-  if client.supports_method("textDocument/declaration") then
-    nmap("gD", vim.lsp.buf.declaration, "Goto Declaration")
-  end
-  if client.supports_method("textDocument/inlayHint") then
-    vim.lsp.inlay_hint(bufnr, true)
-  end
+  if client.supports_method("textDocument/declaration") then nmap("gD", vim.lsp.buf.declaration, "Goto Declaration") end
+  if client.supports_method("textDocument/inlayHint") then vim.lsp.inlay_hint(bufnr, true) end
 
   ----------------------------
   -- Server specific override
   ----------------------------
-  if client.name == "ruff_lsp" then
-    client.server_capabilities.hoverProvider = false
-  end
+  if client.name == "ruff_lsp" then client.server_capabilities.hoverProvider = false end
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
