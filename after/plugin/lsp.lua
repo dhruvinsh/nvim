@@ -104,7 +104,7 @@ local on_attach = function(client, bufnr)
   -- Server specific feature
   ----------------------------
   if client.supports_method("textDocument/declaration") then nmap("gD", vim.lsp.buf.declaration, "Goto Declaration") end
-  if client.supports_method("textDocument/inlayHint") then vim.lsp.inlay_hint(bufnr, true) end
+  if client.supports_method("textDocument/inlayHint") then vim.lsp.inlay_hint.enable(bufnr, true) end
 
   ----------------------------
   -- Server specific override
