@@ -1,6 +1,8 @@
 local color_schemes = {
   ["rose-pine"] = function()
     require("rose-pine").setup({
+      extend_background_behind_borders = false,
+      dim_inactive_windows = true,
       styles = { italic = false },
       highlight_groups = {
         Comment = { italic = true },
