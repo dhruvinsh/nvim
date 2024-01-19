@@ -1,6 +1,7 @@
 local utils = require("utils")
 -- fugitive
 vim.keymap.set("n", "<leader>gg", vim.cmd.Git, { desc = "Git Status" })
+vim.keymap.set("n", "<leader>gD", "<cmd>Gvdiffsplit!<CR>", { desc = "Diff Split" })
 
 vim.api.nvim_create_autocmd("BufWinEnter", {
   group = utils.augroup("fugitive_keymap"),
@@ -16,6 +17,7 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
     vim.keymap.set("n", "<leader>gp", function()
       vim.cmd.Git({ "pull" })
     end, { buffer = ev.buf, desc = "Pull" })
+    vim.keymap.set("n", "<leader>gD", "<cmd>Gvdiffsplit!<CR>", { desc = "Diff Split" })
   end,
 })
 
@@ -64,18 +66,18 @@ gs.setup({
   end,
 })
 
--- diffview
-require("diffview").setup({})
-
-local IsDiffviewOpen = false
-vim.api.nvim_create_user_command("DiffviewToggle", function()
-  if IsDiffviewOpen then
-    vim.cmd("DiffviewClose")
-    IsDiffviewOpen = false
-  else
-    vim.cmd("DiffviewOpen")
-    IsDiffviewOpen = true
-  end
-end, { desc = "DiffView Toggle" })
-
-vim.keymap.set("n", "<leader>gD", "<cmd>DiffviewToggle<CR>", { desc = "Diffview" })
+-- -- diffview
+-- require("diffview").setup({})
+--
+-- local IsDiffviewOpen = false
+-- vim.api.nvim_create_user_command("DiffviewToggle", function()
+--   if IsDiffviewOpen then
+--     vim.cmd("DiffviewClose")
+--     IsDiffviewOpen = false
+--   else
+--     vim.cmd("DiffviewOpen")
+--     IsDiffviewOpen = true
+--   end
+-- end, { desc = "DiffView Toggle" })
+--
+-- vim.keymap.set("n", "<leader>gD", "<cmd>DiffviewToggle<CR>", { desc = "Diffview" })
