@@ -76,7 +76,7 @@ db.setup({
         desc = "Restore",
         group = "@variable.builtin",
         action = "Lazy restore",
-        key = "R",
+        key = "r",
       },
       {
         icon = " ",
