@@ -96,8 +96,6 @@ if vim.o.filetype == "lazy" then
   vim.api.nvim_create_autocmd("User", {
     pattern = "DashboardLoaded",
     group = utils.augroup("dashboard_fix"),
-    callback = function()
-      require("lazy").show()
-    end,
+    callback = function() require("lazy").show() end,
   })
 end
