@@ -73,10 +73,10 @@ db.setup({
       {
         icon = "󰊳 ",
         icon_hl = "@variable",
-        desc = "Update",
+        desc = "Restore",
         group = "@variable.builtin",
-        action = "Lazy update",
-        key = "u",
+        action = "Lazy restore",
+        key = "R",
       },
       {
         icon = " ",
