@@ -7,16 +7,10 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
   group = utils.augroup("fugitive_keymap"),
   pattern = "*",
   callback = function(ev)
-    if vim.bo.ft ~= "fugitive" then
-      return
-    end
+    if vim.bo.ft ~= "fugitive" then return end
 
-    vim.keymap.set("n", "<leader>gP", function()
-      vim.cmd.Git("push")
-    end, { buffer = ev.buf, desc = "Push" })
-    vim.keymap.set("n", "<leader>gp", function()
-      vim.cmd.Git({ "pull" })
-    end, { buffer = ev.buf, desc = "Pull" })
+    vim.keymap.set("n", "<leader>gP", function() vim.cmd.Git("push") end, { buffer = ev.buf, desc = "Push" })
+    vim.keymap.set("n", "<leader>gp", function() vim.cmd.Git({ "pull" }) end, { buffer = ev.buf, desc = "Pull" })
     vim.keymap.set("n", "<leader>gD", "<cmd>Gvdiffsplit!<CR>", { desc = "Diff Split" })
   end,
 })
@@ -54,12 +48,8 @@ gs.setup({
     map({ "n", "v" }, "<leader>gb", "<cmd>Gitsigns blame_line full=true<cr>", { desc = "Blame(full)" })
     map({ "n", "v" }, "[h", gs.prev_hunk, { desc = "Jump to previous hunk" })
     map({ "n", "v" }, "]h", gs.next_hunk, { desc = "Jump to next hunk" })
-    map("v", "<leader>gr", function()
-      gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
-    end)
-    map("v", "<leader>gs", function()
-      gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
-    end)
+    map("v", "<leader>gr", function() gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") }) end)
+    map("v", "<leader>gs", function() gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") }) end)
 
     -- Text object
     map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
