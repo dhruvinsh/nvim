@@ -1,3 +1,11 @@
+require("telescope").setup({
+  extensions = {
+    frecency = {
+      auto_validate = true,
+      db_safe_mode = false,
+    },
+  },
+})
 require("telescope").load_extension("frecency")
 
 vim.keymap.set({ "n", "v" }, "<leader>?", "<cmd>Telescope frecency workspace=CWD<cr>", { desc = "Find Recent" })
