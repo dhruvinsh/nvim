@@ -31,7 +31,7 @@ vim.opt.cursorline = true
 vim.opt.laststatus = 3
 vim.opt.mouse = "a"
 vim.opt.pumblend = 10
-vim.opt.fillchars = { eob = " " }
+vim.opt.fillchars = { foldclose = "", foldopen = "", eob = " " }
 vim.opt.numberwidth = 2
 vim.opt.pumheight = 10
 vim.opt.scrolloff = 4
