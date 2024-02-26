@@ -50,12 +50,8 @@ require("nvim-treesitter.configs").setup({
     disable = function(lang, bufnr)
       -- for some language irrelevant of file size I want treesitter.
       local allowed_lang = { "vimdoc" }
-      if vim.tbl_contains(allowed_lang, lang) then
-        return false
-      end
-      if utils.is_big_buffer(bufnr) then
-        vim.notify("Big File: disabling treesitter", vim.log.levels.WARN)
-      end
+      if vim.tbl_contains(allowed_lang, lang) then return false end
+      if utils.is_big_buffer(bufnr) then vim.notify("Big File: disabling treesitter", vim.log.levels.WARN) end
     end,
 
     additional_vim_regex_highlighting = false,
