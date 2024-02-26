@@ -17,15 +17,11 @@ require("utils.helper").mason_pkg_installer(formatters)
 
 require("conform").setup({
   format_on_save = function(bufnr)
-    if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
-      return
-    end
+    if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then return end
     return { timeout_ms = 1000, lsp_fallback = true }
   end,
   format_after_save = function(bufnr)
-    if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
-      return
-    end
+    if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then return end
     return { lsp_fallback = true }
   end,
   formatters_by_ft = {
@@ -96,16 +92,13 @@ vim.api.nvim_create_user_command("FormatToggle", function(args)
 end, { desc = "Enable autoformat on save", bang = true })
 
 -- some vim keymaps
-vim.keymap.set({ "n", "v" }, "<leader>cf", function()
-  vim.cmd("Format")
-end, { desc = "Format" })
-vim.keymap.set({ "n", "v" }, "<leader>cF", function()
-  require("conform").format({ formatters = { "injected" } })
-end, { desc = "Format Injected" })
+vim.keymap.set({ "n", "v" }, "<leader>cf", function() vim.cmd("Format") end, { desc = "Format" })
+vim.keymap.set(
+  { "n", "v" },
+  "<leader>cF",
+  function() require("conform").format({ formatters = { "injected" } }) end,
+  { desc = "Format Injected" }
+)
 
-vim.keymap.set("n", "<leader>tf", function()
-  vim.cmd("FormatToggle")
-end, { desc = "Fomat Toggle (Local)" })
-vim.keymap.set("n", "<leader>tF", function()
-  vim.cmd("FormatToggle!")
-end, { desc = "Format Toggle (Global)" })
+vim.keymap.set("n", "<leader>tf", function() vim.cmd("FormatToggle") end, { desc = "Fomat Toggle (Local)" })
+vim.keymap.set("n", "<leader>tF", function() vim.cmd("FormatToggle!") end, { desc = "Format Toggle (Global)" })
