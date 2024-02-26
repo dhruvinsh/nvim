@@ -127,7 +127,7 @@ if vim.fn.has("nvim-0.10") == 1 then
         vim.opt.foldmethod = "expr"
         vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
         vim.opt.foldlevel = 99
-        vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
+        vim.opt.foldtext = ""
       end
     end,
   })
