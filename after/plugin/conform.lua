@@ -32,7 +32,7 @@ require("conform").setup({
     bash = { "shfmt" },
     lua = { "stylua" },
     markdown = { "cbfmt", "prettierd" },
-    python = { "isort", { "black" } },
+    python = { "ruff" },
   },
   formatters = {
     injected = { options = { ignore_errors = true } },
