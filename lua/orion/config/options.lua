@@ -45,3 +45,9 @@ vim.opt.splitright = true
 vim.opt.termguicolors = true
 -- Session
 vim.opt.sessionoptions = { "blank", "buffers", "curdir", "folds", "help", "tabpages", "winsize", "terminal", "options" }
+
+-- Neovide specific config
+if vim.g.neovide then
+  vim.o.guifont = "Iosevka Nerd Font:h14"
+  vim.opt.linespace = 0
+end
