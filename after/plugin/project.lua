@@ -3,7 +3,7 @@ local utils = require("utils")
 
 -- do not change global root_patterns
 local root_patterns = vim.deepcopy(utils.root_patterns)
-utils.tbl_append(root_patterns, "=src", ".hg")
+utils.tbl_append(root_patterns, ".hg")
 
 project.setup({
   patterns = root_patterns,
