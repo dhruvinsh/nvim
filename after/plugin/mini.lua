@@ -24,4 +24,4 @@ local function delete_buffer()
   end
 end
 
-vim.keymap.set("n", "<leader>bd", delete_buffer, { desc = "Delte" })
+vim.keymap.set("n", "<leader>bd", delete_buffer, { desc = "Delete" })
