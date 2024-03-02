@@ -10,9 +10,7 @@ M.is_mac = M.os_name == "Darwin"
 ---@param clear? boolean default set to true
 ---@return integer
 M.augroup = function(name, clear)
-  if clear == nil then
-    clear = true
-  end
+  if clear == nil then clear = true end
   return vim.api.nvim_create_augroup("orion_" .. name, { clear = clear })
 end
 
@@ -21,7 +19,7 @@ end
 M.is_big_buffer = function(bufnr)
   local ok, stat = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(bufnr))
   if not ok then
-    vim.notify("Not able to determine file size, decalring big file", vim.log.levels.ERROR)
+    vim.notify("Not able to determine file size, declaring big file", vim.log.levels.ERROR)
     return true
   end
 
