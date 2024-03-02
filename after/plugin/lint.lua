@@ -4,7 +4,7 @@
 local lint = require("lint")
 local utils = require("utils")
 
-local linters = { "markdownlint" }
+local linters = { "markdownlint", "codespell" }
 
 -- NOTE: on ARM mac, some formatter doesn't work if installed via mason
 -- chezmoi takes care of their installation.
@@ -21,5 +21,8 @@ lint.linters_by_ft = {
 
 vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost", "InsertLeave" }, {
   group = utils.augroup("nvim_lint"),
-  callback = function() lint.try_lint() end,
+  callback = function()
+    lint.try_lint()
+    lint.try_lint("codespell")
+  end,
 })
