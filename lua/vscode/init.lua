@@ -7,6 +7,7 @@ end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 require("lazy").setup({
+  "folke/flash.nvim",  
   "tpope/vim-surround",
   "tpope/vim-repeat",
 })
