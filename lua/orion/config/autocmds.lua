@@ -67,7 +67,6 @@ vim.api.nvim_create_autocmd("FileType", {
     "git",
     "help",
     "lspinfo",
-    "man",
     "neotest-output",
     "neotest-output-panel",
     "neotest-summary",
@@ -82,4 +81,11 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.bo[event.buf].buflisted = false
     vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
   end,
+})
+
+-- make it easier to close man-files when opened inline
+vim.api.nvim_create_autocmd("FileType", {
+  group = utils.augroup("man_unlisted"),
+  pattern = { "man" },
+  callback = function(event) vim.bo[event.buf].buflisted = false end,
 })
