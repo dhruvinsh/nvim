@@ -40,3 +40,39 @@ vim.api.nvim_create_autocmd("LspAttach", {
     nmap("<leader>cd", vim.diagnostic.open_float, "Diagnostic message")
   end,
 })
+
+-- NOTE: Diagnostic<*> command, if bang then global else local
+
+-- :DiagnosticDisable (Local) or :DiagnosticDisable! (Global)
+vim.api.nvim_create_user_command("DiagnosticDisable", function(args)
+  if args.bang then
+    vim.notify("Global diagnostics disable")
+    vim.diagnostic.disable()
+  else
+    vim.notify("Local diagnostics disable")
+    vim.diagnostic.disable(0)
+  end
+end, { desc = "Disable diagnostics", bang = true })
+
+-- :DiagnosticEnable (Enable both, local and global)
+vim.api.nvim_create_user_command("DiagnosticEnable", function()
+  vim.diagnostic.enable()
+  vim.notify("Diagnostics (globally) enable")
+end, { desc = "Enable diagnostics" })
+
+-- :DiagnosticToggle (Local) or :DiagnosticToggle! (Global)
+vim.api.nvim_create_user_command("DiagnosticToggle", function(args)
+  if vim.diagnostic.is_disabled(0) or vim.diagnostic.is_disabled() then
+    vim.cmd.DiagnosticEnable()
+  else
+    if args.bang then
+      vim.cmd("DiagnosticDisable!")
+    else
+      vim.cmd("DiagnosticDisable")
+    end
+  end
+end, { desc = "Enable diagnostics", bang = true })
+
+-- some vim keymaps
+vim.keymap.set("n", "<leader>tx", function() vim.cmd("DiagnosticToggle") end, { desc = "Diagnostics Toggle (Local)" })
+vim.keymap.set("n", "<leader>tX", function() vim.cmd("DiagnosticToggle!") end, { desc = "Diagnostic Toggle (Global)" })
