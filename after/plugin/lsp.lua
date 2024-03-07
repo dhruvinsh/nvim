@@ -7,20 +7,6 @@ require("fidget").setup({})
 ----------------------------
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" })
-vim.diagnostic.config({
-  severity_sort = true,
-  underline = true,
-  update_in_insert = false,
-  virtual_text = {
-    spacing = 4,
-    prefix = function(diagnostic)
-      local icons = require("utils.ui").diagnostics
-      for d, icon in pairs(icons) do
-        if diagnostic.severity == vim.diagnostic.severity[d:upper()] then return icon end
-      end
-    end,
-  },
-})
 
 local servers = {
   bashls = {}, -- bash, sh
@@ -75,11 +61,6 @@ local on_attach = function(client, bufnr)
       vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
     end
   end
-
-  -- diagnostics
-  nmap("[d", vim.diagnostic.goto_prev, "Previous Diagnostic")
-  nmap("]d", vim.diagnostic.goto_next, "Next Diagnostic")
-  nmap("<leader>cd", vim.diagnostic.open_float, "Diagnostic message")
 
   -- code things
   nmap("gd", require("telescope.builtin").lsp_definitions, "Goto Definition")
