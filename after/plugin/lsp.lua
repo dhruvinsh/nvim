@@ -1,6 +1,6 @@
 require("neodev").setup()
 require("neoconf").setup()
-require("fidget").setup()
+require("fidget").setup({})
 
 ----------------------------
 --- Nicer UI for the LSP ---
