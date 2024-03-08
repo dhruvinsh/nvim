@@ -40,6 +40,6 @@ return {
   "echasnovski/mini.files",
   "stevearc/oil.nvim",
   "Wansmer/treesj",
-  "folke/persistence.nvim",
+  "Shatur/neovim-session-manager",
   "ahmedkhalf/project.nvim",
 }
