@@ -59,7 +59,7 @@ db.setup({
         icon_hl = "@variable",
         desc = "Session",
         group = "@string.escape",
-        action = 'lua require("persistence").load()',
+        action = "SessionManager load_current_dir_session",
         key = "s",
       },
       {
