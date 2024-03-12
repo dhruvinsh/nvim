@@ -1,7 +1,7 @@
 vim.g.orion_color_scheme = "rose-pine"
-if vim.fn.executable("volta") then
-  vim.g.node_host_prog = vim.fn.trim(vim.fn.system("volta which neovim-node-host", true))
-end
+
+-- setup volta
+if vim.fn.executable("volta") then vim.g.node_host_prog = vim.fn.trim(vim.fn.system("volta which neovim-node-host")) end
 
 -- system
 if not vim.env.SSH_TTY then
