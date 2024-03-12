@@ -100,5 +100,5 @@ vim.keymap.set(
   { desc = "Format Injected" }
 )
 
-vim.keymap.set("n", "<leader>tf", function() vim.cmd("FormatToggle") end, { desc = "Fomat Toggle (Local)" })
+vim.keymap.set("n", "<leader>tf", function() vim.cmd("FormatToggle") end, { desc = "Format Toggle (Local)" })
 vim.keymap.set("n", "<leader>tF", function() vim.cmd("FormatToggle!") end, { desc = "Format Toggle (Global)" })
