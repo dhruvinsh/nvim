@@ -3,9 +3,15 @@ if vim.fn.executable("volta") then
   vim.g.node_host_prog = vim.fn.trim(vim.fn.system("volta which neovim-node-host", true))
 end
 
+-- system
+if not vim.env.SSH_TTY then
+  -- only set clipboard if not in ssh, to make sure the OSC 52
+  -- integration works automatically. Requires Neovim >= 0.10.0
+  vim.opt.clipboard = "unnamedplus"
+end
+
 -- editor
 vim.opt.autoindent = true
-vim.opt.clipboard = "unnamedplus"
 vim.opt.completeopt = "menuone,noselect"
 vim.opt.confirm = true
 vim.opt.expandtab = true
