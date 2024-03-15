@@ -8,7 +8,6 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 require("lazy").setup({
   "folke/flash.nvim",
-  { "max397574/better-escape.nvim", config = true },
   "tpope/vim-surround",
   "tpope/vim-repeat",
 })
