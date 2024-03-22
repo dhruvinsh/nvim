@@ -68,41 +68,32 @@ require("nvim-treesitter.configs").setup({
       enable = true,
       lookahead = true,
       keymaps = {
-        ["aa"] = "@parameter.outer",
-        ["ia"] = "@parameter.inner",
-        ["af"] = "@function.outer",
-        ["if"] = "@function.inner",
-        ["ac"] = "@class.outer",
-        ["ic"] = "@class.inner",
+        ["aa"] = { query = "@parameter.outer", desc = "Parameter outer" },
+        ["ia"] = { query = "@parameter.inner", desc = "Parameter inner" },
+        ["af"] = { query = "@function.outer", desc = "Function outer" },
+        ["if"] = { query = "@function.inner", desc = "Function inner" },
+        ["ac"] = { query = "@class.outer", desc = "Class outer" },
+        ["ic"] = { query = "@class.inner", desc = "Class inner" },
       },
     },
     move = {
       enable = true,
       set_jumps = true, -- whether to set jumps in the jumplist
       goto_next_start = {
-        ["]m"] = "@function.outer",
-        ["]]"] = "@class.outer",
+        ["]f"] = { query = "@function.outer", desc = "Function start" },
+        ["]c"] = { query = "@class.outer", desc = "Class start" },
       },
       goto_next_end = {
-        ["]M"] = "@function.outer",
-        ["]["] = "@class.outer",
+        ["]F"] = { query = "@function.outer", desc = "Function end" },
+        ["]C"] = { query = "@class.outer", desc = "Class end" },
       },
       goto_previous_start = {
-        ["[m"] = "@function.outer",
-        ["[["] = "@class.outer",
+        ["[f"] = { query = "@function.outer", desc = "Function start" },
+        ["[c"] = { query = "@class.outer", desc = "Class start" },
       },
       goto_previous_end = {
-        ["[M"] = "@function.outer",
-        ["[]"] = "@class.outer",
-      },
-    },
-    swap = {
-      enable = false,
-      swap_next = {
-        ["<leader>a"] = "@parameter.inner",
-      },
-      swap_previous = {
-        ["<leader>A"] = "@parameter.inner",
+        ["[F"] = { query = "@function.outer", desc = "Function end" },
+        ["[C"] = { query = "@class.outer", desc = "Class end" },
       },
     },
   },
