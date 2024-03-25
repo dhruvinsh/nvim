@@ -17,17 +17,17 @@ telescope.setup({
     preview = { filesize_limit = utils.max_filesize },
     prompt_prefix = " ",
     selection_caret = " ",
-    set_env = { ["COLORTERM"] = "truecolor" },
+    set_env = { COLORTERM = "truecolor" },
     sorting_strategy = "ascending",
-    vimgrep_arguments = {
-      "rg",
-      "--color=never",
-      "--column",
-      "--hidden",
-      "--line-number",
-      "--no-heading",
-      "--smart-case",
-      "--with-filename",
+  },
+  pickers = {
+    live_grep = {
+      file_ignore_patterns = { "node_modules", ".git", ".venv" },
+      additional_args = function(_) return { "--hidden" } end,
+    },
+    find_files = {
+      file_ignore_patterns = { "node_modules", ".git", ".venv" },
+      hidden = true,
     },
   },
 })
