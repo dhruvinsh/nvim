@@ -6,6 +6,10 @@ local color_schemes = {
       styles = { italic = false },
       highlight_groups = {
         Comment = { italic = true },
+
+        -- fix for python basedpyright
+        ["@lsp.type.variable"] = {},
+        ["@lsp.type.namespace.python"] = { link = "@variable" },
       },
     })
   end,
