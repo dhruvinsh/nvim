@@ -28,7 +28,13 @@ local servers = {
     },
   },
   marksman = {}, -- markdown
-  pyright = {}, -- python
+  basedpyright = {
+    settings = {
+      basedpyright = {
+        typeCheckingMode = "standard",
+      },
+    },
+  }, -- python
   ruff_lsp = {}, -- python
   taplo = {}, -- toml
   yamlls = {
