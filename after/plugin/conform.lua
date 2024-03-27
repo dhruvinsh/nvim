@@ -28,7 +28,7 @@ require("conform").setup({
     bash = { "shfmt" },
     lua = { "stylua" },
     markdown = { "cbfmt", "prettierd" },
-    python = { "ruff" },
+    python = { "ruff_format" },
   },
   formatters = {
     injected = { options = { ignore_errors = true } },
