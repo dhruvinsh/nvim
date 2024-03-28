@@ -93,16 +93,6 @@ local on_attach = function(client, bufnr)
   ----------------------------
   if client.supports_method("textDocument/declaration") then nmap("gD", vim.lsp.buf.declaration, "Goto Declaration") end
   if client.supports_method("textDocument/inlayHint") then vim.lsp.inlay_hint.enable(bufnr, true) end
-  if client.supports_method("textDocument/codeLens") then
-    nmap("<leader>cc", vim.lsp.codelens.run, "Run Codelens")
-    nmap("<leader>cC", vim.lsp.codelens.refresh, "Refresh & Display Codelens")
-
-    vim.lsp.codelens.refresh()
-    vim.api.nvim_create_autocmd(
-      { "BufEnter", "CursorHold", "InsertLeave" },
-      { buffer = bufnr, callback = vim.lsp.codelens.refresh }
-    )
-  end
 
   ----------------------------
   -- Server specific override
