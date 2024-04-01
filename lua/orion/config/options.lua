@@ -55,6 +55,6 @@ vim.opt.sessionoptions = { "blank", "buffers", "curdir", "folds", "help", "tabpa
 
 -- Neovide specific config
 if vim.g.neovide then
-  vim.o.guifont = "Iosevka Nerd Font:h14"
+  vim.o.guifont = "Iosevka NF:h14"
   vim.opt.linespace = 0
 end
