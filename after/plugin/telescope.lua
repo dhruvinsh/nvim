@@ -5,6 +5,7 @@ local utils = require("utils")
 
 telescope.setup({
   defaults = {
+    file_ignore_patterns = { "node_modules", ".git/", ".venv/" },
     layout_config = {
       horizontal = { prompt_position = "top", preview_width = 0.55, results_width = 0.8 },
       vertical = { mirror = false },
@@ -22,11 +23,9 @@ telescope.setup({
   },
   pickers = {
     live_grep = {
-      file_ignore_patterns = { "node_modules", ".git", ".venv" },
       additional_args = function(_) return { "--hidden" } end,
     },
     find_files = {
-      file_ignore_patterns = { "node_modules", ".git", ".venv" },
       hidden = true,
     },
   },
