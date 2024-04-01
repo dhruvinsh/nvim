@@ -1,7 +1,7 @@
 local M = {}
 
 M.max_filesize = 512 * 1024 -- big file size threshold 0.5 MB
-M.os_name = vim.loop.os_uname().sysname
+M.os_name = vim.uv.os_uname().sysname
 M.root_patterns = { ".editorconfig", ".git", ".neoconf.json", ".projectile", "Makefile", "pyproject.toml" }
 
 M.is_mac = M.os_name == "Darwin"
@@ -17,7 +17,7 @@ end
 ---@param bufnr number
 ---@return boolean
 M.is_big_buffer = function(bufnr)
-  local ok, stat = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(bufnr))
+  local ok, stat = pcall(vim.uv.fs_stat, vim.api.nvim_buf_get_name(bufnr))
   if not ok then
     vim.notify("Not able to determine file size, declaring big file", vim.log.levels.ERROR)
     return true
