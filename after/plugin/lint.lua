@@ -22,7 +22,9 @@ lint.linters_by_ft = {
 vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost", "InsertLeave" }, {
   group = utils.augroup("nvim_lint"),
   callback = function()
-    lint.try_lint()
-    lint.try_lint("codespell")
+    if not utils.is_big_buffer(vim.api.nvim_get_current_buf()) then
+      lint.try_lint()
+      lint.try_lint("codespell")
+    end
   end,
 })
