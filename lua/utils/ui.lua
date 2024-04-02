@@ -46,6 +46,10 @@ M.diagnostics = {
   Warn = " ",
   Hint = " ",
   Info = " ",
+  [1] = " ", -- error
+  [2] = " ", -- warn
+  [3] = " ", -- hint
+  [4] = " ", -- info
 }
 
 M.dap = {
