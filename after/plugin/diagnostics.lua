@@ -9,9 +9,7 @@ vim.diagnostic.config({
     spacing = 4,
     prefix = function(diagnostic)
       local icons = ui.diagnostics
-      for d, icon in pairs(icons) do
-        if diagnostic.severity == vim.diagnostic.severity[d:upper()] then return icon end
-      end
+      return icons[diagnostic.severity]
     end,
   },
 })
