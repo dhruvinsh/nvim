@@ -7,6 +7,11 @@ local color_schemes = {
       highlight_groups = {
         Comment = { italic = true },
 
+        -- illuminate
+        IlluminatedWordText = { link = "LspReferenceText" },
+        IlluminatedWordRead = { link = "LspReferenceRead" },
+        IlluminatedWordWrite = { link = "LspReferenceWrite" },
+
         -- from catppuccin
         ["@lsp.type.unresolvedReference"] = { link = "@error" },
         ["@lsp.typemod.type.defaultLibrary"] = { link = "@type.builtin" },
