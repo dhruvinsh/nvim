@@ -12,6 +12,12 @@ vim.diagnostic.config({
       return icons[diagnostic.severity]
     end,
   },
+  float = {
+    prefix = function(diagnostic)
+      local icons = ui.diagnostics
+      return icons[diagnostic.severity], ""
+    end,
+  },
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
