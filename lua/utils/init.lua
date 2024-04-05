@@ -5,6 +5,7 @@ M.os_name = vim.uv.os_uname().sysname
 M.root_patterns = { ".editorconfig", ".git", ".neoconf.json", ".projectile", "Makefile", "pyproject.toml" }
 
 M.is_mac = M.os_name == "Darwin"
+M.is_win = M.os_name == "Windows_NT"
 
 ---@param name string
 ---@param clear? boolean default set to true
