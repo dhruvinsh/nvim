@@ -1,8 +1,16 @@
+local utils = require("utils")
 vim.g.orion_color_scheme = "rose-pine"
 
 -- setup volta
 if vim.fn.executable("volta") then vim.g.node_host_prog = vim.fn.trim(vim.fn.system("volta which neovim-node-host")) end
-if vim.fn.executable("pyenv") then vim.g.python3_host_prog = vim.fn.trim(vim.fn.system("pyenv which python3")) end
+
+-- setup python
+if utils.is_win then
+  if vim.fn.executable("python") then vim.g.python3_host_prog = "python" end
+else
+  -- on linux and mac os I use pyenv to manage python, soon to be `Rye`
+  if vim.fn.executable("pyenv") then vim.g.python3_host_prog = vim.fn.trim(vim.fn.system("pyenv which python3")) end
+end
 
 -- system
 if not vim.env.SSH_TTY then
