@@ -69,12 +69,12 @@ local color_schemes = {
       },
     })
   end,
-  ["onedark"] = function()
+  onedark = function()
     require("onedark").setup({
       style = "warmer",
     })
   end,
-  ["catppuccin"] = function()
+  catppuccin = function()
     require("catppuccin").setup({
       flavour = "mocha",
       integrations = {
@@ -100,6 +100,9 @@ local color_schemes = {
 
 ---A global function that allow to set color scheme
 ---@param scheme? string or it uses vim.g.orion_color_scheme
+---| "'rose-pine'"
+---| "'onedark'"
+---| "'catppuccin'"
 function SetColorscheme(scheme)
   local color_scheme = scheme or vim.g.orion_color_scheme
   local scheme_fn = color_schemes[color_scheme]
