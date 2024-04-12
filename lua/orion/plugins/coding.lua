@@ -66,7 +66,6 @@ return {
   "b0o/SchemaStore.nvim",
   "mfussenegger/nvim-lint",
   { "stevearc/conform.nvim", version = "*" },
-  "RRethy/vim-illuminate",
   "folke/zen-mode.nvim",
 
   -- python
