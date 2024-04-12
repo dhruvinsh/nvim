@@ -83,7 +83,7 @@ db.setup({
         icon_hl = "@variable",
         desc = "Close",
         group = "@parameter",
-        action = "qa",
+        action = "silent qa",
         key = "q",
       },
     },
