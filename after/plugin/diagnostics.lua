@@ -27,16 +27,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     ---@param keys string
     ---@param func function | string
     ---@param desc? string
-    ---@param mode? string
-    local nmap = function(keys, func, desc, mode)
-      if desc then desc = "LSP: " .. desc end
-
-      if mode then
-        vim.keymap.set(mode, keys, func, { buffer = ev.buf, desc = desc })
-      else
-        vim.keymap.set("n", keys, func, { buffer = ev.buf, desc = desc })
-      end
-    end
+    local nmap = function(keys, func, desc) vim.keymap.set("n", keys, func, { buffer = ev.buf, desc = desc }) end
 
     -- diagnostics
     nmap("[d", vim.diagnostic.goto_prev, "Previous Diagnostic")

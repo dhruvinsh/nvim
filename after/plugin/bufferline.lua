@@ -4,12 +4,8 @@ local utils = require("utils")
 ---@diagnostic disable:missing-fields
 require("bufferline").setup({
   options = {
-    close_command = function(n)
-      require("mini.bufremove").delete(n, false)
-    end,
-    right_mouse_command = function(n)
-      require("mini.bufremove").delete(n, false)
-    end,
+    close_command = function(n) require("mini.bufremove").delete(n, false) end,
+    right_mouse_command = function(n) require("mini.bufremove").delete(n, false) end,
     diagnostics = "nvim_lsp",
     always_show_bufferline = false,
     diagnostics_indicator = function(_, _, diag)
@@ -36,7 +32,7 @@ vim.keymap.set("n", "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", { desc = "Togg
 vim.keymap.set("n", "[b", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
 vim.keymap.set("n", "]b", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
 
--- HACK: When I resotre the session with persistence.nvim all the buffer doesn't appear
+-- HACK: When I restore the session with persistence.nvim all the buffer doesn't appear
 vim.api.nvim_create_autocmd("BufAdd", {
   group = utils.augroup("rstore_bufferline"),
   callback = function()
