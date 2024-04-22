@@ -96,6 +96,8 @@ local color_schemes = {
       },
     })
   end,
+  ["gruvbox-material"] = function() vim.g.gruvbox_material_background = "hard" end,
+  hybrid = function() require("hybrid").setup({}) end,
 }
 
 ---A global function that allow to set color scheme
@@ -103,6 +105,8 @@ local color_schemes = {
 ---| "'rose-pine'"
 ---| "'onedark'"
 ---| "'catppuccin'"
+---| "'gruvbox-material'"
+---| "'hybrid'"
 function SetColorscheme(scheme)
   local color_scheme = scheme or vim.g.orion_color_scheme
   local scheme_fn = color_schemes[color_scheme]
@@ -118,4 +122,4 @@ function SetColorscheme(scheme)
   vim.cmd.colorscheme(color_scheme)
 end
 
-SetColorscheme()
+SetColorscheme("hybrid")

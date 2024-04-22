@@ -6,6 +6,8 @@ return {
   },
   "navarasu/onedark.nvim",
   { "catppuccin/nvim", name = "catppuccin" },
+  { "sainnhe/gruvbox-material" },
+  { "HoNamDuong/hybrid.nvim", opts = {} },
 
   { "nvim-lualine/lualine.nvim", config = true },
 
