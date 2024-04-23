@@ -11,7 +11,7 @@ return {
 
   { "nvim-lualine/lualine.nvim", config = true },
 
-  { "akinsho/bufferline.nvim", config = true, version = "*" },
+  { "akinsho/bufferline.nvim", config = true },
 
   { "lukas-reineke/indent-blankline.nvim", main = "ibl" },
   "echasnovski/mini.indentscope",
