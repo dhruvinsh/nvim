@@ -96,7 +96,7 @@ local on_attach = function(client, bufnr)
   ----------------------------
   -- Server specific override
   ----------------------------
-  if client.name == "ruff_lsp" then client.server_capabilities.hoverProvider = false end
+  if client.name == "ruff" then client.server_capabilities.hoverProvider = false end
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
