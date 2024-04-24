@@ -35,21 +35,6 @@ return {
       "folke/neodev.nvim",
     },
   },
-  {
-    -- "hrsh7th/nvim-cmp",  - switching to fork package for better support
-    "dhruvinsh/nvim-cmp",
-    dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "petertriho/cmp-git",
-
-      "L3MON4D3/LuaSnip",
-      "saadparwaiz1/cmp_luasnip",
-      "rafamadriz/friendly-snippets",
-    },
-  },
-
   -- DAP Configuration
   {
     "mfussenegger/nvim-dap",
