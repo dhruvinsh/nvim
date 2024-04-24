@@ -30,7 +30,6 @@ vim.opt.expandtab = true
 vim.opt.formatoptions = "jcroqlnt" -- see :help fo-table
 vim.opt.ignorecase = true
 vim.opt.number = true
-vim.opt.relativenumber = true
 vim.opt.shiftround = true
 vim.opt.shiftwidth = 2
 vim.opt.smartcase = true
