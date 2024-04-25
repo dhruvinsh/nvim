@@ -1,7 +1,7 @@
 local cmp = require("cmp")
 
 -- fugitive autocompletion
----@diagnostic disable-next-line:missing-fields
+---@diagnostic disable-next-line
 cmp.setup.filetype("gitcommit", {
   sources = cmp.config.sources({
     { name = "git" },

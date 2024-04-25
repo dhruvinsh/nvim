@@ -20,7 +20,13 @@ local servers = {
   lua_ls = {
     settings = {
       Lua = {
+        runtime = {
+          version = "LuaJIT",
+        },
+        diagnostics = { disable = { "missing-fields" } },
         workspace = { checkThirdParty = false },
+        maxPreload = 100000,
+        preLoadFileSize = 10000,
         completion = { callSnippet = "Replace" },
         telemetry = { enable = false },
       },
