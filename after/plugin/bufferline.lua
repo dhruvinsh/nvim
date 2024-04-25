@@ -1,7 +1,7 @@
 local ui = require("utils.ui")
 local utils = require("utils")
 
----@diagnostic disable:missing-fields
+---@diagnostic disable
 require("bufferline").setup({
   options = {
     close_command = function(n) require("mini.bufremove").delete(n, false) end,
