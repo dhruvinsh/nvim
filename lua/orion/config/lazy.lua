@@ -11,7 +11,7 @@ require("lazy").setup({
     lazy = false,
     version = false,
   },
-  install = { colorscheme = { "rose-pine", "habamax" } },
+  install = { colorscheme = { vim.g.orion_color_scheme, "habamax" } },
   checker = { enabled = false }, -- automatically check for plugin updates
   performance = {
     rtp = {
