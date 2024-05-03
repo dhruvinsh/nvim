@@ -1,6 +1,6 @@
 local M = {}
 
-M.kinds = {
+M.lspkind = {
   Array = " ",
   Boolean = "󰨙 ",
   Class = " ",

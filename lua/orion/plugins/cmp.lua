@@ -26,8 +26,15 @@ return {
     -- nvim-cmp/lua/cmp/config/
     local compare = require("cmp.config.compare")
 
-    ---@diagnostic disable
     cmp.setup({
+      enabled = function()
+        local context = require("cmp.config.context")
+        if vim.api.nvim_get_mode().mode == "c" then
+          return true
+        else
+          return not context.in_treesitter_capture("comment") and not context.in_syntax_group("Comment")
+        end
+      end,
       completion = {
         completeopt = "menu,menuone,noinsert",
       },
@@ -68,29 +75,20 @@ return {
       }),
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
+        -- { name = "copilot" },
         { name = "luasnip" },
         { name = "path" },
       }, {
         { name = "buffer" },
       }),
       formatting = {
-        fields = { "menu", "abbr", "kind" },
+        fields = { "kind", "abbr", "menu" },
         format = function(_, item)
-          local MAX_ABBR_WIDTH, MAX_MENU_WIDTH = 25, 30
-          local ELLIPSIS = "…"
+          local icon = ui.lspkind[item.kind]
 
-          -- Kind: add the icon
-          if ui.kinds[item.kind] then item.kind = ui.kinds[item.kind] .. item.kind end
-
-          -- Abbr: Truncate the label.
-          if vim.api.nvim_strwidth(item.abbr) > MAX_ABBR_WIDTH then
-            item.abbr = vim.fn.strcharpart(item.abbr, 0, MAX_ABBR_WIDTH) .. ELLIPSIS
-          end
-
-          -- Menu: Truncate the description part.
-          if vim.api.nvim_strwidth(item.menu or "") > MAX_MENU_WIDTH then
-            item.menu = vim.fn.strcharpart(item.menu, 0, MAX_MENU_WIDTH) .. ELLIPSIS
-          end
+          icon = " " .. icon .. " "
+          item.menu = "    (" .. item.kind .. ")"
+          item.kind = icon
 
           return item
         end,
@@ -114,34 +112,19 @@ return {
         },
       },
       window = {
-        completion = cmp.config.window.bordered({ scrollbar = true }),
+        completion = {
+          winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:None",
+          col_offset = -3,
+          side_padding = 0,
+          scrollbar = false,
+        },
         documentation = cmp.config.window.bordered({
           max_height = math.floor(vim.o.lines * 0.5),
           max_width = math.floor(vim.o.columns * 0.4),
+          winhighlight = "Normal:CmpDoc",
         }),
       },
     })
-
-    -- TODO: implement this..
-    -- {
-    --   "hrsh7th/nvim-cmp",
-    --   ---@param opts cmp.ConfigSchema
-    --   opts = function(_, opts)
-    --     for _, source in ipairs(opts.sources) do
-    --       if source.name == "luasnip" then
-    --         source.option = { use_show_condition = true }
-    --         source.entry_filter = function()
-    --           local ctx = require("cmp.config.context")
-    --           local string_ctx = ctx.in_treesitter_capture("string") or ctx.in_syntax_group("String")
-    --           local comment_ctx = ctx.in_treesitter_capture("comment") or ctx.in_syntax_group("Comment")
-    --
-    --           --   Returning `true` will keep the entry, while returning `false` will remove it.
-    --           return not (string_ctx or comment_ctx)
-    --         end
-    --       end
-    --     end
-    --   end,
-    -- },
 
     -- some highlighting for ghost text
     vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
