@@ -41,6 +41,7 @@ local servers = {
     },
   }, -- python
   ruff = {}, -- python
+  rust_analyzer = {}, -- rust
   taplo = {}, -- toml
   yamlls = {
     settings = {
