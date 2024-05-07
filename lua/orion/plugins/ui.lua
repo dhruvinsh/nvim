@@ -11,6 +11,5 @@ return {
   { "folke/todo-comments.nvim", config = true },
 
   "stevearc/dressing.nvim",
-  "rcarriga/nvim-notify",
   "nvimdev/dashboard-nvim",
 }
