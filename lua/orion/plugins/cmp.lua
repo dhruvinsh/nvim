@@ -105,7 +105,6 @@ return {
       },
       window = {
         completion = {
-          winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:None",
           col_offset = -3,
           side_padding = 0,
           scrollbar = false,
@@ -113,7 +112,6 @@ return {
         documentation = cmp.config.window.bordered({
           max_height = math.floor(vim.o.lines * 0.5),
           max_width = math.floor(vim.o.columns * 0.4),
-          winhighlight = "Normal:CmpDoc",
         }),
       },
     })
