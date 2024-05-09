@@ -52,7 +52,17 @@ vim.opt.fillchars = { foldclose = "", foldopen = "", eob = " " }
 vim.opt.numberwidth = 2
 vim.opt.pumheight = 10
 vim.opt.scrolloff = 4
-vim.opt.shortmess:append({ C = true, I = true, W = true, c = true })
+vim.opt.shortmess:append("C")
+vim.opt.shortmess:append("I")
+vim.opt.shortmess:append("W")
+-- l	use "999L, 888B" instead of "999 lines, 888 bytes"	*shm-l*
+-- m	use "[+]" instead of "[Modified]"			*shm-m*
+-- r	use "[RO]" instead of "[readonly]"			*shm-r*
+-- w	use "[w]" instead of "written" for file write message	*shm-w*
+-- and "[a]" instead of "appended" for ':w >> file' command
+-- a	all of the above abbreviations				*shm-a*
+vim.opt.shortmess:append("a")
+vim.opt.shortmess:append("c")
 vim.opt.showmode = false
 vim.opt.signcolumn = "yes"
 vim.opt.smoothscroll = true
