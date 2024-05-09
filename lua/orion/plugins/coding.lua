@@ -7,7 +7,6 @@ return {
   "tpope/vim-fugitive",
   "lewis6991/gitsigns.nvim",
 
-  { "numToStr/Comment.nvim", config = true },
   { "windwp/nvim-autopairs", opts = {} },
 
   -- tools
