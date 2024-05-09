@@ -1,2 +1,3 @@
-require("orion")
+vim.loader.enable()
 
+require("orion")
