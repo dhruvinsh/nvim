@@ -42,10 +42,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 vim.api.nvim_create_user_command("DiagnosticDisable", function(args)
   if args.bang then
     vim.notify("Global diagnostics disable")
-    vim.diagnostic.disable()
+    vim.diagnostic.enable(false)
   else
     vim.notify("Local diagnostics disable")
-    vim.diagnostic.disable(0)
+    vim.diagnostic.enable(false, { bufnr = 0 })
   end
 end, { desc = "Disable diagnostics", bang = true })
 
@@ -57,14 +57,14 @@ end, { desc = "Enable diagnostics" })
 
 -- :DiagnosticToggle (Local) or :DiagnosticToggle! (Global)
 vim.api.nvim_create_user_command("DiagnosticToggle", function(args)
-  if vim.diagnostic.is_disabled(0) or vim.diagnostic.is_disabled() then
-    vim.cmd.DiagnosticEnable()
-  else
+  if vim.diagnostic.is_enabled({ bufnr = 0 }) or vim.diagnostic.is_enabled() then
     if args.bang then
       vim.cmd("DiagnosticDisable!")
     else
       vim.cmd("DiagnosticDisable")
     end
+  else
+    vim.cmd.DiagnosticEnable()
   end
 end, { desc = "Enable diagnostics", bang = true })
 
