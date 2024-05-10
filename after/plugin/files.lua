@@ -3,8 +3,14 @@
 ------------------
 local minifiles = require("mini.files")
 
-minifiles.setup({})
+minifiles.setup({
+  mappings = {
+    go_in = "L",
+    go_in_plus = "l",
+  },
+})
 
+---@diagnostic disable:unused-vararg
 local minifiles_toggle = function(...)
   if not minifiles.close() then
     minifiles.open(vim.api.nvim_buf_get_name(0))
@@ -16,14 +22,17 @@ vim.keymap.set("n", "<leader>fe", minifiles_toggle, { desc = "Explorer" })
 local map_split = function(buf_id, lhs, direction)
   local rhs = function()
     -- Make new window and set it as target
+    local target_window = minifiles.get_target_window()
+    if target_window == nil then return end
+
     local new_target_window
-    vim.api.nvim_win_call(minifiles.get_target_window(), function()
+    vim.api.nvim_win_call(target_window, function()
       vim.cmd(direction .. " split")
       new_target_window = vim.api.nvim_get_current_win()
     end)
 
     minifiles.set_target_window(new_target_window)
-    minifiles.go_in()
+    minifiles.go_in({ close_on_file = true })
   end
 
   -- Adding `desc` will result into `show_help` entries
