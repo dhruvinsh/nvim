@@ -37,8 +37,6 @@ return {
     config = true,
   },
 
-  "echasnovski/mini.files",
-  "stevearc/oil.nvim",
   "Wansmer/treesj",
   "Shatur/neovim-session-manager",
   "ahmedkhalf/project.nvim",
