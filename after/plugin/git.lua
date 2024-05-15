@@ -59,8 +59,10 @@ gs.setup({
     map("n", "gP", gs.preview_hunk_inline, { desc = "Preview git inline" })
     map("n", "gp", gs.preview_hunk, { desc = "Preview git hunk" })
     map({ "n", "v" }, "<leader>gb", "<cmd>Gitsigns blame_line full=true<cr>", { desc = "Blame(full)" })
-    map({ "n", "v" }, "[h", gs.prev_hunk, { desc = "Jump to previous hunk" })
-    map({ "n", "v" }, "]h", gs.next_hunk, { desc = "Jump to next hunk" })
+    map({ "n", "v" }, "[h", gs.nav_hunk("prev"), { desc = "Jump to previous hunk" })
+    map({ "n", "v" }, "]h", gs.nav_hunk("next"), { desc = "Jump to next hunk" })
+    map({ "n", "v" }, "[H", gs.nav_hunk("last"), { desc = "Jump to previous hunk" })
+    map({ "n", "v" }, "]H", gs.nav_hunk("first"), { desc = "Jump to next hunk" })
     map("v", "<leader>gr", function() gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") }) end)
     map("v", "<leader>gs", function() gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") }) end)
 
