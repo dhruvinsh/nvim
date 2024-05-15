@@ -3,6 +3,7 @@ local utils = require("utils")
 ---@return LazySpec
 return {
   "RRethy/vim-illuminate",
+  event = "InsertEnter",
   opts = {
     delay = 200,
     large_file_cutoff = utils.max_filesize,
