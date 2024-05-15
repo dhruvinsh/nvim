@@ -24,7 +24,6 @@ return {
   "nvim-treesitter/nvim-treesitter-context",
 
   "mbbill/undotree",
-  "andymass/vim-matchup",
   {
     "max397574/better-escape.nvim",
     config = true,
@@ -37,7 +36,6 @@ return {
     config = true,
   },
 
-  "Wansmer/treesj",
   "Shatur/neovim-session-manager",
   "ahmedkhalf/project.nvim",
 }
