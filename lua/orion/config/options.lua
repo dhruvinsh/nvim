@@ -20,6 +20,18 @@ if not vim.env.SSH_TTY then
   -- only set clipboard if not in ssh, to make sure the OSC 52
   -- integration works automatically. Requires Neovim >= 0.10.0
   vim.opt.clipboard = "unnamedplus"
+else
+  vim.g.clipboard = {
+    name = "OSC 52",
+    copy = {
+      ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+      ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+    },
+    paste = {
+      ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+      ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+    },
+  }
 end
 
 -- editor
