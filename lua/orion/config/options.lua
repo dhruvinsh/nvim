@@ -7,12 +7,10 @@ if vim.fn.executable("volta") then vim.g.node_host_prog = vim.fn.trim(vim.fn.sys
 -- setup python
 if utils.is_win then
   if vim.fn.executable("python") then vim.g.python3_host_prog = "python" end
-else
-  -- on linux and mac os I use pyenv to manage python, soon to be `Rye`
-  if vim.fn.executable("pyenv") then
-    local py_version = vim.fn.trim(vim.fn.system("pyenv global"))
-    vim.g.python3_host_prog = "~/.pyenv/versions/" .. py_version .. "/bin/python3"
-  end
+-- on linux and mac os I use pyenv to manage python, soon to be `Rye`
+elseif vim.fn.executable("pyenv") then
+  local py_version = vim.fn.trim(vim.fn.system("pyenv global"))
+  vim.g.python3_host_prog = "~/.pyenv/versions/" .. py_version .. "/bin/python3"
 end
 
 -- system
@@ -87,6 +85,6 @@ vim.opt.sessionoptions = { "blank", "buffers", "curdir", "folds", "help", "tabpa
 
 -- Neovide specific config
 if vim.g.neovide then
-  vim.o.guifont = "Iosevka NF:h14"
+  vim.o.guifont = "FiraCode Nerd Font:h14"
   vim.opt.linespace = 0
 end
