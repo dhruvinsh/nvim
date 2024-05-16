@@ -2,73 +2,34 @@ return {
   "hrsh7th/nvim-cmp",
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-nvim-lua",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "petertriho/cmp-git",
-
-    "L3MON4D3/LuaSnip",
-    "saadparwaiz1/cmp_luasnip",
-    "rafamadriz/friendly-snippets",
     "windwp/nvim-autopairs",
   },
-  config = function()
+  opts = function()
     local cmp = require("cmp")
-    local luasnip = require("luasnip")
     local ui = require("utils.ui")
-
-    require("luasnip.loaders.from_vscode").lazy_load()
-    luasnip.config.setup({
-      history = true,
-      delete_check_events = "TextChanged",
-    })
-
-    -- nvim-cmp/lua/cmp/config/
-    local compare = require("cmp.config.compare")
-
-    cmp.setup({
+    return {
       completion = {
         completeopt = "menu,menuone,noinsert",
       },
-      snippet = {
-        expand = function(args) luasnip.lsp_expand(args.body) end,
-      },
-      preselect = cmp.PreselectMode.None,
       mapping = cmp.mapping.preset.insert({
-        ["<C-n>"] = cmp.mapping.select_next_item(),
-        ["<C-p>"] = cmp.mapping.select_prev_item(),
+        ["<C-n>"] = cmp.mapping.select_next_item(), -- default behavior is Insert
+        ["<C-p>"] = cmp.mapping.select_prev_item(), -- default behavior is Insert
         ["<C-d>"] = cmp.mapping.scroll_docs(-4),
         ["<C-u>"] = cmp.mapping.scroll_docs(4),
         ["<C-Space>"] = cmp.mapping.complete({}),
         ["<C-e>"] = cmp.mapping.close(),
         -- ["<C-e>"] = cmp.mapping.abort(),
         ["<CR>"] = cmp.mapping.confirm({
-          behavior = cmp.ConfirmBehavior.Replace,
+          behavior = cmp.ConfirmBehavior.Insert, -- other option is Replace, lets try Insert for a change.
           select = true,
         }),
-        ["<Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_next_item()
-          elseif luasnip.expand_or_locally_jumpable() then
-            luasnip.expand_or_jump()
-          else
-            fallback()
-          end
-        end, { "i", "s" }),
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_prev_item()
-          elseif luasnip.locally_jumpable(-1) then
-            luasnip.jump(-1)
-          else
-            fallback()
-          end
-        end, { "i", "s" }),
       }),
       sources = cmp.config.sources({
-        { name = "nvim_lsp" },
-        -- { name = "copilot" },
-        { name = "luasnip" },
+        -- give lsp more priority then copilot
+        { name = "nvim_lsp", priority = 100 },
         { name = "path" },
       }, {
         { name = "buffer" },
@@ -90,31 +51,28 @@ return {
           hl_group = "CmpGhostText",
         },
       },
-      sorting = {
-        comparators = {
-          compare.offset,
-          compare.exact,
-          compare.score,
-          compare.recently_used,
-          compare.locality,
-          compare.kind,
-          -- compare.sort_text,
-          compare.length,
-          compare.order,
-        },
-      },
-      window = {
-        completion = {
-          col_offset = -3,
-          side_padding = 0,
-          scrollbar = false,
-        },
-        documentation = cmp.config.window.bordered({
-          max_height = math.floor(vim.o.lines * 0.5),
-          max_width = math.floor(vim.o.columns * 0.4),
-        }),
-      },
+    }
+  end,
+  ---@param opts cmp.ConfigSchema
+  config = function(_, opts)
+    for _, source in ipairs(opts.sources) do
+      source.group_index = source.group_index or 1
+    end
+    local cmp = require("cmp")
+
+    cmp.setup(opts)
+
+    -- fugitive autocompletion
+    ---@diagnostic disable-next-line
+    cmp.setup.filetype("gitcommit", {
+      sources = cmp.config.sources({
+        { name = "git" },
+        { name = "luasnip" },
+      }, {
+        { name = "buffer" },
+      }),
     })
+    require("cmp_git").setup()
 
     -- some highlighting for ghost text
     vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
