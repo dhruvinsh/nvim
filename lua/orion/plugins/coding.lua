@@ -48,7 +48,6 @@ return {
   "folke/neoconf.nvim",
   "b0o/SchemaStore.nvim",
   "mfussenegger/nvim-lint",
-  { "stevearc/conform.nvim", version = "*" },
   "folke/zen-mode.nvim",
 
   -- python
