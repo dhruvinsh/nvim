@@ -1,5 +1,5 @@
 local utils = require("utils")
-vim.g.orion_color_scheme = "hybrid"
+vim.g.orion_color_scheme = "onedark"
 
 -- setup volta
 if vim.fn.executable("volta") then vim.g.node_host_prog = vim.fn.trim(vim.fn.system("volta which neovim-node-host")) end
