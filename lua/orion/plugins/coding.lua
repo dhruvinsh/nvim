@@ -7,8 +7,6 @@ return {
   "tpope/vim-fugitive",
   "lewis6991/gitsigns.nvim",
 
-  { "windwp/nvim-autopairs", opts = {} },
-
   -- tools
   "folke/trouble.nvim",
   "akinsho/toggleterm.nvim",
