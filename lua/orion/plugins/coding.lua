@@ -34,7 +34,6 @@ return {
     },
   },
 
-  "mfussenegger/nvim-lint",
   "folke/zen-mode.nvim",
 
   -- python
