@@ -23,15 +23,6 @@ return {
     cmd = "Glow",
   },
 
-  -- LSP Configuration & Plugins
-  {
-    "neovim/nvim-lspconfig",
-    dependencies = {
-      { "williamboman/mason.nvim", config = true },
-      "williamboman/mason-lspconfig.nvim",
-      "folke/neodev.nvim",
-    },
-  },
   -- DAP Configuration
   {
     "mfussenegger/nvim-dap",
@@ -43,8 +34,6 @@ return {
     },
   },
 
-  "folke/neoconf.nvim",
-  "b0o/SchemaStore.nvim",
   "mfussenegger/nvim-lint",
   "folke/zen-mode.nvim",
 
