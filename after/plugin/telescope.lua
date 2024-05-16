@@ -14,7 +14,7 @@ telescope.setup({
       preview_cutoff = 120,
     },
     mappings = { i = { ["<esc>"] = actions.close } },
-    path_display = { "truncate" },
+    path_display = { "filename_first" },
     preview = { filesize_limit = utils.max_filesize },
     prompt_prefix = " ",
     selection_caret = " ",
