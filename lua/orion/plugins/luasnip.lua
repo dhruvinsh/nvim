@@ -1,37 +1,49 @@
 return {
-  "L3MON4D3/LuaSnip",
-  build = "make install_jsregexp",
+  "nvim-cmp",
   dependencies = {
-    {
-      "rafamadriz/friendly-snippets",
-      config = function() require("luasnip.loaders.from_vscode").lazy_load() end,
-    },
-    {
-      "nvim-cmp",
-      dependencies = {
-        "saadparwaiz1/cmp_luasnip",
-      },
-      opts = function(_, opts)
-        opts.snippet = {
-          expand = function(args) require("luasnip").lsp_expand(args.body) end,
-        }
-        table.insert(opts.sources, { name = "luasnip", group_index = 1 })
-      end,
-    },
+    { "rafamadriz/friendly-snippets" },
+    { "garymjr/nvim-snippets", opts = { friendly_snippets = true } },
   },
-  opts = {
-    history = true,
-    delete_check_events = "TextChanged",
-  },
+  opts = function(_, opts)
+    opts.snippet = {
+      expand = function(args) vim.snippet.expand(args.body) end,
+    }
+    table.insert(opts.sources, { name = "snippets" })
+  end,
   keys = {
     {
-      "<tab>",
-      function() return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>" end,
+      "<Tab>",
+      function()
+        if vim.snippet.active({ direction = 1 }) then
+          vim.schedule(function() vim.snippet.jump(1) end)
+          return
+        end
+        return "<Tab>"
+      end,
       expr = true,
       silent = true,
       mode = "i",
     },
-    { "<tab>", function() require("luasnip").jump(1) end, mode = "s" },
-    { "<s-tab>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
+    {
+      "<Tab>",
+      function()
+        vim.schedule(function() vim.snippet.jump(1) end)
+      end,
+      silent = true,
+      mode = "s",
+    },
+    {
+      "<S-Tab>",
+      function()
+        if vim.snippet.active({ direction = -1 }) then
+          vim.schedule(function() vim.snippet.jump(-1) end)
+          return
+        end
+        return "<S-Tab>"
+      end,
+      expr = true,
+      silent = true,
+      mode = { "i", "s" },
+    },
   },
 }
