@@ -6,6 +6,13 @@ return {
       colors = {
         bg0 = "#16161D",
       },
+      highlights = {
+        ["illuminatedWord"] = { bg = "$bg2", fmt = "bold" },
+        ["illuminatedCurWord"] = { bg = "$bg2", fmt = "bold" },
+        ["IlluminatedWordText"] = { bg = "$bg2", fmt = "bold" },
+        ["IlluminatedWordRead"] = { bg = "$bg2", fmt = "bold" },
+        ["IlluminatedWordWrite"] = { bg = "$bg2", fmt = "bold" },
+      },
     })
     require("onedark").load()
   end,
