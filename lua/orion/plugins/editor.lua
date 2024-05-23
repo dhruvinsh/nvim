@@ -2,7 +2,6 @@ return {
   { "echasnovski/mini.bufremove", version = false },
   { "folke/flash.nvim", opts = {} },
   "cshuaimin/ssr.nvim",
-  "nvim-pack/nvim-spectre",
   { "kevinhwang91/nvim-bqf", ft = "qf" },
 
   {
