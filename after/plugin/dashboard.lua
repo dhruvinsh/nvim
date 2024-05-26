@@ -23,7 +23,7 @@ db.setup({
       { action = "ene | startinsert",                        desc = " New file",  icon = " ", key = "n" },
       { action = "SessionManager load_current_dir_session",  desc = " Session",   icon = "󰳿 ", key = "s" },
       { action = "Telescope find_files cwd=" .. config_path, desc = " Config",    icon = " ", key = "c" },
-      { action = "Lazy restore",                             desc = " Update",    icon = "󰊳 ", key = "r" },
+      { action = "Lazy restore",                             desc = " Restore",   icon = "󰊳 ", key = "r" },
       { action = "silent qa",                                desc = " Quit",      icon = " ", key = "q" },
     },
     footer = function()
