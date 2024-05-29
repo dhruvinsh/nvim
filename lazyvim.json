@@ -5,6 +5,7 @@
     "lazyvim.plugins.extras.dap.core",
     "lazyvim.plugins.extras.editor.harpoon2",
     "lazyvim.plugins.extras.editor.illuminate",
+    "lazyvim.plugins.extras.lang.docker",
     "lazyvim.plugins.extras.lang.markdown",
     "lazyvim.plugins.extras.lang.rust",
     "lazyvim.plugins.extras.lang.toml",
