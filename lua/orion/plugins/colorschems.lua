@@ -25,11 +25,11 @@ return {
         blue = "#0184bc",
       },
       highlights = {
-        ["illuminatedWord"] = { bg = "$bg2", fmt = "bold" },
-        ["illuminatedCurWord"] = { bg = "$bg2", fmt = "bold" },
-        ["IlluminatedWordText"] = { bg = "$bg2", fmt = "bold" },
-        ["IlluminatedWordRead"] = { bg = "$bg2", fmt = "bold" },
-        ["IlluminatedWordWrite"] = { bg = "$bg2", fmt = "bold" },
+        illuminatedWord = { bg = "$bg2", fmt = "bold" },
+        illuminatedCurWord = { bg = "$bg2", fmt = "bold" },
+        IlluminatedWordText = { bg = "$bg2", fmt = "bold" },
+        IlluminatedWordRead = { bg = "$bg2", fmt = "bold" },
+        IlluminatedWordWrite = { bg = "$bg2", fmt = "bold" },
       },
     })
     require("onedark").load()
