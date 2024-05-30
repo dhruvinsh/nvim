@@ -38,6 +38,10 @@ return {
           IlluminatedWordText = { bg = "$bg2", fmt = "bold" },
           IlluminatedWordRead = { bg = "$bg2", fmt = "bold" },
           IlluminatedWordWrite = { bg = "$bg2", fmt = "bold" },
+
+          TelescopePromptTitle = { bg = "$dark_cyan", fg = "white", fmt = "bold" },
+          TelescopeResultsTitle = { bg = "$dark_purple", fg = "white", fmt = "bold" },
+          TelescopePreviewTitle = { bg = "$dark_red", fg = "white", fmt = "bold" },
         },
       })
       require("onedark").load()
