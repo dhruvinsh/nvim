@@ -56,6 +56,15 @@ return {
   },
 
   {
+    "mfussenegger/nvim-lint",
+    opts = {
+      linters_by_ft = {
+        python = { "mypy" },
+      },
+    },
+  },
+
+  {
     "wookayin/semshi", -- use a maintained fork
     ft = "python",
     build = ":UpdateRemotePlugins",
