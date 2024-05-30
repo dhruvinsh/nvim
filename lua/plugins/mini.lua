@@ -3,6 +3,7 @@ return {
     "nvim-neo-tree/neo-tree.nvim",
     enabled = false,
   },
+
   {
     "echasnovski/mini.files",
     opts = {
@@ -57,5 +58,14 @@ return {
         end,
       })
     end,
+  },
+
+  {
+    "echasnovski/mini.align",
+    opts = {},
+    keys = {
+      { "ga", mode = { "n", "v" } },
+      { "gA", mode = { "n", "v" } },
+    },
   },
 }
