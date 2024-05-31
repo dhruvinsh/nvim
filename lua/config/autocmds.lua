@@ -15,3 +15,30 @@ vim.api.nvim_create_autocmd({ "BufRead" }, {
     })
   end,
 })
+
+-- close some filetypes with <q>
+-- override the lazyvim autocmds.
+vim.api.nvim_create_autocmd("FileType", {
+  group = vim.api.nvim_create_augroup("lazyvim_close_with_q", { clear = clear }),
+  pattern = {
+    "PlenaryTestPopup",
+    "checkhealth",
+    "git",
+    "help",
+    "lspinfo",
+    "neotest-output",
+    "neotest-output-panel",
+    "neotest-summary",
+    "notify",
+    "qf",
+    "query",
+    "spectre_panel",
+    "startuptime",
+    "tsplayground",
+    "fugitiveblame",
+  },
+  callback = function(event)
+    vim.bo[event.buf].buflisted = false
+    vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
+  end,
+})
