@@ -44,7 +44,6 @@ return {
           TelescopePreviewTitle = { bg = "$dark_red", fg = "white", fmt = "bold" },
         },
       })
-      require("onedark").load()
     end,
   },
 }
