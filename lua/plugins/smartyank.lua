@@ -1,4 +1,7 @@
 return {
   "ibhagwan/smartyank.nvim",
-  config = true,
+  event = "VeryLazy",
+  opts = {
+    osc52 = { silent = true },
+  },
 }
