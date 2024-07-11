@@ -78,6 +78,7 @@ return {
     direction = "horizontal" or "vertical" or "window" or "float",
     -- direction = "vertical",
     close_on_exit = true, -- close the terminal window when the process exits
+    auto_scroll = false,
     -- shell = vim.o.shell, -- change the default shell
     -- This field is only relevant if direction is set to 'float'
     -- float_opts = {
