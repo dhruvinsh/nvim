@@ -19,3 +19,9 @@ elseif vim.fn.executable("pyenv") then
   local py_version = vim.fn.trim(vim.fn.system("pyenv global"))
   vim.g.python3_host_prog = "~/.pyenv/versions/" .. py_version .. "/bin/python3"
 end
+
+-- Neovide specific config
+if vim.g.neovide then
+  vim.o.guifont = "FiraCode Nerd Font:h10"
+  vim.opt.linespace = 0
+end
