@@ -23,7 +23,10 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = {
     "PlenaryTestPopup",
     "checkhealth",
+    "dbout",
+    "fugitiveblame",
     "git",
+    "gitsigns.blame",
     "help",
     "lspinfo",
     "neotest-output",
@@ -35,7 +38,6 @@ vim.api.nvim_create_autocmd("FileType", {
     "spectre_panel",
     "startuptime",
     "tsplayground",
-    "fugitiveblame",
   },
   callback = function(event)
     vim.bo[event.buf].buflisted = false
