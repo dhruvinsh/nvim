@@ -19,7 +19,7 @@ vim.api.nvim_create_autocmd({ "BufRead" }, {
 -- close some filetypes with <q>
 -- override the lazyvim autocmds.
 vim.api.nvim_create_autocmd("FileType", {
-  group = vim.api.nvim_create_augroup("lazyvim_close_with_q", { clear = clear }),
+  group = vim.api.nvim_create_augroup("lazyvim_close_with_q", { clear = true }),
   pattern = {
     "PlenaryTestPopup",
     "checkhealth",
