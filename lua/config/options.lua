@@ -20,6 +20,8 @@ elseif vim.fn.executable("pyenv") then
   vim.g.python3_host_prog = "~/.pyenv/versions/" .. py_version .. "/bin/python3"
 end
 
+vim.opt.diffopt:append({ "linematch:100" })
+
 -- Neovide specific config
 if vim.g.neovide then
   vim.o.guifont = "FiraCode Nerd Font:h10"
