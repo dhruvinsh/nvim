@@ -1,16 +1,29 @@
 return {
   {
-    "nvim-neo-tree/neo-tree.nvim",
-    enabled = false,
+    "echasnovski/mini.icons",
+    lazy = true,
+    config = true,
+  },
+
+  {
+    "echasnovski/mini.bufremove",
+    keys = {
+      { "<leader>bd", "<cmd>lua MiniBufremove.delete(0)<cr>", desc = "delete" },
+    },
+    opts = {},
   },
 
   {
     "echasnovski/mini.files",
+    dependencies = { "echasnovski/mini.icons" },
     opts = {
       mappings = {
         go_in = "L",
         go_in_plus = "l",
       },
+    },
+    keys = {
+      { "<leader>fe", desc = "explorer" },
     },
     config = function(_, opts)
       local minifiles = require("mini.files")
@@ -64,8 +77,27 @@ return {
     "echasnovski/mini.align",
     opts = {},
     keys = {
-      { "ga", mode = { "n", "v" } },
-      { "gA", mode = { "n", "v" } },
+      { "ga", mode = { "n", "v" }, desc = "align" },
+      { "gA", mode = { "n", "v" }, desc = "align (preview)" },
     },
+  },
+
+  {
+    "echasnovski/mini.indentscope",
+    event = "BufReadPost",
+    opts = {
+      symbol = "│",
+      options = { try_as_border = true },
+    },
+    init = function()
+      local u = require("utils")
+      vim.api.nvim_create_autocmd("FileType", {
+        group = u.augroup("mini.indentscope"),
+        pattern = u.no_indent_filetypes,
+        callback = function()
+          vim.b.miniindentscope_disable = true
+        end,
+      })
+    end,
   },
 }

@@ -1,63 +1,50 @@
 local M = {}
 
-M.lspkind = {
-  Array = " ",
-  Boolean = "󰨙 ",
-  Class = " ",
-  Codeium = "󰘦 ",
-  Color = " ",
-  Control = " ",
-  Collapsed = " ",
-  Constant = "󰏿 ",
-  Constructor = " ",
-  Copilot = " ",
-  Enum = " ",
-  EnumMember = " ",
-  Event = " ",
-  Field = " ",
-  File = " ",
-  Folder = " ",
-  Function = "󰊕 ",
-  Interface = " ",
-  Key = " ",
-  Keyword = " ",
-  Method = "󰊕 ",
-  Module = " ",
-  Namespace = "󰦮 ",
-  Null = " ",
-  Number = "󰎠 ",
-  Object = " ",
-  Operator = " ",
-  Package = " ",
-  Property = " ",
-  Reference = " ",
-  Snippet = " ",
-  String = " ",
-  Struct = "󰆼 ",
-  Text = " ",
-  TypeParameter = " ",
-  Unit = " ",
-  Value = " ",
-  Variable = "󰀫 ",
+--- LSP symbol kinds.
+-- stylua: ignore start
+M.symbols       = {
+  Array         = "󰅪",
+  Class         = "",
+  Color         = "󰏘",
+  Constant      = "󰏿",
+  Constructor   = "",
+  Enum          = "",
+  EnumMember    = "",
+  Event         = "",
+  Field         = "󰜢",
+  File          = "󰈙",
+  Folder        = "󰉋",
+  Function      = "󰆧",
+  Interface     = "",
+  Keyword       = "󰌋",
+  Method        = "󰆧",
+  Module        = "",
+  Operator      = "󰆕",
+  Property      = "󰜢",
+  Reference     = "󰈇",
+  Snippet       = "",
+  Struct        = "",
+  Text          = "",
+  TypeParameter = "",
+  Unit          = "",
+  Value         = "",
+  Variable      = "󰀫",
 }
 
-M.diagnostics = {
-  Error = " ",
-  Warn = " ",
-  Hint = " ",
-  Info = " ",
-  [1] = " ", -- error
-  [2] = " ", -- warn
-  [3] = " ", -- hint
-  [4] = " ", -- info
+M.misc          = {
+  bug           = '',
+  ellipsis      = '…',
+  git           = '',
+  search        = '',
+  vertical_bar  = '│',
 }
 
-M.dap = {
-  Stopped = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
-  Breakpoint = { " ", "DiagnosticInfo" },
-  BreakpointCondition = { " ", "DiagnosticInfo" },
-  BreakpointRejected = { " ", "DiagnosticError" },
-  LogPoint = { ".>", "DiagnosticInfo" },
+M.diagnostics   = {
+  ERROR         = '',
+  WARN          = '',
+  HINT          = '',
+  INFO          = '',
 }
+-- stylua: ignore end
 
 return M

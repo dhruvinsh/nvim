@@ -1,14 +1,13 @@
 return {
-  -- {
-  --   "LazyVim/LazyVim",
-  --   opts = {
-  --     colorscheme = "onedark",
-  --   },
-  -- },
+  {
+    "folke/tokyonight.nvim",
+    priority = 1000,
+    opts = { style = "moon" },
+  },
 
   {
     "navarasu/onedark.nvim",
-    priority = 1000,
+    lazy = true,
     config = function()
       require("onedark").setup({
         colors = {
