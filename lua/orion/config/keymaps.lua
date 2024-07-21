@@ -1,15 +1,22 @@
 -- ease of life
 vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "clear search + escape" })
+vim.keymap.set("n", "j", "gj")
+vim.keymap.set("n", "k", "gk")
 
 -- buffers
 vim.keymap.set("n", "<S-h>", "<cmd>bprev<cr>", { desc = "previous" })
 vim.keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "next" })
 
+-- windows
+vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "w-left" })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "w-down" })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "w-up" })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "w-left" })
+
 -- tools
 vim.keymap.set("n", "<leader>ll", "<cmd>Lazy<cr>", { desc = "lazy" })
 
 --- Lsp
-
 ---@param client vim.lsp.Client
 ---@param bufnr integer
 local function on_attach(client, bufnr)
@@ -27,25 +34,6 @@ local function on_attach(client, bufnr)
   keymap("grr", "<cmd>FzfLua lsp_references<cr>", "vim.lsp.buf.references()")
 
   keymap("gy", "<cmd>FzfLua lsp_typedefs<cr>", "Go to type definition")
-
-  keymap("<leader>fs", "<cmd>FzfLua lsp_document_symbols<cr>", "Document symbols")
-  keymap("<leader>fS", function()
-    -- Disable the grep switch header.
-    require("fzf-lua").lsp_live_workspace_symbols({ no_header_i = true })
-  end, "Workspace symbols")
-
-  keymap("[d", function()
-    vim.diagnostic.jump({ count = -1 })
-  end, "Previous diagnostic")
-  keymap("]d", function()
-    vim.diagnostic.jump({ count = 1 })
-  end, "Next diagnostic")
-  keymap("[e", function()
-    vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR })
-  end, "Previous error")
-  keymap("]e", function()
-    vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR })
-  end, "Next error")
 
   if client.supports_method(methods.textDocument_definition) then
     keymap("gD", "<cmd>FzfLua lsp_definitions<cr>", "Peek definition")
