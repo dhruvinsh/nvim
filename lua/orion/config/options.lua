@@ -12,6 +12,13 @@ vim.opt.timeoutlen = 300
 -- edit
 vim.opt.virtualedit = "block"
 
+-- folds
+vim.opt.fillchars = {
+  foldopen = "",
+  foldclose = "",
+  fold = " ",
+}
+
 -- undo
 vim.opt.undofile = true
 vim.opt.undolevels = 10000

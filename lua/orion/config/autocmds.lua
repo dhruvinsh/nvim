@@ -11,6 +11,7 @@ vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
   end,
 })
 
+-- folds
 -- awesome folds
 vim.api.nvim_create_autocmd("BufReadPre", {
   group = utils.augroup("big_file_disable", false),
@@ -30,31 +31,12 @@ vim.api.nvim_create_autocmd("BufReadPre", {
   end,
 })
 
--- folds
--- vim.opt.foldtext = ""
--- vim.opt.foldenable = true
--- vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
--- vim.opt.foldlevel = 99
--- vim.opt.foldlevelstart = 99
--- vim.opt.foldmethod = "expr"
-vim.opt.fillchars = {
-  foldopen = "",
-  foldclose = "",
-  fold = " ",
-  --   foldsep = " ",
-  --   diff = "╱",
-  --   eob = " ",
-}
-
-local opt = vim.opt
-local fn = vim.fn
 local fc = vim.opt.fillchars:get()
-
 local function get_fold(lnum)
-  if fn.foldlevel(lnum) <= fn.foldlevel(lnum - 1) then
+  if vim.fn.foldlevel(lnum) <= vim.fn.foldlevel(lnum - 1) then
     return " "
   end
-  return fn.foldclosed(lnum) == -1 and fc.foldopen or fc.foldclose
+  return vim.fn.foldclosed(lnum) == -1 and fc.foldopen or fc.foldclose
 end
 
 _G.get_statuscol = function()
@@ -65,4 +47,4 @@ _G.get_statuscol = function()
   end
 end
 
-opt.statuscolumn = "%!v:lua.get_statuscol()"
+vim.opt.statuscolumn = "%!v:lua.get_statuscol()"
