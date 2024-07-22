@@ -20,6 +20,33 @@ vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
   end,
 })
 
+-- remember the last
+vim.api.nvim_create_autocmd("BufReadPost", {
+  group = utils.augroup("last_location", true),
+  desc = "remember the last",
+  callback = function(args)
+    local mark = vim.api.nvim_buf_get_mark(args.buf, '"')
+    local count = vim.api.nvim_buf_line_count(args.buf)
+    if mark[1] > 0 and mark[1] <= count then
+      vim.cmd('normal! g`"zz')
+    end
+  end,
+})
+
+-- nice and quick exit
+vim.api.nvim_create_autocmd("FileType", {
+  group = utils.augroup("close_with_q"),
+  desc = "close with q",
+  pattern = {
+    "help",
+    "man",
+    "qf",
+  },
+  callback = function(args)
+    vim.keymap.set("n", "q", "<cmd>quite<cr>", { buffer = args.buf })
+  end,
+})
+
 -- folds
 -- awesome folds
 vim.api.nvim_create_autocmd("BufReadPre", {
