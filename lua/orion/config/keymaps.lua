@@ -31,9 +31,9 @@ local function on_attach(client, bufnr)
     vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
   end
 
-  keymap("grr", "<cmd>FzfLua lsp_references<cr>", "vim.lsp.buf.references()")
-
+  keymap("grr", "<cmd>FzfLua lsp_references formatter=path.filename_first<cr>", "references")
   keymap("gy", "<cmd>FzfLua lsp_typedefs<cr>", "Go to type definition")
+  keymap("<leader>cr", vim.lsp.buf.rename, "rename")
 
   if client.supports_method(methods.textDocument_definition) then
     keymap("gD", "<cmd>FzfLua lsp_definitions<cr>", "Peek definition")
