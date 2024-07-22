@@ -6,7 +6,7 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
-    { "L3MON4D3/LuaSnip", opts = {} },
+    { "L3MON4D3/LuaSnip", opts = {}, dependencies = { "rafamadriz/friendly-snippets" } },
     "saadparwaiz1/cmp_luasnip",
   },
   keys = {
@@ -16,6 +16,8 @@ return {
     local cmp = require("cmp")
     local defaults = require("cmp.config.default")()
     local luasnip = require("luasnip")
+
+    require("luasnip.loaders.from_vscode").lazy_load()
 
     local winhighlight = "Normal:Normal,FloatBorder:Normal,CursorLine:Visual,Search:None"
 
