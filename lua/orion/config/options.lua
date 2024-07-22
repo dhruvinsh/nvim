@@ -4,6 +4,7 @@ vim.g.maplocalleader = " "
 -- column
 vim.opt.number = true
 vim.opt.signcolumn = "yes"
+vim.opt.statuscolumn = [[%!v:lua.require("utils.ui").get_statuscolumn()]]
 
 -- timings
 vim.opt.updatetime = 200
