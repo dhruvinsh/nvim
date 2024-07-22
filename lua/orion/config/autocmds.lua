@@ -30,21 +30,3 @@ vim.api.nvim_create_autocmd("BufReadPre", {
     end
   end,
 })
-
-local fc = vim.opt.fillchars:get()
-local function get_fold(lnum)
-  if vim.fn.foldlevel(lnum) <= vim.fn.foldlevel(lnum - 1) then
-    return " "
-  end
-  return vim.fn.foldclosed(lnum) == -1 and fc.foldopen or fc.foldclose
-end
-
-_G.get_statuscol = function()
-  if vim.opt_local.signcolumn:get() == "yes" then
-    return get_fold(vim.v.lnum) .. "%s%l%= " .. " "
-  else
-    return ""
-  end
-end
-
-vim.opt.statuscolumn = "%!v:lua.get_statuscol()"
