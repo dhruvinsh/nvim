@@ -1,6 +1,10 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- completion
+vim.opt.completeopt = "menuone,noselect,noinsert"
+vim.opt.pumheight = 10
+
 -- column
 vim.opt.number = true
 vim.opt.signcolumn = "yes"
@@ -40,8 +44,15 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.splitkeep = "screen"
 
+-- messages
+vim.opt.shortmess:append({
+  w = true,
+  s = true,
+  I = true,
+})
+
 -- Git diff
-vim.opt.diffopt:append({ "linematch:100" })
+vim.opt.diffopt:append({ "vertical,context:100,linematch:100" })
 
 -- cursor
 vim.opt.cursorline = true
@@ -52,6 +63,10 @@ vim.opt.termguicolors = true
 -- spell
 vim.opt.spelllang = { "en" }
 vim.opt.spelloptions:append("noplainbuffer")
+
+-- search
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
 -- Markdown indentation
 vim.g.markdown_recommended_style = 0
