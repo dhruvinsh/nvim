@@ -24,11 +24,19 @@ vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
 vim.api.nvim_create_autocmd("BufReadPost", {
   group = utils.augroup("last_location", true),
   desc = "remember the last",
-  callback = function(args)
-    local mark = vim.api.nvim_buf_get_mark(args.buf, '"')
-    local count = vim.api.nvim_buf_line_count(args.buf)
-    if mark[1] > 0 and mark[1] <= count then
-      vim.cmd('normal! g`"zz')
+  callback = function(event)
+    -- gitcommit poses some issues,
+    -- HACK: ignore gitcommit
+    local exclude = { "gitcommit" }
+    local buf = event.buf
+    if vim.tbl_contains(exclude, vim.bo[buf].filetype) or vim.b[buf].__last_loc then
+      return
+    end
+    vim.b[buf].__last_loc = true
+    local mark = vim.api.nvim_buf_get_mark(buf, '"')
+    local lcount = vim.api.nvim_buf_line_count(buf)
+    if mark[1] > 0 and mark[1] <= lcount then
+      pcall(vim.api.nvim_win_set_cursor, 0, mark)
     end
   end,
 })
@@ -41,9 +49,10 @@ vim.api.nvim_create_autocmd("FileType", {
     "help",
     "man",
     "qf",
+    "query",
   },
   callback = function(args)
-    vim.keymap.set("n", "q", "<cmd>quite<cr>", { buffer = args.buf })
+    vim.keymap.set("n", "q", "<cmd>quit<cr>", { buffer = args.buf })
   end,
 })
 
