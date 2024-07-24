@@ -28,8 +28,8 @@ return {
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
-      -- default handlers for all lsp server
       local handlers = {
+        -- default handlers for all lsp server
         ---@param sname string lsp server name
         function(sname)
           -- HACK: what if server that installed not part of `servers` list?
@@ -43,6 +43,23 @@ return {
             capabilities = capabilities,
             on_new_config = lsp.servers[sname].on_new_config, -- nil or callable
           })
+
+          local keymaps_func = lsp.servers[sname].keymaps
+
+          if keymaps_func ~= nil then
+            vim.api.nvim_create_autocmd("LspAttach", {
+              desc = "additional keympas",
+              callback = function(args)
+                local client = vim.lsp.get_client_by_id(args.data.client_id)
+
+                if not client then
+                  return
+                end
+
+                keymaps_func(args.buf)
+              end,
+            })
+          end
         end,
       }
 
