@@ -12,6 +12,9 @@ vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "w-left" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "w-down" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "w-up" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "w-left" })
+vim.keymap.set("n", "<leader>wd", "<C-w>c", { desc = "close" })
+vim.keymap.set("n", "<leader>wv", "<C-w>v", { desc = "vertical" })
+vim.keymap.set("n", "<leader>wx", "<C-w>s", { desc = "split" })
 
 -- tools
 vim.keymap.set("n", "<leader>ll", "<cmd>Lazy<cr>", { desc = "lazy" })
@@ -32,14 +35,14 @@ local function on_attach(client, bufnr)
   end
 
   keymap("grr", "<cmd>FzfLua lsp_references formatter=path.filename_first<cr>", "references")
-  keymap("gy", "<cmd>FzfLua lsp_typedefs<cr>", "Go to type definition")
+  keymap("gy", "<cmd>FzfLua lsp_typedefs<cr>", "type definition")
   keymap("<leader>cr", vim.lsp.buf.rename, "rename")
 
   if client.supports_method(methods.textDocument_definition) then
-    keymap("gD", "<cmd>FzfLua lsp_definitions<cr>", "Peek definition")
+    keymap("gD", "<cmd>FzfLua lsp_definitions<cr>", "peek definition")
     keymap("gd", function()
       require("fzf-lua").lsp_definitions({ jump_to_single_result = true })
-    end, "Go to definition")
+    end, "definition")
   end
 
   if client.supports_method(methods.textDocument_signatureHelp) then
@@ -99,7 +102,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
 
-    -- I don't think this can happen but it's a wild world out there.
     if not client then
       return
     end

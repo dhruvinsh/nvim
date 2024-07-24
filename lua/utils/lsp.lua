@@ -1,5 +1,15 @@
 local M = {}
 
+-- server specs,
+-- local servers = {
+--   server_name = {
+--      on_init = function(client),
+--      settings = table,
+--      keymaps = function(bufnr),
+--      on_new_config = function(client),
+--   },
+-- }
+
 M.servers = {
   lua_ls = {
     on_init = function(client)
@@ -40,7 +50,20 @@ M.servers = {
 
   basedpyright = {},
 
-  ruff = {},
+  ruff = {
+    ---@param bufnr integer
+    keymaps = function(bufnr)
+      vim.keymap.set("n", "<leader>co", function()
+        vim.lsp.buf.code_action({
+          apply = true,
+          context = {
+            only = { "source.organizeImports" },
+            diagnostics = {},
+          },
+        })
+      end, { desc = "sort import", buffer = bufnr })
+    end,
+  },
 
   bashls = {},
 
