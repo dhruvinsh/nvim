@@ -1,8 +1,11 @@
 return {
   {
-    "echasnovski/mini.icons",
-    lazy = true,
-    config = true,
+    "echasnovski/mini.align",
+    opts = {},
+    keys = {
+      { "ga", mode = { "n", "v" }, desc = "align" },
+      { "gA", mode = { "n", "v" }, desc = "align (preview)" },
+    },
   },
 
   {
@@ -74,12 +77,9 @@ return {
   },
 
   {
-    "echasnovski/mini.align",
-    opts = {},
-    keys = {
-      { "ga", mode = { "n", "v" }, desc = "align" },
-      { "gA", mode = { "n", "v" }, desc = "align (preview)" },
-    },
+    "echasnovski/mini.icons",
+    lazy = true,
+    config = true,
   },
 
   {
