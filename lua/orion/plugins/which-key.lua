@@ -8,6 +8,7 @@ return {
       { "<leader>f", group = "file" },
       { "<leader>g", group = "git" },
       { "<leader>l", group = "lsp" },
+      { "<leader>q", group = "session" },
       { "<leader>s", group = "search" },
       { "<leader>t", group = "toggle" },
       { "[", group = "prev" },
