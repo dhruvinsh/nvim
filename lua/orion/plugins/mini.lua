@@ -1,5 +1,25 @@
 return {
   {
+    "echasnovski/mini.ai",
+    event = "BufReadPost",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+    },
+    opts = function()
+      local spec = require("mini.ai").gen_spec.treesitter
+
+      return {
+        n_lines = 300,
+        custom_textobjects = {
+          c = spec({ a = "@class.outer", i = "@class.inner" }),
+          f = spec({ a = "@function.outer", i = "@function.inner" }),
+        },
+        silent = true,
+      }
+    end,
+  },
+
+  {
     "echasnovski/mini.align",
     opts = {},
     keys = {
