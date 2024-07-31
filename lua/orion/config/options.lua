@@ -16,6 +16,7 @@ vim.opt.timeoutlen = 300
 
 -- edit
 vim.opt.virtualedit = "block"
+vim.opt.formatoptions = "jcroqlnt"
 
 -- folds
 vim.opt.fillchars = {
