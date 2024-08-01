@@ -19,7 +19,6 @@ return {
   {
     "hrsh7th/nvim-cmp",
     opts = function(_, opts)
-      vim.print(opts.sources)
       opts.sources = opts.sources or {}
       table.insert(opts.sources, {
         name = "lazydev",
