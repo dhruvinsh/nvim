@@ -6,12 +6,25 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
+    "saadparwaiz1/cmp_luasnip",
     {
       "L3MON4D3/LuaSnip",
+      build = "make install_jsregexp",
+      dependencies = {
+        {
+          "rafamadriz/friendly-snippets",
+          config = function()
+            require("luasnip.loaders.from_vscode").lazy_load()
+            require("luasnip.loaders.from_vscode").load({ paths = "./snippets" })
+          end,
+        },
+      },
       opts = function()
         local types = require("luasnip.util.types")
 
         return {
+          history = true,
+          delete_check_events = "TextChanged",
           ext_opts = {
             [types.insertNode] = {
               active = {
@@ -38,21 +51,30 @@ return {
         }
       end,
     },
-    "rafamadriz/friendly-snippets",
-    "saadparwaiz1/cmp_luasnip",
   },
   keys = {
     { "s", "<BS>", "<C-O>s" },
   },
-  opts = function()
+  opts = function(_, opts)
     local cmp = require("cmp")
     local defaults = require("cmp.config.default")()
     local luasnip = require("luasnip")
 
-    require("luasnip.loaders.from_vscode").lazy_load()
-    require("luasnip.loaders.from_vscode").load({ paths = "./snippets" })
-
     local winhighlight = "Normal:Normal,FloatBorder:Normal,CursorLine:Visual,Search:None"
+
+    --
+    -- Merge source from other distributed CMP configs
+    --
+    local sources = cmp.config.sources({
+      { name = "nvim_lsp" },
+      { name = "path" },
+      { name = "luasnip" },
+    }, {
+      { name = "buffer" },
+    })
+    for _, src in ipairs(opts.sources) do
+      table.insert(sources, src)
+    end
 
     return {
       preselect = cmp.PreselectMode.None,
@@ -63,7 +85,9 @@ return {
         end,
       },
 
+      --
       -- Keymaps
+      --
       mapping = cmp.mapping.preset.insert({
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
@@ -82,7 +106,9 @@ return {
         end, { "i", "s" }),
       }),
 
+      --
       -- UI
+      --
       formatting = {
         fields = { "kind", "abbr", "menu" },
         format = function(_, vim_item)
@@ -120,13 +146,10 @@ return {
         },
       },
 
+      --
       -- Completion Sources
-      sources = cmp.config.sources({
-        { name = "nvim_lsp" },
-        { name = "luasnip" },
-      }, {
-        { name = "buffer" },
-      }),
+      --
+      sources = sources,
       sorting = defaults.sorting,
     }
   end,
