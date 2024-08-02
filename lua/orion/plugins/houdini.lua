@@ -1,5 +1,5 @@
 return {
   "TheBlob42/houdini.nvim",
-  event = "InsertEnter",
+  event = { "InsertEnter", "TermEnter" },
   opts = {},
 }
