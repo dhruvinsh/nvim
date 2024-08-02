@@ -14,9 +14,11 @@ vim.opt.statuscolumn = [[%!v:lua.require("utils.ui").get_statuscolumn()]]
 vim.opt.updatetime = 200
 vim.opt.timeoutlen = 300
 
--- edit
+-- editor
 vim.opt.virtualedit = "block"
 vim.opt.formatoptions = "jcroqlnt"
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
 
 -- folds
 vim.opt.fillchars = {
