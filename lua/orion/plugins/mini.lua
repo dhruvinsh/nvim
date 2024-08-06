@@ -1,5 +1,12 @@
 return {
   {
+    "echasnovski/mini.statusline",
+    opts = {
+      set_vim_settings = false,
+    },
+  },
+
+  {
     "echasnovski/mini.ai",
     event = "BufReadPost",
     dependencies = {
