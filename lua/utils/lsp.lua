@@ -11,6 +11,9 @@ local M = {}
 -- }
 
 M.servers = {
+  --
+  -- lua
+  --
   lua_ls = {
     on_init = function(client)
       local path = client.workspace_folders and client.workspace_folders[1] and client.workspace_folders[1].name
@@ -51,6 +54,9 @@ M.servers = {
     },
   },
 
+  --
+  -- python
+  --
   basedpyright = {},
 
   ruff = {
@@ -68,8 +74,14 @@ M.servers = {
     end,
   },
 
+  --
+  -- bash
+  --
   bashls = {},
 
+  --
+  -- json
+  --
   jsonls = {
     settings = {
       validate = { enable = true },
@@ -82,8 +94,14 @@ M.servers = {
     end,
   },
 
+  --
+  -- toml
+  --
   taplo = {},
 
+  --
+  -- yaml
+  --
   yamlls = {
     settings = {
       yaml = {
