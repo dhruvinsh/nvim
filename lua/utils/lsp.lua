@@ -80,6 +80,20 @@ M.servers = {
   bashls = {},
 
   --
+  -- harper: grammar
+  --
+  ["harper_ls"] = {
+    settings = {
+      ["harper-ls"] = {
+        userDictPath = vim.fn.stdpath("config") .. "/spell/en.utf-8.add",
+        linters = {
+          sentence_capitalization = false,
+        },
+      },
+    },
+  },
+
+  --
   -- json
   --
   jsonls = {
