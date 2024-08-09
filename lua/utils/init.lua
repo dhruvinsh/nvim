@@ -1,5 +1,19 @@
 local M = {}
 
+M.no_indent_filetypes = {
+  "Trouble",
+  "alpha",
+  "dashboard",
+  "fzf",
+  "help",
+  "lazy",
+  "mason",
+  "neo-tree",
+  "notify",
+  "toggleterm",
+  "trouble",
+}
+
 M.max_filesize = 512 * 1024 -- big file size threshold 0.5 MB
 M.os_name = vim.uv.os_uname().sysname
 M.root_patterns = { ".editorconfig", ".git", ".neoconf.json", ".projectile", "Makefile", "pyproject.toml" }
@@ -11,7 +25,9 @@ M.is_win = M.os_name == "Windows_NT"
 ---@param clear? boolean default set to true
 ---@return integer
 M.augroup = function(name, clear)
-  if clear == nil then clear = true end
+  if clear == nil then
+    clear = true
+  end
   return vim.api.nvim_create_augroup("orion_" .. name, { clear = clear })
 end
 
