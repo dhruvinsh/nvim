@@ -1,15 +1,14 @@
 local M = {}
 
--- server specs,
--- local servers = {
---   server_name = {
---      on_init = function(client),
---      settings = table,
---      keymaps = function(bufnr),
---      on_new_config = function(client),
---   },
--- }
+---@class ServerSpec
+---@field on_init? function override on-init function for lsp
+---@field settings? table override some lsp specific settings
+---@field keymaps? function override/add some lsp specific keymaps
+---@field on_new_config? function take action when config is created
 
+---@class OrionLspServers<T>: { [string]: T}
+
+---@type OrionLspServers<ServerSpec>
 M.servers = {
   --
   -- lua
@@ -60,10 +59,14 @@ M.servers = {
   --
   jsonls = {
     settings = {
-      validate = { enable = true },
-      format = { enable = true },
+      json = {
+        validate = { enable = true },
+        format = { enable = true },
+      },
     },
     on_new_config = function(config)
+      -- HACK: for lazy loading keep it here.
+      --
       -- refer: https://github.com/b0o/SchemaStore.nvim
       config.settings.json.schemas = config.settings.json.schemas or {}
       vim.list_extend(config.settings.json.schemas, require("schemastore").json.schemas())
@@ -85,6 +88,8 @@ M.servers = {
       },
     },
     on_new_config = function(config)
+      -- HACK: for lazy loading keep it here.
+      --
       -- refer: https://github.com/b0o/SchemaStore.nvim
       config.settings.yaml.schemas = config.settings.yaml.schemas or {}
       vim.list_extend(config.settings.yaml.schemas, require("schemastore").yaml.schemas())
