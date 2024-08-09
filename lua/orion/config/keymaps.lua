@@ -3,6 +3,12 @@ vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "clear searc
 vim.keymap.set("n", "j", "gj")
 vim.keymap.set("n", "k", "gk")
 
+-- editor
+vim.keymap.set("n", "<C-s>", "<cmd>w<cr>", { desc = "save" })
+vim.keymap.set("i", "<C-s>", "<C-o><cmd>w<cr>", { desc = "save" })
+vim.keymap.set("n", "<C-S-s>", "<cmd>wa<cr>", { desc = "save all" })
+vim.keymap.set("i", "<C-S-s>", "<C-o><cmd>wa<cr>", { desc = "save all" })
+
 -- buffers
 vim.keymap.set("n", "<S-h>", "<cmd>bprev<cr>", { desc = "previous" })
 vim.keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "next" })
