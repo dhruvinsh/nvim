@@ -66,6 +66,7 @@ vim.opt.termguicolors = true
 -- spell
 vim.opt.spelllang = { "en" }
 vim.opt.spelloptions:append("noplainbuffer")
+vim.opt.spellfile = vim.fn.stdpath("config") .. "/spell/en.utf-8.add"
 
 -- search
 vim.opt.ignorecase = true
