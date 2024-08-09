@@ -70,7 +70,20 @@ return {
       { name = "path" },
       { name = "luasnip" },
     }, {
-      { name = "buffer" },
+      {
+        name = "buffer",
+        keyword_length = 3,
+        option = {
+          get_bufnrs = function()
+            return vim
+              .iter(vim.api.nvim_list_wins())
+              :map(function(win)
+                return vim.api.nvim_win_get_buf(win)
+              end)
+              :totable()
+          end,
+        },
+      },
     })
     for _, src in ipairs(opts.sources) do
       table.insert(sources, src)
