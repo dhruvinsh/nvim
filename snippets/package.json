@@ -7,6 +7,12 @@
           "gitcommit"
         ],
         "path": "./gitcommit.json"
+      },
+      {
+        "language": [
+          "sh"
+        ],
+        "path": "./sh.json"
       }
     ]
   }

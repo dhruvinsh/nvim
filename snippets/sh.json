@@ -1,0 +1,13 @@
+{
+  "create build script": {
+    "prefix": "buildjob",
+    "body": [
+      "#!/bin/bash\n",
+      "usage() {",
+      "\techo \"${1:message}\"",
+      "\texit \"\\$1\"",
+      "}\n",
+      "test \"$#\" -eq ${2:args} || usage ${3:exit_code}\n"
+    ]
+  }
+}
