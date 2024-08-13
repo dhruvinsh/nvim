@@ -7,6 +7,7 @@ return {
       { "<leader>c", group = "code" },
       { "<leader>f", group = "file" },
       { "<leader>g", group = "git" },
+      { "<leader>j", group = "job", icon = "" },
       { "<leader>l", group = "lsp" },
       { "<leader>q", group = "session" },
       { "<leader>s", group = "search" },
@@ -15,6 +16,11 @@ return {
       { "]", group = "next" },
       { "g", group = "goto" },
       { "z", group = "fold" },
+    },
+    icons = {
+      rules = {
+        { plugin = "overseer.nvim", icon = " ", color = "cyan" },
+      },
     },
   },
   keys = {
