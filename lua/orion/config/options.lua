@@ -17,7 +17,9 @@ vim.opt.timeoutlen = 300
 -- editor
 vim.opt.virtualedit = "block"
 vim.opt.formatoptions = "jcroqlnt"
+vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
+vim.opt.smartindent = true
 vim.opt.tabstop = 2
 
 -- folds
