@@ -9,6 +9,10 @@ vim.keymap.set("i", "<C-s>", "<C-o><cmd>w<cr>", { desc = "save" })
 vim.keymap.set("n", "<C-S-s>", "<cmd>wa<cr>", { desc = "save all" })
 vim.keymap.set("i", "<C-S-s>", "<C-o><cmd>wa<cr>", { desc = "save all" })
 
+-- indent
+vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("v", ">", ">gv")
+
 -- buffers
 vim.keymap.set("n", "<S-h>", "<cmd>bprev<cr>", { desc = "previous" })
 vim.keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "next" })
