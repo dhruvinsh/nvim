@@ -1,4 +1,4 @@
-<h1 align="center">Orion 🌠</h1>
+# Orion 🌠
 
 <p align="center">
   <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/dhruvinsh/nvim?color=98c379&style=for-the-badge">
@@ -10,3 +10,7 @@ A configuration that finally works best for my daily use case. I went over so ma
 ## Plugins 🔌
 
 Visit the configuration files, [lua/orion/plugin](./lua/orion/plugins)
+
+## Dofiles
+
+My windows, linux and macos dofiles are located at [dhruvinsh/dotfiles](https://github.com/dhruvinsh/dotfiles)
