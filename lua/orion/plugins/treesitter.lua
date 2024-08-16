@@ -26,6 +26,7 @@ return {
       "markdown",
       "markdown_inline",
       "ninja",
+      "powershell",
       "python",
       "query",
       "regex",
