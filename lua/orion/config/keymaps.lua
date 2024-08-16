@@ -3,6 +3,9 @@ vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "clear searc
 vim.keymap.set("n", "j", "gj")
 vim.keymap.set("n", "k", "gk")
 
+-- docs
+vim.keymap.set("n", "<leader>ck", "<cmd>norm! K<cr>", { desc = "keywordprog" })
+
 -- editor
 vim.keymap.set("n", "<C-s>", "<cmd>w<cr>", { desc = "save" })
 vim.keymap.set("i", "<C-s>", "<C-o><cmd>w<cr>", { desc = "save" })
