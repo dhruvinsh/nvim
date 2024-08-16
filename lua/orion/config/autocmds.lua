@@ -52,7 +52,8 @@ vim.api.nvim_create_autocmd("FileType", {
     "query",
   },
   callback = function(args)
-    vim.keymap.set("n", "q", "<cmd>quit<cr>", { buffer = args.buf })
+    vim.bo[args.buf].buflisted = false
+    vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = args.buf, silent = true })
   end,
 })
 
