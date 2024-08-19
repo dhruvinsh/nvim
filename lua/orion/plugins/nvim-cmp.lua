@@ -52,9 +52,6 @@ return {
       end,
     },
   },
-  keys = {
-    { "s", "<BS>", "<C-O>s" },
-  },
   opts = function(_, opts)
     local cmp = require("cmp")
     local defaults = require("cmp.config.default")()
