@@ -106,7 +106,14 @@ return {
   {
     "echasnovski/mini.icons",
     lazy = true,
-    config = true,
+    opts = {
+      lsp = {
+        copilot = { glyph = "", hl = "MiniIconsPurple" },
+      },
+    },
+    init = function()
+      require("mini.icons").mock_nvim_web_devicons()
+    end,
   },
 
   {
