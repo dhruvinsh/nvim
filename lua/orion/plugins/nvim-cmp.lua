@@ -121,25 +121,25 @@ return {
       --
       formatting = {
         fields = { "kind", "abbr", "menu" },
-        format = function(_, vim_item)
-          local symbols = require("utils.ui").symbols
+        format = function(_, item)
           local MAX_ABBR_WIDTH, MAX_MENU_WIDTH = 25, 30
           local ellipsis = require("utils.ui").misc.ellipsis
 
           -- Add the icon.
-          vim_item.kind = (symbols[vim_item.kind] or symbols.Text) .. " " .. (vim_item.kind or "Text")
+          local icon = require("mini.icons").get("lsp", item.kind)
+          item.kind = icon .. " " .. item.kind
 
           -- Truncate the label.
-          if vim.api.nvim_strwidth(vim_item.abbr) > MAX_ABBR_WIDTH then
-            vim_item.abbr = vim.fn.strcharpart(vim_item.abbr, 0, MAX_ABBR_WIDTH) .. ellipsis
+          if vim.api.nvim_strwidth(item.abbr) > MAX_ABBR_WIDTH then
+            item.abbr = vim.fn.strcharpart(item.abbr, 0, MAX_ABBR_WIDTH) .. ellipsis
           end
 
           -- Truncate the description part.
-          if vim.api.nvim_strwidth(vim_item.menu or "") > MAX_MENU_WIDTH then
-            vim_item.menu = vim.fn.strcharpart(vim_item.menu, 0, MAX_MENU_WIDTH) .. ellipsis
+          if vim.api.nvim_strwidth(item.menu or "") > MAX_MENU_WIDTH then
+            item.menu = vim.fn.strcharpart(item.menu, 0, MAX_MENU_WIDTH) .. ellipsis
           end
 
-          return vim_item
+          return item
         end,
       },
       window = {
