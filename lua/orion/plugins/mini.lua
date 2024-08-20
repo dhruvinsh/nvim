@@ -127,4 +127,21 @@ return {
       })
     end,
   },
+
+  {
+    "echasnovski/mini.jump",
+    event = "BufReadPost",
+    opts = {},
+  },
+
+  {
+    "echasnovski/mini.jump2d",
+    event = "BufReadPost",
+    opts = {
+      view = { dim = true },
+    },
+    keys = {
+      { "s", "<cmd>lua MiniJump2d.start(MiniJump2d.builtin_opts.single_character)<cr>", desc = "snip" },
+    },
+  },
 }
