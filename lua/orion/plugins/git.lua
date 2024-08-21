@@ -16,7 +16,6 @@ return {
       end
 
       return {
-        { "<leader>gg", false },
         { "<leader>gg", toggle_fugitive, desc = "Git Status" },
         { "<leader>gD", "<cmd>Gvdiffsplit!<CR>", desc = "Diff Split" },
       }
