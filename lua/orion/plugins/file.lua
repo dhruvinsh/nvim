@@ -1,4 +1,5 @@
 return {
+
   {
     "echasnovski/mini.files",
     dependencies = { "echasnovski/mini.icons" },
@@ -57,5 +58,15 @@ return {
         end,
       })
     end,
+  },
+
+  {
+    "stevearc/oil.nvim",
+    dependencies = { "echasnovski/mini.icons" },
+    cmd = { "Oil" },
+    opts = {},
+    keys = {
+      { "-", "<cmd>Oil<cr>", desc = "oil" },
+    },
   },
 }
