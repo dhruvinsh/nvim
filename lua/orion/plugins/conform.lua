@@ -25,6 +25,12 @@ return {
       injected = { options = { ignore_errors = true } },
     },
   },
+  keys = function()
+    return {
+      { "<leader>tf", "<cmd>lua require('utils.toggle').format_local:toggle()<cr>", desc = "format (local)" },
+      { "<leader>tF", "<cmd>lua require('utils.toggle').format_global:toggle()<cr>", desc = "format (global)" },
+    }
+  end,
   config = function(_, opts)
     local formatters = {
       -- shell
