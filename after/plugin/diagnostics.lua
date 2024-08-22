@@ -15,3 +15,5 @@ vim.api.nvim_create_autocmd("LspAttach", {
     nmap("<leader>cd", vim.diagnostic.open_float, "diagnostic")
   end,
 })
+
+vim.keymap.set("n", "<leader>tD", "<cmd>lua require('utils.toggle').diagnostic:toggle()<cr>", { desc = "diagnostic" })
