@@ -13,13 +13,13 @@ return {
         return
       end
 
-      return { timeout_ms = 1000, lsp_fallback = true }
+      return { timeout_ms = 1000, lsp_format = "fallback" }
     end,
     format_after_save = function(bufnr)
       if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
         return
       end
-      return { lsp_fallback = true }
+      return { lsp_format = "fallback" }
     end,
     formatters_by_ft = {
       bash = { "shfmt" },
