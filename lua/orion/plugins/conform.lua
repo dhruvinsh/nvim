@@ -1,6 +1,9 @@
 return {
   "stevearc/conform.nvim",
-  event = "BufReadPost",
+  event = { "BufReadPost" },
+  cmd = { "ConformInfo" },
+  ---@module "conform"
+  ---@type conform.setupOpts
   opts = {
     format_on_save = function(bufnr)
       if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
@@ -34,9 +37,14 @@ return {
   },
   keys = function()
     return {
+      { "<leader>lc", "<cmd>ConformInfo<cr>", desc = "conform" },
       { "<leader>tf", "<cmd>lua require('utils.toggle').format_local:toggle()<cr>", desc = "format (local)" },
       { "<leader>tF", "<cmd>lua require('utils.toggle').format_global:toggle()<cr>", desc = "format (global)" },
     }
+  end,
+  init = function()
+    -- set vim default formatexpr
+    vim.o.formatexpr = "v:lua.require('conform').formatexpr()"
   end,
   config = function(_, opts)
     local formatters = {
@@ -53,9 +61,6 @@ return {
     require("utils.lsp").mason_pkg_installer(formatters)
 
     require("conform").setup(opts)
-
-    -- set vim default formatexpr
-    vim.opt.formatexpr = "v:lua.require('conform').formatexpr()"
 
     vim.api.nvim_create_user_command("FormatDisable", function(args)
       if args.bang then
