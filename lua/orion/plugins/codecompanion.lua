@@ -1,13 +1,10 @@
 return {
   "olimorris/codecompanion.nvim",
-  cmd = { "CodeCompanion" },
+  cmd = { "CodeCompanion", "CodeCompanionChat", "CodeCompanionToggle", "CodeCompanionActions" },
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
-    {
-      "stevearc/dressing.nvim",
-      opts = {},
-    },
+    "stevearc/dressing.nvim",
   },
   opts = {
     strategies = {
@@ -21,5 +18,36 @@ return {
         adapter = "copilot",
       },
     },
+    display = { chat = { show_settings = true } },
+    default_prompts = {
+      ["Generate a Commit Message for Staged Files"] = {
+        strategy = "chat",
+        description = "staged file commit messages",
+        opts = {
+          index = 9,
+          default_prompt = true,
+          mapping = "<LocalLeader>gm",
+          slash_cmd = "commit",
+          auto_submit = true,
+        },
+        prompts = {
+          {
+            role = "user",
+            contains_code = true,
+            content = function()
+              return "You are an expert at following the Conventional Commit specification. Given the git diff listed below, please generate a commit message for me:"
+                .. "\n\n```\n"
+                .. vim.fn.system("git diff --staged")
+                .. "\n```"
+            end,
+          },
+        },
+      },
+    },
+  },
+  keys = {
+    { "<C-a>", "<cmd>CodeCompanionActions<cr>", desc = "ai action", mode = { "n", "v" } },
+    { "<leader>at", "<cmd>CodeCompanionToggle<cr>", desc = "toggle", mode = { "n", "v" } },
+    { "<leader>gm", desc = "message" },
   },
 }
