@@ -3,7 +3,7 @@ return {
   event = "BufReadPost",
   main = "ibl",
   opts = function()
-    local u = require("utils")
+    local u = require("util")
     return {
       indent = {
         char = "│",

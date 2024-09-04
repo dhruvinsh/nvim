@@ -55,7 +55,7 @@ return {
           return false
         end
 
-        local u = require("utils")
+        local u = require("util")
         if u.is_big_buffer(bufnr) then
           return true
         end

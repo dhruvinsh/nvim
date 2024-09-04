@@ -64,7 +64,7 @@ return {
       options = { try_as_border = true },
     },
     init = function()
-      local u = require("utils")
+      local u = require("util")
       vim.api.nvim_create_autocmd("FileType", {
         group = u.augroup("mini.indentscope"),
         pattern = u.no_indent_filetypes,
