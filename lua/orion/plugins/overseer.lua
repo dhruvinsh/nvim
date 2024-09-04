@@ -42,7 +42,7 @@ return {
     local overseer = require("overseer")
     overseer.setup(opts)
 
-    ---@param params vim.api.keyset.user_command
+    ---@param params vim.api.keyset.cmd
     local build_func = function(params)
       local task = require("overseer").new_task({
         cmd = "./build.sh" .. " " .. params.args,
