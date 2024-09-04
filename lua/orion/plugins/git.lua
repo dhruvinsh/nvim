@@ -42,27 +42,27 @@ return {
         end
 
         -- stylua: ignore start
-        map("n", "]h", function() gs.nav_hunk("next") end, "Next Hunk")
-        map("n", "[h", function() gs.nav_hunk("prev") end, "Prev Hunk")
-        map("n", "]H", function() gs.nav_hunk("last") end, "Last Hunk")
-        map("n", "[H", function() gs.nav_hunk("first") end, "First Hunk")
-        map({ "n", "v" }, "<leader>gs", ":Gitsigns stage_hunk<CR>", "Stage Hunk")
-        map({ "n", "v" }, "<leader>gr", ":Gitsigns reset_hunk<CR>", "Reset Hunk")
-        map("n", "<leader>gS", gs.stage_buffer, "Stage Buffer")
-        map("n", "<leader>gu", gs.undo_stage_hunk, "Undo Stage Hunk")
-        map("n", "<leader>gR", gs.reset_buffer, "Reset Buffer")
-        map("n", "<leader>gp", gs.preview_hunk_inline, "Preview Hunk Inline")
-        map("n", "<leader>gP", gs.preview_hunk, "Preview Hunk Inline")
-        map("n", "<leader>gb", function() gs.blame_line({ full = true }) end, "Blame Line")
-        map("n", "<leader>gd", gs.diffthis, "Diff This")
-        map("n", "<leader>gD", function() gs.diffthis("~") end, "Diff This ~")
-        map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
+        map("n", "]h", function() gs.nav_hunk("next") end, "next Hunk")
+        map("n", "[h", function() gs.nav_hunk("prev") end, "prev Hunk")
+        map("n", "]H", function() gs.nav_hunk("last") end, "last Hunk")
+        map("n", "[H", function() gs.nav_hunk("first") end, "first Hunk")
+        map({ "n", "v" }, "<leader>gs", ":Gitsigns stage_hunk<cr>", "stage hunk")
+        map({ "n", "v" }, "<leader>gr", ":Gitsigns reset_hunk<cr>", "reset hunk")
+        map("n", "<leader>gS", gs.stage_buffer, "stage buffer")
+        map("n", "<leader>gu", gs.undo_stage_hunk, "undo stage hunk")
+        map("n", "<leader>gR", gs.reset_buffer, "reset buffer")
+        map("n", "<leader>gp", gs.preview_hunk_inline, "preview hunk inline")
+        map("n", "<leader>gP", gs.preview_hunk, "preview hunk inline")
+        map("n", "<leader>gb", function() gs.blame_line({ full = true }) end, "blame line")
+        map("n", "<leader>gd", gs.diffthis, "diff this")
+        map("n", "<leader>gD", function() gs.diffthis("~") end, "diff this ~")
+        map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "gitsigns select hunk")
 
-        map("n", "gP", gs.preview_hunk_inline, "Preview git inline")
-        map("n", "gp", gs.preview_hunk, "Preview git hunk")
+        map("n", "gP", gs.preview_hunk_inline, "preview git inline")
+        map("n", "gp", gs.preview_hunk, "preview git hunk")
 
-        map("n", "<leader>tb", "<cmd>Gitsigns toggle_current_line_blame<cr>",  "Toggle Blame")
-        map("n", "<leader>td", "<cmd>Gitsigns toggle_deleted<cr>", "Git Delete")
+        map("n", "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<cr>",  "toggle blame")
+        map("n", "<leader>td", "<cmd>Gitsigns toggle_deleted<cr>", "git delete")
       end,
     },
   },
