@@ -46,17 +46,17 @@ return {
     local build_func = function(params)
       local utils = require("util.init")
 
-      local build_script = "./build.sh"
+      local build_script = { "./build.sh" }
       local default_args = { params.args }
 
-      -- on windows use `build.ps1` and some magic else `build.sh`
+      -- on windows use `build.ps1` and some magic
       if utils.is_win then
-        build_script = "pwsh.exe"
+        build_script = { "pwsh.exe" }
         default_args = { "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "build.ps1", params.args }
       end
 
       local task = require("overseer").new_task({
-        cmd = { build_script },
+        cmd = build_script,
         args = default_args,
         components = {
           { "on_output_quickfix", open = not params.bang, open_height = 8 },
