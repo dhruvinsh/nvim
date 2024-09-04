@@ -59,7 +59,7 @@ return {
         cmd = build_script,
         args = default_args,
         components = {
-          { "on_output_quickfix", open = not params.bang, open_height = 8 },
+          { "open_output", on_start = "always" },
           "unique",
           "default",
         },
