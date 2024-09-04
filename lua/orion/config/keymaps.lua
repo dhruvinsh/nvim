@@ -91,6 +91,12 @@ local function on_attach(client, bufnr)
       vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
     end, 500)
 
+    vim.keymap.set(
+      "n",
+      "<leader>ti",
+      "<cmd>lua require('utils.toggle').inlay_hint:toggle()<cr>",
+      { desc = "inlay hints" }
+    )
     -- TODO: need to work on building toggle command
     --
     -- vim.api.nvim_create_autocmd("InsertEnter", {

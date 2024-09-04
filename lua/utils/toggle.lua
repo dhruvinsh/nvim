@@ -41,4 +41,8 @@ H.format_global = M:new("format (global)", function(state)
   end
 end)
 
+H.inlay_hint = M:new("inlay hint", function(state)
+  vim.lsp.inlay_hint.enable(state)
+end)
+
 return H
