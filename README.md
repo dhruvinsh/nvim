@@ -14,3 +14,7 @@ Visit the configuration files, [lua/orion/plugin](./lua/orion/plugins)
 ## Dofiles
 
 My windows, linux and macos dofiles are located at [dhruvinsh/dotfiles](https://github.com/dhruvinsh/dotfiles)
+
+## Some good reads 📚
+
+- [Custom Neovim Statusline](https://nuxsh.is-a.dev/blog/custom-nvim-statusline.html)
