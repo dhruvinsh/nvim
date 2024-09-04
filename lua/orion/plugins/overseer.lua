@@ -44,8 +44,12 @@ return {
 
     ---@param params vim.api.keyset.cmd
     local build_func = function(params)
+      local utils = require("orion.utils")
+      -- on windows use `build.ps1` else `build.sh`
+      local build_script = utils.is_win and "./build.ps1" or "./build.sh"
       local task = require("overseer").new_task({
-        cmd = "./build.sh" .. " " .. params.args,
+        cmd = { build_script },
+        args = { params.args },
         components = {
           { "on_output_quickfix", open = not params.bang, open_height = 8 },
           "unique",
