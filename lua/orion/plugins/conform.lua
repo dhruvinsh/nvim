@@ -1,5 +1,6 @@
 return {
   "stevearc/conform.nvim",
+  version = "*",
   event = { "BufReadPost" },
   cmd = { "ConformInfo" },
   ---@module "conform"

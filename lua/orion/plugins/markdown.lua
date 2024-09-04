@@ -1,6 +1,7 @@
 return {
   {
     "MeanderingProgrammer/render-markdown.nvim",
+    version = "*",
     ft = "markdown",
     main = "render-markdown",
     opts = {},
