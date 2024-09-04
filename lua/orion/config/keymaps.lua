@@ -97,22 +97,6 @@ local function on_attach(client, bufnr)
       "<cmd>lua require('utils.toggle').inlay_hint:toggle()<cr>",
       { desc = "inlay hints" }
     )
-    -- TODO: need to work on building toggle command
-    --
-    -- vim.api.nvim_create_autocmd("InsertEnter", {
-    --   desc = "Enable inlay hints",
-    --   buffer = bufnr,
-    --   callback = function()
-    --     vim.lsp.inlay_hint.enable(false, { bufnr = bufnr })
-    --   end,
-    -- })
-    -- vim.api.nvim_create_autocmd("InsertLeave", {
-    --   desc = "Disable inlay hints",
-    --   buffer = bufnr,
-    --   callback = function()
-    --     vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-    --   end,
-    -- })
   end
 end
 
