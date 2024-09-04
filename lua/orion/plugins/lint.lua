@@ -3,7 +3,7 @@ return {
   event = "BufWritePost",
   config = function()
     local lint = require("lint")
-    local utils = require("utils")
+    local utils = require("util")
 
     local linters = { "markdownlint", "codespell" }
 
@@ -13,7 +13,7 @@ return {
       utils.tbl_append(linters, "selene", "shellcheck")
     end
 
-    require("utils.lsp").mason_pkg_installer(linters)
+    require("util.lsp").mason_pkg_installer(linters)
 
     lint.linters_by_ft = {
       bash = { "shellcheck" },

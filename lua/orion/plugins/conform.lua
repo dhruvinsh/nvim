@@ -59,7 +59,7 @@ return {
       -- js, html, markdown and lot of others
       "prettierd",
     }
-    require("utils.lsp").mason_pkg_installer(formatters)
+    require("util.lsp").mason_pkg_installer(formatters)
 
     require("conform").setup(opts)
 

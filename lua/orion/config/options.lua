@@ -8,7 +8,7 @@ vim.opt.pumheight = 10
 -- column
 vim.opt.number = true
 vim.opt.signcolumn = "yes"
-vim.opt.statuscolumn = [[%!v:lua.require("utils.ui").get_statuscolumn()]]
+vim.opt.statuscolumn = [[%!v:lua.require("util.ui").get_statuscolumn()]]
 
 -- timings
 vim.opt.updatetime = 200
@@ -77,7 +77,7 @@ vim.opt.smartcase = true
 -- Markdown indentation
 vim.g.markdown_recommended_style = 0
 
-local utils = require("utils")
+local utils = require("util")
 
 -- setup volta
 if vim.fn.executable("volta") then

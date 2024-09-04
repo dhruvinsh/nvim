@@ -123,7 +123,7 @@ return {
         fields = { "kind", "abbr", "menu" },
         format = function(_, item)
           local MAX_ABBR_WIDTH, MAX_MENU_WIDTH = 25, 30
-          local ellipsis = require("utils.ui").misc.ellipsis
+          local ellipsis = require("util.ui").misc.ellipsis
 
           -- Add the icon.
           local icon = require("mini.icons").get("lsp", item.kind)
