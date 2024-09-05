@@ -94,7 +94,7 @@ local function on_attach(client, bufnr)
     vim.keymap.set(
       "n",
       "<leader>ti",
-      "<cmd>lua require('utils.toggle').inlay_hint:toggle()<cr>",
+      "<cmd>lua require('util.toggle').inlay_hint:toggle()<cr>",
       { desc = "inlay hints" }
     )
   end
