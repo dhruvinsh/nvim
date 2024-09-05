@@ -44,6 +44,11 @@ return {
 
     ---@param params vim.api.keyset.cmd
     local build_func = function(params)
+      if vim.fn.filereadable("build.sh") == 0 and vim.fn.filereadable("build.ps1") == 0 then
+        vim.notify("Neither build.sh nor build.ps1 is present", vim.log.levels.WARN)
+        return
+      end
+
       local utils = require("util.init")
 
       local build_script = { "./build.sh" }
