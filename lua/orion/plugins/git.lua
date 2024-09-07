@@ -23,6 +23,16 @@ return {
   },
 
   {
+    "rbong/vim-flog",
+    cmd = { "Flog", "Flogsplit", "Floggit" },
+    dependencies = { "tpope/vim-fugitive" },
+    keys = {
+      { "<leader>gf", "<cmd>Flogsplit<CR>", desc = "flog" },
+      { "<leader>gF", "<cmd>Flog<CR>", desc = "flog (tab)" },
+    },
+  },
+
+  {
     "lewis6991/gitsigns.nvim",
     event = { "BufReadPost", "BufNewFile" },
     opts = {

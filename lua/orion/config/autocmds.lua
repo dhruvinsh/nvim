@@ -47,6 +47,7 @@ vim.api.nvim_create_autocmd("FileType", {
   desc = "close with q",
   pattern = {
     "checkhealth",
+    "floggraph",
     "help",
     "man",
     "qf",
