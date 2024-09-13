@@ -20,7 +20,7 @@ return {
       },
     },
     display = { chat = { show_settings = true } },
-    default_prompts = {
+    pre_defined_prompts = {
       ["Generate a Commit Message for Staged Files"] = {
         strategy = "chat",
         description = "staged file commit messages",
