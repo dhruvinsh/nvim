@@ -29,7 +29,7 @@ return {
       bash = { "shfmt" },
       lua = { "stylua" },
       markdown = { "cbfmt", "prettierd" },
-      python = { "ruff_format" },
+      python = { "ruff_format", "ruff_organize_imports" },
       ["_"] = { "trim_whitespace" },
     },
     formatters = {
