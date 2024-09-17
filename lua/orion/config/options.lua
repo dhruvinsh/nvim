@@ -24,9 +24,10 @@ vim.opt.tabstop = 2
 
 -- folds
 vim.opt.fillchars = {
-  foldopen = "",
-  foldclose = "",
+  diff = "╱",
   fold = " ",
+  foldclose = "",
+  foldopen = "",
 }
 
 -- undo
