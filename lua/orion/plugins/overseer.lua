@@ -42,6 +42,16 @@ return {
     local overseer = require("overseer")
     overseer.setup(opts)
 
+    do
+      local ok, lualine = pcall(require, "lualine")
+      if not ok then
+        return
+      end
+      local lualine_cfg = lualine.get_config()
+      table.insert(lualine_cfg.sections.lualine_x, 1, "overseer")
+      lualine.setup(lualine_cfg)
+    end
+
     ---@param params vim.api.keyset.cmd
     local build_func = function(params)
       if vim.fn.filereadable("build.sh") == 0 and vim.fn.filereadable("build.ps1") == 0 then
@@ -67,6 +77,7 @@ return {
           { "open_output", on_start = "always" },
           "unique",
           "default",
+          "on_complete_notify",
         },
       })
       task:start()
