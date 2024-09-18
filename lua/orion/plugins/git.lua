@@ -17,7 +17,8 @@ return {
 
       return {
         { "<leader>gg", toggle_fugitive, desc = "Git Status" },
-        { "<leader>gD", "<cmd>Gvdiffsplit!<CR>", desc = "Diff Split" },
+        -- Trying out diffview.nvim
+        -- { "<leader>gD", "<cmd>Gvdiffsplit!<CR>", desc = "Diff Split" },
       }
     end,
   },
@@ -29,6 +30,26 @@ return {
     keys = {
       { "<leader>gf", "<cmd>Flogsplit<CR>", desc = "flog" },
       { "<leader>gF", "<cmd>Flog<CR>", desc = "flog (tab)" },
+    },
+  },
+
+  {
+    "sindrets/diffview.nvim",
+    cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewFileHistory", "DiffviewToggleFiles" },
+    opts = {
+      keymaps = {
+        file_panel = {
+          { "n", "cc", "<cmd>Git commit <bar> windcmd J<cr>", { desc = "commit" } },
+          { "n", "ca", "<cmd>Git commit --ament <bar> windcmd J<cr>", { desc = "amend" } },
+          -- feel the command line with `:Git commit` message
+          { "n", "c<space>", "<cmd>Git commit ", { desc = "choose commit" } },
+        },
+      },
+    },
+    keys = {
+      { "<leader>gd", "<cmd>DiffviewOpen<CR>", desc = "diffview" },
+      { "<leader>gh", "<cmd>DiffviewFileHistory<CR>", desc = "history" },
+      { "<leader>gt", "<cmd>DiffviewToggleFiles<CR>", desc = "toggle diffview" },
     },
   },
 
@@ -64,8 +85,9 @@ return {
         map("n", "<leader>gp", gs.preview_hunk_inline, "preview hunk inline")
         map("n", "<leader>gP", gs.preview_hunk, "preview hunk inline")
         map("n", "<leader>gb", function() gs.blame_line({ full = true }) end, "blame line")
-        map("n", "<leader>gd", gs.diffthis, "diff this")
-        map("n", "<leader>gD", function() gs.diffthis("~") end, "diff this ~")
+        -- Trying out diffview.nvim
+        -- map("n", "<leader>gd", gs.diffthis, "diff this")
+        -- map("n", "<leader>gD", function() gs.diffthis("~") end, "diff this ~")
         map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "gitsigns select hunk")
 
         map("n", "gP", gs.preview_hunk_inline, "preview git inline")
