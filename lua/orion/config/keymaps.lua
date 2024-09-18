@@ -26,6 +26,12 @@ vim.keymap.set("n", "<leader>wd", "<C-w>c", { desc = "close" })
 vim.keymap.set("n", "<leader>wv", "<C-w>v", { desc = "vertical" })
 vim.keymap.set("n", "<leader>wx", "<C-w>s", { desc = "split" })
 
+-- tabs
+vim.keymap.set("n", "<leader><tab>]", "<cmd>tabnext<cr>", { desc = "next" })
+vim.keymap.set("n", "<leader><tab>[", "<cmd>tabprev<cr>", { desc = "prev" })
+vim.keymap.set("n", "<leader><tab>n", "<cmd>tabnew<cr>", { desc = "new" })
+vim.keymap.set("n", "<leader><tab>c", "<cmd>tabclose<cr>", { desc = "close" })
+
 -- tools
 vim.keymap.set("n", "<leader>ll", "<cmd>Lazy<cr>", { desc = "lazy" })
 
