@@ -1,5 +1,8 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  dependencies = {
+    { "nushell/tree-sitter-nu", build = ":TSUpdate nu" },
+  },
   version = false,
   build = ":TSUpdate",
   event = "VeryLazy",
