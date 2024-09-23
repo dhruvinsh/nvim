@@ -1,4 +1,6 @@
 return {
   "nvim-lualine/lualine.nvim",
-  opts = {},
+  opts = {
+    extensions = { "fugitive", "overseer" },
+  },
 }
