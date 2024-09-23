@@ -3,6 +3,7 @@ return {
   version = "*", -- tagging to latest version
   cmd = { "CodeCompanion", "CodeCompanionChat", "CodeCompanionToggle", "CodeCompanionActions" },
   dependencies = {
+    "hrsh7th/nvim-cmp",
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
     "stevearc/dressing.nvim",
