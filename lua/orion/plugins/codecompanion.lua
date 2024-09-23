@@ -48,7 +48,7 @@ return {
     },
   },
   keys = {
-    { "<C-a>", "<cmd>CodeCompanionActions<cr>", desc = "ai action", mode = { "n", "v" } },
+    { "<leader>aa", "<cmd>CodeCompanionActions<cr>", desc = "action", mode = { "n", "v" } },
     { "<leader>at", "<cmd>CodeCompanionToggle<cr>", desc = "toggle", mode = { "n", "v" } },
     { "<leader>gm", desc = "message" },
   },
