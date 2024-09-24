@@ -21,7 +21,7 @@ local plugins = "orion.plugins"
 require("lazy").setup(plugins, {
   ui = { border = "rounded" },
   change_detection = { notify = false },
-  install = { colorscheme = { "tokoyonight", "habamax" } },
+  install = { colorscheme = { "gruvbox", "habamax" } },
   performance = {
     rtp = {
       disabled_plugins = {
@@ -36,4 +36,3 @@ require("lazy").setup(plugins, {
     },
   },
 })
-
