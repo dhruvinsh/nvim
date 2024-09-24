@@ -49,7 +49,6 @@ return {
     keys = {
       { "<leader>gd", "<cmd>DiffviewOpen<CR>", desc = "diffview" },
       { "<leader>gh", "<cmd>DiffviewFileHistory<CR>", desc = "history" },
-      { "<leader>gt", "<cmd>DiffviewToggleFiles<CR>", desc = "toggle diffview" },
     },
   },
 
@@ -82,19 +81,16 @@ return {
         map("n", "<leader>gS", gs.stage_buffer, "stage buffer")
         map("n", "<leader>gu", gs.undo_stage_hunk, "undo stage hunk")
         map("n", "<leader>gR", gs.reset_buffer, "reset buffer")
-        map("n", "<leader>gp", gs.preview_hunk_inline, "preview hunk inline")
-        map("n", "<leader>gP", gs.preview_hunk, "preview hunk inline")
+        map("n", "<leader>gh", gs.preview_hunk_inline, "hunk")
+        map("n", "<leader>gH", gs.preview_hunk, "hunk (float)")
         map("n", "<leader>gb", function() gs.blame_line({ full = true }) end, "blame line")
         -- Trying out diffview.nvim
         -- map("n", "<leader>gd", gs.diffthis, "diff this")
         -- map("n", "<leader>gD", function() gs.diffthis("~") end, "diff this ~")
         map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "gitsigns select hunk")
 
-        map("n", "gP", gs.preview_hunk_inline, "preview git inline")
-        map("n", "gp", gs.preview_hunk, "preview git hunk")
-
         map("n", "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<cr>",  "toggle blame")
-        map("n", "<leader>td", "<cmd>Gitsigns toggle_deleted<cr>", "git delete")
+        map("n", "<leader>gt", "<cmd>Gitsigns toggle_deleted<cr>", "toggle delete")
       end,
     },
   },
