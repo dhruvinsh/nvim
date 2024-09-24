@@ -28,6 +28,7 @@ vim.opt.fillchars = {
   fold = " ",
   foldclose = "",
   foldopen = "",
+  eob = " ",
 }
 
 -- undo
