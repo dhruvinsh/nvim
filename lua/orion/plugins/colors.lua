@@ -1,8 +1,17 @@
 return {
   {
     "folke/tokyonight.nvim",
-    priority = 1000,
     opts = { style = "moon" },
+  },
+
+  {
+    "ellisonleao/gruvbox.nvim",
+    priority = 1000,
+    opts = {
+      italic = {
+        strings = false,
+      },
+    },
   },
 
   {

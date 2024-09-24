@@ -1,3 +1,5 @@
+-- color scheme
+vim.keymap.set("n", "<leader>tc", "<cmd>lua require('util.toggle').gruvbox:toggle()<cr>", { desc = "colors" })
 -- ease of life
 vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "clear search + escape" })
 vim.keymap.set("n", "j", "gj")
