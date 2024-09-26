@@ -19,7 +19,7 @@ return {
     },
     opts = function(_, opts)
       opts.sources = opts.source or {}
-      table.insert(opts.sources, { name = "copilot", group_index = 1, priority = 100 })
+      table.insert(opts.sources, { group_index = 1, name = "copilot", priority = 100 })
     end,
   },
 }
