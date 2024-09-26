@@ -1,7 +1,11 @@
 return {
   "stevearc/dressing.nvim",
   lazy = true,
-  opts = {},
+  opts = {
+    select = {
+      backend = { "fzf_lua", "fzf", "telescope", "builtin", "nui" },
+    },
+  },
   init = function()
     ---@diagnostic disable-next-line: duplicate-set-field
     vim.ui.select = function(...)
