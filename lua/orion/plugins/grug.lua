@@ -8,6 +8,7 @@ return {
     },
   },
   keys = {
-    { "<leader>cR", "<cmd>GrugFar<cr>", desc = "Search and replace", mode = { "n", "v" } },
+    { "<leader>cs", "<cmd>GrugFar ripgrep<cr>", desc = "search (ripgrep)", mode = { "n", "v" } },
+    { "<leader>cS", "<cmd>GrugFar astgrep<cr>", desc = "search (astgrep)", mode = { "n", "v" } },
   },
 }
