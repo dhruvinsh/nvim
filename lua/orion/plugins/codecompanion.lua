@@ -52,7 +52,7 @@ return {
           prompts = {
             {
               role = "system",
-              content = "You are an expert at following the Conventional Commit specification.",
+              content = "You are an expert at following the Git Conventional Commit message specification.",
             },
             {
               role = "user",
