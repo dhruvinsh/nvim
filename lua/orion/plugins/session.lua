@@ -7,9 +7,9 @@ return {
       { "<leader>qr", "<cmd>SessionRestore<cr>", desc = "restore" },
     },
     opts = {
-      auto_restore_enabled = false,
-      auto_session_use_git_branch = true,
-      bypass_session_save_file_types = { "man" },
+      auto_restore = false,
+      use_git_branch = true,
+      bypass_save_filetypes = { "man" },
     },
   },
 }
