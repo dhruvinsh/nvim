@@ -19,6 +19,7 @@ return {
         { "<leader>gg", toggle_fugitive, desc = "Git Status" },
         -- Trying out diffview.nvim
         -- { "<leader>gD", "<cmd>Gvdiffsplit!<CR>", desc = "Diff Split" },
+        { "<leader>gc", "<cmd>Git commit --verbose<cr>", desc = "commit" },
       }
     end,
   },
