@@ -39,31 +39,9 @@ return {
       },
       display = { chat = { show_settings = true } },
       prompt_library = {
-        ["Commit Message for Staged Files"] = {
-          strategy = "chat",
-          description = "staged file commit messages",
+        ["Generate a Commit Message"] = {
           opts = {
-            index = 9,
-            default_prompt = true,
             mapping = "<LocalLeader>gm",
-            slash_cmd = "stage",
-            auto_submit = true,
-          },
-          prompts = {
-            {
-              role = "system",
-              content = "You are an expert at following the Git Conventional Commit message specification.",
-            },
-            {
-              role = "user",
-              contains_code = true,
-              content = function()
-                return "Given the git diff listed below, please generate a commit message for me:\n\n"
-                  .. "```\n"
-                  .. vim.fn.system("git diff --staged")
-                  .. "\n```"
-              end,
-            },
           },
         },
       },
