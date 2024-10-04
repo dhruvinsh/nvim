@@ -20,7 +20,7 @@ return {
           local indicator = (diag.error and icons.ERROR .. " " or "") .. (diag.warning and icons.WARN or "")
           return vim.trim(indicator)
         end,
-        separator_style = "slope",
+        separator_style = "thick",
       },
     }
   end,
