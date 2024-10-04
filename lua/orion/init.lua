@@ -3,4 +3,5 @@ require("orion.config.keymaps")
 require("orion.config.autocmds")
 require("orion.config.lazy")
 
-vim.cmd.colorscheme("gruvbox")
+vim.g.colorscheme = "kanagawa"
+vim.cmd.colorscheme(vim.g.colorscheme)
