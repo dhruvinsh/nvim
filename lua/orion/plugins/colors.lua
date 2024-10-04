@@ -1,11 +1,13 @@
 return {
   {
     "folke/tokyonight.nvim",
+    lazy = true,
     opts = { style = "moon" },
   },
 
   {
     "ellisonleao/gruvbox.nvim",
+    lazy = true,
     opts = {
       italic = {
         strings = false,
@@ -25,7 +27,14 @@ return {
 
   {
     "rebelot/kanagawa.nvim",
-    priority = 1000,
+    lazy = true,
+    opts = {},
+  },
+
+  {
+    "rose-pine/neovim",
+    lazy = true,
+    name = "rose-pine",
     opts = {},
   },
 
