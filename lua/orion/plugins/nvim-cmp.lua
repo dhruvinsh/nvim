@@ -9,7 +9,7 @@ return {
     "saadparwaiz1/cmp_luasnip",
     {
       "L3MON4D3/LuaSnip",
-      build = "make install_jsregexp",
+      build = not require("util").is_win and "make install_jsregexp" or nil,
       dependencies = {
         {
           "rafamadriz/friendly-snippets",
