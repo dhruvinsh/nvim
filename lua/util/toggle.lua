@@ -45,7 +45,7 @@ H.inlay_hint = M:new("inlay hint", function(state)
   vim.lsp.inlay_hint.enable(state)
 end)
 
--- toggle vim.o.background for gruvbox them, "dark" or "light"
+-- toggle vim.o.background "dark" or "light"
 H.colorscheme = M:new("colorscheme", function(state)
   vim.o.background = state and "dark" or "light"
   vim.cmd.colorscheme(vim.g.colorscheme)
