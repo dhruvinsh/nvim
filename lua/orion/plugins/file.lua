@@ -28,7 +28,7 @@ return {
       local map_split = function(buf_id, lhs, direction)
         local rhs = function()
           -- Make new window and set it as target
-          local target_window = minifiles.get_target_window().target_window
+          local target_window = minifiles.get_explorer_state().target_window
           if target_window == nil then
             return
           end
