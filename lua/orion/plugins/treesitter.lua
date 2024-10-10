@@ -5,7 +5,7 @@ return {
   },
   version = false,
   build = ":TSUpdate",
-  event = "VeryLazy",
+  event = { "BufReadPost", "BufNewFile" },
   cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
   opts = {
     ensure_installed = {
