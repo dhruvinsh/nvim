@@ -28,16 +28,20 @@ end)
 H.format_local = M:new("format (local)", function(state)
   if state then
     vim.cmd("FormatDisable!")
+    vim.notify("Local format is disabled", vim.log.levels.INFO)
   else
     vim.cmd("FormatEnable")
+    vim.notify("Local format is enabled", vim.log.levels.INFO)
   end
 end)
 
 H.format_global = M:new("format (global)", function(state)
   if state then
     vim.cmd("FormatDisable")
+    vim.notify("Global format is disabled", vim.log.levels.INFO)
   else
     vim.cmd("FormatEnable")
+    vim.notify("Global format is enabled", vim.log.levels.INFO)
   end
 end)
 
