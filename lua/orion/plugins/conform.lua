@@ -39,8 +39,8 @@ return {
   keys = function()
     return {
       { "<leader>lc", "<cmd>ConformInfo<cr>", desc = "conform" },
-      { "<leader>tf", "<cmd>lua require('utils.toggle').format_local:toggle()<cr>", desc = "format (local)" },
-      { "<leader>tF", "<cmd>lua require('utils.toggle').format_global:toggle()<cr>", desc = "format (global)" },
+      { "<leader>tf", "<cmd>lua require('util.toggle').format_local:toggle()<cr>", desc = "format (local)" },
+      { "<leader>tF", "<cmd>lua require('util.toggle').format_global:toggle()<cr>", desc = "format (global)" },
     }
   end,
   init = function()
