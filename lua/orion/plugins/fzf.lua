@@ -21,6 +21,9 @@ return {
       cwd_prompt = false,
       formatter = "path.filename_first",
     },
+    grep = {
+      rg_opts = "--column --line-number --no-heading --color=always --smart-case --hidden --glob '!.git/**' --max-columns=4096 -e ",
+    },
   },
   config = function(_, opts)
     require("fzf-lua").setup(opts)
