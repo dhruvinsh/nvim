@@ -16,6 +16,11 @@ M.servers = {
   lua_ls = {},
 
   --
+  -- c
+  --
+  clangd = {},
+
+  --
   -- python
   --
   basedpyright = {},
