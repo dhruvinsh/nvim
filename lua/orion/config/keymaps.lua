@@ -10,6 +10,7 @@ vim.keymap.set("n", "<C-s>", "<cmd>w<cr>", { desc = "save" })
 vim.keymap.set("i", "<C-s>", "<C-o><cmd>w<cr>", { desc = "save" })
 vim.keymap.set("n", "<C-S-s>", "<cmd>wa<cr>", { desc = "save all" })
 vim.keymap.set("i", "<C-S-s>", "<C-o><cmd>wa<cr>", { desc = "save all" })
+vim.keymap.set("n", "<leader>tw", "<cmd>lua require('util.toggle').wrap:toggle()<cr>", { desc = "wrap" })
 
 -- indent
 vim.keymap.set("v", "<", "<gv")
