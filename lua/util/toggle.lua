@@ -55,4 +55,9 @@ H.colorscheme = M:new("colorscheme", function(state)
   vim.cmd.colorscheme(vim.g.colorscheme)
 end)
 
+-- toggle wrap
+H.wrap = M:new("wrap", function(state)
+  vim.o.wrap = state
+end)
+
 return H
