@@ -15,17 +15,24 @@ return {
     {"<leader>sk",      "<cmd>FzfLua keymaps<cr>",                                                      desc = "keymaps"},
     -- stylua: ignore end
   },
-  opts = {
-    files = {
-      prompt = "F❯ ",
-      cwd_prompt = false,
-      formatter = "path.filename_first",
-    },
-    grep = {
-      rg_opts = "--column --line-number --no-heading --color=always --smart-case --hidden --glob '!.git/**' --max-columns=4096 -e ",
-    },
-  },
-  config = function(_, opts)
-    require("fzf-lua").setup(opts)
+  config = function()
+    local act = require("fzf-lua.actions")
+
+    require("fzf-lua").setup({
+      files = {
+        prompt = "F❯ ",
+        cwd_prompt = false,
+        formatter = "path.filename_first",
+      },
+      grep = {
+        rg_opts = "--column --line-number --no-heading --color=always --smart-case --hidden --glob '!.git/**' --max-columns=4096 -e ",
+        actions = {
+          ["alt-q"] = {
+            fn = act.file_edit_or_qf,
+            prefix = "select-all+",
+          },
+        },
+      },
+    })
   end,
 }
