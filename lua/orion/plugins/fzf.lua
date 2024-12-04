@@ -13,6 +13,7 @@ return {
     {"<leader>fp",      "<cmd>FzfLua files cwd=" .. require("lazy.core.config").options.root .. "<cr>", desc = "files"},
     {"<leader>sh",      "<cmd>FzfLua helptags<cr>",                                                     desc = "help"},
     {"<leader>sk",      "<cmd>FzfLua keymaps<cr>",                                                      desc = "keymaps"},
+    {"<leader>sw",      "<cmd>FzfLua grep_cword<cr>",                                                   desc = "keymaps"},
     -- stylua: ignore end
   },
   config = function()
