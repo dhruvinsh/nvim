@@ -3,7 +3,7 @@ return {
   lazy = true,
   opts = {
     select = {
-      backend = { "fzf_lua", "fzf", "telescope", "builtin", "nui" },
+      backend = { "telescope", "builtin", "nui" },
     },
   },
   init = function()
