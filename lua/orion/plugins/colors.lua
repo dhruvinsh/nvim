@@ -5,6 +5,7 @@ return {
     name = "catppuccin",
     opts = {
       integrations = {
+        blink_cmp = true,
         diffview = true,
         grug_far = true,
         mason = true,

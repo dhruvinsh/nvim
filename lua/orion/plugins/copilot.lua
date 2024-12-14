@@ -3,6 +3,7 @@ return {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
     build = ":Copilot auth",
+    event = "InsertEnter",
     opts = {
       filetypes = { markdown = true },
       panel = { enabled = false },
@@ -24,16 +25,17 @@ return {
   },
 
   {
-    "hrsh7th/nvim-cmp",
-    dependencies = {
-      "zbirenbaum/copilot-cmp",
-      dependencies = "copilot.lua",
-      opts = {},
+    "saghen/blink.cmp",
+    dependencies = { "giuxtaposition/blink-cmp-copilot" },
+    opts = {
+      default = { "copilot" },
+      providers = {
+        copilot = {
+          name = "copilot",
+          module = "blink-cmp-copilot",
+          kind = "Copilot",
+        },
+      },
     },
-    opts = function(_, opts)
-      opts.sources = opts.source or {}
-      table.insert(opts.sources, { group_index = 2, name = "copilot", priority = 100 })
-      return opts
-    end,
   },
 }
