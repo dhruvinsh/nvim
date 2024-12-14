@@ -21,12 +21,12 @@ return {
     cmd = { "LspInfo", "LspInstall", "LspUninstall" },
     dependencies = {
       "williamboman/mason-lspconfig.nvim",
+      "saghen/blink.cmp",
     },
     config = function()
       local lsp = require("util.lsp")
 
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
-      capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+      local capabilities = require("blink.cmp").get_lsp_capabilities()
 
       local handlers = {
         -- default handlers for all lsp server
