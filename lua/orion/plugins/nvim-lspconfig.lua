@@ -25,7 +25,6 @@ return {
     },
     config = function()
       local lsp = require("util.lsp")
-
       local capabilities = require("blink.cmp").get_lsp_capabilities()
 
       local handlers = {
@@ -33,22 +32,22 @@ return {
         ---@param sname string lsp server name
         function(sname)
           -- HACK: what if server that installed not part of `servers` list?
-          if lsp.servers[sname] == nil then
-            lsp.servers[sname] = {}
-          end
+          lsp.servers[sname] = lsp.servers[sname] or {}
+
+          local sconfig = lsp.servers[sname]
 
           require("lspconfig")[sname].setup({
-            on_init = lsp.servers[sname].on_init,
-            settings = lsp.servers[sname].settings,
+            on_init = sconfig.on_init,
+            settings = sconfig.settings,
             capabilities = capabilities,
-            on_new_config = lsp.servers[sname].on_new_config, -- nil or callable
+            on_new_config = sconfig.on_new_config, -- nil or callable
           })
 
-          local keymaps_func = lsp.servers[sname].keymaps
-
+          -- handle additional keymaps
+          local keymaps_func = sconfig.keymaps
           if keymaps_func ~= nil then
             vim.api.nvim_create_autocmd("LspAttach", {
-              desc = "additional keympas",
+              desc = "additional keympas for " .. sname,
               callback = function(args)
                 local client = vim.lsp.get_client_by_id(args.data.client_id)
 
