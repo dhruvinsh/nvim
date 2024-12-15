@@ -27,6 +27,9 @@ return {
           enabled = true,
         },
       },
+      list = {
+        selection = "manual",
+      },
       menu = {
         draw = {
           treesitter = true,
@@ -43,6 +46,8 @@ return {
 
     keymap = {
       preset = "enter",
+      ["<Tab>"] = { "select_next", "fallback" },
+      ["<S-Tab>"] = { "select_prev", "fallback" },
     },
 
     -- default list of enabled providers defined so that you can extend it
