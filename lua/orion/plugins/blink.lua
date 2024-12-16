@@ -27,9 +27,6 @@ return {
           enabled = true,
         },
       },
-      list = {
-        selection = "manual",
-      },
       menu = {
         draw = {
           treesitter = true,
@@ -41,6 +38,9 @@ return {
       },
       ghost_text = {
         enabled = true,
+      },
+      list = {
+        selection = "auto_insert",
       },
     },
 
