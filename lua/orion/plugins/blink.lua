@@ -27,11 +27,6 @@ return {
           enabled = true,
         },
       },
-      menu = {
-        draw = {
-          treesitter = true,
-        },
-      },
       documentation = {
         auto_show = true,
         auto_show_delay_ms = 200,
@@ -41,6 +36,14 @@ return {
       },
       list = {
         selection = "auto_insert",
+      },
+      menu = {
+        draw = {
+          treesitter = true,
+        },
+      },
+      trigger = {
+        show_on_accept_on_trigger_character = false,
       },
     },
 
