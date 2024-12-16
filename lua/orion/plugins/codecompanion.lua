@@ -10,7 +10,7 @@ return {
     keys = {
       { "<leader>aa", "<cmd>CodeCompanionActions<cr>", desc = "action", mode = { "n", "v" } },
       { "<leader>at", "<cmd>CodeCompanionChat Toggle<cr>", desc = "toggle", mode = { "n", "v" } },
-      { "<leader>gm", desc = "message" },
+      { "<leader>gm", "<cmd>lua require('codecompanion').prompt('commit') <cr>", desc = "message" },
     },
     opts = function()
       local component = require("util.codecompanion")
@@ -37,13 +37,6 @@ return {
           },
         },
         display = { chat = { show_settings = true } },
-        prompt_library = {
-          ["Generate a Commit Message"] = {
-            opts = {
-              mapping = "<LocalLeader>gm",
-            },
-          },
-        },
       }
     end,
   },
