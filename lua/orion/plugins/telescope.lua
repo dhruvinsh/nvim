@@ -6,7 +6,9 @@ return {
     "nvim-lau/plenary.nvim",
     {
       "nvim-telescope/telescope-fzf-native.nvim",
-      build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
+      build = vim.fn.executable("cmake") == 1
+          and "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release"
+        or "make",
       config = function()
         require("telescope").load_extension("fzf")
       end,
