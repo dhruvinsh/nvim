@@ -7,6 +7,7 @@ return {
     {
       "nvim-telescope/telescope-fzf-native.nvim",
       build = vim.fn.executable("cmake") == 1
+          and not require("util").is_win
           and "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release"
         or "make",
       config = function()
