@@ -48,8 +48,7 @@ return {
           copilot = {
             name = "copilot",
             module = "blink-cmp-copilot",
-            kind = "Copilot",
-            score_offset = 100,
+            score_offset = 70,
             async = true,
           },
         },
