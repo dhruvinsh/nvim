@@ -68,8 +68,12 @@ return {
       on_attach = function(buffer)
         local gs = package.loaded.gitsigns
 
-        local function map(mode, l, r, desc)
-          vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc })
+        ---@param mode string|table "n" or {"n", "v"} like this
+        ---@param lhs string keymap
+        ---@param rhs string|function action to perform
+        ---@param desc string description
+        local function map(mode, lhs, rhs, desc)
+          vim.keymap.set(mode, lhs, rhs, { buffer = buffer, desc = desc })
         end
 
         -- stylua: ignore start
