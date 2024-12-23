@@ -53,13 +53,15 @@ local function on_attach(client, bufnr)
     vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
   end
 
-  keymap("grr", "<cmd>Telescope lsp_references formatter=path.filename_first<cr>", "references")
-  keymap("gy", "<cmd>Telescope lsp_type_definitions<cr>", "type definition")
+  keymap("grr", "<cmd>FzfLua lsp_references formatter=path.filename_first<cr>", "references")
+  keymap("gy", "<cmd>FzfLua lsp_typedefs<cr>", "type definition")
   keymap("<leader>cr", vim.lsp.buf.rename, "rename")
 
   if client.supports_method(methods.textDocument_definition) then
-    keymap("gD", "<cmd>Telescope lsp_definitions<cr>", "peek definition")
-    keymap("gd", "<cmd>Telescope lsp_definitions<cr>", "definition")
+    keymap("gD", "<cmd>FzfLua lsp_definitions<cr>", "peek definition")
+    keymap("gd", function()
+      require("fzf-lua").lsp_definitions({ jump_to_single_result = true })
+    end, "definition")
   end
 
   if client.supports_method(methods.textDocument_documentHighlight) then
