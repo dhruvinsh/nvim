@@ -16,24 +16,37 @@ return {
     {"<leader>sw",      "<cmd>FzfLua grep_cword<cr>",                                                   desc = "keymaps"},
     -- stylua: ignore end
   },
-  config = function()
-    local act = require("fzf-lua.actions")
+  opts = function()
+    local config = require("fzf-lua.config")
 
-    require("fzf-lua").setup({
+    -- Quickfix
+    -- stylua: ignore start
+    config.defaults.keymap.fzf["ctrl-q"]    = "select-all+accept"
+    config.defaults.keymap.fzf["ctrl-u"]    = "half-page-up"
+    config.defaults.keymap.fzf["ctrl-d"]    = "half-page-down"
+    config.defaults.keymap.fzf["ctrl-x"]    = "jump"
+    config.defaults.keymap.fzf["ctrl-f"]    = "preview-page-down"
+    config.defaults.keymap.fzf["ctrl-b"]    = "preview-page-up"
+    config.defaults.keymap.builtin["<c-f>"] = "preview-page-down"
+    config.defaults.keymap.builtin["<c-b>"] = "preview-page-up"
+    -- stylua: ignore end
+
+    return {
+      "default-title",
+      fzf_colors = true,
+      fzf_opts = {
+        ["--no-scrollbar"] = true,
+      },
+      defaults = {
+        formatter = "path.filename_first",
+      },
       files = {
         prompt = "F❯ ",
         cwd_prompt = false,
-        formatter = "path.filename_first",
       },
       grep = {
         rg_opts = "--column --line-number --no-heading --color=always --smart-case --hidden --glob '!.git/**' --max-columns=4096 -e ",
-        actions = {
-          ["alt-q"] = {
-            fn = act.file_edit_or_qf,
-            prefix = "select-all+",
-          },
-        },
       },
-    })
+    }
   end,
 }
