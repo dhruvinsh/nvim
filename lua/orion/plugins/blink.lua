@@ -18,21 +18,49 @@ return {
       accept = { auto_brackets = { enabled = true } },
       documentation = { auto_show = true, auto_show_delay_ms = 200 },
       ghost_text = { enabled = true },
-      list = { selection = "auto_insert" },
+      list = {
+        selection = {
+          preselect = false,
+          auto_insert = true,
+        },
+      },
       trigger = { show_on_accept_on_trigger_character = false },
     },
 
     keymap = {
       preset = "enter",
-      ["<Tab>"] = { "select_next", "fallback" },
-      ["<S-Tab>"] = { "select_prev", "fallback" },
+      ["<Tab>"] = {
+        function(cmp)
+          if cmp.snippet_active() then
+            return cmp.accept()
+          else
+            return cmp.select_next()
+          end
+        end,
+        "snippet_forward",
+        "fallback",
+      },
+      ["<S-Tab>"] = {
+        function(cmp)
+          if cmp.snippet_active() then
+            return cmp.accept()
+          else
+            return cmp.select_prev()
+          end
+        end,
+        "snippet_backward",
+        "fallback",
+      },
     },
 
     -- default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, via `opts_extend`
     sources = {
       default = { "lsp", "path", "snippets", "buffer" },
-      cmdline = {},
+    },
+
+    cmdline = {
+      enabled = false,
     },
 
     -- experimental signature help support
