@@ -2,7 +2,7 @@ return {
   {
     "MeanderingProgrammer/render-markdown.nvim",
     version = "*",
-    ft = "markdown",
+    ft = { "markdown", "codecompanion" },
     main = "render-markdown",
     opts = {},
     name = "render-markdown",
