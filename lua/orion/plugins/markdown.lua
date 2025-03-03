@@ -1,12 +1,27 @@
 return {
   {
     "MeanderingProgrammer/render-markdown.nvim",
-    version = "*",
     ft = { "markdown", "codecompanion" },
-    main = "render-markdown",
-    opts = {},
-    name = "render-markdown",
     dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.icons" },
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
+    opts = {},
+  },
+
+  {
+    "saghen/blink.cmp",
+    opts = {
+      sources = {
+        default = { "markdown" },
+        providers = {
+          markdown = {
+            name = "RenderMarkdown",
+            module = "render-markdown.integ.blink",
+            fallbacks = { "lsp" },
+          },
+        },
+      },
+    },
   },
 
   {
