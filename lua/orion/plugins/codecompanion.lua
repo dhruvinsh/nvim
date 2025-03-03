@@ -25,6 +25,17 @@ return {
       end
 
       return {
+        adapters = {
+          copilot = function()
+            return require("codecompanion.adapters").extend("copilot", {
+              schema = {
+                model = {
+                  default = "claude-3.7-sonnet",
+                },
+              },
+            })
+          end,
+        },
         strategies = {
           chat = {
             adapter = "copilot",
@@ -39,24 +50,5 @@ return {
         display = { chat = { show_settings = true } },
       }
     end,
-  },
-
-  {
-    "saghen/blink.cmp",
-    -- optas = function(_, opts)
-    --   local providers = opts.sources.completion.enabled_providers
-    -- end,
-    opts = {
-      sources = {
-        default = { "codecompanion" },
-        providers = {
-          codecompanion = {
-            name = "CodeCompanion",
-            module = "codecompanion.providers.completion.blink",
-            enabled = true,
-          },
-        },
-      },
-    },
   },
 }
