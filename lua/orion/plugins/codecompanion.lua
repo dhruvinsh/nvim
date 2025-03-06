@@ -1,7 +1,7 @@
 return {
   {
     "olimorris/codecompanion.nvim",
-    version = "v12.*", -- tagging to latest version
+    version = "*", -- tagging to latest version
     cmd = { "CodeCompanion", "CodeCompanionChat", "CodeCompanionActions" },
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -30,7 +30,7 @@ return {
             return require("codecompanion.adapters").extend("copilot", {
               schema = {
                 model = {
-                  default = "claude-3.7-sonnet",
+                  default = "claude-3.7-sonnet-thought",
                 },
               },
             })
@@ -39,6 +39,14 @@ return {
         strategies = {
           chat = {
             adapter = "copilot",
+            slash_commands = {
+              ["file"] = {
+                opts = { provider = "fzf_lua" },
+              },
+              ["buffer"] = {
+                opts = { provider = "fzf_lua" },
+              },
+            },
           },
           inline = {
             adapter = "copilot",
