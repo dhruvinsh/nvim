@@ -47,7 +47,15 @@ return {
             adapter = "copilot",
           },
         },
-        display = { chat = { show_settings = true } },
+        prompt_library = {
+          ["Generate a Commit Message"] = {
+            strategy = "inline",
+            opts = {
+              name = "copilot",
+              model = "gpt-4o-2024-08-06",
+            },
+          },
+        },
       }
     end,
   },
