@@ -64,6 +64,7 @@ return {
             },
           },
         },
+        display = { chat = { show_settings = true } },
       }
     end,
   },
