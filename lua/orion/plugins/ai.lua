@@ -8,7 +8,7 @@ return {
       "nvim-treesitter/nvim-treesitter",
     },
     keys = {
-      { "<leader>aa", "<cmd>CodeCompanionActions<cr>", desc = "action", mode = { "n", "v" } },
+      { "<leader>ac", "<cmd>CodeCompanionActions<cr>", desc = "action", mode = { "n", "v" } },
       { "<leader>at", "<cmd>CodeCompanionChat Toggle<cr>", desc = "toggle", mode = { "n", "v" } },
       { "<leader>gm", "<cmd>lua require('codecompanion').prompt('commit') <cr>", desc = "message" },
     },
@@ -67,5 +67,19 @@ return {
         display = { chat = { show_settings = true } },
       }
     end,
+  },
+
+  {
+    "joshuavial/aider.nvim",
+    cmd = { "AiderOpen", "AiderAddModifiedFiles" },
+    keys = {
+      { "<leader>aa", "<cmd>AiderOpen<cr>", desc = "open" },
+      { "<leader>am", "<cmd>AiderAddModifiedFiles<cr>", desc = "add modified" },
+    },
+    opts = {
+      auto_manage_context = true,
+      default_bindings = false,
+      debug = false,
+    },
   },
 }
