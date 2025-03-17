@@ -48,7 +48,6 @@
   "smartyank.nvim": { "branch": "master", "commit": "0a4554a4ea4cad73dab0a15e559f2128ca03c7b2" },
   "todo-comments.nvim": { "branch": "main", "commit": "304a8d204ee787d2544d8bc23cd38d2f929e7cc5" },
   "toggleterm.nvim": { "branch": "main", "commit": "9a88eae817ef395952e08650b3283726786fb5fb" },
-  "tree-sitter-nu": { "branch": "main", "commit": "c10340b5bb3789f69182acf8f34c3d4fc24d2fe1" },
   "treesj": { "branch": "main", "commit": "48c1a7539f376fd40ceb9cf12d697040fcf90649" },
   "typr": { "branch": "main", "commit": "5ee7b67dc610e8ec2c0c8a6912a8d1fba90160c2" },
   "vim-dadbod": { "branch": "master", "commit": "9f0ca8bcef704659820a95c3bbd2c262583a66a1" },
