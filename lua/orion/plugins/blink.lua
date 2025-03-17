@@ -27,6 +27,10 @@ return {
       trigger = { show_on_accept_on_trigger_character = false },
     },
 
+    enabled = function()
+      return not vim.tbl_contains({ "typr" }, vim.bo.filetype)
+    end,
+
     keymap = {
       preset = "enter",
       ["<Tab>"] = {
