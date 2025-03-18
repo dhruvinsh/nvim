@@ -1,6 +1,7 @@
 local M = {}
 
 M.no_indent_filetypes = {
+  "AiderConsole",
   "Trouble",
   "alpha",
   "dashboard",

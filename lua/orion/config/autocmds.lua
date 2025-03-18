@@ -78,3 +78,18 @@ vim.api.nvim_create_autocmd("BufReadPre", {
     end
   end,
 })
+
+-- terminal: Aider
+vim.api.nvim_create_autocmd({ "TermOpen", "TermClose" }, {
+  group = utils.augroup("aider_console", false),
+  pattern = "term://*aider*",
+  callback = function(ev)
+    if ev.event == "TermOpen" then
+      vim.opt_local.number = false
+      vim.opt_local.signcolumn = "no"
+    else -- TermClose
+      local enter_key = vim.api.nvim_replace_termcodes("<CR>", true, true, true)
+      vim.api.nvim_feedkeys(enter_key, "n", false)
+    end
+  end,
+})
