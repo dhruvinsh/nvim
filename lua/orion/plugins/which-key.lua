@@ -4,6 +4,7 @@ return {
   opts = {
     spec = {
       { "<leader><tab>", group = "tab", icon = "󰓩" },
+      { "<leader>a", group = "ai" },
       { "<leader>b", group = "buffer" },
       { "<leader>c", group = "code" },
       { "<leader>f", group = "file" },
