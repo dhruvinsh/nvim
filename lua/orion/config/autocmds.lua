@@ -87,6 +87,7 @@ vim.api.nvim_create_autocmd({ "TermOpen", "TermClose" }, {
     if ev.event == "TermOpen" then
       vim.opt_local.number = false
       vim.opt_local.signcolumn = "no"
+      vim.api.nvim_feedkeys("i", "n", false)
     else -- TermClose
       local enter_key = vim.api.nvim_replace_termcodes("<CR>", true, true, true)
       vim.api.nvim_feedkeys(enter_key, "n", false)
