@@ -35,6 +35,7 @@ return {
           lsp.servers[sname] = lsp.servers[sname] or {}
 
           local sconfig = lsp.servers[sname]
+          capabilities = vim.tbl_deep_extend("force", capabilities, sconfig.capabilities or {})
 
           require("lspconfig")[sname].setup({
             on_init = sconfig.on_init,

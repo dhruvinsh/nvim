@@ -1,6 +1,7 @@
 local M = {}
 
 ---@class ServerSpec
+---@field capabilities? table override some of the lsp capabilities
 ---@field on_init? function override on-init function for lsp
 ---@field settings? table override some lsp specific settings
 ---@field keymaps? function override/add some lsp specific keymaps
@@ -23,9 +24,24 @@ M.servers = {
   --
   -- python
   --
-  basedpyright = {},
+  basedpyright = {
+    capabilities = {
+      workspace = {
+        didChangeWatchedFiles = {
+          dynamicRegistration = true,
+        },
+      },
+    },
+  },
 
   ruff = {
+    capabilities = {
+      workspace = {
+        didChangeWatchedFiles = {
+          dynamicRegistration = false,
+        },
+      },
+    },
     ---@param bufnr integer
     keymaps = function(bufnr)
       vim.keymap.set("n", "<leader>co", function()
