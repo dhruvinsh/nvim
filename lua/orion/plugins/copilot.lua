@@ -50,6 +50,13 @@ return {
             module = "blink-cmp-copilot",
             score_offset = 70,
             async = true,
+            transform_items = function(_, items)
+              for _, item in ipairs(items) do
+                item.kind_icon = ""
+                item.kind_name = "Copilot"
+              end
+              return items
+            end,
           },
         },
       },
