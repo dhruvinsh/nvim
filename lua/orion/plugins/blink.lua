@@ -72,8 +72,6 @@ return {
     ---@diagnostic disable-next-line: missing-fields
     signature = { enabled = true },
 
-    snippets = { preset = "luasnip" },
-
     fuzzy = { implementation = "prefer_rust_with_warning" },
   },
   -- allows extending the providers array elsewhere in your config
