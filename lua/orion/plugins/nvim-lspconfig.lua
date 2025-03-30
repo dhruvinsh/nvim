@@ -25,7 +25,6 @@ return {
     },
     config = function()
       local lsp = require("util.lsp")
-      local capabilities = require("blink.cmp").get_lsp_capabilities()
 
       local handlers = {
         -- default handlers for all lsp server
@@ -35,7 +34,7 @@ return {
           lsp.servers[sname] = lsp.servers[sname] or {}
 
           local sconfig = lsp.servers[sname]
-          capabilities = vim.tbl_deep_extend("force", capabilities, sconfig.capabilities or {})
+          local capabilities = require("blink.cmp").get_lsp_capabilities(sconfig.capabilities)
 
           require("lspconfig")[sname].setup({
             on_init = sconfig.on_init,
