@@ -6,6 +6,7 @@ return {
     opts = {
       integrations = {
         blink_cmp = true,
+        dadbod_ui = true,
         diffview = true,
         grug_far = true,
         mason = true,
@@ -25,7 +26,11 @@ return {
             warnings = { "undercurl" },
             information = { "undercurl" },
           },
+          inlay_hints = {
+            background = true,
+          },
         },
+        which_key = true,
       },
     },
   },
