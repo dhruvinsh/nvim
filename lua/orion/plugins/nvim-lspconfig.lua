@@ -36,12 +36,13 @@ return {
           local sconfig = lsp.servers[sname]
           local capabilities = require("blink.cmp").get_lsp_capabilities(sconfig.capabilities)
 
-          require("lspconfig")[sname].setup({
+          vim.lsp.config(sname, {
             on_init = sconfig.on_init,
             settings = sconfig.settings,
             capabilities = capabilities,
             on_new_config = sconfig.on_new_config, -- nil or callable
           })
+          vim.lsp.enable(sname)
 
           -- handle additional keymaps
           local keymaps_func = sconfig.keymaps

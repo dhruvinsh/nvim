@@ -82,13 +82,6 @@ M.servers = {
         format = { enable = true },
       },
     },
-    on_new_config = function(config)
-      -- HACK: for lazy loading keep it here.
-      --
-      -- refer: https://github.com/b0o/SchemaStore.nvim
-      config.settings.json.schemas = config.settings.json.schemas or {}
-      vim.list_extend(config.settings.json.schemas, require("schemastore").json.schemas())
-    end,
   },
 
   --
@@ -105,13 +98,6 @@ M.servers = {
         schemaStore = { enable = false, url = "" },
       },
     },
-    on_new_config = function(config)
-      -- HACK: for lazy loading keep it here.
-      --
-      -- refer: https://github.com/b0o/SchemaStore.nvim
-      config.settings.yaml.schemas = config.settings.yaml.schemas or {}
-      vim.list_extend(config.settings.yaml.schemas, require("schemastore").yaml.schemas())
-    end,
   },
 }
 
