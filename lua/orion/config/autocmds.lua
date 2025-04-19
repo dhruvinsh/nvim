@@ -79,6 +79,7 @@ vim.api.nvim_create_autocmd("BufReadPre", {
   end,
 })
 vim.api.nvim_create_autocmd("LspAttach", {
+  group = utils.augroup("lsp_based_fold", false),
   callback = function(args)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
     if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_foldingRange) then
