@@ -5,7 +5,6 @@ local M = {}
 ---@field on_init? function override on-init function for lsp
 ---@field settings? table override some lsp specific settings
 ---@field keymaps? function override/add some lsp specific keymaps
----@field on_new_config? function take action when config is created
 
 ---@class OrionLspServers<T>: { [string]: T}
 
