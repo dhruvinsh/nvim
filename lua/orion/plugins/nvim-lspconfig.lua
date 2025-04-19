@@ -40,7 +40,6 @@ return {
             on_init = sconfig.on_init,
             settings = sconfig.settings,
             capabilities = capabilities,
-            on_new_config = sconfig.on_new_config, -- nil or callable
           })
           vim.lsp.enable(sname)
 
