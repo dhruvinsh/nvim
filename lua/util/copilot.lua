@@ -24,7 +24,7 @@ function M:init(options)
       local client = vim.lsp.get_client_by_id(args.data.client_id)
 
       if client and client.name == "copilot" then
-        require("copilot.api").register_status_notification_handler(function()
+        require("copilot.status").register_status_notification_handler(function()
           require("lualine").refresh()
         end)
       end
@@ -34,7 +34,7 @@ end
 
 -- Function that runs every time status line is updated
 function M:update_status()
-  local status = require("copilot.api").status.data.status
+  local status = require("copilot.status").data.status
   if (status == "InProgress") or (status == "Warning") then
     self.spinner_index = (self.spinner_index % spinner_symbols_len) + 1
     return spinner_symbols[self.spinner_index]
