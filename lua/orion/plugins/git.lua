@@ -1,6 +1,7 @@
 return {
   {
     "tpope/vim-fugitive",
+    dependencies = { "jake-stewart/auto-cmdheight.nvim", lazy = true },
     cmd = "Git",
     keys = function()
       local toggle_fugitive = function()
