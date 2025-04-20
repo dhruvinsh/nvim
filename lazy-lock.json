@@ -47,6 +47,7 @@
   "plenary.nvim": { "branch": "master", "commit": "857c5ac632080dba10aae49dba902ce3abf91b35" },
   "render-markdown.nvim": { "branch": "main", "commit": "dfc1299d9f32b53b34b7ac6c3a7553b5fd29977f" },
   "smartyank.nvim": { "branch": "master", "commit": "0a4554a4ea4cad73dab0a15e559f2128ca03c7b2" },
+  "tiny-inline-diagnostic.nvim": { "branch": "main", "commit": "cd401038de4cbae37651cfe02510294ccf5cdc98" },
   "todo-comments.nvim": { "branch": "main", "commit": "304a8d204ee787d2544d8bc23cd38d2f929e7cc5" },
   "toggleterm.nvim": { "branch": "main", "commit": "9a88eae817ef395952e08650b3283726786fb5fb" },
   "treesj": { "branch": "main", "commit": "f4049f8ba2177e7c5c03fb9e34d4e039c685d744" },
