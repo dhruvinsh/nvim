@@ -41,7 +41,7 @@ return {
         formatter = "path.filename_first",
       },
       files = {
-        prompt = "F❯ ",
+        prompt = " ",
         cwd_prompt = false,
       },
       grep = {
