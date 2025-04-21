@@ -31,9 +31,7 @@ return {
         ---@param sname string lsp server name
         function(sname)
           -- HACK: what if server that installed not part of `servers` list?
-          lsp.servers[sname] = lsp.servers[sname] or {}
-
-          local sconfig = lsp.servers[sname]
+          local sconfig = lsp.servers[sname] or {}
           local capabilities = require("blink.cmp").get_lsp_capabilities(sconfig.capabilities)
 
           vim.lsp.config(sname, {
