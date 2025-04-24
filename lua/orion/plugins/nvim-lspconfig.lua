@@ -32,7 +32,7 @@ return {
         function(sname)
           -- HACK: what if server that installed not part of `servers` list?
           local sconfig = lsp.servers[sname] or {}
-          local capabilities = require("blink.cmp").get_lsp_capabilities(sconfig.capabilities)
+          local capabilities = require("blink.cmp").get_lsp_capabilities(sconfig.capabilities, true)
 
           vim.lsp.config(sname, {
             on_init = sconfig.on_init,
