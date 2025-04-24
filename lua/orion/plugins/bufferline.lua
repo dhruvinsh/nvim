@@ -25,8 +25,6 @@ return {
     }
   end,
   keys = {
-    { "[b", "<cmd>BufferLineCyclePrev<cr>", desc = "previous buffer" },
-    { "]b", "<cmd>BufferLineCycleNext<cr>", desc = "next buffer" },
     { "<leader>bc", "<cmd>BufferLinePickClose<cr>", desc = "close" },
   },
 }
