@@ -27,6 +27,8 @@ return {
     end,
     formatters_by_ft = {
       bash = { "shfmt" },
+      json = { "prettierd" },
+      jsonc = { "prettierd" },
       lua = { "stylua" },
       markdown = { "cbfmt", "prettierd" },
       python = { "ruff_format", "ruff_organize_imports" },

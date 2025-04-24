@@ -1,8 +1,6 @@
 {
   "plugin update chore": {
     "prefix": "pu",
-    "body": [
-      "chore(plugins): bump to latest version"
-    ]
+    "body": ["chore(plugins): bump to latest version"]
   }
 }
