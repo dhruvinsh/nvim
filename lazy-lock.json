@@ -57,7 +57,6 @@
   "vim-dadbod-ui": { "branch": "master", "commit": "460432301a5cb280ea265ddfa15c9f3dcd1d26b7" },
   "vim-flog": { "branch": "master", "commit": "665b16ac8915f746bc43c9572b4581a5e9047216" },
   "vim-fugitive": { "branch": "master", "commit": "4a745ea72fa93bb15dd077109afbb3d1809383f2" },
-  "vim-sleuth": { "branch": "master", "commit": "be69bff86754b1aa5adcbb527d7fcd1635a84080" },
   "volt": { "branch": "main", "commit": "c45d5f48da8e802e608b5c6da471ca4d84276dfb" },
   "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" }
 }
