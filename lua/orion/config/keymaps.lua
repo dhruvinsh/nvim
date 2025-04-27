@@ -55,8 +55,6 @@ local function on_attach(client, bufnr)
 
   keymap("gra", "<cmd>lua require('fastaction').code_action()<CR>", "code action", { "n", "v" })
   keymap("grr", "<cmd>FzfLua lsp_references formatter=path.filename_first<cr>", "references")
-  keymap("gy", "<cmd>FzfLua lsp_typedefs<cr>", "type definition")
-  keymap("<leader>cr", vim.lsp.buf.rename, "rename")
 
   if client:supports_method(methods.textDocument_definition, bufnr) then
     keymap("gD", "<cmd>FzfLua lsp_definitions<cr>", "peek definition")
@@ -66,7 +64,7 @@ local function on_attach(client, bufnr)
   end
 
   if client:supports_method(methods.textDocument_documentHighlight, bufnr) then
-    local under_cursor_highlights_group = vim.api.nvim_create_augroup("mariasolos/cursor_highlights", { clear = false })
+    local under_cursor_highlights_group = vim.api.nvim_create_augroup("doc_highlight", { clear = false })
     vim.api.nvim_create_autocmd({ "CursorHold", "InsertLeave" }, {
       group = under_cursor_highlights_group,
       desc = "Highlight references under the cursor",
@@ -92,6 +90,20 @@ local function on_attach(client, bufnr)
       "<cmd>lua require('util.toggle').inlay_hint:toggle()<cr>",
       { desc = "inlay hints" }
     )
+  end
+
+  if client:supports_method(methods.textDocument_signatureHelp) then
+    local blink_window = require("blink.cmp.completion.windows.menu")
+    local blink = require("blink.cmp")
+
+    keymap("<C-k>", function()
+      -- Close the completion menu first (if open).
+      if blink_window.win:is_open() then
+        blink.hide()
+      end
+
+      vim.lsp.buf.signature_help()
+    end, "Signature help", "i")
   end
 end
 
