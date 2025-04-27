@@ -53,6 +53,7 @@ local function on_attach(client, bufnr)
     vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
   end
 
+  keymap("gra", "<cmd>lua require('fastaction').code_action()<CR>", "code action", { "n", "v" })
   keymap("grr", "<cmd>FzfLua lsp_references formatter=path.filename_first<cr>", "references")
   keymap("gy", "<cmd>FzfLua lsp_typedefs<cr>", "type definition")
   keymap("<leader>cr", vim.lsp.buf.rename, "rename")
