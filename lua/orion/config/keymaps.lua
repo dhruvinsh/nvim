@@ -38,7 +38,7 @@ vim.keymap.set("n", "<leader><tab>c", "<cmd>tabclose<cr>", { desc = "close" })
 -- tools
 vim.keymap.set("n", "<leader>ll", "<cmd>Lazy<cr>", { desc = "lazy" })
 
---- Lsp
+--- LSP
 ---@param client vim.lsp.Client
 ---@param bufnr integer
 local function on_attach(client, bufnr)
@@ -57,14 +57,14 @@ local function on_attach(client, bufnr)
   keymap("gy", "<cmd>FzfLua lsp_typedefs<cr>", "type definition")
   keymap("<leader>cr", vim.lsp.buf.rename, "rename")
 
-  if client.supports_method(methods.textDocument_definition) then
+  if client:supports_method(methods.textDocument_definition, bufnr) then
     keymap("gD", "<cmd>FzfLua lsp_definitions<cr>", "peek definition")
     keymap("gd", function()
       require("fzf-lua").lsp_definitions({ jump1 = true })
     end, "definition")
   end
 
-  if client.supports_method(methods.textDocument_documentHighlight) then
+  if client:supports_method(methods.textDocument_documentHighlight, bufnr) then
     local under_cursor_highlights_group = vim.api.nvim_create_augroup("mariasolos/cursor_highlights", { clear = false })
     vim.api.nvim_create_autocmd({ "CursorHold", "InsertLeave" }, {
       group = under_cursor_highlights_group,
@@ -80,7 +80,7 @@ local function on_attach(client, bufnr)
     })
   end
 
-  if client.supports_method(methods.textDocument_inlayHint) then
+  if client:supports_method(methods.textDocument_inlayHint, bufnr) then
     vim.defer_fn(function()
       vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
     end, 500)
