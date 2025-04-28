@@ -27,6 +27,7 @@ return {
     end,
     formatters_by_ft = {
       bash = { "shfmt" },
+      html = { "prettierd" },
       json = { "prettierd" },
       jsonc = { "prettierd" },
       lua = { "stylua" },

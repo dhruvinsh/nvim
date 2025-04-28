@@ -75,6 +75,11 @@ M.servers = {
   },
 
   --
+  -- html
+  --
+  html = {},
+
+  --
   -- json
   --
   jsonls = {
