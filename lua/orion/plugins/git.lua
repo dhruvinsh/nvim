@@ -18,8 +18,7 @@ return {
 
       return {
         { "<leader>gg", toggle_fugitive, desc = "Git Status" },
-        -- Trying out diffview.nvim
-        -- { "<leader>gD", "<cmd>Gvdiffsplit!<CR>", desc = "Diff Split" },
+        { "<leader>gD", "<cmd>Gvdiffsplit!<CR>", desc = "Diff Split" },
         { "<leader>gc", "<cmd>Git commit --verbose<cr>", desc = "commit" },
       }
     end,
@@ -32,25 +31,6 @@ return {
     keys = {
       { "<leader>gf", "<cmd>Flogsplit<CR>", desc = "flog" },
       { "<leader>gF", "<cmd>Flog<CR>", desc = "flog (tab)" },
-    },
-  },
-
-  {
-    "sindrets/diffview.nvim",
-    cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewFileHistory", "DiffviewToggleFiles" },
-    opts = {
-      keymaps = {
-        file_panel = {
-          { "n", "cc", "<cmd>Git commit <bar> windcmd J<cr>", { desc = "commit" } },
-          { "n", "ca", "<cmd>Git commit --ament <bar> windcmd J<cr>", { desc = "amend" } },
-          -- feel the command line with `:Git commit` message
-          { "n", "c<space>", "<cmd>Git commit ", { desc = "choose commit" } },
-        },
-      },
-    },
-    keys = {
-      { "<leader>gd", "<cmd>DiffviewOpen<CR>", desc = "diffview" },
-      { "<leader>gh", "<cmd>DiffviewFileHistory<CR>", desc = "history" },
     },
   },
 
@@ -90,8 +70,7 @@ return {
         map("n", "<leader>gh", gs.preview_hunk_inline, "hunk")
         map("n", "<leader>gH", gs.preview_hunk, "hunk (float)")
         map("n", "<leader>gb", function() gs.blame_line({ full = true }) end, "blame line")
-        -- Trying out diffview.nvim
-        -- map("n", "<leader>gd", gs.diffthis, "diff this")
+        map("n", "<leader>gd", gs.diffthis, "diff this")
         -- map("n", "<leader>gD", function() gs.diffthis("~") end, "diff this ~")
         map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "gitsigns select hunk")
 
