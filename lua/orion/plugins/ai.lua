@@ -30,7 +30,7 @@ return {
             return require("codecompanion.adapters").extend("copilot", {
               schema = {
                 model = {
-                  default = "claude-3.7-sonnet-thought",
+                  default = "gemini-2.5-pro",
                 },
               },
             })
@@ -60,11 +60,10 @@ return {
             strategy = "inline",
             opts = {
               name = "copilot",
-              model = "gpt-4o-2024-08-06",
+              model = "gemini-2.0-flash-001",
             },
           },
         },
-        display = { chat = { show_settings = true } },
       }
     end,
   },
