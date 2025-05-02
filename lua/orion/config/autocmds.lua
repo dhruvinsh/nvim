@@ -122,3 +122,17 @@ vim.api.nvim_create_autocmd({ "TermOpen", "TermClose" }, {
     end
   end,
 })
+
+-- codecompanion: gitcommit accept
+vim.api.nvim_create_autocmd({ "User" }, {
+  pattern = "CodeCompanionDiffAttached",
+  group = utils.augroup("gitcommit_accept", true),
+  callback = function(request)
+    local bufnr = request.data.bufnr
+    if vim.bo[bufnr].filetype == "gitcommit" then
+      vim.defer_fn(function()
+        vim.api.nvim_feedkeys("ga", "t", false)
+      end, 1000)
+    end
+  end,
+})

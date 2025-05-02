@@ -10,7 +10,7 @@ return {
     keys = {
       { "<leader>ac", "<cmd>CodeCompanionActions<cr>", desc = "action", mode = { "n", "v" } },
       { "<leader>at", "<cmd>CodeCompanionChat Toggle<cr>", desc = "toggle", mode = { "n", "v" } },
-      { "<leader>gm", "<cmd>lua require('codecompanion').prompt('commit') <cr>", desc = "message" },
+      { "<leader>gm", "<cmd>lua require('codecompanion').prompt('orion_commit') <cr>", desc = "message" },
     },
     opts = function()
       local component = require("util.codecompanion")
@@ -56,11 +56,36 @@ return {
           },
         },
         prompt_library = {
-          ["Generate a Commit Message"] = {
+          ["git commits"] = {
             strategy = "inline",
+            description = "Generate git commit for staged changes",
             opts = {
-              name = "copilot",
-              model = "gemini-2.0-flash-001",
+              placement = "replace",
+              short_name = "orion_commit",
+              auto_submit = true,
+              adapter = {
+                name = "copilot",
+                model = "gpt-4.1",
+              },
+            },
+            prompts = {
+              {
+                role = "user",
+                content = function()
+                  return string.format(
+                    [[You are an expert at following the Conventional Commit specification. Given the git diff listed below, please generate a commit message for me:
+
+```diff
+%s
+```
+]],
+                    vim.fn.system("git diff --no-ext-diff --staged")
+                  )
+                end,
+                opts = {
+                  contains_code = true,
+                },
+              },
             },
           },
         },
