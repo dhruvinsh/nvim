@@ -33,6 +33,7 @@ return {
       lua = { "stylua" },
       markdown = { "cbfmt", "prettierd" },
       python = { "ruff_format", "ruff_organize_imports" },
+      yaml = { "prettierd" },
       ["_"] = { "trim_whitespace" },
     },
     formatters = {
