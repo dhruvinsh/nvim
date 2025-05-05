@@ -21,14 +21,7 @@ return {
   config = function(_, opts)
     require("mcphub").setup(opts)
 
-    do
-      local ok, lualine = pcall(require, "lualine")
-      if not ok then
-        return
-      end
-      local lualine_cfg = lualine.get_config()
-      table.insert(lualine_cfg.sections.lualine_x, 1, require("mcphub.extensions.lualine"))
-      lualine.setup(lualine_cfg)
-    end
+    local component = require("mcphub.extensions.lualine")
+    require("util.lualine").inject_component({ "sections", "lualine_x" }, 1, component)
   end,
 }

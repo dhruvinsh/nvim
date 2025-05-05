@@ -26,15 +26,7 @@ return {
       require("copilot").setup(opts)
 
       local component = require("util.copilot")
-      do
-        local ok, lualine = pcall(require, "lualine")
-        if not ok then
-          return
-        end
-        local lualine_cfg = lualine.get_config()
-        table.insert(lualine_cfg.sections.lualine_x, 1, component)
-        lualine.setup(lualine_cfg)
-      end
+      require("util.lualine").inject_component({ "sections", "lualine_x" }, 1, component)
     end,
   },
 
