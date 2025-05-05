@@ -1,0 +1,4 @@
+after/**/*.lua
+lua/**/*.lua
+queries/**/*.scm
+snippets/**/*.json
