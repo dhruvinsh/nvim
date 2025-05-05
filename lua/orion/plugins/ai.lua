@@ -35,6 +35,19 @@ return {
           })
         end,
       },
+      extensions = {
+        mcphub = {
+          callback = "mcphub.extensions.codecompanion",
+          opts = {
+            show_result_in_chat = true,
+            make_vars = true,
+            make_slash_commands = true,
+          },
+        },
+        vectorcode = {
+          opts = { add_tool = true, add_slash_command = true, tool_opts = {} },
+        },
+      },
       strategies = {
         chat = {
           adapter = "copilot",
@@ -44,14 +57,6 @@ return {
             },
             ["buffer"] = {
               opts = { provider = "fzf_lua" },
-            },
-          },
-          tools = {
-            ["mcp"] = {
-              callback = function()
-                return require("mcphub.extensions.codecompanion")
-              end,
-              description = "Call tools and resources from the MCP Servers",
             },
           },
         },

@@ -11,13 +11,6 @@ return {
   opts = {
     auto_approve = true,
     use_bundled_binary = not vim.fn.executable("volta") == 0,
-    extensions = {
-      codecompanion = {
-        show_result_in_chat = true,
-        make_vars = true,
-        make_slash_commands = true,
-      },
-    },
     log = {
       level = vim.log.levels.INFO,
       to_file = true,
