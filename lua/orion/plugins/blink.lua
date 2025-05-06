@@ -18,7 +18,20 @@ return {
       accept = { auto_brackets = { enabled = true } },
       documentation = { auto_show = true, auto_show_delay_ms = 200, window = { border = "rounded" } },
       ghost_text = { enabled = true },
-      menu = { border = "rounded" },
+      menu = {
+        border = "rounded",
+        draw = {
+          columns = { { "kind_icon" }, { "label", "label_description", gap = 1 }, { "source_name" } },
+          padding = { 0, 1 },
+          components = {
+            kind_icon = {
+              text = function(ctx)
+                return " " .. ctx.kind_icon .. ctx.icon_gap .. " "
+              end,
+            },
+          },
+        },
+      },
       list = {
         selection = {
           preselect = false,
@@ -68,8 +81,6 @@ return {
       enabled = false,
     },
 
-    -- experimental signature help support
-    ---@diagnostic disable-next-line: missing-fields
     signature = { enabled = true },
 
     fuzzy = { implementation = "prefer_rust_with_warning" },
