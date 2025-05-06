@@ -15,6 +15,25 @@ return {
     local component = require("util.codecompanion")
     require("util.lualine").inject_component({ "sections", "lualine_x" }, 1, component)
 
+    local extensions = {
+      mcphub = {
+        callback = "mcphub.extensions.codecompanion",
+        opts = {
+          show_result_in_chat = true,
+          make_vars = true,
+          make_slash_commands = true,
+        },
+      },
+    }
+    if vim.fn.executable("vectorcode") == 1 then
+      extensions = vim.tbl_deep_extend("keep", extensions, {
+        vectorcode = {
+          callback = "codecompanion._extensions.vectorcode",
+          opts = { add_tool = true, add_slash_command = true, tool_opts = {} },
+        },
+      })
+    end
+
     return {
       adapters = {
         copilot = function()
@@ -27,19 +46,7 @@ return {
           })
         end,
       },
-      extensions = {
-        mcphub = {
-          callback = "mcphub.extensions.codecompanion",
-          opts = {
-            show_result_in_chat = true,
-            make_vars = true,
-            make_slash_commands = true,
-          },
-        },
-        vectorcode = {
-          opts = { add_tool = true, add_slash_command = true, tool_opts = {} },
-        },
-      },
+      extensions = extensions,
       strategies = {
         chat = {
           adapter = "copilot",
