@@ -6,7 +6,6 @@ return {
   ---@type snacks.Config
   opts = {
     input = { enabled = true },
-    notifier = { enabled = true },
     picker = { enabled = true },
   },
 }
