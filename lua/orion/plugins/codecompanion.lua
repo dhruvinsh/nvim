@@ -48,23 +48,9 @@ return {
       },
       extensions = extensions,
       strategies = {
-        chat = {
-          adapter = "copilot",
-          slash_commands = {
-            ["file"] = {
-              opts = { provider = "fzf_lua" },
-            },
-            ["buffer"] = {
-              opts = { provider = "fzf_lua" },
-            },
-          },
-        },
-        inline = {
-          adapter = "copilot",
-        },
-        agent = {
-          adapter = "copilot",
-        },
+        chat = { adapter = "copilot" },
+        inline = { adapter = "copilot" },
+        agent = { adapter = "copilot" },
       },
       prompt_library = {
         ["git commits"] = {
