@@ -2,7 +2,7 @@ return {
   "ravitemer/mcphub.nvim",
   cmd = "MCPHub",
   keys = {
-    { "<leader>lh", "<cmd>MCPHub<cr>", desc = "MCPHub" },
+    { "<leader>lh", "<cmd>MCPHub<cr>", desc = "mcphub" },
   },
   dependencies = {
     "nvim-lua/plenary.nvim",
