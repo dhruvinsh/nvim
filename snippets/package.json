@@ -3,15 +3,11 @@
   "contributes": {
     "snippets": [
       {
-        "language": [
-          "gitcommit"
-        ],
+        "language": "gitcommit",
         "path": "./gitcommit.json"
       },
       {
-        "language": [
-          "sh"
-        ],
+        "language": "sh",
         "path": "./sh.json"
       }
     ]
