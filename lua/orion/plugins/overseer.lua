@@ -1,8 +1,8 @@
 return {
   "stevearc/overseer.nvim",
-  cmd = { "Build", "OverseerClose", "OverseerOpen", "OverseerRun", "OverseerToggle" },
+  cmd = { "Build", "OverseerClose", "OverseerOpen", "OverseerRun", "OverseerToggle", "OverseerQuickAction" },
   opts = {
-    templates = { "builtin" },
+    templates = { "builtin", "vectorcode.index" },
     task_list = {
       default_detail = 2,
       direction = "bottom",
