@@ -108,15 +108,19 @@ M.servers = {
   },
 }
 
----@param pkgs table list of tools name that need to install
-M.mason_pkg_installer = function(pkgs)
+---@param packages table<string> list of tools name that need to install
+M.mason_pkg_installer = function(packages)
   -- HACK: in order to fix the first package installation need to setup mason and use mason-registry refresh
   -- https://github.com/williamboman/mason.nvim/issues/1133#issuecomment-1527888695
-  require("mason").setup({})
   local mr = require("mason-registry")
 
-  mr.refresh(function()
-    for _, tool in ipairs(pkgs) do
+  mr.refresh(function(success)
+    if not success then
+      vim.notify("Not able to refresh mason registry", vim.log.levels.ERROR)
+      return
+    end
+
+    for _, tool in ipairs(packages) do
       local p = mr.get_package(tool)
       if not p:is_installed() then
         p:install()

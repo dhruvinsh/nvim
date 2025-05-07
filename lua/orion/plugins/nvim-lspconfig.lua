@@ -26,44 +26,41 @@ return {
     config = function()
       local lsp = require("util.lsp")
 
-      local handlers = {
-        -- default handlers for all lsp server
-        ---@param sname string lsp server name
-        function(sname)
-          -- HACK: what if server that installed not part of `servers` list?
-          local sconfig = lsp.servers[sname] or {}
-          local capabilities = require("blink.cmp").get_lsp_capabilities(sconfig.capabilities, true)
+      -- default handlers for all lsp server
+      ---@param sname string lsp server name
+      local handler = function(sname)
+        -- HACK: what if server that installed not part of `servers` list?
+        local sconfig = lsp.servers[sname] or {}
+        local capabilities = require("blink.cmp").get_lsp_capabilities(sconfig.capabilities, true)
 
-          vim.lsp.config(sname, {
-            on_init = sconfig.on_init,
-            settings = sconfig.settings,
-            capabilities = capabilities,
+        vim.lsp.config(sname, {
+          on_init = sconfig.on_init,
+          settings = sconfig.settings,
+          capabilities = capabilities,
+        })
+        -- handle additional keymaps
+        local keymaps_func = sconfig.keymaps
+        if keymaps_func ~= nil then
+          vim.api.nvim_create_autocmd("LspAttach", {
+            desc = "additional keympas for " .. sname,
+            callback = function(args)
+              local client = vim.lsp.get_client_by_id(args.data.client_id)
+
+              if not client then
+                return
+              end
+
+              keymaps_func(args.buf)
+            end,
           })
-          vim.lsp.enable(sname)
-
-          -- handle additional keymaps
-          local keymaps_func = sconfig.keymaps
-          if keymaps_func ~= nil then
-            vim.api.nvim_create_autocmd("LspAttach", {
-              desc = "additional keympas for " .. sname,
-              callback = function(args)
-                local client = vim.lsp.get_client_by_id(args.data.client_id)
-
-                if not client then
-                  return
-                end
-
-                keymaps_func(args.buf)
-              end,
-            })
-          end
-        end,
-      }
-
+        end
+      end
+      for sname, _ in pairs(lsp.servers) do
+        handler(sname)
+      end
       require("mason-lspconfig").setup({
         ensure_installed = vim.tbl_keys(lsp.servers),
-        automatic_installation = true,
-        handlers = handlers,
+        automatic_enable = true,
       })
     end,
   },
