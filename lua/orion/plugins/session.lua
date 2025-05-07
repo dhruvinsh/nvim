@@ -8,8 +8,8 @@ return {
     },
     opts = {
       auto_restore = false,
-      use_git_branch = true,
       bypass_save_filetypes = { "man" },
+      git_use_branch_name = true,
     },
   },
 }
