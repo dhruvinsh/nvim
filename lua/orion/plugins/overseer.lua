@@ -23,6 +23,7 @@ return {
       end,
       desc = "interective",
     },
+    { "<leader>jl", "<cmd>OverseerRun<cr>", desc = "list" },
     {
       "<leader>jr",
       function()
