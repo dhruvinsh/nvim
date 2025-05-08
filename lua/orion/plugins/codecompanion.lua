@@ -54,7 +54,8 @@ return {
       },
       extensions = extensions,
       strategies = {
-        chat = { adapter = "copilot" },
+        -- setting provider till snacks.nvim related PR gets merged
+        chat = { adapter = "copilot", slash_commands = { ["file"] = { opts = { provider = "fzf_lua" } } } },
         inline = { adapter = "copilot" },
         agent = { adapter = "copilot" },
       },
