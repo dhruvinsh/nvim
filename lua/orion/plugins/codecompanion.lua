@@ -5,6 +5,7 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
+    "ravitemer/codecompanion-history.nvim",
   },
   keys = {
     { "<leader>ac", "<cmd>CodeCompanionActions<cr>", desc = "action", mode = { "n", "v" } },
@@ -22,6 +23,11 @@ return {
           show_result_in_chat = true,
           make_vars = true,
           make_slash_commands = true,
+        },
+      },
+      history = {
+        opts = {
+          picker = "default",
         },
       },
     }
