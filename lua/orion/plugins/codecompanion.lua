@@ -5,7 +5,6 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
-    "ravitemer/codecompanion-history.nvim",
   },
   keys = {
     { "<leader>ac", "<cmd>CodeCompanionActions<cr>", desc = "action", mode = { "n", "v" } },
@@ -15,30 +14,6 @@ return {
   opts = function()
     local component = require("util.codecompanion")
     require("util.lualine").inject_component({ "sections", "lualine_x" }, 1, component)
-
-    local extensions = {
-      mcphub = {
-        callback = "mcphub.extensions.codecompanion",
-        opts = {
-          show_result_in_chat = true,
-          make_vars = true,
-          make_slash_commands = true,
-        },
-      },
-      history = {
-        opts = {
-          picker = "default",
-        },
-      },
-    }
-    if vim.fn.executable("vectorcode") == 1 then
-      extensions = vim.tbl_deep_extend("keep", extensions, {
-        vectorcode = {
-          callback = "codecompanion._extensions.vectorcode",
-          opts = { add_tool = true, add_slash_command = true, tool_opts = {} },
-        },
-      })
-    end
 
     return {
       adapters = {
@@ -52,7 +27,6 @@ return {
           })
         end,
       },
-      extensions = extensions,
       strategies = {
         -- setting provider till snacks.nvim related PR gets merged
         chat = { adapter = "copilot", slash_commands = { ["file"] = { opts = { provider = "fzf_lua" } } } },
