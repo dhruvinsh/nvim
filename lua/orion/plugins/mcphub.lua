@@ -15,7 +15,7 @@ return {
       log = {
         level = vim.log.levels.INFO,
         to_file = true,
-        file_path = vim.fn.expand("~/.local/state/nvim/mcphub.log"),
+        file_path = vim.fn.stdpath("state") .. "/mcphub.log",
         prefix = "MCPHub",
       },
     },
