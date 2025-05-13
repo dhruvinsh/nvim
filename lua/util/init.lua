@@ -16,6 +16,7 @@ M.no_indent_filetypes = {
 }
 
 M.max_filesize = 512 * 1024 -- big file size threshold 0.5 MB
+M.max_lines = 5000 -- big file line count
 M.os_name = vim.uv.os_uname().sysname
 M.root_patterns = { ".editorconfig", ".git", ".neoconf.json", ".projectile", "Makefile", "pyproject.toml" }
 
@@ -32,6 +33,8 @@ M.augroup = function(name, clear)
   return vim.api.nvim_create_augroup("orion_" .. name, { clear = clear })
 end
 
+--- Checks if the given buffer is considered a "big file".
+--- This is done via checking the file size and the number of lines in the buffer.
 ---@param bufnr number
 ---@return boolean
 M.is_big_buffer = function(bufnr)
@@ -41,7 +44,7 @@ M.is_big_buffer = function(bufnr)
     return true
   end
 
-  if stat and stat.size > M.max_filesize then
+  if stat and stat.size > M.max_filesize or vim.api.nvim_buf_line_count(bufnr) >= M.max_lines then
     -- vim.notify("Big file size detected", vim.log.levels.ERROR)
     return true
   end
