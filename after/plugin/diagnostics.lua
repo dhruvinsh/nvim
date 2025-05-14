@@ -20,4 +20,4 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
-vim.keymap.set("n", "<leader>td", "<cmd>lua require('util.toggle').diagnostic:toggle()<cr>", { desc = "diagnostic" })
+require("util.toggle").diagnostic:map_and_register("n", "<leader>td")

@@ -1,5 +1,5 @@
 -- color scheme
-vim.keymap.set("n", "<leader>tc", "<cmd>lua require('util.toggle').colorscheme:toggle()<cr>", { desc = "colors" })
+require("util.toggle").colorscheme:map_and_register("n", "<leader>tc")
 -- ease of life
 vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "clear search + escape" })
 vim.keymap.set("n", "j", "gj")
@@ -10,7 +10,7 @@ vim.keymap.set("n", "<C-s>", "<cmd>w<cr>", { desc = "save" })
 vim.keymap.set("i", "<C-s>", "<C-o><cmd>w<cr>", { desc = "save" })
 vim.keymap.set("n", "<C-S-s>", "<cmd>wa<cr>", { desc = "save all" })
 vim.keymap.set("i", "<C-S-s>", "<C-o><cmd>wa<cr>", { desc = "save all" })
-vim.keymap.set("n", "<leader>tw", "<cmd>lua require('util.toggle').wrap:toggle()<cr>", { desc = "wrap" })
+require("util.toggle").wrap:map_and_register("n", "<leader>tw")
 
 -- indent
 vim.keymap.set("v", "<", "<gv")
@@ -84,12 +84,7 @@ local function on_attach(client, bufnr)
       vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
     end, 500)
 
-    vim.keymap.set(
-      "n",
-      "<leader>ti",
-      "<cmd>lua require('util.toggle').inlay_hint:toggle()<cr>",
-      { desc = "inlay hints" }
-    )
+    require("util.toggle").inlay_hint:map_and_register("n", "<leader>ti")
   end
 
   if client:supports_method(methods.textDocument_signatureHelp) then

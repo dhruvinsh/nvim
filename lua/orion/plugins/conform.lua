@@ -41,10 +41,11 @@ return {
     },
   },
   keys = function()
+    require("util.toggle").format_local:map_and_register("n", "<leader>tf")
+    require("util.toggle").format_global:map_and_register("n", "<leader>tF")
+
     return {
       { "<leader>lc", "<cmd>ConformInfo<cr>", desc = "conform" },
-      { "<leader>tf", "<cmd>lua require('util.toggle').format_local:toggle()<cr>", desc = "format (local)" },
-      { "<leader>tF", "<cmd>lua require('util.toggle').format_global:toggle()<cr>", desc = "format (global)" },
     }
   end,
   init = function()
