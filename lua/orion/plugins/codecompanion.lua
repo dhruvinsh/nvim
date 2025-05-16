@@ -17,6 +17,9 @@ return {
 
     return {
       adapters = {
+        opts = {
+          show_model_choices = true,
+        },
         copilot = function()
           return require("codecompanion.adapters").extend("copilot", {
             schema = {
