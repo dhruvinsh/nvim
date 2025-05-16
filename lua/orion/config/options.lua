@@ -21,7 +21,8 @@ vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
 vim.opt.smartindent = true
 vim.opt.tabstop = 2
-vim.opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+-- NOTE: something here breaks the lsp "K" mappings upon restore
+-- vim.opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 -- folds
 vim.opt.fillchars = {
