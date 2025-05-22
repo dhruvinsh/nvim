@@ -40,6 +40,10 @@ return {
     "echasnovski/mini.icons",
     lazy = true,
     opts = {
+      directory = {
+        schema = { glyph = "󱧼", hl = "MiniIconsRed" },
+        schemas = { glyph = "󱧼", hl = "MiniIconsRed" },
+      },
       lsp = {
         copilot = { glyph = "", hl = "MiniIconsPurple" },
       },
