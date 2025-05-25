@@ -4,6 +4,7 @@ return {
     priority = 1000,
     name = "catppuccin",
     opts = {
+      transparent_background = true,
       color_overrides = {
         latte = {
           rosewater = "#c14a4a",
