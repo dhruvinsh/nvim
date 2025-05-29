@@ -4,7 +4,8 @@ return {
   opts = function()
     local bufferline = require("bufferline")
 
-    ---@type bufferline.config
+    ---@diagnostic disable: missing-fields
+    ---@type bufferline.Config
     return {
       options = {
         themable = true,

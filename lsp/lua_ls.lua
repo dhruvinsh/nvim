@@ -30,6 +30,7 @@ return {
           "?/?.lua",
           -- Include some plugins for API completion.
           stdpath("blink.cmp"),
+          stdpath("bufferline.nvim"),
           stdpath("catppuccin"),
           stdpath("codecompanion.nvim"),
           stdpath("conform.nvim"),
