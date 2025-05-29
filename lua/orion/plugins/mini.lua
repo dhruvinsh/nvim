@@ -43,12 +43,14 @@ return {
       directory = {
         schema = { glyph = "󱧼", hl = "MiniIconsRed" },
         schemas = { glyph = "󱧼", hl = "MiniIconsRed" },
+        tests = { glyph = "󰙨", hl = "MiniIconsAqua" },
       },
       lsp = {
         copilot = { glyph = "", hl = "MiniIconsPurple" },
       },
     },
     init = function()
+      vim.api.nvim_set_hl(0, "MiniIconsAqua", { fg = "#00bfa5" })
       require("mini.icons").mock_nvim_web_devicons()
     end,
   },
