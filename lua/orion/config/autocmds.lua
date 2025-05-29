@@ -48,6 +48,7 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = {
     "checkhealth",
     "floggraph",
+    "git",
     "help",
     "man",
     "qf",
