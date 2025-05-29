@@ -4,6 +4,7 @@ return {
   opts = function()
     local bufferline = require("bufferline")
 
+    ---@type bufferline.config
     return {
       options = {
         themable = true,

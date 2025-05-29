@@ -3,7 +3,6 @@ return {
   version = "*",
   event = { "BufReadPost" },
   cmd = { "ConformInfo" },
-  ---@module "conform"
   ---@type conform.setupOpts
   opts = {
     format_on_save = function(bufnr)

@@ -37,6 +37,8 @@ return {
   {
     "lewis6991/gitsigns.nvim",
     event = { "BufReadPost", "BufNewFile" },
+    ---@diagnostic disable: missing-fields
+    ---@type Gitsigns.config
     opts = {
       signs = {
         add = { text = "▎" },
