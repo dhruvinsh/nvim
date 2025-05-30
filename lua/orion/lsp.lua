@@ -1,3 +1,4 @@
+local utils = require("util")
 --- LSP
 ---@param client vim.lsp.Client
 ---@param bufnr integer
@@ -61,6 +62,7 @@ local function on_attach(client, bufnr)
   end
 end
 
+-- set up LSP keymaps when an LSP client attaches to a buffer
 vim.api.nvim_create_autocmd("LspAttach", {
   desc = "Configure LSP keymaps",
   callback = function(args)
@@ -71,6 +73,22 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
 
     on_attach(client, args.buf)
+  end,
+})
+
+-- lsp: json and yaml with SchemaStore
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = utils.augroup("lsp_schemastore", false),
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client and client.name == "jsonls" then
+      client.config.settings.json.schemas = client.config.settings.json.schemas or {}
+      vim.list_extend(client.config.settings.json.schemas, require("schemastore").json.schemas())
+    end
+    if client and client.name == "yamlls" then
+      client.config.settings.yaml.schemas = client.config.settings.yaml.schemas or {}
+      vim.list_extend(client.config.settings.yaml.schemas, require("schemastore").yaml.schemas())
+    end
   end,
 })
 
