@@ -10,106 +10,20 @@ local M = {}
 
 ---@type OrionLspServers<ServerSpec>
 M.servers = {
-  --   --
-  --   -- lua
-  --   --
-  --   lua_ls = {},
-  --
-  --   --
-  --   -- c
-  --   --
-  --   clangd = {},
-  --
-  --   --
-  --   -- python
-  --   --
-  --   basedpyright = {
-  --     capabilities = {
-  --       workspace = {
-  --         didChangeWatchedFiles = {
-  --           dynamicRegistration = true,
-  --         },
-  --       },
-  --     },
-  --   },
-  --
-  --   ruff = {
-  --     capabilities = {
-  --       workspace = {
-  --         didChangeWatchedFiles = {
-  --           dynamicRegistration = false,
-  --         },
-  --       },
-  --     },
-  --     ---@param bufnr integer
-  --     keymaps = function(bufnr)
-  --       vim.keymap.set("n", "<leader>co", function()
-  --         vim.lsp.buf.code_action({
-  --           apply = true,
-  --           context = {
-  --             only = { "source.organizeImports" },
-  --             diagnostics = {},
-  --           },
-  --         })
-  --       end, { desc = "sort import", buffer = bufnr })
-  --     end,
-  --   },
-  --
-  --   --
-  --   -- bash
-  --   --
-  --   bashls = {},
-  --
-  --   --
-  --   -- harper: grammar
-  --   --
-  --   ["harper_ls"] = {
-  --     settings = {
-  --       ["harper-ls"] = {
-  --         userDictPath = vim.fn.stdpath("config") .. "/spell/en.utf-8.add",
-  --         linters = {
-  --           SentenceCapitalization = false,
-  --         },
-  --       },
-  --     },
-  --   },
   --
   --   --
   --   -- html
   --   --
   --   html = {},
-  --
-  --   --
-  --   -- json
-  --   --
-  --   jsonls = {
-  --     settings = {
-  --       json = {
-  --         validate = { enable = true },
-  --         format = { enable = true },
-  --       },
-  --     },
-  --   },
-  --
-  --   --
-  --   -- toml
-  --   --
-  --   taplo = {},
-  --
-  --   --
-  --   -- yaml
-  --   --
-  --   yamlls = {
-  --     settings = {
-  --       yaml = {
-  --         schemaStore = { enable = false, url = "" },
-  --       },
-  --     },
-  --   },
 }
 
+-- TODO: take a look at mason-lspconfig.nvim to create this mappings
 M.lsp_mappings = {
   lua_ls = "lua-language-server",
+  bashls = "bash-language-server",
+  harper_ls = "harper-ls",
+  jsonls = "json-lsp",
+  yamlls = "yaml-language-server",
 }
 
 ---@param packages table<string> list of tools name that need to install

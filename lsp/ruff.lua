@@ -1,4 +1,3 @@
---- ruff lsp server configuration
 ---@type vim.lsp.Config
 return {
   cmd = { "ruff", "server" },
