@@ -84,6 +84,7 @@ vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
         return vim.fn.fnamemodify(file, ":t:r")
       end)
       :totable()
+    require("util.lsp").mason_pkg_installer(server_configs)
     vim.lsp.enable(server_configs)
   end,
 })

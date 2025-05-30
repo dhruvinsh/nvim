@@ -108,25 +108,31 @@ M.servers = {
   --   },
 }
 
+M.lsp_mappings = {
+  lua_ls = "lua-language-server",
+}
+
 ---@param packages table<string> list of tools name that need to install
 M.mason_pkg_installer = function(packages)
   -- HACK: in order to fix the first package installation need to setup mason and use mason-registry refresh
   -- https://github.com/williamboman/mason.nvim/issues/1133#issuecomment-1527888695
   local mr = require("mason-registry")
 
-  mr.refresh(function(success)
+  mr.refresh(vim.schedule_wrap(function(success)
     if not success then
       vim.notify("Not able to refresh mason registry", vim.log.levels.ERROR)
       return
     end
 
     for _, tool in ipairs(packages) do
+      tool = M.lsp_mappings[tool] or tool
       local p = mr.get_package(tool)
+
       if not p:is_installed() then
         p:install()
       end
     end
-  end)
+  end))
 end
 
 return M
