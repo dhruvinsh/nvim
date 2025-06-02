@@ -11,4 +11,7 @@ return {
       schema = {},
     },
   },
+  before_init = function(_, config)
+    config.settings.yaml.schema = require("schemastore").yaml.schemas()
+  end,
 }
