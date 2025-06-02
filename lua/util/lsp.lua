@@ -22,6 +22,7 @@ M.lsp_mappings = {
   lua_ls = "lua-language-server",
   bashls = "bash-language-server",
   harper_ls = "harper-ls",
+  html = "html-lsp",
   jsonls = "json-lsp",
   yamlls = "yaml-language-server",
 }
