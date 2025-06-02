@@ -8,10 +8,10 @@ return {
     yaml = {
       -- NOTE: keep it disable since using b0o/SchemaStore.nvim
       schemaStore = { enable = false, url = "" },
-      schema = {},
+      schemas = {},
     },
   },
   before_init = function(_, config)
-    config.settings.yaml.schema = require("schemastore").yaml.schemas()
+    config.settings.yaml.schemas = require("schemastore").yaml.schemas()
   end,
 }
