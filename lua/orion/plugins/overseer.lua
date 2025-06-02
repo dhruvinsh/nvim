@@ -1,6 +1,7 @@
 return {
   "stevearc/overseer.nvim",
   cmd = { "Build", "OverseerClose", "OverseerOpen", "OverseerRun", "OverseerToggle", "OverseerQuickAction" },
+  ---@module "overseer"
   ---@type overseer.Config
   opts = {
     templates = { "builtin", "vectorcode.index" },

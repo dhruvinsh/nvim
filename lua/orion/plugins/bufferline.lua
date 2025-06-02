@@ -5,6 +5,7 @@ return {
     local bufferline = require("bufferline")
 
     ---@diagnostic disable: missing-fields
+    ---@module "bufferline"
     ---@type bufferline.Config
     return {
       options = {

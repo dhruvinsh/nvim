@@ -9,6 +9,7 @@ return {
       "nvim-lua/plenary.nvim",
     },
     build = vim.fn.executable("volta") == 1 and "volta install mcp-hub@latest" or "bundled_build.lua",
+    ---@module "mcphub"
     ---@type MCPHub.Config
     opts = {
       auto_approve = true,

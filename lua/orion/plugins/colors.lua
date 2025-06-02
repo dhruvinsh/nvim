@@ -3,6 +3,7 @@ return {
     "catppuccin/nvim",
     priority = 1000,
     name = "catppuccin",
+    ---@module "catppuccin"
     ---@type CatppuccinOptions
     opts = {
       transparent_background = true,
