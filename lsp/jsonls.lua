@@ -13,6 +13,6 @@ return {
     },
   },
   before_init = function(_, config)
-    config.settings.json.schema = require("schemastore").json.schemas()
+    config.settings.json.schemas = require("schemastore").json.schemas()
   end,
 }
