@@ -1,111 +1,13 @@
 local M = {}
 
----@class ServerSpec
----@field capabilities? table override some of the lsp capabilities
----@field on_init? function override on-init function for lsp
----@field settings? table override some lsp specific settings
----@field keymaps? function override/add some lsp specific keymaps
-
----@class OrionLspServers<T>: { [string]: T}
-
----@type OrionLspServers<ServerSpec>
-M.servers = {
-  --
-  -- lua
-  --
-  lua_ls = {},
-
-  --
-  -- c
-  --
-  clangd = {},
-
-  --
-  -- python
-  --
-  basedpyright = {
-    capabilities = {
-      workspace = {
-        didChangeWatchedFiles = {
-          dynamicRegistration = true,
-        },
-      },
-    },
-  },
-
-  ruff = {
-    capabilities = {
-      workspace = {
-        didChangeWatchedFiles = {
-          dynamicRegistration = false,
-        },
-      },
-    },
-    ---@param bufnr integer
-    keymaps = function(bufnr)
-      vim.keymap.set("n", "<leader>co", function()
-        vim.lsp.buf.code_action({
-          apply = true,
-          context = {
-            only = { "source.organizeImports" },
-            diagnostics = {},
-          },
-        })
-      end, { desc = "sort import", buffer = bufnr })
-    end,
-  },
-
-  --
-  -- bash
-  --
-  bashls = {},
-
-  --
-  -- harper: grammar
-  --
-  ["harper_ls"] = {
-    settings = {
-      ["harper-ls"] = {
-        userDictPath = vim.fn.stdpath("config") .. "/spell/en.utf-8.add",
-        linters = {
-          SentenceCapitalization = false,
-        },
-      },
-    },
-  },
-
-  --
-  -- html
-  --
-  html = {},
-
-  --
-  -- json
-  --
-  jsonls = {
-    settings = {
-      json = {
-        validate = { enable = true },
-        format = { enable = true },
-      },
-    },
-  },
-
-  --
-  -- toml
-  --
-  taplo = {},
-
-  --
-  -- yaml
-  --
-  yamlls = {
-    settings = {
-      yaml = {
-        schemaStore = { enable = false, url = "" },
-      },
-    },
-  },
+-- TODO: take a look at mason-lspconfig.nvim to create this mappings
+M.lsp_mappings = {
+  lua_ls = "lua-language-server",
+  bashls = "bash-language-server",
+  harper_ls = "harper-ls",
+  html = "html-lsp",
+  jsonls = "json-lsp",
+  yamlls = "yaml-language-server",
 }
 
 ---@param packages table<string> list of tools name that need to install
@@ -114,19 +16,34 @@ M.mason_pkg_installer = function(packages)
   -- https://github.com/williamboman/mason.nvim/issues/1133#issuecomment-1527888695
   local mr = require("mason-registry")
 
-  mr.refresh(function(success)
+  mr.refresh(vim.schedule_wrap(function(success)
     if not success then
       vim.notify("Not able to refresh mason registry", vim.log.levels.ERROR)
       return
     end
 
     for _, tool in ipairs(packages) do
+      tool = M.lsp_mappings[tool] or tool
       local p = mr.get_package(tool)
-      if not p:is_installed() then
-        p:install()
+
+      if not p:is_installed() and not p:is_installing() then
+        p:install(
+          {},
+          vim.schedule_wrap(function(ok, err)
+            if ok then
+              vim.notify(string.format("Installed %s...", p.name), vim.log.levels.INFO, { title = "Mason" })
+            else
+              vim.notify(
+                string.format("Failed to install %s: %s", p.name, err),
+                vim.log.levels.ERROR,
+                { title = "Mason" }
+              )
+            end
+          end)
+        )
       end
     end
-  end)
+  end))
 end
 
 return M

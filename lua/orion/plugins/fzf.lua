@@ -31,6 +31,8 @@ return {
     config.defaults.keymap.builtin["<c-b>"] = "preview-page-up"
     -- stylua: ignore end
 
+    ---@module "fzf-lua"
+    ---@type fzf-lua.Config
     return {
       "default-title",
       fzf_colors = true,

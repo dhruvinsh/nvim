@@ -48,6 +48,7 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = {
     "checkhealth",
     "floggraph",
+    "git",
     "help",
     "man",
     "qf",
@@ -87,38 +88,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
       if vim.wo[win].foldmethod == "expr" then
         vim.wo[win][0].foldexpr = "v:lua.vim.lsp.foldexpr()"
       end
-    end
-  end,
-})
-
--- lsp: json and yaml with schemastore
-vim.api.nvim_create_autocmd("LspAttach", {
-  group = utils.augroup("lsp_schemastore", false),
-  callback = function(args)
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if client and client.name == "jsonls" then
-      client.config.settings.json.schemas = client.config.settings.json.schemas or {}
-      vim.list_extend(client.config.settings.json.schemas, require("schemastore").json.schemas())
-    end
-    if client and client.name == "yamlls" then
-      client.config.settings.yaml.schemas = client.config.settings.yaml.schemas or {}
-      vim.list_extend(client.config.settings.yaml.schemas, require("schemastore").yaml.schemas())
-    end
-  end,
-})
-
--- terminal: Aider
-vim.api.nvim_create_autocmd({ "TermOpen", "TermClose" }, {
-  group = utils.augroup("aider_console", false),
-  pattern = "term://*aider*",
-  callback = function(ev)
-    if ev.event == "TermOpen" then
-      vim.opt_local.number = false
-      vim.opt_local.signcolumn = "no"
-      vim.api.nvim_feedkeys("i", "n", false)
-    else -- TermClose
-      local enter_key = vim.api.nvim_replace_termcodes("<CR>", true, true, true)
-      vim.api.nvim_feedkeys(enter_key, "n", false)
     end
   end,
 })

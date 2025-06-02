@@ -1,6 +1,6 @@
 return {
   "olimorris/codecompanion.nvim",
-  version = "v15.8.0", -- tagging to latest version
+  version = "v*", -- tagging to latest version
   cmd = { "CodeCompanion", "CodeCompanionChat", "CodeCompanionActions" },
   dependencies = {
     "nvim-lua/plenary.nvim",
