@@ -1,22 +1,5 @@
 local M = {}
 
----@class ServerSpec
----@field capabilities? table override some of the lsp capabilities
----@field on_init? function override on-init function for lsp
----@field settings? table override some lsp specific settings
----@field keymaps? function override/add some lsp specific keymaps
-
----@class OrionLspServers<T>: { [string]: T}
-
----@type OrionLspServers<ServerSpec>
-M.servers = {
-  --
-  --   --
-  --   -- html
-  --   --
-  --   html = {},
-}
-
 -- TODO: take a look at mason-lspconfig.nvim to create this mappings
 M.lsp_mappings = {
   lua_ls = "lua-language-server",
