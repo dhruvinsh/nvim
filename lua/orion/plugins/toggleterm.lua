@@ -4,6 +4,9 @@ return {
   keys = {
     { "<leader>ft", "<cmd>ToggleTerm<cr>", desc = "terminal" },
   },
+  ---@module "toggleterm"
+  ---@type ToggleTermConfig
+  ---@diagnostic disable-next-line: missing-fields
   opts = {
     size = function(term)
       if term.direction == "horizontal" then

@@ -1,6 +1,8 @@
 return {
   "MagicDuck/grug-far.nvim",
   cmd = "GrugFar",
+  ---@module "grug-far"
+  ---@type grug.far.OptionsOverride
   opts = {
     transient = true,
     keymaps = {

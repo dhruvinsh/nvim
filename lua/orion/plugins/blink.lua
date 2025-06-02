@@ -5,8 +5,7 @@ return {
   dependencies = {
     "rafamadriz/friendly-snippets",
   },
-  ---@diagnostic disable: missing-fields
-  ---@module 'blink.cmp'
+  ---@module "blink.cmp"
   ---@type blink.cmp.Config
   opts = {
     appearance = {
