@@ -13,6 +13,7 @@ return {
         custom_textobjects = {
           c = spec({ a = "@class.outer", i = "@class.inner" }),
           f = spec({ a = "@function.outer", i = "@function.inner" }),
+          C = spec({ a = "@conditional.outer", i = "@conditional.inner" }),
         },
         silent = true,
       }
