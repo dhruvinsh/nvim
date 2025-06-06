@@ -7,6 +7,7 @@ M.lsp_mappings = {
   harper_ls = "harper-ls",
   html = "html-lsp",
   jsonls = "json-lsp",
+  rust_analyzer = "rust-analyzer",
   yamlls = "yaml-language-server",
 }
 
