@@ -32,10 +32,10 @@ M.mason_pkg_installer = function(packages)
           {},
           vim.schedule_wrap(function(ok, err)
             if ok then
-              vim.notify(string.format("Installed %s...", p.name), vim.log.levels.INFO, { title = "Mason" })
+              vim.notify(string.format("✅ Installed %s...", p.name), vim.log.levels.INFO, { title = "Mason" })
             else
               vim.notify(
-                string.format("Failed to install %s: %s", p.name, err),
+                string.format("❌ Failed to install %s: %s", p.name, err),
                 vim.log.levels.ERROR,
                 { title = "Mason" }
               )
