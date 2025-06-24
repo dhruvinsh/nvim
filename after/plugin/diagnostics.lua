@@ -8,8 +8,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.keymap.set("n", keys, func, { buffer = ev.buf, desc = desc })
     end
 
-    nmap("]d", "<cmd>lua vim.diagnostic.jump({severity=vim.diagnostic.severity.INFO, count=1})<cr>", "error")
-    nmap("[d", "<cmd>lua vim.diagnostic.jump({severity=vim.diagnostic.severity.INFO, count=-1})<cr>", "error")
+    nmap("]d", "<cmd>lua vim.diagnostic.jump({ count=1 })<cr>", "error")
+    nmap("[d", "<cmd>lua vim.diagnostic.jump({ count=-1 })<cr>", "error")
     nmap("<leader>cd", "<cmd>lua vim.diagnostic.open_float({source='if_many'})<cr>", "diagnostic")
   end,
 })
