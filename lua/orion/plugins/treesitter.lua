@@ -14,6 +14,7 @@ return {
       "git_config",
       "git_rebase",
       "html",
+      "hyprlang",
       "javascript",
       "jsdoc",
       "json",
