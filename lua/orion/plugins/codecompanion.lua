@@ -54,7 +54,18 @@ return {
               role = "user",
               content = function()
                 return string.format(
-                  [[You are an expert at following the Conventional Commit specification. Given the git diff listed below, please generate a commit message for me:
+                  [[
+You are an expert at writing git commit messages that strictly follow the [Conventional Commits 1.0.0 specification](https://www.conventionalcommits.org/en/v1.0.0/).  
+Given the git diff below, generate a single commit message that:
+
+- Uses the correct type (e.g., feat, fix, docs, chore, etc.).
+- Optionally includes a scope in parentheses if appropriate.
+- Provides a concise, imperative description of the change.
+- Includes a body if more context is needed (after a blank line).
+- Adds footers (e.g., BREAKING CHANGE, Refs, etc.) if relevant.
+- Marks breaking changes with `!` or a BREAKING CHANGE footer as per the spec.
+
+Format your response as a commit message only, with no extra explanation.
 
 ```diff
 %s
