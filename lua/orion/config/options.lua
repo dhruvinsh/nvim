@@ -93,10 +93,9 @@ if utils.is_win then
   if vim.fn.executable("python") then
     vim.g.python3_host_prog = "python"
   end
--- on Linux and MacOS I use pyenv to manage python, soon to be `Rye`
-elseif vim.fn.executable("pyenv") then
-  local py_version = vim.fn.trim(vim.fn.system("pyenv global"))
-  vim.g.python3_host_prog = "~/.pyenv/versions/" .. py_version .. "/bin/python3"
+-- on Linux and MacOS I use Mise to manage Python versions
+elseif vim.fn.executable("mise") then
+  vim.g.python3_host_prog = vim.fn.trim(vim.fn.system("mise which python"))
 end
 
 -- Neovide specific config
