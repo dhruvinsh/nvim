@@ -13,7 +13,7 @@ return {
     ---@type MCPHub.Config
     opts = {
       auto_approve = true,
-      use_bundled_binary = not vim.fn.executable("volta") == 0,
+      use_bundled_binary = vim.fn.executable("volta") == 0,
       log = {
         level = vim.log.levels.INFO,
         to_file = true,
