@@ -24,7 +24,7 @@ return {
     config = function(_, opts)
       require("mcphub").setup(opts)
 
-      local component = require("mcphub.extensions.lualine")
+      local component = require("util.mcphub")
       require("util.lualine").inject_component({ "sections", "lualine_x" }, 1, component)
     end,
   },
