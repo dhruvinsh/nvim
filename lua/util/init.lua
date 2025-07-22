@@ -66,4 +66,13 @@ M.persistbuffer = function()
   vim.fn.setbufvar(bufnr, "bufpersist", 1)
 end
 
+---@param name string highlight group name
+---@return string? hex color code or nil if not found
+M.get_fg = function(name)
+  local hl = vim.api.nvim_get_hl(0, { name = name })
+  if hl and hl.fg then
+    return string.format("#%06x", hl.fg)
+  end
+end
+
 return M
