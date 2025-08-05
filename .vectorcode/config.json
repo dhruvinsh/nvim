@@ -1,8 +1,0 @@
-{
-  "url": "http://10.16.136.20:4100/v1/embeddings",
-  "model_name": "text-embedding-3-large",
-  "db_url": "http://127.0.0.1:8000",
-  "reranker_params": {
-    "model_name_or_path": "cross-encoder/ms-marco-MiniLM-L6-v2"
-  }
-}
