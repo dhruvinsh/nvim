@@ -100,7 +100,7 @@ vim.api.nvim_create_autocmd({ "User" }, {
     local bufnr = request.data.bufnr
     if vim.bo[bufnr].filetype == "gitcommit" then
       vim.defer_fn(function()
-        vim.api.nvim_feedkeys("ga", "t", false)
+        vim.api.nvim_feedkeys("gda", "t", false)
       end, 200)
     end
   end,
