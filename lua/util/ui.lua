@@ -50,6 +50,11 @@ M.diagnostics   = {
 -- stylua: ignore end
 
 M.get_statuscolumn = function()
+  local ignore_filetypes = { "toggleterm" }
+  if vim.tbl_contains(ignore_filetypes, vim.bo.filetype) then
+    return ""
+  end
+
   local fc = vim.opt.fillchars:get()
   local function get_fold(lnum)
     if vim.fn.foldlevel(lnum) <= vim.fn.foldlevel(lnum - 1) then
