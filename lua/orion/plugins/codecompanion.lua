@@ -17,22 +17,15 @@ return {
 
     return {
       adapters = {
-        opts = {
-          show_model_choices = true,
+        http = {
+          opts = {
+            show_model_choices = true,
+          },
         },
-        copilot = function()
-          return require("codecompanion.adapters").extend("copilot", {
-            schema = {
-              model = {
-                default = "gpt-4.1",
-              },
-            },
-          })
-        end,
       },
       strategies = {
         -- setting provider till snacks.nvim related PR gets merged
-        chat = { adapter = "copilot", slash_commands = { ["file"] = { opts = { provider = "fzf_lua" } } } },
+        chat = { adapter = "copilot" },
         inline = { adapter = "copilot" },
         agent = { adapter = "copilot" },
       },
