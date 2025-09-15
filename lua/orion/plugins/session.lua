@@ -2,9 +2,9 @@ return {
   {
     "rmagatti/auto-session",
     event = "BufReadPre",
-    cmd = "SessionRestore",
+    cmd = "AutoSession",
     keys = {
-      { "<leader>qr", "<cmd>SessionRestore<cr>", desc = "restore" },
+      { "<leader>qr", "<cmd>AutoSession restore<cr>", desc = "restore" },
     },
     opts = {
       auto_restore = false,
