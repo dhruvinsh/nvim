@@ -1,7 +1,7 @@
 return {
   "saghen/blink.cmp",
   version = "1.*",
-  event = "InsertEnter",
+  event = { "InsertEnter", "CmdlineEnter" },
   dependencies = {
     "rafamadriz/friendly-snippets",
   },
@@ -21,7 +21,6 @@ return {
         border = "rounded",
         draw = {
           columns = { { "kind_icon" }, { "label", "label_description", gap = 1 }, { "source_name" } },
-          padding = { 0, 1 },
           components = {
             kind_icon = {
               text = function(ctx)
@@ -29,6 +28,8 @@ return {
               end,
             },
           },
+          padding = { 0, 1 },
+          treesitter = { "lsp" },
         },
       },
       list = {
@@ -77,7 +78,17 @@ return {
     },
 
     cmdline = {
-      enabled = false,
+      enabled = true,
+      keymap = { preset = "cmdline" },
+      completion = {
+        list = { selection = { preselect = false } },
+        menu = {
+          auto_show = function()
+            return vim.fn.getcmdtype() == ":"
+          end,
+        },
+        ghost_text = { enabled = true },
+      },
     },
 
     signature = { enabled = true },
