@@ -121,4 +121,13 @@ H.wrap = M:new("wrap", vim.o.wrap, function(state)
   vim.o.wrap = state
 end)
 
+-- toggle context
+H.context = M:new("context", true, function(state)
+  if state then
+    require("treesitter-context").enable()
+  else
+    require("treesitter-context").disable()
+  end
+end)
+
 return H
