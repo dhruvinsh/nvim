@@ -3,7 +3,11 @@ return {
     "echasnovski/mini.ai",
     event = "BufReadPost",
     dependencies = {
-      "nvim-treesitter/nvim-treesitter-textobjects",
+      {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        branch = "main",
+        opts = {},
+      },
     },
     opts = function()
       local spec = require("mini.ai").gen_spec.treesitter

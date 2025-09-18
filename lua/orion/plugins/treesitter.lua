@@ -1,8 +1,12 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   version = false,
-  build = ":TSUpdate",
+  branch = "main",
+  build = function()
+    require("nvim-treesitter").update(nil, { summary = true })
+  end,
   event = { "BufReadPost", "BufNewFile" },
+  lazy = vim.fn.argc(-1) == 0,
   cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
   opts = {
     ensure_installed = {
@@ -74,6 +78,6 @@ return {
     },
   },
   config = function(_, opts)
-    require("nvim-treesitter.configs").setup(opts)
+    require("nvim-treesitter").setup(opts)
   end,
 }
