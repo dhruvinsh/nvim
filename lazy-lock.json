@@ -1,6 +1,5 @@
 {
   "SchemaStore.nvim": { "branch": "main", "commit": "8ebf58bd467f353d18cfa71776b33b28a68130de" },
-  "aider.nvim": { "branch": "main", "commit": "1e5fc680a764d2b93f342005d7e4415fec469088" },
   "auto-cmdheight.nvim": { "branch": "main", "commit": "82619eab0268f27024e1e0981ec3721a003ab2b7" },
   "auto-session": { "branch": "main", "commit": "3a895bace7d0260c8daac5bf5c84236765f00212" },
   "blink-cmp-copilot": { "branch": "main", "commit": "439cff78780c033aa23cf061d7315314b347e3c1" },
