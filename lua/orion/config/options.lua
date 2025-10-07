@@ -81,11 +81,15 @@ vim.opt.smartcase = true
 -- Markdown indentation
 vim.g.markdown_recommended_style = 0
 
+-- disable some providers
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_perl_provider = 0
+
 local utils = require("util")
 
--- setup volta
-if vim.fn.executable("volta") then
-  vim.g.node_host_prog = vim.fn.trim(vim.fn.system("volta which neovim-node-host"))
+-- setup mise
+if vim.fn.executable("mise") then
+  vim.g.node_host_prog = vim.fn.trim(vim.fn.system("mise which neovim-node-host"))
 end
 
 -- setup python
@@ -95,7 +99,11 @@ if utils.is_win then
   end
 -- on Linux and MacOS I use Mise to manage Python versions
 elseif vim.fn.executable("mise") then
-  vim.g.python3_host_prog = vim.fn.trim(vim.fn.system("mise which python"))
+  -- mise ls --json | jq '."pipx:pynvim"[0].install_path'
+  vim.g.python3_host_prog = vim.fn
+    .trim(vim.fn.system("mise ls --json | jq '.\"pipx:pynvim\"[0].install_path'"))
+    :gsub("^[\"']", "")
+    :gsub("[\"']\n?$", "") .. "/pynvim/bin/python"
 end
 
 -- Neovide specific config
