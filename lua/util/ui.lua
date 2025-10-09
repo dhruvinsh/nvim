@@ -47,6 +47,13 @@ M.diagnostics   = {
   HINT          = '',
   INFO          = '',
 }
+
+M.arrows        = {
+  right         = '',
+  left          = '',
+  up            = '',
+  down          = '',
+}
 -- stylua: ignore end
 
 M.get_statuscolumn = function()

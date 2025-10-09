@@ -7,6 +7,7 @@ return {
       { "<leader>a", group = "ai", icon = "󰚩" },
       { "<leader>b", group = "buffer" },
       { "<leader>c", group = "code" },
+      { "<leader>d", group = "debug" },
       { "<leader>f", group = "file" },
       { "<leader>g", group = "git" },
       { "<leader>j", group = "job", icon = "" },
