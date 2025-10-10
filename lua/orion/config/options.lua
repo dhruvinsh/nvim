@@ -15,6 +15,7 @@ vim.opt.updatetime = 200
 vim.opt.timeoutlen = 300
 
 -- editor
+vim.opt.conceallevel = 1
 vim.opt.virtualedit = "block"
 vim.opt.formatoptions = "jcroqlnt"
 vim.opt.expandtab = true
