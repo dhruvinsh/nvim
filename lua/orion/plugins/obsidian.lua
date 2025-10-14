@@ -2,8 +2,6 @@ return {
   "obsidian-nvim/obsidian.nvim",
   version = "*",
   event = {
-    "BufReadPre " .. vim.fn.expand("~") .. "/Downloads/Obsidian/**/*.md",
-    "BufNewFile " .. vim.fn.expand("~") .. "/Downloads/Obsidian/**/*.md",
     "BufReadPre " .. vim.fn.expand("~") .. "/obsidian/**/*.md",
     "BufNewFile " .. vim.fn.expand("~") .. "obsidian/**/*.md",
   },
