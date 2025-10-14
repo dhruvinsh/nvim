@@ -61,7 +61,7 @@ return {
       ["<S-Tab>"] = {
         function(cmp)
           if cmp.snippet_active() then
-            return cmp.accept()
+            return cmp.snippet_backward()
           else
             return cmp.select_prev()
           end
