@@ -112,7 +112,7 @@ end)
 
 -- toggle vim.o.background "dark" or "light"
 H.colorscheme = M:new("colorscheme", vim.o.background == "dark", function(state)
-  vim.o.background = state and "dark" or "light"
+  vim.o.background = state and "light" or "dark"
   vim.cmd.colorscheme(vim.g.colorscheme)
 end)
 
