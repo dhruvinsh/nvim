@@ -14,21 +14,22 @@ return {
         name = "dynamic-obsidian",
         path = function()
           local buf_path = vim.api.nvim_buf_get_name(0)
-          local dir = vim.fs.dirname(buf_path)
-          local prev = dir
+          local current_dir = vim.fs.dirname(buf_path)
+          local child_dir = current_dir
           while true do
-            local folder = vim.fn.fnamemodify(dir, ":t")
-            if folder:lower() == "obsidian" then
-              return prev
+            local folder_name = vim.fn.fnamemodify(current_dir, ":t")
+            if folder_name:lower() == "obsidian" then
+              return child_dir
             end
-            local parent = vim.fs.dirname(dir)
-            if parent == dir then
+            local parent_dir = vim.fs.dirname(current_dir)
+            if parent_dir == current_dir then
               break
             end
-            prev = dir
-            dir = parent
+
+            child_dir = current_dir
+            current_dir = parent_dir
           end
-          return nil
+          return ""
         end,
       },
     },
