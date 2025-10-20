@@ -5,7 +5,7 @@ return {
     local lint = require("lint")
     local utils = require("util")
 
-    local linters = { "markdownlint", "codespell" }
+    local linters = { "markdownlint-cli2", "codespell" }
 
     -- NOTE: on ARM mac, some formatter doesn't work if installed via mason
     -- chezmoi takes care of their installation.
@@ -18,7 +18,7 @@ return {
     lint.linters_by_ft = {
       bash = { "shellcheck" },
       lua = { "selene" },
-      markdown = { "markdownlint" },
+      markdown = { "markdownlint-cli2" },
       python = { "ruff", "mypy" },
     }
 
