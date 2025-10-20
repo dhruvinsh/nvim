@@ -47,4 +47,31 @@ M.mason_pkg_installer = function(packages)
   end))
 end
 
+---@param packages table<string> list of tools name that need to uninstall
+M.mason_pkg_uninsaller = function(packages)
+  local mr = require("mason-registry")
+
+  for _, tool in ipairs(packages) do
+    tool = M.lsp_mappings[tool] or tool
+    local p = mr.get_package(tool)
+
+    if p:is_installed() and not p:is_uninstalling() then
+      p:uninstall(
+        {},
+        vim.schedule_wrap(function(ok, err)
+          if ok then
+            vim.notify(string.format("✅ Uninstalled %s...", p.name), vim.log.levels.INFO, { title = "Mason" })
+          else
+            vim.notify(
+              string.format("❌ Failed to uninstall %s: %s", p.name, err),
+              vim.log.levels.ERROR,
+              { title = "Mason" }
+            )
+          end
+        end)
+      )
+    end
+  end
+end
+
 return M
