@@ -29,6 +29,7 @@ return {
       bash = { "shfmt" },
       html = { "prettierd" },
       json = { "prettierd" },
+      json5 = { "prettierd" },
       jsonc = { "prettierd" },
       lua = { "stylua" },
       markdown = { "cbfmt", "prettierd" },
