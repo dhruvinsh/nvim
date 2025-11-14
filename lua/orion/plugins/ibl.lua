@@ -4,8 +4,11 @@ return {
   main = "ibl",
   opts = function()
     local u = require("util")
+    ---@module "ibl"
+    ---@type ibl.config
     return {
       indent = {
+        tab_char = " ",
         char = "│",
       },
       scope = { enabled = false },
@@ -13,5 +16,5 @@ return {
         filetypes = u.no_indent_filetypes,
       },
     }
-  end
+  end,
 }

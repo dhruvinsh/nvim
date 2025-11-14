@@ -43,7 +43,6 @@ vim.opt.mouse = "a"
 
 -- Show whitespace.
 vim.opt.list = true
-vim.opt.listchars = { tab = "  ↦" }
 
 -- Status line.
 vim.opt.laststatus = 3
