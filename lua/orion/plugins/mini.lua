@@ -50,6 +50,12 @@ return {
         schemas = { glyph = "󱧼", hl = "MiniIconsRed" },
         tests = { glyph = "󰙨", hl = "MiniIconsAqua" },
       },
+      file = {
+        [".go-version"] = { glyph = "", hl = "MiniIconsBlue" },
+      },
+      filetype = {
+        gotmpl = { glyph = "󰟓", hl = "MiniIconsGrey" },
+      },
       lsp = {
         copilot = { glyph = "", hl = "MiniIconsPurple" },
       },

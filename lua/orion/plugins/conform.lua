@@ -27,6 +27,7 @@ return {
     end,
     formatters_by_ft = {
       bash = { "shfmt" },
+      go = { "goimports", "gofumpt" },
       html = { "prettierd" },
       json = { "prettierd" },
       json5 = { "prettierd" },
@@ -55,6 +56,9 @@ return {
   end,
   config = function(_, opts)
     local formatters = {
+      -- go
+      "goimports",
+      "gofumpt",
       -- shell
       "shfmt",
       -- lua
