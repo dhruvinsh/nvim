@@ -28,14 +28,18 @@ return {
     formatters_by_ft = {
       bash = { "shfmt" },
       go = { "goimports", "gofumpt" },
-      html = { "prettierd" },
-      json = { "prettierd" },
-      json5 = { "prettierd" },
-      jsonc = { "prettierd" },
+      html = { "prettier" },
+      javascript = { "dprint", "prettier" },
+      javascriptreact = { "dprint" },
+      json = { "prettier" },
+      json5 = { "prettier" },
+      jsonc = { "prettier" },
       lua = { "stylua" },
-      markdown = { "cbfmt", "prettierd" },
+      markdown = { "cbfmt", "prettier" },
       python = { "ruff_format", "ruff_organize_imports" },
-      yaml = { "prettierd" },
+      typescript = { "dprint", "prettier" },
+      typescriptreact = { "dprint" },
+      yaml = { "prettier" },
       ["_"] = { "trim_whitespace" },
     },
     formatters = {
@@ -67,7 +71,8 @@ return {
       "cbfmt",
       "vale",
       -- js, html, markdown and lot of others
-      "prettierd",
+      "dprint",
+      "prettier",
     }
     require("util.lsp").mason_pkg_installer(formatters)
 
