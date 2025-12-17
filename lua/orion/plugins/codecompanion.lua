@@ -35,7 +35,7 @@ return {
           description = "Generate git commit for staged changes",
           opts = {
             placement = "replace",
-            short_name = "orion_commit",
+            alias = "orion_commit",
             auto_submit = true,
             adapter = {
               name = "copilot",
