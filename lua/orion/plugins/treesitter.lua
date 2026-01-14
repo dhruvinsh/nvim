@@ -2,12 +2,9 @@ return {
   "nvim-treesitter/nvim-treesitter",
   version = false,
   branch = "main",
-  build = function()
-    require("nvim-treesitter").update(nil, { summary = true })
-  end,
-  event = { "BufReadPost", "BufNewFile" },
-  lazy = vim.fn.argc(-1) == 0,
-  cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
+  build = ":TSUpdate",
+  -- This plugin does not support lazy loading
+  lazy = false,
   opts = {
     ensure_installed = {
       "bash",
