@@ -130,4 +130,9 @@ H.context = M:new("context", true, function(state)
   end
 end)
 
+-- toggle harper_ls
+H.harper_ls = M:new("spell lsp", vim.lsp.is_enabled("harper_ls"), function(state)
+  vim.lsp.enable("harper_ls", not state)
+end)
+
 return H

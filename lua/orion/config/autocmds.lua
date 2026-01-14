@@ -105,3 +105,15 @@ vim.api.nvim_create_autocmd({ "User" }, {
     end
   end,
 })
+
+-- disable harper_ls at the beginning
+vim.api.nvim_create_autocmd("LspAttach", {
+  desc = "disable harper_ls by default",
+  once = true,
+  callback = function()
+    vim.defer_fn(function()
+      vim.lsp.enable("harper_ls", false)
+      vim.notify("Harper LS disabled by default. Use <leader>ts to toggle.", vim.log.levels.INFO)
+    end, 3000)
+  end,
+})

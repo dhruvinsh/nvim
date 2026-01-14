@@ -35,4 +35,7 @@ return {
       },
     },
   },
+  on_attach = function()
+    require("util.toggle").harper_ls:map_and_register("n", "<leader>ts")
+  end,
 }
