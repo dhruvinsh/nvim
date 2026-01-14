@@ -4,9 +4,7 @@ return {
   ---@module "overseer"
   ---@type overseer.Config
   opts = {
-    templates = { "builtin", "vectorcode.index" },
     task_list = {
-      default_detail = 2,
       direction = "bottom",
       max_width = { 600, 0.7 },
     },
@@ -30,7 +28,13 @@ return {
       "<leader>jr",
       function()
         local overseer = require("overseer")
-        local tasks = overseer.list_tasks({ recent_first = true })
+        local tasks = overseer.list_tasks({
+          unique = true,
+          sort = function(a, b)
+            -- recent first
+            return a.time_start > b.time_start
+          end,
+        })
 
         if vim.tbl_isempty(tasks) then
           vim.notify("No task found", vim.log.levels.WARN)
@@ -44,6 +48,12 @@ return {
   config = function(_, opts)
     local overseer = require("overseer")
     overseer.setup(opts)
+
+    overseer.add_template_hook({
+      module = "^vscode$",
+    }, function(task_defn, util)
+      util.add_component(task_defn, "on_complete_close_window")
+    end)
 
     require("util.lualine").inject_component({ "sections", "lualine_x" }, 1, "overseer")
 
