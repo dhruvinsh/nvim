@@ -38,6 +38,7 @@ return {
       "regex",
       "rst",
       "rust",
+      "sql",
       "ssh_config",
       "toml",
       "tsx",
