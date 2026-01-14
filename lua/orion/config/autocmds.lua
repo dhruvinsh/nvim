@@ -63,7 +63,7 @@ vim.api.nvim_create_autocmd("FileType", {
 -- folds
 -- awesome folds
 vim.api.nvim_create_autocmd("BufReadPre", {
-  group = utils.augroup("big_file_disable", false),
+  group = utils.augroup("big_file_fold_disable", false),
   callback = function(ev)
     if utils.is_big_buffer(ev.buf) then
       -- fallback to default values
