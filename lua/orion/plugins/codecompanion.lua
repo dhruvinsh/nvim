@@ -16,18 +16,16 @@ return {
     require("util.lualine").inject_component({ "sections", "lualine_x" }, 1, component)
 
     return {
-      adapters = {
-        http = {
-          opts = {
-            show_model_choices = true,
+      interactions = {
+        background = {
+          adapter = {
+            name = "copilot",
+            model = "gpt-4.1",
           },
         },
-      },
-      strategies = {
-        -- setting provider till snacks.nvim related PR gets merged
         chat = { adapter = "copilot" },
         inline = { adapter = "copilot" },
-        agent = { adapter = "copilot" },
+        cmd = { adapter = "copilot" },
       },
       prompt_library = {
         markdown = {
