@@ -10,7 +10,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     nmap("]d", "<cmd>lua vim.diagnostic.jump({ count=1 })<cr>", "error")
     nmap("[d", "<cmd>lua vim.diagnostic.jump({ count=-1 })<cr>", "error")
-    nmap("<leader>cd", "<cmd>lua vim.diagnostic.open_float({source='if_many'})<cr>", "diagnostic")
+    nmap("grd", "<cmd>lua vim.diagnostic.open_float({source='if_many'})<cr>", "diagnostic")
   end,
 })
 
