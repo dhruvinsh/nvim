@@ -20,7 +20,7 @@ return {
       go = { "golangcilint" },
       lua = { "selene" },
       markdown = { "markdownlint-cli2" },
-      python = { "ruff", "mypy" },
+      python = { "ruff" },
     }
 
     vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost", "InsertLeave" }, {
