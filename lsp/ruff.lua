@@ -8,6 +8,5 @@ return {
       logLevel = "error",
     },
   },
-  root_markers = { ".git", "Pipfile", "pyproject.toml", "requirements.txt" },
-  settings = {},
+  root_markers = { "Pipfile", "pyproject.toml", "requirements.txt", ".git" },
 }
