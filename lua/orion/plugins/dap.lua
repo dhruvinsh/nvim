@@ -1,15 +1,19 @@
 return {
   {
     "mfussenegger/nvim-dap",
+    lazy = true,
     dependencies = {
       {
         "igorlfs/nvim-dap-view",
+        lazy = true,
+        ---@module "nvim-dap-view"
+        ---@type dapview.Config
         opts = {
           winbar = {
             sections = { "scopes", "breakpoints", "threads", "exceptions", "repl", "console" },
             default_section = "scopes",
           },
-          windows = { height = 18 },
+          windows = { size = 18 },
           -- When jumping through the call stack, try to switch to the buffer if already open in
           -- a window, else use the last window to open the buffer.
           switchbuf = "usetab,uselast",
@@ -17,12 +21,14 @@ return {
       },
       {
         "theHamsta/nvim-dap-virtual-text",
+        lazy = true,
         opts = {
           virt_text_pos = "eol",
         },
       },
       {
         "mfussenegger/nvim-dap-python",
+        lazy = true,
         config = function()
           require("dap-python").setup("uv")
           require("dap-python").test_runner = "pytest"
