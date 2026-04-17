@@ -26,7 +26,6 @@
   "jira.nvim": { "branch": "main", "commit": "30c6b7f8cd36befa1a3fc3e59878df3112e13361" },
   "markdown-preview.nvim": { "branch": "master", "commit": "a923f5fc5ba36a3b17e289dc35dc17f66d0548ee" },
   "mason.nvim": { "branch": "main", "commit": "ad7146aa61dcaeb54fa900144d768f040090bff0" },
-  "mcphub.nvim": { "branch": "main", "commit": "8ff40b5edc649959bb7e89d25ae18e055554859a" },
   "mini.ai": { "branch": "main", "commit": "11c57180bc9084089206e211ac7aa598bedc9673" },
   "mini.align": { "branch": "main", "commit": "94af41078e61fbe42ec79f87e67d69c529d3c40a" },
   "mini.bufremove": { "branch": "main", "commit": "1b5d7e7bc81cd02476bdd964c3d850c48eb91a07" },
