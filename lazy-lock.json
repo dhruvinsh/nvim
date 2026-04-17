@@ -35,7 +35,6 @@
   "mini.jump": { "branch": "main", "commit": "7574c48a707aedcf1ad428a9cdefb8fdf871a638" },
   "mini.jump2d": { "branch": "main", "commit": "5ff749990336e67195724d1dcddfea4e50057a19" },
   "nui.nvim": { "branch": "main", "commit": "de740991c12411b663994b2860f1a4fd0937c130" },
-  "nvim-autopairs": { "branch": "master", "commit": "23320e75953ac82e559c610bec5a90d9c6dfa743" },
   "nvim-bqf": { "branch": "main", "commit": "a77b17e39b1b707b6feee86a36c83703c1534c08" },
   "nvim-colorizer.lua": { "branch": "master", "commit": "a065833f35a3a7cc3ef137ac88b5381da2ba302e" },
   "nvim-dap": { "branch": "master", "commit": "085386b9359ddf8d76ad89b98973b8e332dc5ba3" },
