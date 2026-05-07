@@ -59,23 +59,6 @@ return {
     vim.o.formatexpr = "v:lua.require('conform').formatexpr()"
   end,
   config = function(_, opts)
-    local formatters = {
-      -- go
-      "goimports",
-      "gofumpt",
-      -- shell
-      "shfmt",
-      -- lua
-      "stylua",
-      -- markdown
-      "cbfmt",
-      "vale",
-      -- js, html, markdown and lot of others
-      "dprint",
-      "prettier",
-    }
-    require("util.lsp").mason_pkg_installer(formatters)
-
     require("conform").setup(opts)
 
     vim.api.nvim_create_user_command("FormatDisable", function(args)

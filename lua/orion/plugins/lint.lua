@@ -5,16 +5,6 @@ return {
     local lint = require("lint")
     local utils = require("util")
 
-    local linters = { "codespell", "golangci-lint", "markdownlint-cli2" }
-
-    -- NOTE: on ARM mac, some formatter doesn't work if installed via mason
-    -- chezmoi takes care of their installation.
-    if not utils.is_mac then
-      utils.tbl_append(linters, "selene", "shellcheck")
-    end
-
-    require("util.lsp").mason_pkg_installer(linters)
-
     lint.linters_by_ft = {
       bash = { "shellcheck" },
       go = { "golangcilint" },
