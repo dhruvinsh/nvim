@@ -9,6 +9,7 @@ return {
       bash = { "shellcheck" },
       go = { "golangcilint" },
       lua = { "selene" },
+      make = { "checkmake" },
       markdown = { "markdownlint-cli2" },
       python = { "ruff" },
     }
