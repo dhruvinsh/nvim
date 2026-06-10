@@ -86,7 +86,12 @@ return {
     require("vim.treesitter.query").add_predicate("is-mise?", function(_, _, bufnr, _)
       local filepath = vim.api.nvim_buf_get_name(tonumber(bufnr) or 0)
       local filename = vim.fn.fnamemodify(filepath, ":t")
-      return string.match(filename, ".*mise.*%.toml$") ~= nil
+      -- mise.toml, .mise.toml, mise.<env>.toml, mise.local.toml, ...
+      if filename:match("^%.?mise[%w._-]*%.toml$") then
+        return true
+      end
+      -- directory configs: .config/mise/config.toml, mise/config.toml, mise/conf.d/*.toml
+      return filepath:match("[/\\]mise[/\\]") ~= nil and filename:match("%.toml$") ~= nil
     end, { force = true, all = false })
   end,
 }
