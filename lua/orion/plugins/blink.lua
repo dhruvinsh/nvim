@@ -18,9 +18,11 @@ return {
       documentation = { auto_show = true, auto_show_delay_ms = 200, window = { border = "rounded" } },
       ghost_text = { enabled = true },
       menu = {
+        scrollbar = false,
         border = "rounded",
         draw = {
-          columns = { { "kind_icon" }, { "label", "label_description", gap = 1 }, { "source_name" } },
+          gap = 2,
+          columns = { { "kind_icon", "kind", gap = 1 }, { "label", "label_description", gap = 1 } },
           components = {
             kind_icon = {
               text = function(ctx)
