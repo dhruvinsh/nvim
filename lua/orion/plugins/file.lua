@@ -48,6 +48,33 @@ return {
         vim.keymap.set("n", lhs, rhs, { buffer = buf_id, desc = desc })
       end
 
+      local copy_path = function()
+        local entry = minifiles.get_fs_entry()
+        if entry == nil then
+          return
+        end
+        vim.fn.setreg("+", entry.path)
+        vim.notify("Copied: " .. entry.path)
+      end
+
+      local open_with_os = function()
+        local entry = minifiles.get_fs_entry()
+        if entry == nil then
+          return
+        end
+
+        local cmd
+        if vim.fn.has("mac") == 1 then
+          cmd = { "open", entry.path }
+        elseif vim.fn.has("win32") == 1 then
+          cmd = { "cmd.exe", "/c", "start", "", entry.path }
+        else
+          cmd = { "xdg-open", entry.path }
+        end
+
+        vim.system(cmd, { detach = true })
+      end
+
       vim.api.nvim_create_autocmd("User", {
         pattern = "MiniFilesBufferCreate",
         callback = function(args)
@@ -55,6 +82,8 @@ return {
           -- Tweak keys to your liking
           map_split(buf_id, "gs", "belowright horizontal")
           map_split(buf_id, "gv", "belowright vertical")
+          vim.keymap.set("n", "gy", copy_path, { buffer = buf_id, desc = "Copy path" })
+          vim.keymap.set("n", "go", open_with_os, { buffer = buf_id, desc = "Open with OS" })
         end,
       })
     end,
