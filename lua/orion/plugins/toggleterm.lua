@@ -3,6 +3,7 @@ return {
   cmd = "ToggleTerm",
   keys = {
     { "<leader>ft", "<cmd>ToggleTerm<cr>", desc = "terminal" },
+    { "<C-t>", "<cmd>ToggleTerm<cr>", desc = "terminal" },
   },
   ---@module "toggleterm"
   ---@type ToggleTermConfig
