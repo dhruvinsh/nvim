@@ -35,7 +35,7 @@ return {
       json5 = { "prettier" },
       jsonc = { "prettier" },
       lua = { "stylua" },
-      markdown = { "cbfmt", "prettier" },
+      markdown = { "prettier" },
       python = { "ruff_format", "ruff_organize_imports" },
       typescript = { "dprint", "prettier" },
       typescriptreact = { "dprint" },
