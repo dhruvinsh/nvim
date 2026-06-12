@@ -1,16 +1,5 @@
 return {
   {
-    -- vim-fugitive is now managed by vim.pack (lua/orion/pack/fugitive.lua) and
-    -- loads eagerly at startup, so flog can rely on it without a lazy dependency.
-    "rbong/vim-flog",
-    cmd = { "Flog", "Flogsplit", "Floggit" },
-    keys = {
-      { "<leader>gf", "<cmd>Flogsplit<CR>", desc = "flog" },
-      { "<leader>gF", "<cmd>Flog<CR>", desc = "flog (tab)" },
-    },
-  },
-
-  {
     "lewis6991/gitsigns.nvim",
     event = { "BufReadPost", "BufNewFile" },
     ---@diagnostic disable: missing-fields
