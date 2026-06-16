@@ -1,3 +1,45 @@
+local parsers = {
+  "bash",
+  "c",
+  "devicetree",
+  "diff",
+  "dockerfile",
+  "git_config",
+  "git_rebase",
+  "go",
+  "gomod",
+  "gosum",
+  "gowork",
+  "html",
+  "hyprlang",
+  "javascript",
+  "jsdoc",
+  "json",
+  "json5",
+  "kdl",
+  "lua",
+  "luadoc",
+  "luap",
+  "make",
+  "markdown",
+  "markdown_inline",
+  "ninja",
+  "powershell",
+  "python",
+  "query",
+  "regex",
+  "rst",
+  "rust",
+  "sql",
+  "ssh_config",
+  "toml",
+  "tsx",
+  "typescript",
+  "vim",
+  "vimdoc",
+  "yaml",
+}
+
 return {
   "nvim-treesitter/nvim-treesitter",
   version = false,
@@ -5,82 +47,37 @@ return {
   build = ":TSUpdate",
   -- This plugin does not support lazy loading
   lazy = false,
-  opts = {
-    ensure_installed = {
-      "bash",
-      "c",
-      "devicetree",
-      "diff",
-      "dockerfile",
-      "git_config",
-      "git_rebase",
-      "go",
-      "gomod",
-      "gosum",
-      "gowork",
-      "html",
-      "hyprlang",
-      "javascript",
-      "jsdoc",
-      "json",
-      "jsonc",
-      "kdl",
-      "lua",
-      "luadoc",
-      "luap",
-      "make",
-      "markdown",
-      "markdown_inline",
-      "ninja",
-      "powershell",
-      "python",
-      "query",
-      "regex",
-      "rst",
-      "rust",
-      "sql",
-      "ssh_config",
-      "toml",
-      "tsx",
-      "typescript",
-      "vim",
-      "vimdoc",
-      "yaml",
-    },
-    sync_install = false,
-    auto_instalm = true,
-    --------------------------------
-    -- Modules
-    --------------------------------
-    indent = { enable = true },
-    highlight = {
-      enable = true,
-      disable = function(lang, bufnr)
-        -- for some language irrelevant of file size I want treesitter.
-        local allowed_lang = { "vimdoc" }
-        if vim.tbl_contains(allowed_lang, lang) then
-          return false
-        end
+  config = function()
+    local u = require("util")
+    -- Install only missing parsers to save time on startup
+    local isnt_installed = function(lang)
+      return #vim.api.nvim_get_runtime_file("parser/" .. lang .. ".*", false) == 0
+    end
+    local to_install = vim.tbl_filter(isnt_installed, parsers)
+    if #to_install > 0 then
+      require("nvim-treesitter").install(to_install):wait(300000)
+    end
 
-        local u = require("util")
-        if u.is_big_buffer(bufnr) then
-          return true
+    -- Enable per file type
+    local filetypes = {}
+    for _, lang in ipairs(parsers) do
+      for _, ft in ipairs(vim.treesitter.language.get_filetypes(lang)) do
+        table.insert(filetypes, ft)
+      end
+    end
+    vim.api.nvim_create_autocmd("FileType", {
+      group = u.augroup("treesitter"),
+      pattern = filetypes,
+      callback = function(ev)
+        if u.is_big_buffer(ev.buf) then
+          vim.notify("Buffer is too big for treesitter, skipping...", vim.log.levels.WARN)
+          return
         end
+        vim.treesitter.start(ev.buf)
+        -- indentation, provided by nvim-treesitter
+        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
       end,
-      additional_vim_regex_highlighting = false,
-    },
-    incremental_selection = {
-      enable = true,
-      keymaps = {
-        init_selection = "<C-space>",
-        node_incremental = "<C-space>",
-        scope_incremental = false,
-        node_decremental = "<bs>",
-      },
-    },
-  },
-  config = function(_, opts)
-    require("nvim-treesitter").setup(opts)
+    })
   end,
   init = function()
     require("vim.treesitter.query").add_predicate("is-mise?", function(_, _, bufnr, _)
