@@ -56,6 +56,18 @@ return {
   },
 
   {
+    "barrettruth/diffs.nvim",
+    dependencies = { "tpope/vim-fugitive" },
+    init = function()
+      vim.g.diffs = {
+        integrations = {
+          fugitive = true,
+        },
+      }
+    end,
+  },
+
+  {
     "rbong/vim-flog",
     cmd = { "Flog", "Flogsplit", "Floggit" },
     dependencies = { "tpope/vim-fugitive" },
