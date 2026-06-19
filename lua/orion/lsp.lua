@@ -1,4 +1,3 @@
-local utils = require("util")
 --- LSP
 ---@param client vim.lsp.Client
 ---@param bufnr integer
@@ -15,7 +14,7 @@ local function on_attach(client, bufnr)
     vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
   end
 
-  keymap("gra", "<cmd>lua require('fastaction').code_action()<CR>", "code action", { "n", "x" })
+  keymap("gra", "<cmd>lua vim.lsp.buf.code_action()<CR>", "code action", { "n", "x" })
   keymap("grr", "<cmd>FzfLua lsp_references formatter=path.filename_first<cr>", "references")
 
   if client:supports_method(methods.textDocument_definition, bufnr) then
