@@ -37,3 +37,6 @@ vim.keymap.set("n", "<leader><tab>c", "<cmd>tabclose<cr>", { desc = "close" })
 
 -- tools
 vim.keymap.set("n", "<leader>ll", "<cmd>Lazy<cr>", { desc = "lazy" })
+
+-- git
+vim.keymap.set("n", "<leader>gm", '<cmd>lua require("util.commit").generate()<cr>', { desc = "message" })

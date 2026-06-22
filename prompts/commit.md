@@ -87,9 +87,9 @@ Implement CRUD operations for user profiles including
 avatar upload and privacy settings.
 ```
 
-**IMPORTANT:** Respond with ONLY the commit message. Do not add any footers
-(Refs, Closes, etc.) unless you have explicit information from the diff. Do not
-add explanations or additional text.
+**IMPORTANT:** Respond with ONLY the raw commit message text. No markdown
+formatting, no code blocks, no backticks, no explanations. Do not add any
+footers (Refs, Closes, etc.) unless you have explicit information from the diff.
 
 Here is the git diff of staged changes:
 

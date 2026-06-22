@@ -92,20 +92,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
--- codecompanion: gitcommit accept
-vim.api.nvim_create_autocmd({ "User" }, {
-  pattern = "CodeCompanionInlineStarted",
-  group = utils.augroup("gitcommit_accept", true),
-  callback = function(request)
-    local bufnr = request.data.bufnr
-    if vim.bo[bufnr].filetype == "gitcommit" then
-      vim.defer_fn(function()
-        vim.api.nvim_feedkeys("g2", "t", false)
-      end, 200)
-    end
-  end,
-})
-
 -- disable harper_ls at the beginning
 vim.api.nvim_create_autocmd("LspAttach", {
   desc = "disable harper_ls by default",
