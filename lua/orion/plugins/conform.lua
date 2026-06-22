@@ -37,6 +37,7 @@ return {
       lua = { "stylua" },
       markdown = { "prettier" },
       python = { "ruff_format", "ruff_organize_imports" },
+      toml = { "taplo" },
       typescript = { "dprint", "prettier" },
       typescriptreact = { "dprint" },
       yaml = { "prettier" },
