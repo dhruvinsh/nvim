@@ -3,6 +3,8 @@ vim.g.maplocalleader = " "
 
 -- completion
 vim.opt.completeopt = "menuone,noselect,noinsert"
+vim.opt.pumborder = "rounded"
+vim.opt.pummaxwidth = 100
 vim.opt.pumheight = 10
 
 -- column
@@ -26,7 +28,7 @@ vim.opt.iskeyword = "@,48-57,_,192-255,-" -- Treat dash as `word` textobject par
 -- NOTE: something here breaks the lsp "K" mappings upon restore
 -- vim.opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
--- folds
+-- Folding.
 vim.opt.fillchars = {
   diff = "╱",
   fold = "┄",
@@ -34,6 +36,9 @@ vim.opt.fillchars = {
   foldopen = "",
   eob = " ",
 }
+vim.opt.foldcolumn = "1"
+vim.opt.foldlevelstart = 99
+vim.wo.foldtext = ""
 
 -- undo
 vim.opt.undofile = true
@@ -62,7 +67,7 @@ vim.opt.shortmess:append({
 })
 
 -- Git diff
-vim.opt.diffopt:append({ "vertical,context:100,linematch:100" })
+vim.opt.diffopt:append({ "followwrap,vertical,context:100,linematch:100" })
 
 -- cursor
 vim.opt.cursorline = true
@@ -83,32 +88,13 @@ vim.opt.smartcase = true
 vim.g.markdown_recommended_style = 0
 
 -- disable some providers
-vim.g.loaded_ruby_provider = 0
+vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
-
-local utils = require("util")
-
--- setup mise
-if vim.fn.executable("mise") then
-  vim.g.node_host_prog = vim.fn.trim(vim.fn.system("mise which neovim-node-host"))
-end
-
--- setup python
-if utils.is_win then
-  if vim.fn.executable("python") then
-    vim.g.python3_host_prog = "python"
-  end
--- on Linux and MacOS I use Mise to manage Python versions
-elseif vim.fn.executable("mise") then
-  -- mise ls --json | jq '."pipx:pynvim"[0].install_path'
-  vim.g.python3_host_prog = vim.fn
-    .trim(vim.fn.system("mise ls --json | jq '.\"pipx:pynvim\"[0].install_path'"))
-    :gsub("^[\"']", "")
-    :gsub("[\"']\n?$", "") .. "/pynvim/bin/python"
-end
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_ruby_provider = 0
 
 -- Neovide specific config
 if vim.g.neovide then
-  vim.o.guifont = "FiraCode Nerd Font:h10"
+  vim.o.guifont = "Iosevka Nerd Font:h13"
   vim.opt.linespace = 0
 end
