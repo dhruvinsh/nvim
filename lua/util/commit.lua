@@ -57,7 +57,9 @@ function M.generate()
     return
   end
 
-  local prompt = user_section:gsub("${commit%.diff}", diff)
+  local prompt = user_section:gsub("${commit%.diff}", function()
+    return diff
+  end)
 
   vim.api.nvim_exec_autocmds("User", { pattern = "ClaudeCommitStarted" })
   vim.system(
@@ -66,7 +68,14 @@ function M.generate()
     vim.schedule_wrap(function(result)
       vim.api.nvim_exec_autocmds("User", { pattern = "ClaudeCommitFinished" })
       if result.code ~= 0 then
-        vim.notify("Claude error: " .. (result.stderr or "unknown"), vim.log.levels.ERROR)
+        local detail = result.stderr
+        if not detail or detail == "" then
+          detail = result.stdout
+        end
+        if not detail or detail == "" then
+          detail = "exit code " .. result.code
+        end
+        vim.notify("Claude error: " .. detail, vim.log.levels.ERROR)
         return
       end
       local msg = vim.trim(result.stdout)

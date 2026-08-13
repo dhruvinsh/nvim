@@ -18,13 +18,13 @@ return {
       interactions = {
         background = {
           adapter = {
-            name = "copilot",
-            model = "gpt-4.1",
+            name = "claude_code",
+            model = "sonnet",
           },
         },
-        chat = { adapter = "copilot" },
-        inline = { adapter = "copilot" },
-        cmd = { adapter = "copilot" },
+        chat = { adapter = "claude_code" },
+        inline = { adapter = "sonnet" },
+        cmd = { adapter = "claude_code" },
       },
       prompt_library = {
         markdown = {

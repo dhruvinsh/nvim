@@ -7,8 +7,8 @@ opts:
   placement: replace
   auto_submit: true
   adapter:
-    name: copilot
-    model: gpt-4.1
+    name: claude_code
+    model: sonnet
 ---
 
 ## user

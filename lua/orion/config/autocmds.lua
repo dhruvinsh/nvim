@@ -61,33 +61,14 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- folds
--- awesome folds
-vim.api.nvim_create_autocmd("BufReadPre", {
-  group = utils.augroup("big_file_fold_disable", false),
+vim.api.nvim_create_autocmd("FileType", {
+  group = utils.augroup("big_file_fold_disable", true),
+  desc = "treesitter folding",
   callback = function(ev)
-    if utils.is_big_buffer(ev.buf) then
-      -- fallback to default values
-      vim.opt.foldmethod = "manual"
-      vim.opt.foldexpr = "0"
-      vim.opt.foldlevel = 0
-      vim.opt.foldtext = "foldtext()"
-    else
-      vim.opt.foldmethod = "expr"
-      vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-      vim.opt.foldlevel = 99
-      vim.opt.foldtext = ""
-    end
-  end,
-})
-vim.api.nvim_create_autocmd("LspAttach", {
-  group = utils.augroup("lsp_based_fold", false),
-  callback = function(args)
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_foldingRange) then
-      local win = vim.api.nvim_get_current_win()
-      if vim.wo[win].foldmethod == "expr" then
-        vim.wo[win][0].foldexpr = "v:lua.vim.lsp.foldexpr()"
-      end
+    if vim.bo[ev.buf].filetype ~= "bigfile" and pcall(vim.treesitter.start, ev.buf) then
+      vim.wo[0][0].foldmethod = "expr"
+      vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+      vim.cmd.normal("zx")
     end
   end,
 })
