@@ -1,3 +1,5 @@
+vim.loader.enable()
+
 require("orion.config.options")
 require("orion.config.lazy")
 require("orion.config.autocmds")
@@ -12,3 +14,7 @@ if not ok then
   vim.g.colorscheme = "default"
   vim.cmd.colorscheme(vim.g.colorscheme)
 end
+
+require("vim._core.ui2").enable({
+  enable = true,
+})
