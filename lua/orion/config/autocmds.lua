@@ -1,15 +1,15 @@
 local utils = require("util")
 
 -- yank highlight
-vim.api.nvim_create_autocmd("TextYankPost", {
+vim.api.nvim_create_autocmd({ "TextYankPost", "TextPutPost" }, {
   group = utils.augroup("yank_highlight"),
-  desc = "highlight yank",
+  desc = "highlight on yank and put",
   callback = function()
-    vim.highlight.on_yank({ timeout = 200 })
+    vim.hl.hl_op({ higroup = "Visual", timeout = 200 })
   end,
 })
 
--- Check for modified files due external effects
+-- Check for modified files due to external effects
 vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
   group = utils.augroup("modified_files"),
   desc = "check if file modified externally",
