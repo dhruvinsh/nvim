@@ -57,27 +57,6 @@ return {
     if #to_install > 0 then
       require("nvim-treesitter").install(to_install):wait(300000)
     end
-
-    -- Enable per file type
-    local filetypes = {}
-    for _, lang in ipairs(parsers) do
-      for _, ft in ipairs(vim.treesitter.language.get_filetypes(lang)) do
-        table.insert(filetypes, ft)
-      end
-    end
-    vim.api.nvim_create_autocmd("FileType", {
-      group = u.augroup("treesitter"),
-      pattern = filetypes,
-      callback = function(ev)
-        if u.is_big_buffer(ev.buf) then
-          vim.notify("Buffer is too big for treesitter, skipping...", vim.log.levels.WARN)
-          return
-        end
-        vim.treesitter.start(ev.buf)
-        -- indentation, provided by nvim-treesitter
-        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-      end,
-    })
   end,
   init = function()
     require("vim.treesitter.query").add_predicate("is-mise?", function(_, _, bufnr, _)
