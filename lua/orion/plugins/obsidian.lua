@@ -3,7 +3,7 @@ return {
   version = "*",
   event = {
     "BufReadPre " .. vim.fn.expand("~") .. "/obsidian/**/*.md",
-    "BufNewFile " .. vim.fn.expand("~") .. "obsidian/**/*.md",
+    "BufNewFile " .. vim.fn.expand("~") .. "/obsidian/**/*.md",
   },
   ---@module 'obsidian'
   ---@type obsidian.config
