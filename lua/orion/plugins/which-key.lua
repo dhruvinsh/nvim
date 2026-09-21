@@ -25,6 +25,12 @@ return {
         { plugin = "overseer.nvim", icon = " ", color = "cyan" },
       },
     },
+    triggers = {
+      { "<auto>", mode = "nxso" },
+      { "c", mode = "n" },
+      { "d", mode = "n" },
+      { "r", mode = "n" },
+    },
   },
   keys = {
     {
