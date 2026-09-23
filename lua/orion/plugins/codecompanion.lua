@@ -15,6 +15,25 @@ return {
     require("util.lualine").inject_component({ "sections", "lualine_x" }, 1, component)
 
     return {
+      adapters = {
+        acp = {
+          claude_code = function()
+            if vim.uv.fs_stat(vim.fn.expand("~/.claude/oauth_token")) == nil then
+              vim.notify(
+                "Claude token not found. Please create ~/.claude/oauth_token with your `claude setup-token`.",
+                vim.log.levels.ERROR
+              )
+              return require("codecompanion.adapters").extend("claude_code", {})
+            end
+
+            return require("codecompanion.adapters").extend("claude_code", {
+              env = {
+                CLAUDE_CODE_OAUTH_TOKEN = "cmd:cat ~/.claude/oauth_token",
+              },
+            })
+          end,
+        },
+      },
       interactions = {
         background = {
           adapter = {
