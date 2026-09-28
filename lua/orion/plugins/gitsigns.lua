@@ -1,0 +1,48 @@
+return {
+  "lewis6991/gitsigns.nvim",
+  event = { "BufReadPost", "BufNewFile" },
+  ---@diagnostic disable: missing-fields
+  ---@module "gitsigns"
+  ---@type Gitsigns.config
+  opts = {
+    signs = {
+      add = { text = "▎" },
+      change = { text = "▎" },
+      delete = { text = "" },
+      topdelete = { text = "" },
+      changedelete = { text = "▎" },
+      untracked = { text = "▎" },
+    },
+    on_attach = function(buffer)
+      local gs = package.loaded.gitsigns
+
+      ---@param mode string|table "n" or {"n", "v"} like this
+      ---@param lhs string keymap
+      ---@param rhs string|function action to perform
+      ---@param desc string description
+      local function map(mode, lhs, rhs, desc)
+        vim.keymap.set(mode, lhs, rhs, { buffer = buffer, desc = desc })
+      end
+
+      -- stylua: ignore start
+      map("n", "]h", function() gs.nav_hunk("next") end, "next Hunk")
+      map("n", "[h", function() gs.nav_hunk("prev") end, "prev Hunk")
+      map("n", "]H", function() gs.nav_hunk("last") end, "last Hunk")
+      map("n", "[H", function() gs.nav_hunk("first") end, "first Hunk")
+      map({ "n", "v" }, "<leader>gs", ":Gitsigns stage_hunk<cr>", "stage hunk")
+      map({ "n", "v" }, "<leader>gr", ":Gitsigns reset_hunk<cr>", "reset hunk")
+      map("n", "<leader>gS", gs.stage_buffer, "stage buffer")
+      map("n", "<leader>gu", gs.undo_stage_hunk, "undo stage hunk")
+      map("n", "<leader>gR", gs.reset_buffer, "reset buffer")
+      map("n", "<leader>gh", gs.preview_hunk_inline, "hunk")
+      map("n", "<leader>gH", gs.preview_hunk, "hunk (float)")
+      map("n", "<leader>gb", function() gs.blame_line({ full = true }) end, "blame line")
+      map("n", "<leader>gd", gs.diffthis, "diff this")
+      -- map("n", "<leader>gD", function() gs.diffthis("~") end, "diff this ~")
+      map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "gitsigns select hunk")
+
+      map("n", "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<cr>",  "toggle blame")
+      map("n", "<leader>gt", "<cmd>Gitsigns toggle_deleted<cr>", "toggle delete")
+    end,
+  },
+}
