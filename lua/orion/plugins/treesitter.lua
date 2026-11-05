@@ -17,6 +17,7 @@ local parsers = {
   "json",
   "json5",
   "kdl",
+  "latex",
   "lua",
   "luadoc",
   "luap",
