@@ -48,13 +48,36 @@ return {
         vim.keymap.set("n", lhs, rhs, { buffer = buf_id, desc = desc })
       end
 
+      -- Copies the path under the cursor, or every path in the visual selection
       local copy_path = function()
-        local entry = minifiles.get_fs_entry()
-        if entry == nil then
+        local buf_id = vim.api.nvim_get_current_buf()
+        local from, to = vim.fn.line("v"), vim.fn.line(".")
+        if from > to then
+          from, to = to, from
+        end
+
+        local mode = vim.fn.mode()
+        if mode == "v" or mode == "V" or mode == "\22" then
+          vim.api.nvim_feedkeys(vim.keycode("<Esc>"), "n", false)
+        end
+
+        local paths = {}
+        for line = from, to do
+          local entry = minifiles.get_fs_entry(buf_id, line)
+          if entry ~= nil then
+            table.insert(paths, entry.path)
+          end
+        end
+        if #paths == 0 then
           return
         end
-        vim.fn.setreg("+", entry.path)
-        vim.notify("Copied: " .. entry.path)
+
+        vim.fn.setreg("+", table.concat(paths, "\n"))
+        if #paths == 1 then
+          vim.notify("Copied: " .. paths[1])
+        else
+          vim.notify(("Copied %d paths"):format(#paths))
+        end
       end
 
       local open_with_os = function()
@@ -82,7 +105,7 @@ return {
           -- Tweak keys to your liking
           map_split(buf_id, "gs", "belowright horizontal")
           map_split(buf_id, "gv", "belowright vertical")
-          vim.keymap.set("n", "gy", copy_path, { buffer = buf_id, desc = "Copy path" })
+          vim.keymap.set({ "n", "x" }, "gy", copy_path, { buffer = buf_id, desc = "Copy path" })
           vim.keymap.set("n", "go", open_with_os, { buffer = buf_id, desc = "Open with OS" })
         end,
       })
